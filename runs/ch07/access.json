@@ -1,0 +1,125 @@
+{
+  "filtered": {
+    "stages": [
+      [
+        "indexed chunks",
+        18
+      ],
+      [
+        "after access filter",
+        16
+      ],
+      [
+        "after withdrawal filter",
+        16
+      ],
+      [
+        "after effective-date filter",
+        10
+      ],
+      [
+        "keyword candidates (BM25 > 0, top 8)",
+        6
+      ],
+      [
+        "vector candidates (top 8)",
+        8
+      ],
+      [
+        "fused candidates (union, RRF)",
+        8
+      ],
+      [
+        "evidence after rerank (top 3)",
+        3
+      ]
+    ],
+    "top3": [
+      "returns-policy@v2#2",
+      "returns-policy@v2#1",
+      "returns-policy@v2#3"
+    ]
+  },
+  "unfiltered": {
+    "stages": [
+      [
+        "indexed chunks",
+        18
+      ],
+      [
+        "after withdrawal filter",
+        18
+      ],
+      [
+        "after effective-date filter",
+        12
+      ],
+      [
+        "keyword candidates (BM25 > 0, top 8)",
+        8
+      ],
+      [
+        "vector candidates (top 8)",
+        8
+      ],
+      [
+        "fused candidates (union, RRF)",
+        8
+      ],
+      [
+        "evidence after rerank (top 3)",
+        3
+      ]
+    ],
+    "top3": [
+      "staff-returns-playbook@v3#1",
+      "returns-policy@v2#2",
+      "returns-policy@v2#1"
+    ]
+  },
+  "staff": {
+    "stages": [
+      [
+        "indexed chunks",
+        18
+      ],
+      [
+        "after access filter",
+        18
+      ],
+      [
+        "after withdrawal filter",
+        18
+      ],
+      [
+        "after effective-date filter",
+        12
+      ],
+      [
+        "keyword candidates (BM25 > 0, top 8)",
+        8
+      ],
+      [
+        "vector candidates (top 8)",
+        8
+      ],
+      [
+        "fused candidates (union, RRF)",
+        8
+      ],
+      [
+        "evidence after rerank (top 3)",
+        3
+      ]
+    ],
+    "top3": [
+      "staff-returns-playbook@v3#1",
+      "returns-policy@v2#2",
+      "returns-policy@v2#1"
+    ]
+  },
+  "post_filter_remaining": [
+    "returns-policy@v2#2",
+    "returns-policy@v2#1"
+  ]
+}

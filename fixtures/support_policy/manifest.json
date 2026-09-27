@@ -1,0 +1,20 @@
+[
+  {"doc_id": "returns-policy", "version": 1, "file": "returns-policy.v1.md", "title": "Return policy",
+   "owner": "support-policy", "audience": "public", "status": "active",
+   "effective_from": "2025-01-01", "effective_to": "2026-03-31", "ingested_at": "2026-06-03"},
+  {"doc_id": "returns-policy", "version": 2, "file": "returns-policy.v2.md", "title": "Return policy",
+   "owner": "support-policy", "audience": "public", "status": "active",
+   "effective_from": "2026-04-01", "effective_to": null, "ingested_at": "2026-03-20"},
+  {"doc_id": "warranty", "version": 1, "file": "warranty.v1.md", "title": "Manufacturer warranty",
+   "owner": "support-policy", "audience": "public", "status": "active",
+   "effective_from": "2025-01-01", "effective_to": null, "ingested_at": "2026-03-20"},
+  {"doc_id": "shipping", "version": 4, "file": "shipping.v4.md", "title": "Shipping and delivery",
+   "owner": "logistics", "audience": "public", "status": "active",
+   "effective_from": "2025-06-01", "effective_to": null, "ingested_at": "2026-03-20"},
+  {"doc_id": "staff-returns-playbook", "version": 3, "file": "staff-returns-playbook.v3.md",
+   "title": "Returns playbook for support staff", "owner": "support-operations", "audience": "staff",
+   "status": "active", "effective_from": "2026-04-01", "effective_to": null, "ingested_at": "2026-03-28"},
+  {"doc_id": "holiday-returns-2025", "version": 1, "file": "holiday-returns-2025.v1.md",
+   "title": "Holiday return extension 2025", "owner": "support-policy", "audience": "public",
+   "status": "active", "effective_from": "2025-11-15", "effective_to": "2026-01-31", "ingested_at": "2025-11-10"}
+]

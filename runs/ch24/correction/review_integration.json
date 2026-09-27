@@ -1,0 +1,35 @@
+{
+  "current_revision": "r5",
+  "verdict": "verified",
+  "admitted": [
+    "tz-boundary-reviewer",
+    "interface-reviewer"
+  ],
+  "stale": [],
+  "rejected": [],
+  "missing_coverage": [],
+  "defects": [],
+  "coverage": {
+    "pdt_midday": [
+      "ev-da5e16e4f6a7"
+    ],
+    "pdt_evening": [
+      "ev-b71d614e7e9a"
+    ],
+    "pdt_after_local_midnight": [
+      "ev-2ef41dbee529"
+    ],
+    "pst_evening": [
+      "ev-47aee4ef65b3"
+    ],
+    "dst_fall_back_evening": [
+      "ev-6609238cf8d3"
+    ],
+    "dst_spring_forward_evening": [
+      "ev-103a48345f62"
+    ],
+    "public_interface": [
+      "ev-bccf23adcb92"
+    ]
+  }
+}

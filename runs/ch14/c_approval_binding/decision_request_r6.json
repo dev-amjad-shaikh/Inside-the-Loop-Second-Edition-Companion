@@ -1,0 +1,30 @@
+{
+  "arguments": {
+    "destination": "A",
+    "report": "daily-2026-09-11",
+    "revision": "r6"
+  },
+  "artifact_version": "374fbdb77b0b",
+  "changed_since_last_approval": "--- daily-2026-09-11 r5\n+++ daily-2026-09-11 r6\n@@ -4 +3,0 @@\n-A-1003,2026-09-11T23:40:00+00:00,2026-09-11,65.25,refunded\n@@ -6 +5 @@\n-total,,,153.50,\n+total,,,88.25,\n",
+  "choices": [
+    {
+      "consequence": "Export runs once, for this revision and destination only.",
+      "id": "approve"
+    },
+    {
+      "consequence": "Nothing is exported; the run waits and keeps its work.",
+      "id": "hold"
+    },
+    {
+      "consequence": "Export is dropped; the run continues without it.",
+      "id": "reject"
+    }
+  ],
+  "decision": "Export daily-2026-09-11 r6 to destination A?",
+  "evidence": [
+    "E2: tests passed on report.py 339d3a9f2656 (task revision 2)"
+  ],
+  "expires_in_s": 900,
+  "operation": "export_report",
+  "what_changes": "Writes one CSV (3 orders, total 88.25 USD) to destination A; recipients can read it immediately."
+}

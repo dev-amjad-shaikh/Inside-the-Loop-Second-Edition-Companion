@@ -1,0 +1,26 @@
+{
+  "clean/one_worker": {
+    "latency_s": 12.74,
+    "slot_seconds": 12.74,
+    "tokens": 3693,
+    "reviews_per_min_at_16_slots": 75.35
+  },
+  "clean/two_workers": {
+    "latency_s": 9.625,
+    "slot_seconds": 15.954,
+    "tokens": 4023,
+    "reviews_per_min_at_16_slots": 60.17
+  },
+  "with_malformed_first_answer/one_worker": {
+    "latency_s": 14.23,
+    "slot_seconds": 14.23,
+    "tokens": 4873,
+    "reviews_per_min_at_16_slots": 67.46
+  },
+  "with_malformed_first_answer/two_workers": {
+    "latency_s": 9.625,
+    "slot_seconds": 17.321,
+    "tokens": 4709,
+    "reviews_per_min_at_16_slots": 55.42
+  }
+}

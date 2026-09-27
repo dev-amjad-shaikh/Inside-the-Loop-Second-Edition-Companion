@@ -1,0 +1,75 @@
+== Selection (lexical stand-in, not a model) ==
+flawed   development  correct=0 correct_by_tie_break=1 wrong=11
+flawed   held_out     correct=0 correct_by_tie_break=1 wrong=5
+revised  development  correct=9 correct_by_tie_break=1 wrong=2
+revised  held_out     correct=1 correct_by_tie_break=2 wrong=3
+T1 flawed: selected process_data (tie: ['process_data', 'export_report']); process_data=2, export_report=2, export_data=1, create_export=1
+T1 revised: selected exports_create (tie: none); exports_create=5, reports_search=2, exports_get_status=2, exports_list=1
+
+== Flawed toolset: calls and external state ==
+f1 process_data {"data": "daily orders", "action": "export 2026-09-11 as csv to finance sftp"}
+   -> ok: {"status": "ok", "result": "15864a4f-0f9e-6c98-8c26-f42c770ed305"}
+   exports created so far: [('exp_0413', 'acme', 'daily_orders', None, 'json', 'shared_drive')]
+f2 get_export {"id": "15864a4f-0f9e-6c98-8c26-f42c770ed305"}
+   -> ok: []
+   exports created so far: [('exp_0413', 'acme', 'daily_orders', None, 'json', 'shared_drive')]
+f3 get_data {"query": "daily orders"}
+   -> ok: {"status": "ok", "rows": [["acme", "daily_orders", "Daily orders", "orders placed per local calendar day", 5, "339d3a9f2656", 0], ["acme", "weekly_rev
+   exports created so far: [('exp_0413', 'acme', 'daily_orders', None, 'json', 'shared_drive')]
+f4 create_export {"report_id": "daily_orders", "tenant": "acme", "day": "Sept 11", "format": "csv", "destination": "finance_sftp"}
+   -> error: An error occurred while running the tool. Please try again.
+   exports created so far: [('exp_0413', 'acme', 'daily_orders', None, 'json', 'shared_drive')]
+f5 create_export {"report_id": "daily_orders", "tenant": "globex", "day": "2026-09-11", "format": "csv", "destination": "finance_sftp"}
+   -> ok: {"status": "ok", "id": "7b0be426-40c3-62d2-fd76-7f0a20eec8a9"}
+   exports created so far: [('exp_0413', 'acme', 'daily_orders', None, 'json', 'shared_drive'), ('exp_0414', 'globex', 'daily_orders', '2026-09-11', 'csv', 'finance_sftp')]
+intent check exp_0413 (call f1): {"day": {"task": "2026-09-11", "found": null}, "format": {"task": "csv", "found": "json"}, "destination": {"task": "finance_sftp", "found": "shared_drive"}}
+intent check exp_0414 (call f5): {"tenant": {"task": "acme", "found": "globex"}}
+
+== Revised toolset: checked executor and external state ==
+r1 reports_search [catalog read before the fix ships] -> ok at done: {"matches": [{"report": "daily_orders", "title": "Daily orders", "current_version": 4}]}
+   exports created so far: []
+-- external event: reporting team publishes daily_orders v5 (source 339d3a9f2656, the timezone fix)
+r2 exports_create [shape] -> input_error at shape: unexpected argument tenant: the tenant is taken from the signed-in session and cannot be chosen per call; day must match YYYY-MM-DD; got 'Sept 11'; format must be one of csv, parquet; got 'CSV'; destination must be one of finance_sftp, analytics_bucket; got 'finance sftp'
+   exports created so far: []
+r3 exports_create [cross-field] -> input_error at semantics: finance_sftp accepts csv only; got format parquet. Use format csv, or destination analytics_bucket for parquet.
+   exports created so far: []
+r4 exports_create [range] -> input_error at semantics: day must be before 2026-09-12 (the service's current day); got 2026-09-12
+   exports created so far: []
+r5 exports_create [precondition] -> precondition_failed at precondition: report daily_orders is at version 5 (source 339d3a9f2656), not 4. Confirm the version with the user or re-read it with reports_search before exporting.
+   exports created so far: []
+r6 reports_search [re-read after precondition failure] -> ok at done: {"matches": [{"report": "daily_orders", "title": "Daily orders", "current_version": 5}]}
+   exports created so far: []
+r7 exports_create [correct call] -> ok at done: {"export_id": "exp_0413", "status": "delivered", "summary": "daily_orders v5 for 2026-09-11 as csv delivered to finance_sftp"}
+   verification: {"verified": true, "checked": ["day", "destination", "format", "report", "report_version", "status", "tenant"], "differences": {}}
+   exports created so far: [('exp_0413', 'daily_orders', 5, '2026-09-11', 'csv', 'finance_sftp')]
+r8 exports_create [authorization] -> not_authorized at authorize: report payroll_summary is restricted and maria@acme lacks the reports.restricted grant. Do not retry; tell the user who can grant access.
+   exports created so far: [('exp_0413', 'daily_orders', 5, '2026-09-11', 'csv', 'finance_sftp')]
+r9 exports_read_log [range on a read] -> input_error at shape: lines must be <= 200; got 5000. Page with cursor for more.
+   exports created so far: [('exp_0413', 'daily_orders', 5, '2026-09-11', 'csv', 'finance_sftp')]
+
+== Using a result: the failure at the end of a long log ==
+exp_0412 log has 597 lines
+flawed tool, head-only truncation without marker: reader concludes 'succeeded' {"chars_available": 37254, "chars_shown": 4000, "lines_shown_of_total": "66 of 597"}
+flawed tool, runtime keeps head and tail with a marker: reader concludes 'failed' {"chars_shown": 4050}
+revised tool, default read from the end: reader concludes 'failed' {}
+revised tool, explicit read from the start: reader concludes 'unknown: part of the log was omitted' {"omitted": {"before": 0, "after": 557}, "returned_lines": "1-40"}
+revised status tool: reader concludes 'failed' {}
+
+== Response sizes ==
+flawed get_export(exp_0412)                 413 chars  ~103 tokens
+revised exports_get_status concise          114 chars  ~28 tokens
+revised exports_get_status detailed         246 chars  ~62 tokens
+flawed get_export(all)                      826 chars  ~206 tokens
+revised exports_list limit 10               252 chars  ~63 tokens
+model-visible definitions: {'flawed': 1536, 'revised': 3759}
+
+== Changing a tool: rename day -> report_date ==
+compatibility check strict_v2: breaking=True; property day removed (breaking); property report_date added as required (breaking)
+compatibility check lax_v2: breaking=True; property day removed (breaking); property report_date added (compatible)
+v1                                   ok=5/5 silently_wrong_day=0 first_message=None
+v2 unversioned, strict schema        ok=0/5 silently_wrong_day=0 first_message=report_date is required; unexpected argument day
+v2 unversioned, lax schema           ok=5/5 silently_wrong_day=3 first_message=None
+v2 versioned, v1 pinned by caller    ok=5/5 silently_wrong_day=0 first_message=exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.
+
+== Scheduling a batch by declared effect ==
+[{"mode": "parallel", "calls": ["b1", "b2", "b3"]}, {"mode": "exclusive", "calls": ["b4"]}, {"mode": "parallel", "calls": ["b5"]}]

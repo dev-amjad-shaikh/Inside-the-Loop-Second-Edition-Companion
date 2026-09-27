@@ -1,0 +1,53 @@
+== Budget arithmetic (second edition, declared counts) ==
+window 8192 - reserve 1536 = input 6656; required 3520; left 3136; +evidence 1540 -> used 5060, left 1596; old log 2600 fits: False
+counter: approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer
+tool definitions: session 5 tools = 318 tokens; catalog 24 tools = 1850 tokens (allowance 6656)
+
+== Chapter 3 call 7 under the structured builder ==
+items 17, total input 1290, headroom 5366, omissions 0
+full transcript at call 7: 1203 tokens
+
+== Call 9 (first request after the long log) ==
+full                   tokens  7804 fits False items 22 problems 0 omissions {}  NOT SENT
+truncate               tokens  6653 fits True  items  3 problems 2 omissions {'removed': 19}
+freetext               tokens  2165 fits True  items  7 problems 0 omissions {'summarized': 16, 'truncated': 1}
+structured             tokens  1385 fits True  items  7 problems 0 omissions {'summarized': 17, 'digested': 1, 'excluded': 1}
+structured-resummarize tokens  1385 fits True  items  7 problems 0 omissions {'summarized': 17, 'digested': 1, 'excluded': 1}
+structured-task-first  tokens  1407 fits True  items  8 problems 0 omissions {'summarized': 17, 'digested': 1, 'excluded': 1}
+
+== Outcome per policy ==
+full                   path None      signature belongs_to_report(created_at, requested_day, timezone)                 suite failed run 268 fail 0 err 1
+truncate               path violating signature belongs_to_report(created_at, requested_day, settings_path='settings.json', timezone=None) suite failed run 268 fail 0 err 267
+   check call 9 VIOLATED: belongs_to_report(created_at, requested_day, timezone) -> belongs_to_report(created_at, requested_day, settings_path='settings.json', timezone=None)
+freetext               path violating signature belongs_to_report(created_at, requested_day, settings_path='settings.json', timezone=None) suite failed run 268 fail 0 err 267
+   check call 9 VIOLATED: belongs_to_report(created_at, requested_day, timezone) -> belongs_to_report(created_at, requested_day, settings_path='settings.json', timezone=None)
+structured             path compliant signature belongs_to_report(created_at, requested_day, timezone)                 suite passed run 268 fail 0 err 0
+   check call 9 satisfied: belongs_to_report(created_at, requested_day, timezone) -> belongs_to_report(created_at, requested_day, timezone)
+structured-resummarize path compliant signature belongs_to_report(created_at, requested_day, timezone)                 suite passed run 268 fail 0 err 0
+   check call 9 satisfied: belongs_to_report(created_at, requested_day, timezone) -> belongs_to_report(created_at, requested_day, timezone)
+structured-task-first  path compliant signature belongs_to_report(created_at, requested_day, timezone)                 suite passed run 268 fail 0 err 0
+   check call 9 satisfied: belongs_to_report(created_at, requested_day, timezone) -> belongs_to_report(created_at, requested_day, timezone)
+
+== Context tests at call 9 ==
+full                   {'constraint C2 survives': True, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': 'n/a', 'within input allowance': False}
+truncate               {'constraint C2 survives': False, 'constraint C1 survives': False, 'call ids paired': False, 'other-workspace data excluded': True, 'newer config preferred': 'n/a', 'within input allowance': True}
+freetext               {'constraint C2 survives': False, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': False, 'newer config preferred': False, 'within input allowance': True}
+structured             {'constraint C2 survives': True, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': True, 'within input allowance': True}
+structured-resummarize {'constraint C2 survives': True, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': True, 'within input allowance': True}
+structured-task-first  {'constraint C2 survives': True, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': True, 'within input allowance': True}
+
+== Sweeps ==
+freetext_keep_recent [{'keep_recent': 1, 'valid': False, 'C2': False, 'tokens': 1808, 'fits': True}, {'keep_recent': 2, 'valid': False, 'C2': False, 'tokens': 1958, 'fits': True}, {'keep_recent': 3, 'valid': False, 'C2': False, 'tokens': 2049, 'fits': True}, {'keep_recent': 4, 'valid': True, 'C2': False, 'tokens': 2111, 'fits': True}, {'keep_recent': 5, 'valid': True, 'C2': True, 'tokens': 2157, 'fits': True}, {'keep_recent': 6, 'valid': True, 'C2': True, 'tokens': 2225, 'fits': True}, {'keep_recent': 7, 'valid': False, 'C2': True, 'tokens': 2264, 'fits': True}, {'keep_recent': 8, 'valid': True, 'C2': True, 'tokens': 2287, 'fits': True}]
+truncate_allowance [{'allowance': 4000, 'valid': True, 'C2': False, 'removed': 21, 'tokens': 357}, {'allowance': 4500, 'valid': True, 'C2': False, 'removed': 21, 'tokens': 357}, {'allowance': 5000, 'valid': True, 'C2': False, 'removed': 21, 'tokens': 357}, {'allowance': 5500, 'valid': True, 'C2': False, 'removed': 21, 'tokens': 357}, {'allowance': 6000, 'valid': True, 'C2': False, 'removed': 21, 'tokens': 357}, {'allowance': 6500, 'valid': False, 'C2': False, 'removed': 20, 'tokens': 6499}, {'allowance': 7000, 'valid': True, 'C2': True, 'removed': 15, 'tokens': 6958}, {'allowance': 7500, 'valid': True, 'C2': True, 'removed': 5, 'tokens': 7449}, {'allowance': 8000, 'valid': True, 'C2': True, 'removed': 0, 'tokens': 7804}]
+structured_recent_budget [{'recent_budget': 0, 'valid': True, 'C2': True, 'tokens': 1345, 'summarized': 17}, {'recent_budget': 250, 'valid': True, 'C2': True, 'tokens': 1345, 'summarized': 17}, {'recent_budget': 500, 'valid': True, 'C2': True, 'tokens': 1345, 'summarized': 17}, {'recent_budget': 1000, 'valid': True, 'C2': True, 'tokens': 1655, 'summarized': 9}, {'recent_budget': 1500, 'valid': True, 'C2': True, 'tokens': 2083, 'summarized': 1}, {'recent_budget': 2000, 'valid': True, 'C2': True, 'tokens': 2047, 'summarized': 0}]
+
+== Policy replay ==
+v1 sha 84c13486b31b rebuilt 84c13486b31b; v2 sha 9adb014edb08; v1-v2 tokens 169
+v1 tests {'constraint C2 survives': True, 'constraint C1 survives': True, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': True, 'within input allowance': True}
+v2 tests {'constraint C2 survives': False, 'constraint C1 survives': False, 'call ids paired': True, 'other-workspace data excluded': True, 'newer config preferred': True, 'within input allowance': True}
+
+== Cache arithmetic ==
+full_calls_1_8                 requests 8 input 7577 cached 6239 cost 2296.4 (uncached 7577)
+structured_task_last           requests 11 input 13555 cached 9486 cost 6035.0 (uncached 13555)
+structured_resummarize         requests 11 input 13555 cached 8631 cost 7018.2 (uncached 13555)
+structured_task_first_status   requests 11 input 13791 cached 4611 cost 11935.9 (uncached 13791)

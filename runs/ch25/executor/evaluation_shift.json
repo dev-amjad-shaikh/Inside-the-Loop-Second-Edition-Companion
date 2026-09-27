@@ -1,0 +1,46 @@
+{
+  "drift": {
+    "baseline_completion": 0.9975,
+    "current_completion": 0.97,
+    "drift": true,
+    "drop": 0.0275
+  },
+  "eval": {
+    "export_status": {
+      "candidate": {
+        "completed": 400,
+        "completion": 1.0,
+        "mean_wall_s": 0.61,
+        "ops": 400,
+        "p95_wall_s": 1.59,
+        "total_wall_s": 243.8
+      },
+      "floor": {
+        "completed": 400,
+        "completion": 1.0,
+        "mean_wall_s": 11.02,
+        "ops": 400,
+        "p95_wall_s": 1.59,
+        "total_wall_s": 4408.3
+      }
+    },
+    "model_endpoint": {
+      "candidate": {
+        "completed": 388,
+        "completion": 0.97,
+        "mean_wall_s": 47.68,
+        "ops": 400,
+        "p95_wall_s": 155.83,
+        "total_wall_s": 19071.6
+      },
+      "floor": {
+        "completed": 399,
+        "completion": 0.9975,
+        "mean_wall_s": 42.53,
+        "ops": 400,
+        "p95_wall_s": 128.86,
+        "total_wall_s": 17012.8
+      }
+    }
+  }
+}

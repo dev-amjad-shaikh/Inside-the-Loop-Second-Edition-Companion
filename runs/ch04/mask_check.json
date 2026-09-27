@@ -1,0 +1,43 @@
+{
+  "original": [
+    "R",
+    "un",
+    " the",
+    " tests",
+    " on",
+    " report",
+    ".",
+    "py"
+  ],
+  "changed": [
+    "R",
+    "un",
+    " the",
+    " tests",
+    " on",
+    " report",
+    ".",
+    "j",
+    "s",
+    "on"
+  ],
+  "shared_positions": 7,
+  "max_row_change_masked": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_row_change_unmasked": [
+    0.121322,
+    0.14774,
+    0.152361,
+    0.162455,
+    0.154387,
+    0.149956,
+    0.146433
+  ]
+}

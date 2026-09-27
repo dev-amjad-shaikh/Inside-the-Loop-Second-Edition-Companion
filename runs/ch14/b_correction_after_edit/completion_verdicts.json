@@ -1,0 +1,43 @@
+[
+  {
+    "call": 6,
+    "proposal_task_revision": 1,
+    "current_task_revision": 2,
+    "flawed_verifier": {
+      "complete": true,
+      "reason": "latest test result passed after latest edit"
+    },
+    "revision_verifier": {
+      "complete": false,
+      "task_revision": 2,
+      "version": "bbaa2860e44f",
+      "missing": [
+        "signature match on report.py bbaa2860e44f"
+      ],
+      "supporting": [
+        "E2"
+      ]
+    },
+    "accepted": false
+  },
+  {
+    "call": 11,
+    "proposal_task_revision": 2,
+    "current_task_revision": 2,
+    "flawed_verifier": {
+      "complete": true,
+      "reason": "latest test result passed after latest edit"
+    },
+    "revision_verifier": {
+      "complete": true,
+      "task_revision": 2,
+      "version": "339d3a9f2656",
+      "missing": [],
+      "supporting": [
+        "E4",
+        "E5"
+      ]
+    },
+    "accepted": true
+  }
+]

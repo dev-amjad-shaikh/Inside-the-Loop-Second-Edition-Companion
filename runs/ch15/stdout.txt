@@ -1,0 +1,49 @@
+revisions:
+  r3      report.py 78721bd28acc  test_report.py 197c0720866d  digest d7efa9be3e43
+  r4      report.py 78721bd28acc  test_report.py 319f11ce22b8  digest 8caa6dfca483
+  r5      report.py 339d3a9f2656  test_report.py 319f11ce22b8  digest 025e5dc0e98d
+  r5-alt  report.py 0c9387fd05ab  test_report.py 319f11ce22b8  digest a9f776d7cb47
+
+[1] contract validation at r5
+  tz-boundary-reviewer attempt 1: rejected: evidence ev-allcasespass was not recorded by the runtime
+  tz-boundary-reviewer attempt 2: accepted
+  interface-reviewer attempt 1: rejected: result is not a JSON object
+  interface-reviewer attempt 2: accepted
+  integration: verified | admitted: ['tz-boundary-reviewer', 'interface-reviewer']
+
+[2] stale result
+  t=  0.00s  coordinator at r4 dispatches tz-boundary-reviewer with input_revision r4
+  t=  3.00s  coordinator applies fix: report.py 78721bd28acc -> 339d3a9f2656; current revision r5
+  t= 11.83s  tz-boundary-reviewer returns result for r4: fail
+  t= 11.83s  coordinator marks r4 result stale; re-dispatches tz-boundary-reviewer at r5
+  t= 20.22s  tz-boundary-reviewer returns result for r5: pass
+  with stale result only: not verified: missing pdt_evening, pdt_after_local_midnight, pst_evening, dst_fall_back_evening, dst_spring_forward_evening | stale: [{'worker': 'tz-boundary-reviewer', 'reviewed': 'r4', 'current': 'r5', 'verdict': 'fail', 'reclassified_as': 'evidence about r4'}]
+  naive coordinator: rejected {'pass': 1, 'fail': 1}
+  after re-dispatch: verified
+
+[3] shared state (finish order: interface-reviewer 8.101s, tz-boundary-reviewer 8.396s)
+  last_write_wins      keys={'review_result': 'tz-boundary-reviewer'}  log=['written', 'overwrote interface-reviewer']
+  reject_second_write  keys={'review_result': 'interface-reviewer'}  log=['written', 'rejected']
+  namespaced           keys={'results/interface-reviewer': 'interface-reviewer', 'results/tz-boundary-reviewer': 'tz-boundary-reviewer'}  log=['written', 'written']
+
+[4] correlated agreement on r5-alt (hard-coded offset)
+  flawed team votes: {'votes': {'pass': 3, 'fail': 0}, 'verdict': 'approved'}
+  distinct case-evidence sets among brief reviewers: 1 [['brief-reviewer-A', 'brief-reviewer-B']]
+  coverage check on the same results: not verified: missing pdt_after_local_midnight, pst_evening, dst_fall_back_evening, dst_spring_forward_evening
+  boundary reviewer: fail | defects:
+    - pst_evening: order at 2026-01-12T07:30:00+00:00 expected True for 2026-01-11, got False
+    - dst_fall_back_evening: order at 2026-11-02T07:30:00+00:00 expected True for 2026-11-01, got False
+    - dst_spring_forward_evening: order at 2026-03-08T07:30:00+00:00 expected True for 2026-03-07, got False
+
+[5] one worker vs two workers at r5 (simulated seconds, approximate tokens)
+  clean                        one_worker  latency  12.74s  tokens   3693  calls 5  reads 2  repairs 0  verdict: verified
+  clean                        two_workers latency   9.62s  tokens   4023  calls 7  reads 3  repairs 0  verdict: verified
+  with_malformed_first_answer  one_worker  latency  14.23s  tokens   4873  calls 6  reads 2  repairs 1  verdict: verified
+  with_malformed_first_answer  two_workers latency   9.62s  tokens   4709  calls 8  reads 3  repairs 1  verdict: verified
+  repair call, interface worker: {'kind': 'model', 'tokens_in': 666, 'tokens_out': 94, 'seconds': 2.847}
+  repair call, combined worker:  {'kind': 'model', 'tokens_in': 1160, 'tokens_out': 163, 'seconds': 4.35}
+  second-edition schedule: sequential 17s, dependency path 13.0s
+
+[6] budget: parent 16000, reserve 4000, pool 12000, allocation {'tz-boundary-reviewer': 4360, 'interface-reviewer': 3279, 'extra-reviewer': 4360}
+  naive     per worker {tz-boundary-reviewer: 2123 (accepted), interface-reviewer: 1596 (accepted), extra-reviewer: 14100 (stopped: token budget)} total 17819; left -1819; integration needs 305; fits=False
+  allocated per worker {tz-boundary-reviewer: 2122 (accepted), interface-reviewer: 1596 (accepted), extra-reviewer: 3970 (stopped: token budget)} total 7688; left 8312; integration needs 305; fits=True

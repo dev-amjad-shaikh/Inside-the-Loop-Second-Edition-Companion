@@ -1,0 +1,326 @@
+[
+  {
+    "call_id": "k1",
+    "tool": "activate_skill",
+    "arguments": {
+      "name": "report-helper"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:10"
+  },
+  {
+    "call_id": "c1",
+    "tool": "read_file",
+    "arguments": {
+      "path": "settings.json"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:20"
+  },
+  {
+    "call_id": "c2",
+    "tool": "read_file",
+    "arguments": {
+      "path": "report.py"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:23"
+  },
+  {
+    "call_id": "c3",
+    "tool": "read_file",
+    "arguments": {
+      "path": "test_report.py"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:26"
+  },
+  {
+    "call_id": "r1",
+    "tool": "read_skill_resource",
+    "arguments": {
+      "skill": "report-helper",
+      "path": "references/regression-test.md"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:29"
+  },
+  {
+    "call_id": "c4",
+    "tool": "replace_text",
+    "arguments": {
+      "path": "test_report.py",
+      "old": "\n\nif __name__ == \"__main__\":",
+      "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:39"
+  },
+  {
+    "call_id": "c5",
+    "tool": "run_tests",
+    "arguments": {
+      "tests": "test_report.py"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "input_error",
+    "t": "10:00:46",
+    "repair_allowance": "1 of 2 used"
+  },
+  {
+    "call_id": "c6",
+    "tool": "run_tests",
+    "arguments": {
+      "tests": [
+        "test_report.py"
+      ]
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "failed",
+    "t": "10:00:57"
+  },
+  {
+    "call_id": "c7",
+    "tool": "replace_text",
+    "arguments": {
+      "path": "report.py",
+      "old": "def belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day",
+      "new": "def belongs_to_report(created_at, requested_day, timezone=\"America/Los_Angeles\"):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "not dispatched: stale task revision",
+    "t": "10:01:08",
+    "current_task_revision": 2
+  },
+  {
+    "call_id": "c8",
+    "tool": "replace_text",
+    "arguments": {
+      "path": "report.py",
+      "old": "    return created_at.date() == requested_day",
+      "new": "    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day"
+    },
+    "task_revision": 2,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:01:19"
+  },
+  {
+    "call_id": "s1",
+    "tool": "run_skill_script",
+    "arguments": {
+      "skill": "report-helper",
+      "script": "scripts/probe_boundary.py",
+      "args": [
+        "report.py",
+        "America/Los_Angeles",
+        "2026-09-11",
+        "2026-11-01"
+      ]
+    },
+    "task_revision": 2,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:01:31"
+  },
+  {
+    "call_id": "c9",
+    "tool": "run_tests",
+    "arguments": {
+      "tests": [
+        "test_report.py"
+      ]
+    },
+    "task_revision": 2,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "passed",
+    "t": "10:01:41"
+  },
+  {
+    "call_id": "x1",
+    "tool": "export_report",
+    "arguments": {
+      "report": "daily-2026-09-11",
+      "revision": "r5",
+      "destination": "A"
+    },
+    "task_revision": 2,
+    "decision": "deny",
+    "rules": [
+      {
+        "rule": "approval.required",
+        "outcome": "approval",
+        "detail": "export_report requires approval under profile report.fix_and_export"
+      },
+      {
+        "rule": "freshness.latest_revision",
+        "outcome": "deny",
+        "detail": "r5 is superseded; latest published revision is r6"
+      }
+    ],
+    "rules_evaluated": 5,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [],
+    "outcome": "refused at dispatch",
+    "t": "10:01:59"
+  },
+  {
+    "call_id": "x2",
+    "tool": "export_report",
+    "arguments": {
+      "report": "daily-2026-09-11",
+      "revision": "r6",
+      "destination": "A"
+    },
+    "task_revision": 2,
+    "decision": "needs_approval",
+    "rules": [
+      {
+        "rule": "approval.required",
+        "outcome": "approval",
+        "detail": "export_report requires approval under profile report.fix_and_export"
+      }
+    ],
+    "rules_evaluated": 5,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [],
+    "outcome": "completed",
+    "t": "10:02:24",
+    "approval": {
+      "approval_id": "AP2",
+      "request_id": "RQ2",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "operation": "export_report",
+      "args_digest": "3f61b586ec4646c6",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "scope": "run-24; destination A; one use",
+      "status": "consumed",
+      "consumed_by": "x2",
+      "expires": "10:17:11"
+    },
+    "receipt": {
+      "export_id": "export-file-001",
+      "replayed": true,
+      "file": "A/daily-2026-09-11.r6.export-file-001.csv",
+      "file_version": "374fbdb77b0b"
+    }
+  }
+]

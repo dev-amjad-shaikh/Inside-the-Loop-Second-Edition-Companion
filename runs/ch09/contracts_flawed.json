@@ -1,0 +1,135 @@
+[
+  {
+    "name": "process_data",
+    "description": "Process data for reports. Use this to handle report data, exports, logs and other data operations.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "action"
+      ]
+    }
+  },
+  {
+    "name": "export_report",
+    "description": "Export a report with the given options.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "report": {
+          "type": "string"
+        },
+        "options": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "report",
+        "options"
+      ]
+    }
+  },
+  {
+    "name": "export_data",
+    "description": "Export data in a format.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "fmt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "fmt"
+      ]
+    }
+  },
+  {
+    "name": "create_export",
+    "description": "Create an export.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "report_id": {
+          "type": "string"
+        },
+        "tenant": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "report_id",
+        "tenant",
+        "day",
+        "format",
+        "destination"
+      ]
+    }
+  },
+  {
+    "name": "get_export",
+    "description": "Get export info. Pass all to get every export.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "get_logs",
+    "description": "Get the logs.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "get_data",
+    "description": "Get data.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  }
+]

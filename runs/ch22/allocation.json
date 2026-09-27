@@ -1,0 +1,141 @@
+{
+  "lengths_summary": {
+    "n": 4000,
+    "mean": 15565,
+    "min": 2024,
+    "max": 33792
+  },
+  "shared_prefix_tokens": 6144,
+  "block_tokens": 16,
+  "configs": [
+    {
+      "model": "M-8B bf16",
+      "hardware": "1 x 80 GiB data-center card",
+      "budget_tokens": 468572,
+      "results": [
+        {
+          "scheme": "contiguous",
+          "admitted": 13,
+          "allocated_tokens": 439296,
+          "logical_tokens": 202950,
+          "waste_pct": 53.8,
+          "prefix_copies": 0,
+          "label": "contiguous"
+        },
+        {
+          "scheme": "paged",
+          "admitted": 31,
+          "allocated_tokens": 448640,
+          "logical_tokens": 448406,
+          "waste_pct": 0.1,
+          "prefix_copies": 0,
+          "label": "paged"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 42,
+          "allocated_tokens": 449296,
+          "logical_tokens": 700926,
+          "waste_pct": 0.1,
+          "prefix_copies": 1,
+          "label": "paged_prefix (one cache domain)"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 37,
+          "allocated_tokens": 464240,
+          "logical_tokens": 599156,
+          "waste_pct": 0.1,
+          "prefix_copies": 15,
+          "label": "paged_prefix (20 salted tenants)"
+        }
+      ]
+    },
+    {
+      "model": "M-70B bf16",
+      "hardware": "8 x 80 GiB node",
+      "budget_tokens": 1462812,
+      "results": [
+        {
+          "scheme": "contiguous",
+          "admitted": 43,
+          "allocated_tokens": 1453056,
+          "logical_tokens": 734718,
+          "waste_pct": 49.4,
+          "prefix_copies": 0,
+          "label": "contiguous"
+        },
+        {
+          "scheme": "paged",
+          "admitted": 91,
+          "allocated_tokens": 1457200,
+          "logical_tokens": 1456640,
+          "waste_pct": 0.0,
+          "prefix_copies": 0,
+          "label": "paged"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 153,
+          "allocated_tokens": 1460960,
+          "logical_tokens": 2393893,
+          "waste_pct": 0.1,
+          "prefix_copies": 1,
+          "label": "paged_prefix (one cache domain)"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 137,
+          "allocated_tokens": 1458448,
+          "logical_tokens": 2176469,
+          "waste_pct": 0.1,
+          "prefix_copies": 20,
+          "label": "paged_prefix (20 salted tenants)"
+        }
+      ]
+    },
+    {
+      "model": "M-70B bf16",
+      "hardware": "2 x 80 GiB",
+      "budget_tokens": 45268,
+      "results": [
+        {
+          "scheme": "contiguous",
+          "admitted": 1,
+          "allocated_tokens": 33792,
+          "logical_tokens": 19377,
+          "waste_pct": 42.7,
+          "prefix_copies": 0,
+          "label": "contiguous"
+        },
+        {
+          "scheme": "paged",
+          "admitted": 2,
+          "allocated_tokens": 31120,
+          "logical_tokens": 31105,
+          "waste_pct": 0.0,
+          "prefix_copies": 0,
+          "label": "paged"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 2,
+          "allocated_tokens": 24976,
+          "logical_tokens": 31105,
+          "waste_pct": 0.1,
+          "prefix_copies": 1,
+          "label": "paged_prefix (one cache domain)"
+        },
+        {
+          "scheme": "paged_prefix",
+          "admitted": 2,
+          "allocated_tokens": 31120,
+          "logical_tokens": 31105,
+          "waste_pct": 0.0,
+          "prefix_copies": 2,
+          "label": "paged_prefix (20 salted tenants)"
+        }
+      ]
+    }
+  ]
+}

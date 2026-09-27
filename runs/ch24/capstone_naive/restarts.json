@@ -1,0 +1,69 @@
+[
+  {
+    "point": "after_commit",
+    "before": {
+      "run_store_op": "dispatched",
+      "observation": 0,
+      "export_rows": 1
+    },
+    "decisions": [
+      [
+        "x1",
+        "resend"
+      ],
+      [
+        "x2",
+        "resend"
+      ]
+    ],
+    "bridge": [
+      {
+        "op": "x1",
+        "status": "completed",
+        "via": "receipt",
+        "t": 5.5
+      },
+      {
+        "op": "x2",
+        "status": "completed",
+        "via": "receipt",
+        "t": 5.5
+      }
+    ],
+    "swallowed_refusals": [
+      {
+        "op": "x1",
+        "write": "op.dispatched",
+        "reason": "op.dispatched not allowed from state cancelled"
+      },
+      {
+        "op": "x1",
+        "write": "op.completed",
+        "reason": "op.completed not allowed from state cancelled"
+      },
+      {
+        "op": "x2",
+        "write": "op.dispatched",
+        "reason": "op.dispatched not allowed from state dispatched"
+      }
+    ],
+    "receipt": {
+      "created_at": 1.0,
+      "export_id": "export-file-001",
+      "file": "A/daily-2026-09-11.r6.export-file-001.csv",
+      "file_version": "374fbdb77b0b",
+      "op_key": "run-24:export:daily-2026-09-11:r6:A",
+      "payload_digest": "3f285654c3c90ab0",
+      "recorded_via": "receipt",
+      "replayed": true
+    },
+    "rebuilt_conversation_matches": {
+      "assistant_turns_equal": true,
+      "fold_equals_tables": true
+    },
+    "new_holder": [
+      "worker-2",
+      2
+    ]
+  }
+]

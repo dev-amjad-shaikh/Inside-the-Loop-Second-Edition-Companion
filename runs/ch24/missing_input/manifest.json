@@ -1,0 +1,30 @@
+{
+  "model_adapter": "ch05-adapter/1.0.0",
+  "requested_model": "coder-large",
+  "reported_model": "coder-large-2026-08-14",
+  "context_policy": {
+    "id": "ctx-structured-v1",
+    "hash": "ed44bc8014af"
+  },
+  "retrieval": {
+    "chunker": "structured",
+    "embedder": "hashvec-4gram-1024/v1"
+  },
+  "memory_write_policy": "wp-3",
+  "skill": {
+    "name": "report-helper",
+    "version": "1.0.0",
+    "hash": "4818324b70eb",
+    "withdrawn_versions_excluded": [
+      "1.1.0"
+    ]
+  },
+  "policy": {
+    "name": "reporting-agent",
+    "version": "dbd2bc6ff549"
+  },
+  "recovery_catalog": "catalog-2026-09-25.1",
+  "review_contract": "review-contract/1.1",
+  "run_store_schema": 2,
+  "controller": "ch11 Plan P1-P5 + capstone P6-P7"
+}

@@ -1,0 +1,166 @@
+{
+  "start_versions": {
+    "report.py": "78721bd28acc",
+    "test_report.py": "319f11ce22b8"
+  },
+  "start_tests": {
+    "status": "failed",
+    "tests_run": 2,
+    "failures": 1,
+    "errors": 0,
+    "failed_tests": [
+      "test_report.ReportTests.test_order_near_midnight"
+    ],
+    "exit_code": 1
+  },
+  "flawed": {
+    "attempt_1_stream": "b_fix_cut",
+    "adapter_status": "done",
+    "dispatch_log": [
+      {
+        "t": 1520,
+        "dispatched": {
+          "id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": {
+            "path": "report.py",
+            "old": "    return created_at.date() == requested_day",
+            "new": "    local_time = created_at.astimezone("
+          }
+        },
+        "args_bytes_seen": 125
+      }
+    ],
+    "executions": [
+      {
+        "call": {
+          "id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": {
+            "path": "report.py",
+            "old": "    return created_at.date() == requested_day",
+            "new": "    local_time = created_at.astimezone("
+          }
+        },
+        "result": {
+          "status": "ok",
+          "replacements": 1,
+          "before_version": "78721bd28acc",
+          "after_version": "a1209b5ea112"
+        }
+      }
+    ],
+    "report_py_version": "a1209b5ea112",
+    "tests_after": {
+      "status": "failed",
+      "tests_run": 0,
+      "failures": 0,
+      "errors": 0,
+      "failed_tests": [],
+      "exit_code": 1
+    },
+    "import_check": {
+      "exit_code": 1,
+      "error": "SyntaxError: '(' was never closed"
+    },
+    "rerun_stream": "b_fix_done",
+    "rerun_dispatch_log": [
+      {
+        "t": 1520,
+        "dispatched": {
+          "id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": {
+            "path": "report.py",
+            "old": "    return created_at.date() == requested_day",
+            "new": "    local_time = created_at.astimezone("
+          }
+        },
+        "args_bytes_seen": 125
+      }
+    ],
+    "rerun_executions": [
+      {
+        "call": {
+          "id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": {
+            "path": "report.py",
+            "old": "    return created_at.date() == requested_day",
+            "new": "    local_time = created_at.astimezone("
+          }
+        },
+        "result": {
+          "status": "input_error",
+          "message": "old text occurs 0 times; expected exactly once"
+        }
+      }
+    ],
+    "report_py_version_final": "a1209b5ea112",
+    "tests_final": {
+      "status": "failed",
+      "tests_run": 0,
+      "failures": 0,
+      "errors": 0,
+      "failed_tests": [],
+      "exit_code": 1
+    },
+    "tool_executions_total": 2
+  },
+  "improved": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "stream": "b_fix_cut",
+        "request_sha": "f200c9e9bb85",
+        "response_id": "resp_b7f2a0",
+        "outcome": "interrupted",
+        "cause": "connection_reset",
+        "usage": {
+          "complete": false
+        },
+        "executable_calls": 0,
+        "adapter_retry_allowed": true,
+        "retry_reason": "no tool call from this response was released and no final text was shown"
+      },
+      {
+        "attempt": 2,
+        "stream": "b_fix_done",
+        "request_sha": "f200c9e9bb85",
+        "response_id": "resp_b7f2c1",
+        "outcome": "completed_tool_calls",
+        "cause": null,
+        "usage": {
+          "input_tokens": 2412,
+          "cache_read_tokens": 1920,
+          "output_tokens": 188,
+          "reasoning_tokens": 96,
+          "complete": true
+        },
+        "executable_calls": 1,
+        "dispatched": 1
+      }
+    ],
+    "executions": [
+      {
+        "call": "call_fix_1",
+        "result": {
+          "status": "ok",
+          "replacements": 1,
+          "before_version": "78721bd28acc",
+          "after_version": "339d3a9f2656"
+        }
+      }
+    ],
+    "report_py_version": "339d3a9f2656",
+    "tests_after": {
+      "status": "passed",
+      "tests_run": 2,
+      "failures": 0,
+      "errors": 0,
+      "failed_tests": [],
+      "exit_code": 0
+    },
+    "tool_executions_total": 1
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "policy": {
+    "id": "ctx-truncate-v1",
+    "allowance": 6656,
+    "rule": "keep the system message; drop the oldest message until the request fits"
+  },
+  "call": 9,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c10",
+      "content": {
+        "status": "ok",
+        "path": "test_billing.py",
+        "text": "\"\"\"The billing service calls belongs_to_report positionally, with an explicit timezone.\"\"\"\nimport unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\n\nclass BillingCallerTests(unittest.TestCase):\n    def test_billing_positional_call(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(order_time, date(2026, 9, 11), \"America/Los_Angeles\"))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c11",
+      "content": {
+        "status": "failed",
+        "tests_run": 268,
+        "failures": 0,
+        "errors": 1,
+        "failed_tests": [
+          "test_report_matrix.MatrixTests.test_configured_default"
+        ],
+        "exit_code": 1,
+        "log": "test_order_at_midday (test_report.ReportTests.test_order_at_midday) ... ok\ntest_order_near_midnight (test_report.ReportTests.test_order_near_midnight) ... ok\ntest_america_anchorage_00 (test_report_matrix.MatrixTests.test_america_anchorage_00) ... ok\ntest_america_anchorage_01 (test_report_matrix.MatrixTests.test_america_anchorage_01) ... ok\ntest_america_anchorage_02 (test_report_matrix.MatrixTests.test_america_anchorage_02) ... ok\ntest_america_anchorage_03 (test_report_matrix.MatrixTests.test_america_anchorage_03) ... ok\ntest_america_anchorage_04 (test_report_matrix.MatrixTests.test_america_anchorage_04) ... ok\ntest_america_anchorage_05 (test_report_matrix.MatrixTests.test_america_anchorage_05) ... ok\ntest_america_anchorage_06 (test_report_matrix.MatrixTests.test_america_anchorage_06) ... ok\ntest_america_anchorage_07 (test_report_matrix.MatrixTests.test_america_anchorage_07) ... ok\ntest_america_anchorage_08 (test_report_matrix.MatrixTests.test_america_anchorage_08) ... ok\ntest_america_anchorage_09 (test_report_matrix.MatrixTests.test_america_anchorage_09) ... ok\ntest_america_anchorage_10 (test_report_matrix.MatrixTests.test_america_anchorage_10) ... ok\ntest_america_anchorage_11 (test_report_matrix.MatrixTests.test_america_anchorage_11) ... ok\ntest_america_anchorage_12 (test_report_matrix.MatrixTests.test_america_anchorage_12) ... ok\ntest_america_anchorage_13 (test_report_matrix.MatrixTests.test_america_anchorage_13) ... ok\ntest_america_anchorage_14 (test_report_matrix.MatrixTests.test_america_anchorage_14) ... ok\ntest_america_anchorage_15 (test_report_matrix.MatrixTests.test_america_anchorage_15) ... ok\ntest_america_anchorage_16 (test_report_matrix.MatrixTests.test_america_anchorage_16) ... ok\ntest_america_anchorage_17 (test_report_matrix.MatrixTests.test_america_anchorage_17) ... ok\ntest_america_anchorage_18 (test_report_matrix.MatrixTests.test_america_anchorage_18) ... ok\ntest_america_anchorage_19 (test_report_matrix.MatrixTests.test_america_anchorage_19) ... ok\ntest_america_anchorage_20 (test_report_matrix.MatrixTests.test_america_anchorage_20) ... ok\ntest_america_anchorage_21 (test_report_matrix.MatrixTests.test_america_anchorage_21) ... ok\ntest_america_anchorage_22 (test_report_matrix.MatrixTests.test_america_anchorage_22) ... ok\ntest_america_anchorage_23 (test_report_matrix.MatrixTests.test_america_anchorage_23) ... ok\ntest_america_chicago_00 (test_report_matrix.MatrixTests.test_america_chicago_00) ... ok\ntest_america_chicago_01 (test_report_matrix.MatrixTests.test_america_chicago_01) ... ok\ntest_america_chicago_02 (test_report_matrix.MatrixTests.test_america_chicago_02) ... ok\ntest_america_chicago_03 (test_report_matrix.MatrixTests.test_america_chicago_03) ... ok\ntest_america_chicago_04 (test_report_matrix.MatrixTests.test_america_chicago_04) ... ok\ntest_america_chicago_05 (test_report_matrix.MatrixTests.test_america_chicago_05) ... ok\ntest_america_chicago_06 (test_report_matrix.MatrixTests.test_america_chicago_06) ... ok\ntest_america_chicago_07 (test_report_matrix.MatrixTests.test_america_chicago_07) ... ok\ntest_america_chicago_08 (test_report_matrix.MatrixTests.test_america_chicago_08) ... ok\ntest_america_chicago_09 (test_report_matrix.MatrixTests.test_america_chicago_09) ... ok\ntest_america_chicago_10 (test_report_matrix.MatrixTests.test_america_chicago_10) ... ok\ntest_america_chicago_11 (test_report_matrix.MatrixTests.test_america_chicago_11) ... ok\ntest_america_chicago_12 (test_report_matrix.MatrixTests.test_america_chicago_12) ... ok\ntest_america_chicago_13 (test_report_matrix.MatrixTests.test_america_chicago_13) ... ok\ntest_america_chicago_14 (test_report_matrix.MatrixTests.test_america_chicago_14) ... ok\ntest_america_chicago_15 (test_report_matrix.MatrixTests.test_america_chicago_15) ... ok\ntest_america_chicago_16 (test_report_matrix.MatrixTests.test_america_chicago_16) ... ok\ntest_america_chicago_17 (test_report_matrix.MatrixTests.test_america_chicago_17) ... ok\ntest_america_chicago_18 (test_report_matrix.MatrixTests.test_america_chicago_18) ... ok\ntest_america_chicago_19 (test_report_matrix.MatrixTests.test_america_chicago_19) ... ok\ntest_america_chicago_20 (test_report_matrix.MatrixTests.test_america_chicago_20) ... ok\ntest_america_chicago_21 (test_report_matrix.MatrixTests.test_america_chicago_21) ... ok\ntest_america_chicago_22 (test_report_matrix.MatrixTests.test_america_chicago_22) ... ok\ntest_america_chicago_23 (test_report_matrix.MatrixTests.test_america_chicago_23) ... ok\ntest_america_denver_00 (test_report_matrix.MatrixTests.test_america_denver_00) ... ok\ntest_america_denver_01 (test_report_matrix.MatrixTests.test_america_denver_01) ... ok\ntest_america_denver_02 (test_report_matrix.MatrixTests.test_america_denver_02) ... ok\ntest_america_denver_03 (test_report_matrix.MatrixTests.test_america_denver_03) ... ok\ntest_america_denver_04 (test_report_matrix.MatrixTests.test_america_denver_04) ... ok\ntest_america_denver_05 (test_report_matrix.MatrixTests.test_america_denver_05) ... ok\ntest_america_denver_06 (test_report_matrix.MatrixTests.test_america_denver_06) ... ok\ntest_america_denver_07 (test_report_matrix.MatrixTests.test_america_denver_07) ... ok\ntest_america_denver_08 (test_report_matrix.MatrixTests.test_america_denver_08) ... ok\ntest_america_denver_09 (test_report_matrix.MatrixTests.test_america_denver_09) ... ok\ntest_america_denver_10 (test_report_matrix.MatrixTests.test_america_denver_10) ... ok\ntest_america_denver_11 (test_report_matrix.MatrixTests.test_america_denver_11) ... ok\ntest_america_denver_12 (test_report_matrix.MatrixTests.test_america_denver_12) ... ok\ntest_america_denver_13 (test_report_matrix.MatrixTests.test_america_denver_13) ... ok\ntest_america_denver_14 (test_report_matrix.MatrixTests.test_america_denver_14) ... ok\ntest_america_denver_15 (test_report_matrix.MatrixTests.test_america_denver_15) ... ok\ntest_america_denver_16 (test_report_matrix.MatrixTests.test_america_denver_16) ... ok\ntest_america_denver_17 (test_report_matrix.MatrixTests.test_america_denver_17) ... ok\ntest_america_denver_18 (test_report_matrix.MatrixTests.test_america_denver_18) ... ok\ntest_america_denver_19 (test_report_matrix.MatrixTests.test_america_denver_19) ... ok\ntest_america_denver_20 (test_report_matrix.MatrixTests.test_america_denver_20) ... ok\ntest_america_denver_21 (test_report_matrix.MatrixTests.test_america_denver_21) ... ok\ntest_america_denver_22 (test_report_matrix.MatrixTests.test_america_denver_22) ... ok\ntest_america_denver_23 (test_report_matrix.MatrixTests.test_america_denver_23) ... ok\ntest_america_los_angeles_00 (test_report_matrix.MatrixTests.test_america_los_angeles_00) ... ok\ntest_america_los_angeles_01 (test_report_matrix.MatrixTests.test_america_los_angeles_01) ... ok\ntest_america_los_angeles_02 (test_report_matrix.MatrixTests.test_america_los_angeles_02) ... ok\ntest_america_los_angeles_03 (test_report_matrix.MatrixTests.test_america_los_angeles_03) ... ok\ntest_america_los_angeles_04 (test_report_matrix.MatrixTests.test_america_los_angeles_04) ... ok\ntest_america_los_angeles_05 (test_report_matrix.MatrixTests.test_america_los_angeles_05) ... ok\ntest_america_los_angeles_06 (test_report_matrix.MatrixTests.test_america_los_angeles_06) ... ok\ntest_america_los_angeles_07 (test_report_matrix.MatrixTests.test_america_los_angeles_07) ... ok\ntest_america_los_angeles_08 (test_report_matrix.MatrixTests.test_america_los_angeles_08) ... ok\ntest_america_los_angeles_09 (test_report_matrix.MatrixTests.test_america_los_angeles_09) ... ok\ntest_america_los_angeles_10 (test_report_matrix.MatrixTests.test_america_los_angeles_10) ... ok\ntest_america_los_angeles_11 (test_report_matrix.MatrixTests.test_america_los_angeles_11) ... ok\ntest_america_los_angeles_12 (test_report_matrix.MatrixTests.test_america_los_angeles_12) ... ok\ntest_america_los_angeles_13 (test_report_matrix.MatrixTests.test_america_los_angeles_13) ... ok\ntest_america_los_angeles_14 (test_report_matrix.MatrixTests.test_america_los_angeles_14) ... ok\ntest_america_los_angeles_15 (test_report_matrix.MatrixTests.test_america_los_angeles_15) ... ok\ntest_america_los_angeles_16 (test_report_matrix.MatrixTests.test_america_los_angeles_16) ... ok\ntest_america_los_angeles_17 (test_report_matrix.MatrixTests.test_america_los_angeles_17) ... ok\ntest_america_los_angeles_18 (test_report_matrix.MatrixTests.test_america_los_angeles_18) ... ok\ntest_america_los_angeles_19 (test_report_matrix.MatrixTests.test_america_los_angeles_19) ... ok\ntest_america_los_angeles_20 (test_report_matrix.MatrixTests.test_america_los_angeles_20) ... ok\ntest_america_los_angeles_21 (test_report_matrix.MatrixTests.test_america_los_angeles_21) ... ok\ntest_america_los_angeles_22 (test_report_matrix.MatrixTests.test_america_los_angeles_22) ... ok\ntest_america_los_angeles_23 (test_report_matrix.MatrixTests.test_america_los_angeles_23) ... ok\ntest_america_new_york_00 (test_report_matrix.MatrixTests.test_america_new_york_00) ... ok\ntest_america_new_york_01 (test_report_matrix.MatrixTests.test_america_new_york_01) ... ok\ntest_america_new_york_02 (test_report_matrix.MatrixTests.test_america_new_york_02) ... ok\ntest_america_new_york_03 (test_report_matrix.MatrixTests.test_america_new_york_03) ... ok\ntest_america_new_york_04 (test_report_matrix.MatrixTests.test_america_new_york_04) ... ok\ntest_america_new_york_05 (test_report_matrix.MatrixTests.test_america_new_york_05) ... ok\ntest_america_new_york_06 (test_report_matrix.MatrixTests.test_america_new_york_06) ... ok\ntest_america_new_york_07 (test_report_matrix.MatrixTests.test_america_new_york_07) ... ok\ntest_america_new_york_08 (test_report_matrix.MatrixTests.test_america_new_york_08) ... ok\ntest_america_new_york_09 (test_report_matrix.MatrixTests.test_america_new_york_09) ... ok\ntest_america_new_york_10 (test_report_matrix.MatrixTests.test_america_new_york_10) ... ok\ntest_america_new_york_11 (test_report_matrix.MatrixTests.test_america_new_york_11) ... ok\ntest_america_new_york_12 (test_report_matrix.MatrixTests.test_america_new_york_12) ... ok\ntest_america_new_york_13 (test_report_matrix.MatrixTests.test_america_new_york_13) ... ok\ntest_america_new_york_14 (test_report_matrix.MatrixTests.test_america_new_york_14) ... ok\ntest_america_new_york_15 (test_report_matrix.MatrixTests.test_america_new_york_15) ... ok\ntest_america_new_york_16 (test_report_matrix.MatrixTests.test_america_new_york_16) ... ok\ntest_america_new_york_17 (test_report_matrix.MatrixTests.test_america_new_york_17) ... ok\ntest_america_new_york_18 (test_report_matrix.MatrixTests.test_america_new_york_18) ... ok\ntest_america_new_york_19 (test_report_matrix.MatrixTests.test_america_new_york_19) ... ok\ntest_america_new_york_20 (test_report_matrix.MatrixTests.test_america_new_york_20) ... ok\ntest_america_new_york_21 (test_report_matrix.MatrixTests.test_america_new_york_21) ... ok\ntest_america_new_york_22 (test_report_matrix.MatrixTests.test_america_new_york_22) ... ok\ntest_america_new_york_23 (test_report_matrix.MatrixTests.test_america_new_york_23) ... ok\ntest_america_sao_paulo_00 (test_report_matrix.MatrixTests.test_america_sao_paulo_00) ... ok\ntest_america_sao_paulo_01 (test_report_matrix.MatrixTests.test_america_sao_paulo_01) ... ok\ntest_america_sao_paulo_02 (test_report_matrix.MatrixTests.test_america_sao_paulo_02) ... ok\ntest_america_sao_paulo_03 (test_report_matrix.MatrixTests.test_america_sao_paulo_03) ... ok\ntest_america_sao_paulo_04 (test_report_matrix.MatrixTests.test_america_sao_paulo_04) ... ok\ntest_america_sao_paulo_05 (test_report_matrix.MatrixTests.test_america_sao_paulo_05) ... ok\ntest_america_sao_paulo_06 (test_report_matrix.MatrixTests.test_america_sao_paulo_06) ... ok\ntest_america_sao_paulo_07 (test_report_matrix.MatrixTests.test_america_sao_paulo_07) ... ok\ntest_america_sao_paulo_08 (test_report_matrix.MatrixTests.test_america_sao_paulo_08) ... ok\ntest_america_sao_paulo_09 (test_report_matrix.MatrixTests.test_america_sao_paulo_09) ... ok\ntest_america_sao_paulo_10 (test_report_matrix.MatrixTests.test_america_sao_paulo_10) ... ok\ntest_america_sao_paulo_11 (test_report_matrix.MatrixTests.test_america_sao_paulo_11) ... ok\ntest_america_sao_paulo_12 (test_report_matrix.MatrixTests.test_america_sao_paulo_12) ... ok\ntest_america_sao_paulo_13 (test_report_matrix.MatrixTests.test_america_sao_paulo_13) ... ok\ntest_america_sao_paulo_14 (test_report_matrix.MatrixTests.test_america_sao_paulo_14) ... ok\ntest_america_sao_paulo_15 (test_report_matrix.MatrixTests.test_america_sao_paulo_15) ... ok\ntest_america_sao_paulo_16 (test_report_matrix.MatrixTests.test_america_sao_paulo_16) ... ok\ntest_america_sao_paulo_17 (test_report_matrix.MatrixTests.test_america_sao_paulo_17) ... ok\ntest_america_sao_paulo_18 (test_report_matrix.MatrixTests.test_america_sao_paulo_18) ... ok\ntest_america_sao_paulo_19 (test_report_matrix.MatrixTests.test_america_sao_paulo_19) ... ok\ntest_america_sao_paulo_20 (test_report_matrix.MatrixTests.test_america_sao_paulo_20) ... ok\ntest_america_sao_paulo_21 (test_report_matrix.MatrixTests.test_america_sao_paulo_21) ... ok\ntest_america_sao_paulo_22 (test_report_matrix.MatrixTests.test_america_sao_paulo_22) ... ok\ntest_america_sao_paulo_23 (test_report_matrix.MatrixTests.test_america_sao_paulo_23) ... ok\ntest_asia_kolkata_00 (test_report_matrix.MatrixTests.test_asia_kolkata_00) ... ok\ntest_asia_kolkata_01 (test_report_matrix.MatrixTests.test_asia_kolkata_01) ... ok\ntest_asia_kolkata_02 (test_report_matrix.MatrixTests.test_asia_kolkata_02) ... ok\ntest_asia_kolkata_03 (test_report_matrix.MatrixTests.test_asia_kolkata_03) ... ok\ntest_asia_kolkata_04 (test_report_matrix.MatrixTests.test_asia_kolkata_04) ... ok\ntest_asia_kolkata_05 (test_report_matrix.MatrixTests.test_asia_kolkata_05) ... ok\ntest_asia_kolkata_06 (test_report_matrix.MatrixTests.test_asia_kolkata_06) ... ok\ntest_asia_kolkata_07 (test_report_matrix.MatrixTests.test_asia_kolkata_07) ... ok\ntest_asia_kolkata_08 (test_report_matrix.MatrixTests.test_asia_kolkata_08) ... ok\ntest_asia_kolkata_09 (test_report_matrix.MatrixTests.test_asia_kolkata_09) ... ok\ntest_asia_kolkata_10 (test_report_matrix.MatrixTests.test_asia_kolkata_10) ... ok\ntest_asia_kolkata_11 (test_report_matrix.MatrixTests.test_asia_kolkata_11) ... ok\ntest_asia_kolkata_12 (test_report_matrix.MatrixTests.test_asia_kolkata_12) ... ok\ntest_asia_kolkata_13 (test_report_matrix.MatrixTests.test_asia_kolkata_13) ... ok\ntest_asia_kolkata_14 (test_report_matrix.MatrixTests.test_asia_kolkata_14) ... ok\ntest_asia_kolkata_15 (test_report_matrix.MatrixTests.test_asia_kolkata_15) ... ok\ntest_asia_kolkata_16 (test_report_matrix.MatrixTests.test_asia_kolkata_16) ... ok\ntest_asia_kolkata_17 (test_report_matrix.MatrixTests.test_asia_kolkata_17) ... ok\ntest_asia_kolkata_18 (test_report_matrix.MatrixTests.test_asia_kolkata_18) ... ok\ntest_asia_kolkata_19 (test_report_matrix.MatrixTests.test_asia_kolkata_19) ... ok\ntest_asia_kolkata_20 (test_report_matrix.MatrixTests.test_asia_kolkata_20) ... ok\ntest_asia_kolkata_21 (test_report_matrix.MatrixTests.test_asia_kolkata_21) ... ok\ntest_asia_kolkata_22 (test_report_matrix.MatrixTests.test_asia_kolkata_22) ... ok\ntest_asia_kolkata_23 (test_report_matrix.MatrixTests.test_asia_kolkata_23) ... ok\ntest_asia_tokyo_00 (test_report_matrix.MatrixTests.test_asia_tokyo_00) ... ok\ntest_asia_tokyo_01 (test_report_matrix.MatrixTests.test_asia_tokyo_01) ... ok\ntest_asia_tokyo_02 (test_report_matrix.MatrixTests.test_asia_tokyo_02) ... ok\ntest_asia_tokyo_03 (test_report_matrix.MatrixTests.test_asia_tokyo_03) ... ok\ntest_asia_tokyo_04 (test_report_matrix.MatrixTests.test_asia_tokyo_04) ... ok\ntest_asia_tokyo_05 (test_report_matrix.MatrixTests.test_asia_tokyo_05) ... ok\ntest_asia_tokyo_06 (test_report_matrix.MatrixTests.test_asia_tokyo_06) ... ok\ntest_asia_tokyo_07 (test_report_matrix.MatrixTests.test_asia_tokyo_07) ... ok\ntest_asia_tokyo_08 (test_report_matrix.MatrixTests.test_asia_tokyo_08) ... ok\ntest_asia_tokyo_09 (test_report_matrix.MatrixTests.test_asia_tokyo_09) ... ok\ntest_asia_tokyo_10 (test_report_matrix.MatrixTests.test_asia_tokyo_10) ... ok\ntest_asia_tokyo_11 (test_report_matrix.MatrixTests.test_asia_tokyo_11) ... ok\ntest_asia_tokyo_12 (test_report_matrix.MatrixTests.test_asia_tokyo_12) ... ok\ntest_asia_tokyo_13 (test_report_matrix.MatrixTests.test_asia_tokyo_13) ... ok\ntest_asia_tokyo_14 (test_report_matrix.MatrixTests.test_asia_tokyo_14) ... ok\ntest_asia_tokyo_15 (test_report_matrix.MatrixTests.test_asia_tokyo_15) ... ok\ntest_asia_tokyo_16 (test_report_matrix.MatrixTests.test_asia_tokyo_16) ... ok\ntest_asia_tokyo_17 (test_report_matrix.MatrixTests.test_asia_tokyo_17) ... ok\ntest_asia_tokyo_18 (test_report_matrix.MatrixTests.test_asia_tokyo_18) ... ok\ntest_asia_tokyo_19 (test_report_matrix.MatrixTests.test_asia_tokyo_19) ... ok\ntest_asia_tokyo_20 (test_report_matrix.MatrixTests.test_asia_tokyo_20) ... ok\ntest_asia_tokyo_21 (test_report_matrix.MatrixTests.test_asia_tokyo_21) ... ok\ntest_asia_tokyo_22 (test_report_matrix.MatrixTests.test_asia_tokyo_22) ... ok\ntest_asia_tokyo_23 (test_report_matrix.MatrixTests.test_asia_tokyo_23) ... ok\ntest_configured_default (test_report_matrix.MatrixTests.test_configured_default) ... ERROR\ntest_europe_berlin_00 (test_report_matrix.MatrixTests.test_europe_berlin_00) ... ok\ntest_europe_berlin_01 (test_report_matrix.MatrixTests.test_europe_berlin_01) ... ok\ntest_europe_berlin_02 (test_report_matrix.MatrixTests.test_europe_berlin_02) ... ok\ntest_europe_berlin_03 (test_report_matrix.MatrixTests.test_europe_berlin_03) ... ok\ntest_europe_berlin_04 (test_report_matrix.MatrixTests.test_europe_berlin_04) ... ok\ntest_europe_berlin_05 (test_report_matrix.MatrixTests.test_europe_berlin_05) ... ok\ntest_europe_berlin_06 (test_report_matrix.MatrixTests.test_europe_berlin_06) ... ok\ntest_europe_berlin_07 (test_report_matrix.MatrixTests.test_europe_berlin_07) ... ok\ntest_europe_berlin_08 (test_report_matrix.MatrixTests.test_europe_berlin_08) ... ok\ntest_europe_berlin_09 (test_report_matrix.MatrixTests.test_europe_berlin_09) ... ok\ntest_europe_berlin_10 (test_report_matrix.MatrixTests.test_europe_berlin_10) ... ok\ntest_europe_berlin_11 (test_report_matrix.MatrixTests.test_europe_berlin_11) ... ok\ntest_europe_berlin_12 (test_report_matrix.MatrixTests.test_europe_berlin_12) ... ok\ntest_europe_berlin_13 (test_report_matrix.MatrixTests.test_europe_berlin_13) ... ok\ntest_europe_berlin_14 (test_report_matrix.MatrixTests.test_europe_berlin_14) ... ok\ntest_europe_berlin_15 (test_report_matrix.MatrixTests.test_europe_berlin_15) ... ok\ntest_europe_berlin_16 (test_report_matrix.MatrixTests.test_europe_berlin_16) ... ok\ntest_europe_berlin_17 (test_report_matrix.MatrixTests.test_europe_berlin_17) ... ok\ntest_europe_berlin_18 (test_report_matrix.MatrixTests.test_europe_berlin_18) ... ok\ntest_europe_berlin_19 (test_report_matrix.MatrixTests.test_europe_berlin_19) ... ok\ntest_europe_berlin_20 (test_report_matrix.MatrixTests.test_europe_berlin_20) ... ok\ntest_europe_berlin_21 (test_report_matrix.MatrixTests.test_europe_berlin_21) ... ok\ntest_europe_berlin_22 (test_report_matrix.MatrixTests.test_europe_berlin_22) ... ok\ntest_europe_berlin_23 (test_report_matrix.MatrixTests.test_europe_berlin_23) ... ok\ntest_europe_london_00 (test_report_matrix.MatrixTests.test_europe_london_00) ... ok\ntest_europe_london_01 (test_report_matrix.MatrixTests.test_europe_london_01) ... ok\ntest_europe_london_02 (test_report_matrix.MatrixTests.test_europe_london_02) ... ok\ntest_europe_london_03 (test_report_matrix.MatrixTests.test_europe_london_03) ... ok\ntest_europe_london_04 (test_report_matrix.MatrixTests.test_europe_london_04) ... ok\ntest_europe_london_05 (test_report_matrix.MatrixTests.test_europe_london_05) ... ok\ntest_europe_london_06 (test_report_matrix.MatrixTests.test_europe_london_06) ... ok\ntest_europe_london_07 (test_report_matrix.MatrixTests.test_europe_london_07) ... ok\ntest_europe_london_08 (test_report_matrix.MatrixTests.test_europe_london_08) ... ok\ntest_europe_london_09 (test_report_matrix.MatrixTests.test_europe_london_09) ... ok\ntest_europe_london_10 (test_report_matrix.MatrixTests.test_europe_london_10) ... ok\ntest_europe_london_11 (test_report_matrix.MatrixTests.test_europe_london_11) ... ok\ntest_europe_london_12 (test_report_matrix.MatrixTests.test_europe_london_12) ... ok\ntest_europe_london_13 (test_report_matrix.MatrixTests.test_europe_london_13) ... ok\ntest_europe_london_14 (test_report_matrix.MatrixTests.test_europe_london_14) ... ok\ntest_europe_london_15 (test_report_matrix.MatrixTests.test_europe_london_15) ... ok\ntest_europe_london_16 (test_report_matrix.MatrixTests.test_europe_london_16) ... ok\ntest_europe_london_17 (test_report_matrix.MatrixTests.test_europe_london_17) ... ok\ntest_europe_london_18 (test_report_matrix.MatrixTests.test_europe_london_18) ... ok\ntest_europe_london_19 (test_report_matrix.MatrixTests.test_europe_london_19) ... ok\ntest_europe_london_20 (test_report_matrix.MatrixTests.test_europe_london_20) ... ok\ntest_europe_london_21 (test_report_matrix.MatrixTests.test_europe_london_21) ... ok\ntest_europe_london_22 (test_report_matrix.MatrixTests.test_europe_london_22) ... ok\ntest_europe_london_23 (test_report_matrix.MatrixTests.test_europe_london_23) ... ok\ntest_pacific_honolulu_00 (test_report_matrix.MatrixTests.test_pacific_honolulu_00) ... ok\ntest_pacific_honolulu_01 (test_report_matrix.MatrixTests.test_pacific_honolulu_01) ... ok\ntest_pacific_honolulu_02 (test_report_matrix.MatrixTests.test_pacific_honolulu_02) ... ok\ntest_pacific_honolulu_03 (test_report_matrix.MatrixTests.test_pacific_honolulu_03) ... ok\ntest_pacific_honolulu_04 (test_report_matrix.MatrixTests.test_pacific_honolulu_04) ... ok\ntest_pacific_honolulu_05 (test_report_matrix.MatrixTests.test_pacific_honolulu_05) ... ok\ntest_pacific_honolulu_06 (test_report_matrix.MatrixTests.test_pacific_honolulu_06) ... ok\ntest_pacific_honolulu_07 (test_report_matrix.MatrixTests.test_pacific_honolulu_07) ... ok\ntest_pacific_honolulu_08 (test_report_matrix.MatrixTests.test_pacific_honolulu_08) ... ok\ntest_pacific_honolulu_09 (test_report_matrix.MatrixTests.test_pacific_honolulu_09) ... ok\ntest_pacific_honolulu_10 (test_report_matrix.MatrixTests.test_pacific_honolulu_10) ... ok\ntest_pacific_honolulu_11 (test_report_matrix.MatrixTests.test_pacific_honolulu_11) ... ok\ntest_pacific_honolulu_12 (test_report_matrix.MatrixTests.test_pacific_honolulu_12) ... ok\ntest_pacific_honolulu_13 (test_report_matrix.MatrixTests.test_pacific_honolulu_13) ... ok\ntest_pacific_honolulu_14 (test_report_matrix.MatrixTests.test_pacific_honolulu_14) ... ok\ntest_pacific_honolulu_15 (test_report_matrix.MatrixTests.test_pacific_honolulu_15) ... ok\ntest_pacific_honolulu_16 (test_report_matrix.MatrixTests.test_pacific_honolulu_16) ... ok\ntest_pacific_honolulu_17 (test_report_matrix.MatrixTests.test_pacific_honolulu_17) ... ok\ntest_pacific_honolulu_18 (test_report_matrix.MatrixTests.test_pacific_honolulu_18) ... ok\ntest_pacific_honolulu_19 (test_report_matrix.MatrixTests.test_pacific_honolulu_19) ... ok\ntest_pacific_honolulu_20 (test_report_matrix.MatrixTests.test_pacific_honolulu_20) ... ok\ntest_pacific_honolulu_21 (test_report_matrix.MatrixTests.test_pacific_honolulu_21) ... ok\ntest_pacific_honolulu_22 (test_report_matrix.MatrixTests.test_pacific_honolulu_22) ... ok\ntest_pacific_honolulu_23 (test_report_matrix.MatrixTests.test_pacific_honolulu_23) ... ok\ntest_billing_positional_call (test_billing.BillingCallerTests.test_billing_positional_call) ... ok\n\n======================================================================\nERROR: test_configured_default (test_report_matrix.MatrixTests.test_configured_default)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"test_report_matrix.py\", line 28, in test_configured_default\n    self.assertTrue(belongs_to_report(order_time, local_day))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: belongs_to_report() missing 1 required positional argument: 'timezone'\n\n----------------------------------------------------------------------\nRan 268 tests\n\nFAILED (errors=1)"
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "records": [
+        "R01"
+      ],
+      "transform": "verbatim",
+      "source": "application",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "runtime",
+      "tokens": 39
+    },
+    {
+      "records": [
+        "R21"
+      ],
+      "transform": "verbatim",
+      "source": "read_file(\"path\":\"test_billing.py\")",
+      "revision": "d60dab7c125f",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 154
+    },
+    {
+      "records": [
+        "R22"
+      ],
+      "transform": "verbatim",
+      "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 6142
+    }
+  ],
+  "omissions": [
+    {
+      "record": "R02",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 39,
+      "carried_by": null
+    },
+    {
+      "record": "R03",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 63,
+      "carried_by": null
+    },
+    {
+      "record": "R04",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 36,
+      "carried_by": null
+    },
+    {
+      "record": "R05",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 80,
+      "carried_by": null
+    },
+    {
+      "record": "R06",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 137,
+      "carried_by": null
+    },
+    {
+      "record": "R07",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 108,
+      "carried_by": null
+    },
+    {
+      "record": "R08",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 42,
+      "carried_by": null
+    },
+    {
+      "record": "R09",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 30,
+      "carried_by": null
+    },
+    {
+      "record": "R10",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 29,
+      "carried_by": null
+    },
+    {
+      "record": "R11",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 30,
+      "carried_by": null
+    },
+    {
+      "record": "R12",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 66,
+      "carried_by": null
+    },
+    {
+      "record": "R13",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 71,
+      "carried_by": null
+    },
+    {
+      "record": "R14",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 40,
+      "carried_by": null
+    },
+    {
+      "record": "R15",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 30,
+      "carried_by": null
+    },
+    {
+      "record": "R16",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 45,
+      "carried_by": null
+    },
+    {
+      "record": "R17",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 80,
+      "carried_by": null
+    },
+    {
+      "record": "R18",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 55,
+      "carried_by": null
+    },
+    {
+      "record": "R19",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 75,
+      "carried_by": null
+    },
+    {
+      "record": "R20",
+      "action": "removed",
+      "reason": "oldest message after the system prompt; request over allowance",
+      "tokens": 95,
+      "carried_by": null
+    }
+  ],
+  "budget": {
+    "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+    "window": 8192,
+    "output_reserve": 1536,
+    "input_allowance": 6656,
+    "tool_definitions": 318,
+    "sections": [
+      {
+        "name": "system",
+        "items": 1,
+        "tokens": 39
+      },
+      {
+        "name": "kept history",
+        "items": 2,
+        "tokens": 6296
+      }
+    ],
+    "total_input": 6653,
+    "headroom": 3,
+    "fits": true
+  },
+  "protocol_problems": [
+    "result for c10 has no preceding request",
+    "result for c11 has no preceding request"
+  ],
+  "request_sha": "25e756ab7eb4"
+}

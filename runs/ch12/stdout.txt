@@ -1,0 +1,64 @@
+== main run ==
+counts: {'runs': 1, 'task_revisions': 2, 'model_calls': 10, 'operations': 11, 'observations': 10, 'artifact_versions': 6, 'events': 64, 'snapshots': 0, 'refusals': 5}
+operation states: {'cancelled': 1, 'completed': 9, 'failed_before_effect': 1}
+tool executions: 9
+operation c8 row: ('c8', 'run_tests', 'completed', 1, '{"report.py":"339d3a9f2656","test_report.py":"319f11ce22b8"}', 1, 3)
+after call 7: {'run': 'waiting_for_person', 'ops': {'awaiting_approval': 1, 'completed': 7, 'failed_before_effect': 1}}
+after correction: {'task_revision': 2, 'c9': 'cancelled'}
+artifact: {'path': 'report.py', 'version_no': 1, 'version': '78721bd28acc', 'produced_by': None}
+artifact: {'path': 'report.py', 'version_no': 2, 'version': '339d3a9f2656', 'produced_by': 'c7'}
+artifact: {'path': 'report.py', 'version_no': 3, 'version': '8e8137d1687e', 'produced_by': 'c10'}
+artifact: {'path': 'settings.json', 'version_no': 1, 'version': 'fac6e0792573', 'produced_by': None}
+artifact: {'path': 'test_report.py', 'version_no': 1, 'version': '197c0720866d', 'produced_by': None}
+artifact: {'path': 'test_report.py', 'version_no': 2, 'version': '319f11ce22b8', 'produced_by': 'c4'}
+
+== experiment 1: crash around op c7 (replace_text report.py) ==
+point          exit  journal  c7 stored  obs   versions events  report.py file after restart
+during_t1        70     True  prepared   None         1     35  78721bd28acc   prepared
+after_t1         70    False  dispatched None         1     36  78721bd28acc   uncertain
+after_effect     70    False  dispatched None         1     36  339d3a9f2656   uncertain
+during_t2        70     True  dispatched None         1     36  339d3a9f2656   uncertain
+after_t2         70    False  completed  ok           2     39  339d3a9f2656   completed
+without intent record: {'c7_state': 'prepared', 'report_py_on_disk': '339d3a9f2656', 'redispatch_status': 'input_error', 'c7_state_after_redispatch': 'failed_before_effect', 'redispatch_message': 'old text occurs 0 times; expected exactly once'}
+
+== experiment 2a: lost update ==
+unconditional
+   worker read  step=0 task_revision=1 version=2
+   api    read  step=0 task_revision=1 version=2
+   api    write task_revision=2 rows=1
+   worker write step=1 (from its copy) rows=1
+   final: {'run_id': 'run-12', 'task_revision': 1, 'status': 'running', 'step': 1, 'version': 3} task_revision rows: 2
+conditional
+   worker read  step=0 task_revision=1 version=2
+   api    read  step=0 task_revision=1 version=2
+   api    write task_revision=2 if version=2 rows=1
+   worker write step=1 if version=2 rows=0
+   worker reread step=0 task_revision=2 version=3
+   worker write step=1 if version=3 rows=1
+   final: {'run_id': 'run-12', 'task_revision': 2, 'status': 'running', 'step': 1, 'version': 4} task_revision rows: 2
+
+== experiment 2b: stale worker ==
+naive {'lease': {'owner': 'worker-B', 'fence': 2}, 'worker_A_holder': ['worker-A', 1], 'worker_A_expected_version': 2, 'worker_A_late_write': 'accepted', 'c11_state': 'completed', 'ui_latest_test_before': 'c12 passed', 'ui_latest_test_after': 'c11 failed'}
+version {'lease': {'owner': 'worker-B', 'fence': 2}, 'worker_A_holder': ['worker-A', 1], 'worker_A_expected_version': 2, 'worker_A_late_write': 'accepted', 'c11_state': 'completed', 'ui_latest_test_before': 'c12 passed', 'ui_latest_test_after': 'c11 failed'}
+fenced {'lease': {'owner': 'worker-B', 'fence': 2}, 'worker_A_holder': ['worker-A', 1], 'worker_A_expected_version': 2, 'worker_A_late_write': "refused: stale holder ('worker-A', 1); current lease ('worker-B', 2)", 'c11_state': 'dispatched', 'ui_latest_test_before': 'c12 passed', 'ui_latest_test_after': 'c12 passed'}
+
+== experiment 3: reconstruction ==
+rebuild: {'events': 64, 'snapshot_seq': 44, 'tail_events': 20, 'fold_all_sha': '210e228cc37d', 'snapshot_plus_tail_sha': '210e228cc37d', 'tables_sha': '210e228cc37d', 'all_equal': True, 'tool_invocations_during_rebuild': 0, 'workspace_unchanged': {'report.py': '8e8137d1687e', 'test_report.py': '319f11ce22b8'}}
+duplicate event: {'applied': False, 'events_before': 64, 'events_after': 64, 'state_sha_after': '210e228cc37d'}
+re-execution replay: {'tool_invocations': 9, 'outcomes': [{'op': 'c1', 'tool': 'read_file', 'status': 'ok'}, {'op': 'c2', 'tool': 'read_file', 'status': 'ok'}, {'op': 'c3', 'tool': 'read_file', 'status': 'ok'}, {'op': 'c4', 'tool': 'replace_text', 'status': 'ok'}, {'op': 'c6', 'tool': 'run_tests', 'status': 'passed', 'tests_run': 2}, {'op': 'c7', 'tool': 'replace_text', 'status': 'input_error', 'message': 'old text occurs 0 times; expected exactly once'}, {'op': 'c8', 'tool': 'run_tests', 'status': 'passed', 'tests_run': 2}, {'op': 'c10', 'tool': 'replace_text', 'status': 'input_error', 'message': 'old text occurs 0 times; expected exactly once'}, {'op': 'c11', 'tool': 'run_tests', 'status': 'passed', 'tests_run': 2}], 'versions_before': {'report.py': '8e8137d1687e', 'test_report.py': '319f11ce22b8'}, 'versions_after': {'report.py': '8e8137d1687e', 'test_report.py': 'b1639509a185'}, 'near_midnight_tests_in_file': 2}
+schema versions: {'legacy_v1_events': 5, 'c1_state_after_upcast': 'completed', 'newer_event': 'refused: event N1 has schema 3; this build reads up to 2'}
+
+== experiment 4: interface ==
+from stream: {'status': 'tests passed', 'source_text': 'The public signature is unchanged. All tests passed.'}
+from records: {'run_status': 'running', 'task_revision': 2, 'latest_test': {'op': 'c8', 'status': 'passed', 'covers': {'report.py': '339d3a9f2656', 'test_report.py': '319f11ce22b8'}}, 'current_versions': {'report.py': '8e8137d1687e', 'test_report.py': '319f11ce22b8'}, 'verification': 'required', 'because': 'latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e'}
+from records, end: {'run_status': 'completed', 'task_revision': 2, 'latest_test': {'op': 'c11', 'status': 'passed', 'covers': {'report.py': '8e8137d1687e', 'test_report.py': '319f11ce22b8'}}, 'current_versions': {'report.py': '8e8137d1687e', 'test_report.py': '319f11ce22b8'}, 'verification': 'satisfied', 'because': 'latest passing run c11 covers the current versions'}
+model inputs rebuilt: [('m1', 2, True, 1), ('m2', 6, True, 1), ('m3', 8, True, 1), ('m4', 10, True, 1), ('m5', 12, True, 1), ('m6', 14, True, 1), ('m7', 16, True, 1), ('m8', 19, True, 2), ('m9', 21, True, 2), ('m10', 23, True, 2)]
+
+== experiment 5: ownership ==
+{'attempt': 'browser marks run complete', 'writer': 'human_interface', 'type': 'run.completed', 'result': 'refused', 'reason': 'human_interface may not write run.completed (owner: control)'}
+{'attempt': 'model text becomes a test result', 'writer': 'model', 'type': 'observation.recorded', 'result': 'refused', 'reason': 'model may not write observation.recorded (owner: executor)'}
+{'attempt': 'control writes an operation outcome', 'writer': 'control', 'type': 'op.completed', 'result': 'refused', 'reason': 'control may not write op.completed (owner: executor)'}
+{'attempt': 'executor marks run complete', 'writer': 'executor', 'type': 'run.completed', 'result': 'refused', 'reason': 'executor may not write run.completed (owner: control)'}
+{'attempt': 'control completes before verification', 'writer': 'control', 'type': 'run.completed', 'result': 'refused', 'reason': 'verification: latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e'}
+{'attempt': 'control completes after verification', 'writer': 'control', 'type': 'run.completed', 'result': 'accepted', 'reason': 'latest passing run c11 covers the current versions'}
+audit by writer: [{'writer': 'control', 'events': 18}, {'writer': 'executor', 'events': 35}, {'writer': 'model_adapter', 'events': 10}, {'writer': 'policy', 'events': 1}]

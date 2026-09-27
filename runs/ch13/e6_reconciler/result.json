@@ -1,0 +1,27 @@
+{
+  "age_s": 108000.0,
+  "decision": "escalate (key past retention)",
+  "exports": [
+    "export-file-001"
+  ],
+  "op_status": "uncertain",
+  "repair_items": [
+    {
+      "item_id": "R-1",
+      "op_id": "op-0001",
+      "opened_at": 108000.0,
+      "reason": "operation key may have expired at the service",
+      "evidence": {
+        "age_s": 108000.0,
+        "first_dispatched_at": 0.0,
+        "op_key": "run-13:export:daily-orders:2026-09-11",
+        "payload_digest": "07c41c5e8976f552",
+        "service_retention_s": 86400
+      },
+      "status": "open",
+      "resolved_by": null,
+      "resolution": null,
+      "resolved_at": null
+    }
+  ]
+}

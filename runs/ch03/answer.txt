@@ -1,0 +1,1 @@
+The filter used the UTC calendar date. I changed it to convert each timestamp to the configured report timezone before comparing dates. The new near-midnight test failed before the fix; both tests now pass. I changed report.py and test_report.py. Nothing was deployed.

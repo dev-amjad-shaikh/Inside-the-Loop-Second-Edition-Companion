@@ -1,0 +1,206 @@
+{
+  "who maintains report-helper": {
+    "sql": "SELECT owner, version, status, status_reason FROM parts WHERE kind='skill' AND name='report-helper' ORDER BY version",
+    "rows": [
+      {
+        "owner": "reporting-platform",
+        "version": "1.0.0",
+        "status": "released",
+        "status_reason": null
+      },
+      {
+        "owner": "reporting-platform",
+        "version": "1.1.0",
+        "status": "withdrawn",
+        "status_reason": "canary regression on B3 new test failed before the fix: 100% of canary runs vs 0% of active runs"
+      }
+    ]
+  },
+  "which versions ran in rf-0355": {
+    "sql": "SELECT r.run_id, r.manifest_id, r.slot, mp.kind, mp.name, mp.version, substr(mp.content_hash,1,12) AS hash FROM rs.runs r JOIN manifest_parts mp ON mp.manifest_id = r.manifest_id WHERE r.run_id = ? AND mp.kind IN ('skill','model','prompt','policy','runtime') ORDER BY mp.kind",
+    "rows": [
+      {
+        "run_id": "rf-0355",
+        "manifest_id": "m-e7f21bba38fc",
+        "slot": "canary",
+        "kind": "model",
+        "name": "model-a",
+        "version": "1.0.0",
+        "hash": "c7c686cc4014"
+      },
+      {
+        "run_id": "rf-0355",
+        "manifest_id": "m-e7f21bba38fc",
+        "slot": "canary",
+        "kind": "policy",
+        "name": "report-fix-no-deploy",
+        "version": "1.0.0",
+        "hash": "e3bc51709acf"
+      },
+      {
+        "run_id": "rf-0355",
+        "manifest_id": "m-e7f21bba38fc",
+        "slot": "canary",
+        "kind": "prompt",
+        "name": "report-fixer-system",
+        "version": "1.0.0",
+        "hash": "ef0e6a4b6156"
+      },
+      {
+        "run_id": "rf-0355",
+        "manifest_id": "m-e7f21bba38fc",
+        "slot": "canary",
+        "kind": "runtime",
+        "name": "itl-runtime",
+        "version": "2026.9.1",
+        "hash": "ff8364966dd6"
+      },
+      {
+        "run_id": "rf-0355",
+        "manifest_id": "m-e7f21bba38fc",
+        "slot": "canary",
+        "kind": "skill",
+        "name": "report-helper",
+        "version": "1.1.0",
+        "hash": "2c2d8a21842f"
+      }
+    ]
+  },
+  "what could rf-0355 access": {
+    "sql": "SELECT mp.kind, mp.name, p.permissions, p.data_scope FROM rs.runs r JOIN manifest_parts mp ON mp.manifest_id = r.manifest_id JOIN parts p ON p.kind=mp.kind AND p.name=mp.name AND p.version=mp.version WHERE r.run_id = ? AND mp.kind IN ('policy','skill','model') ORDER BY mp.kind",
+    "rows": [
+      {
+        "kind": "model",
+        "name": "model-a",
+        "permissions": {},
+        "data_scope": {
+          "egress": "request content goes to example-provider"
+        }
+      },
+      {
+        "kind": "policy",
+        "name": "report-fix-no-deploy",
+        "permissions": {
+          "allowed_tools": [
+            "activate_skill",
+            "read_file",
+            "read_skill_resource",
+            "replace_text",
+            "run_skill_script",
+            "run_tests"
+          ],
+          "network": false
+        },
+        "data_scope": {
+          "workspace": "run workspace",
+          "deploy": "refused"
+        }
+      },
+      {
+        "kind": "skill",
+        "name": "report-helper",
+        "permissions": {
+          "declared_tools": [
+            "read_file",
+            "replace_text",
+            "run_tests",
+            "read_skill_resource",
+            "run_skill_script"
+          ],
+          "network": "none declared"
+        },
+        "data_scope": {
+          "reads": "workspace files named in the task"
+        }
+      }
+    ],
+    "effective_tools": [
+      "activate_skill",
+      "read_file",
+      "read_skill_resource",
+      "replace_text",
+      "run_skill_script",
+      "run_tests"
+    ],
+    "skill_declared_not_in_manifest": []
+  },
+  "what evidence released rf-0355's manifest": {
+    "sql": "SELECT e.kind, e.result, e.at, e.by FROM rs.runs r JOIN evidence e ON e.subject = r.manifest_id WHERE r.run_id = ?",
+    "rows": [
+      {
+        "kind": "gate",
+        "result": {
+          "decision": "allow",
+          "candidate": "report-helper@1.1.0",
+          "baseline": "report-helper@1.0.0",
+          "checks": {
+            "B1": true,
+            "B2": true,
+            "B4": true,
+            "B6": true,
+            "B7": true,
+            "B8": true
+          },
+          "failed": [],
+          "regressed": [],
+          "dataset": "report-fix-tasks@1 (1 task; scripted model, so repeats are identical)",
+          "suite": "report-fix-behavior@1.0.0"
+        },
+        "at": 176,
+        "by": "reporting-platform"
+      }
+    ]
+  },
+  "runs that used a withdrawn version": {
+    "sql": "SELECT r.status, count(*) AS runs FROM rs.runs r JOIN manifest_parts mp ON mp.manifest_id = r.manifest_id JOIN parts p ON p.kind=mp.kind AND p.name=mp.name AND p.version=mp.version WHERE p.status='withdrawn' GROUP BY r.status ORDER BY r.status",
+    "rows": [
+      {
+        "status": "completed",
+        "runs": 10
+      },
+      {
+        "status": "halted",
+        "runs": 1
+      },
+      {
+        "status": "restarted",
+        "runs": 1
+      }
+    ]
+  },
+  "who depends on exports_create": {
+    "sql": "SELECT consumer, consumer_owner, version FROM depends WHERE kind='tool' AND name='exports_create' ORDER BY consumer",
+    "rows": [
+      {
+        "consumer": "analytics agent",
+        "consumer_owner": "analytics",
+        "version": "2.0.0"
+      },
+      {
+        "consumer": "export-assistant",
+        "consumer_owner": "finance-ops",
+        "version": "1.0.0"
+      },
+      {
+        "consumer": "nightly finance workflow",
+        "consumer_owner": "finance-ops",
+        "version": "2.0.0"
+      },
+      {
+        "consumer": "replay of agent run r-2291",
+        "consumer_owner": "eval-platform",
+        "version": "1.0.0"
+      },
+      {
+        "consumer": "saved skill: month-end pack",
+        "consumer_owner": "finance-ops",
+        "version": "2.0.0"
+      },
+      {
+        "consumer": "scheduled task: weekly revenue",
+        "consumer_owner": "analytics",
+        "version": "2.0.0"
+      }
+    ]
+  }
+}

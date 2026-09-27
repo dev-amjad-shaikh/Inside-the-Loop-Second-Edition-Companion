@@ -1,0 +1,2269 @@
+[
+  {
+    "task": "Export the daily orders report for 2026-09-11 as CSV to the finance SFTP server.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 2,
+        "matched": [
+          "export",
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 2,
+        "matched": [
+          "export",
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "create_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Send the daily orders file for September 11 to finance.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export",
+      "get_logs",
+      "get_data"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 0,
+        "matched": [],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "create_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Deliver the weekly revenue report to the analytics bucket as parquet.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "create_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Is export exp_0413 finished yet?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "What is the status of the export I started this morning?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Why did the export for September 10 fail? Show the end of its job log.",
+    "selected": "process_data",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 2,
+        "matched": [
+          "export",
+          "log"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 1,
+        "matched": [
+          "log"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_logs",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Show the job log for export exp_0412.",
+    "selected": "process_data",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 2,
+        "matched": [
+          "export",
+          "log"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 1,
+        "matched": [
+          "log"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_logs",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Which report lists refunds by region?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_data",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Find the daily orders report in the catalog and its current version.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_data",
+    "verdict": "wrong"
+  },
+  {
+    "task": "List all failed exports from this week.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "get_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Cancel the parquet export that is still running.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "process_data",
+    "verdict": "correct_by_tie_break"
+  },
+  {
+    "task": "Re-run yesterday's daily orders export; it failed on upload.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "development",
+    "expected": "create_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Push the refunds by region report for 2026-09-08 to the analytics bucket in parquet.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "create_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Did exp_0412 get delivered?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export",
+      "get_logs",
+      "get_data"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 0,
+        "matched": [],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "get_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Give me the last lines of the log for exp_0412.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "get_logs"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "log"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "get_logs",
+        "score": 1,
+        "matched": [
+          "log"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "export_report",
+        "score": 0,
+        "matched": [],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "get_logs",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Stop export exp_0415 before it uploads.",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "process_data",
+    "verdict": "correct_by_tie_break"
+  },
+  {
+    "task": "Which exports are still queued?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report",
+      "export_data",
+      "create_export",
+      "get_export"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "get_export",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Is there a report about salaries?",
+    "selected": "process_data",
+    "margin": 0,
+    "tied_at_top": [
+      "process_data",
+      "export_report"
+    ],
+    "candidates": [
+      {
+        "tool": "process_data",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "export_report",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "export_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "create_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "get_export",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "get_logs",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      },
+      {
+        "tool": "get_data",
+        "score": 0,
+        "matched": [],
+        "registration_order": 6
+      }
+    ],
+    "toolset": "flawed",
+    "split": "held_out",
+    "expected": "get_data",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Export the daily orders report for 2026-09-11 as CSV to the finance SFTP server.",
+    "selected": "exports_create",
+    "margin": 3,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_create",
+        "score": 5,
+        "matched": [
+          "csv",
+          "export",
+          "finance",
+          "report",
+          "sftp"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "reports_search",
+        "score": 2,
+        "matched": [
+          "order",
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_create",
+    "verdict": "correct"
+  },
+  {
+    "task": "Send the daily orders file for September 11 to finance.",
+    "selected": "exports_create",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_create",
+        "score": 2,
+        "matched": [
+          "file",
+          "finance"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "reports_search",
+        "score": 1,
+        "matched": [
+          "order"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_create",
+    "verdict": "correct"
+  },
+  {
+    "task": "Deliver the weekly revenue report to the analytics bucket as parquet.",
+    "selected": "exports_create",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_create",
+        "score": 3,
+        "matched": [
+          "deliver",
+          "parquet",
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "reports_search",
+        "score": 2,
+        "matched": [
+          "report",
+          "revenue"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_create",
+    "verdict": "correct"
+  },
+  {
+    "task": "Is export exp_0413 finished yet?",
+    "selected": "exports_get_status",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "finished"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_get_status",
+    "verdict": "correct"
+  },
+  {
+    "task": "What is the status of the export I started this morning?",
+    "selected": "exports_get_status",
+    "margin": 0,
+    "tied_at_top": [
+      "exports_get_status",
+      "exports_list"
+    ],
+    "candidates": [
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "status"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 2,
+        "matched": [
+          "export",
+          "status"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_list",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Why did the export for September 10 fail? Show the end of its job log.",
+    "selected": "exports_read_log",
+    "margin": 2,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_read_log",
+        "score": 3,
+        "matched": [
+          "export",
+          "job",
+          "log"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_read_log",
+    "verdict": "correct"
+  },
+  {
+    "task": "Show the job log for export exp_0412.",
+    "selected": "exports_read_log",
+    "margin": 2,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_read_log",
+        "score": 3,
+        "matched": [
+          "export",
+          "job",
+          "log"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_read_log",
+    "verdict": "correct"
+  },
+  {
+    "task": "Which report lists refunds by region?",
+    "selected": "reports_search",
+    "margin": 0,
+    "tied_at_top": [
+      "reports_search",
+      "exports_get_status"
+    ],
+    "candidates": [
+      {
+        "tool": "reports_search",
+        "score": 2,
+        "matched": [
+          "refund",
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "list",
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "list"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "reports_search",
+    "verdict": "correct_by_tie_break"
+  },
+  {
+    "task": "Find the daily orders report in the catalog and its current version.",
+    "selected": "reports_search",
+    "margin": 4,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "reports_search",
+        "score": 6,
+        "matched": [
+          "catalog",
+          "current",
+          "find",
+          "order",
+          "report",
+          "version"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 2,
+        "matched": [
+          "report",
+          "version"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "find"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "reports_search",
+    "verdict": "correct"
+  },
+  {
+    "task": "List all failed exports from this week.",
+    "selected": "exports_get_status",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_get_status",
+        "score": 3,
+        "matched": [
+          "export",
+          "failed",
+          "list"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_create",
+        "score": 2,
+        "matched": [
+          "export",
+          "failed"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_list",
+        "score": 2,
+        "matched": [
+          "export",
+          "list"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_list",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Cancel the parquet export that is still running.",
+    "selected": "exports_cancel",
+    "margin": 1,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_cancel",
+        "score": 3,
+        "matched": [
+          "cancel",
+          "export",
+          "running"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "exports_create",
+        "score": 2,
+        "matched": [
+          "export",
+          "parquet"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "running"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_cancel",
+    "verdict": "correct"
+  },
+  {
+    "task": "Re-run yesterday's daily orders export; it failed on upload.",
+    "selected": "exports_create",
+    "margin": 2,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_create",
+        "score": 4,
+        "matched": [
+          "export",
+          "failed",
+          "re",
+          "run"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "failed"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "reports_search",
+        "score": 1,
+        "matched": [
+          "order"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "development",
+    "expected": "exports_create",
+    "verdict": "correct"
+  },
+  {
+    "task": "Push the refunds by region report for 2026-09-08 to the analytics bucket in parquet.",
+    "selected": "reports_search",
+    "margin": 0,
+    "tied_at_top": [
+      "reports_search",
+      "exports_create"
+    ],
+    "candidates": [
+      {
+        "tool": "reports_search",
+        "score": 2,
+        "matched": [
+          "refund",
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 2,
+        "matched": [
+          "parquet",
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "exports_create",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Did exp_0412 get delivered?",
+    "selected": "exports_get_status",
+    "margin": 0,
+    "tied_at_top": [
+      "exports_get_status",
+      "exports_cancel"
+    ],
+    "candidates": [
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "delivered"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "delivered"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 0,
+        "matched": [],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "exports_get_status",
+    "verdict": "correct_by_tie_break"
+  },
+  {
+    "task": "Give me the last lines of the log for exp_0412.",
+    "selected": "exports_read_log",
+    "margin": 4,
+    "tied_at_top": [],
+    "candidates": [
+      {
+        "tool": "exports_read_log",
+        "score": 4,
+        "matched": [
+          "give",
+          "last",
+          "line",
+          "log"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 0,
+        "matched": [],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 0,
+        "matched": [],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "exports_read_log",
+    "verdict": "correct"
+  },
+  {
+    "task": "Stop export exp_0415 before it uploads.",
+    "selected": "reports_search",
+    "margin": 0,
+    "tied_at_top": [
+      "reports_search",
+      "exports_create",
+      "exports_get_status",
+      "exports_list",
+      "exports_read_log",
+      "exports_cancel"
+    ],
+    "candidates": [
+      {
+        "tool": "reports_search",
+        "score": 1,
+        "matched": [
+          "before"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "exports_cancel",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Which exports are still queued?",
+    "selected": "exports_get_status",
+    "margin": 0,
+    "tied_at_top": [
+      "exports_get_status",
+      "exports_cancel"
+    ],
+    "candidates": [
+      {
+        "tool": "exports_get_status",
+        "score": 2,
+        "matched": [
+          "export",
+          "queued"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 2,
+        "matched": [
+          "export",
+          "queued"
+        ],
+        "registration_order": 5
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_list",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "registration_order": 4
+      },
+      {
+        "tool": "reports_search",
+        "score": 0,
+        "matched": [],
+        "registration_order": 0
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "exports_list",
+    "verdict": "wrong"
+  },
+  {
+    "task": "Is there a report about salaries?",
+    "selected": "reports_search",
+    "margin": 0,
+    "tied_at_top": [
+      "reports_search",
+      "exports_create",
+      "exports_get_status"
+    ],
+    "candidates": [
+      {
+        "tool": "reports_search",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 0
+      },
+      {
+        "tool": "exports_create",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 1
+      },
+      {
+        "tool": "exports_get_status",
+        "score": 1,
+        "matched": [
+          "report"
+        ],
+        "registration_order": 2
+      },
+      {
+        "tool": "exports_list",
+        "score": 0,
+        "matched": [],
+        "registration_order": 3
+      },
+      {
+        "tool": "exports_read_log",
+        "score": 0,
+        "matched": [],
+        "registration_order": 4
+      },
+      {
+        "tool": "exports_cancel",
+        "score": 0,
+        "matched": [],
+        "registration_order": 5
+      }
+    ],
+    "toolset": "revised",
+    "split": "held_out",
+    "expected": "reports_search",
+    "verdict": "correct_by_tie_break"
+  }
+]

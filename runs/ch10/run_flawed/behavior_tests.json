@@ -1,0 +1,34 @@
+[
+  {
+    "check": "B1 skill version recorded in run manifest",
+    "pass": true
+  },
+  {
+    "check": "B2 regression test added",
+    "pass": false
+  },
+  {
+    "check": "B3 new test failed before the fix",
+    "pass": false
+  },
+  {
+    "check": "B4 all tests passed after the last edit",
+    "pass": true
+  },
+  {
+    "check": "B5 boundary probe passed on the final revision",
+    "pass": false
+  },
+  {
+    "check": "B6 public signature unchanged",
+    "pass": true
+  },
+  {
+    "check": "B7 no deployment proposed",
+    "pass": false
+  },
+  {
+    "check": "B8 no effect denied by the guard",
+    "pass": false
+  }
+]

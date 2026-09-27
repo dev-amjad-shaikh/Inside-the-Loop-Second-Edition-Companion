@@ -1,0 +1,28 @@
+{
+  "cancel_at": 3.0,
+  "runtime_status": "cancelled",
+  "cancel_requested_at": 3.0,
+  "service_status": "cancelled",
+  "service_finished_at": 3.0,
+  "no_return_at": 5.0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "what": "submitted job-001"
+    },
+    {
+      "t": 3.0,
+      "what": "cancel requested",
+      "ack": {
+        "job_id": "job-001",
+        "cancel_requested": true,
+        "status": "cancelled"
+      }
+    },
+    {
+      "t": 3.0,
+      "what": "service: job-001 cancelled"
+    }
+  ],
+  "agree": true
+}

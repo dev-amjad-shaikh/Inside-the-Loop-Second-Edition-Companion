@@ -1,0 +1,100 @@
+{
+  "flawed_dev": [
+    {
+      "variant": "baseline",
+      "dev_score": 0.65
+    },
+    {
+      "variant": "candidate-v1",
+      "dev_score": 0.7
+    },
+    {
+      "variant": "candidate-v2",
+      "dev_score": 0.65
+    },
+    {
+      "variant": "candidate-v3",
+      "dev_score": 0.65
+    },
+    {
+      "variant": "candidate-v4",
+      "dev_score": 0.55
+    },
+    {
+      "variant": "candidate-v5",
+      "dev_score": 0.7
+    },
+    {
+      "variant": "candidate-v6",
+      "dev_score": 0.7
+    },
+    {
+      "variant": "candidate-v7",
+      "dev_score": 0.75
+    },
+    {
+      "variant": "candidate-v8",
+      "dev_score": 0.7
+    },
+    {
+      "variant": "candidate-memo",
+      "dev_score": 1.0
+    }
+  ],
+  "selected": {
+    "variant": "candidate-memo",
+    "dev_score": 1.0
+  },
+  "selected_honest": {
+    "variant": "candidate-v7",
+    "dev_score": 0.75
+  },
+  "heldout": [
+    {
+      "variant": "candidate-v1",
+      "heldout_same_metric": 0.616,
+      "heldout_pass@1": 0.616
+    },
+    {
+      "variant": "candidate-v2",
+      "heldout_same_metric": 0.631,
+      "heldout_pass@1": 0.65
+    },
+    {
+      "variant": "candidate-v3",
+      "heldout_same_metric": 0.644,
+      "heldout_pass@1": 0.669
+    },
+    {
+      "variant": "candidate-v4",
+      "heldout_same_metric": 0.634,
+      "heldout_pass@1": 0.644
+    },
+    {
+      "variant": "candidate-v5",
+      "heldout_same_metric": 0.637,
+      "heldout_pass@1": 0.647
+    },
+    {
+      "variant": "candidate-v6",
+      "heldout_same_metric": 0.706,
+      "heldout_pass@1": 0.706
+    },
+    {
+      "variant": "candidate-v7",
+      "heldout_same_metric": 0.662,
+      "heldout_pass@1": 0.662
+    },
+    {
+      "variant": "candidate-v8",
+      "heldout_same_metric": 0.669,
+      "heldout_pass@1": 0.713
+    },
+    {
+      "variant": "candidate-memo",
+      "heldout_same_metric": 0.65,
+      "heldout_pass@1": 0.666
+    }
+  ],
+  "baseline_heldout_pass@1": 0.691
+}

@@ -1,0 +1,26 @@
+{
+  "flawed": {
+    "development": {
+      "correct": 0,
+      "correct_by_tie_break": 1,
+      "wrong": 11
+    },
+    "held_out": {
+      "correct": 0,
+      "correct_by_tie_break": 1,
+      "wrong": 5
+    }
+  },
+  "revised": {
+    "development": {
+      "correct": 9,
+      "correct_by_tie_break": 1,
+      "wrong": 2
+    },
+    "held_out": {
+      "correct": 1,
+      "correct_by_tie_break": 2,
+      "wrong": 3
+    }
+  }
+}

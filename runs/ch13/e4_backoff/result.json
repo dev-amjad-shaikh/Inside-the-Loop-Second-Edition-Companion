@@ -1,0 +1,232 @@
+{
+  "restart_t": 5.5,
+  "deadline": 125.5,
+  "outage_until": 205.5,
+  "first_pass": "query status: unavailable, mark uncertain",
+  "first_pass_end_t": 107.79,
+  "after_first_pass": {
+    "op_id": "op-0001",
+    "tool": "refresh_dashboard",
+    "recovery_class": "queryable",
+    "op_key": null,
+    "payload_digest": "140a1784fec4b0c9",
+    "status": "uncertain",
+    "attempts": 1,
+    "first_dispatched_at": 0.5,
+    "receipt": null
+  },
+  "second_pass_t": 305.5,
+  "second_pass": "query status again",
+  "final": {
+    "op_id": "op-0001",
+    "tool": "refresh_dashboard",
+    "recovery_class": "queryable",
+    "op_key": null,
+    "payload_digest": "140a1784fec4b0c9",
+    "status": "completed",
+    "attempts": 1,
+    "first_dispatched_at": 0.5,
+    "receipt": {
+      "cancel_requested": false,
+      "client_op_id": "op-0001",
+      "job_id": "job-001",
+      "result": {
+        "dashboard": "daily-orders",
+        "refreshed_at": 40.5
+      },
+      "status": "completed"
+    }
+  },
+  "log": [
+    {
+      "t": 5.5,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 1,
+      "status": 503,
+      "bound_s": 1.0,
+      "delay_s": 0.259
+    },
+    {
+      "t": 5.759,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 2,
+      "status": 503,
+      "bound_s": 2.0,
+      "delay_s": 1.371
+    },
+    {
+      "t": 7.13,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 3,
+      "status": 503,
+      "bound_s": 4.0,
+      "delay_s": 2.736
+    },
+    {
+      "t": 9.866,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 4,
+      "status": 503,
+      "bound_s": 8.0,
+      "delay_s": 6.795
+    },
+    {
+      "t": 16.661,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 5,
+      "status": 503,
+      "bound_s": 16.0,
+      "delay_s": 2.972
+    },
+    {
+      "t": 19.633,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 6,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 6.917
+    },
+    {
+      "t": 26.55,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 7,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 4.415
+    },
+    {
+      "t": 30.965,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 8,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 6.755
+    },
+    {
+      "t": 37.72,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 9,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 22.021
+    },
+    {
+      "t": 59.741,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 10,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 3.906
+    },
+    {
+      "t": 63.647,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 11,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 15.939
+    },
+    {
+      "t": 79.586,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 12,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 6.417
+    },
+    {
+      "t": 86.003,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 13,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 8.84
+    },
+    {
+      "t": 94.843,
+      "event": "retry",
+      "what": "status query",
+      "attempt": 14,
+      "status": 503,
+      "bound_s": 30.0,
+      "delay_s": 12.947
+    },
+    {
+      "t": 107.79,
+      "event": "deadline",
+      "what": "status query",
+      "attempt": 15,
+      "would_wait_s": 25.13,
+      "deadline": 125.5
+    }
+  ],
+  "repair_items": [
+    {
+      "item_id": "R-1",
+      "op_id": "op-0001",
+      "opened_at": 107.79,
+      "reason": "status query unavailable before deadline; re-query later",
+      "evidence": {
+        "deadline": 125.5,
+        "op_id": "op-0001"
+      },
+      "status": "resolved",
+      "resolved_by": "reconciler",
+      "resolution": {
+        "finding": "job found by status query",
+        "job": {
+          "cancel_requested": false,
+          "client_op_id": "op-0001",
+          "job_id": "job-001",
+          "result": {
+            "dashboard": "daily-orders",
+            "refreshed_at": 40.5
+          },
+          "status": "completed"
+        }
+      },
+      "resolved_at": 305.5
+    }
+  ],
+  "herd_no_jitter": {
+    "requests": 300,
+    "max_per_window": 50,
+    "busiest_window_start_s": 1.0,
+    "windows_used": 6,
+    "last_request_s": 61.0
+  },
+  "herd_full_jitter": {
+    "requests": 300,
+    "max_per_window": 12,
+    "busiest_window_start_s": 0.5,
+    "windows_used": 159,
+    "last_request_s": 49.726
+  },
+  "jobs": [
+    {
+      "job_id": "job-001",
+      "client_op_id": "op-0001",
+      "payload_json": "{\"dashboard\":\"daily-orders\",\"export_id\":\"export-file-001\"}",
+      "status": "completed",
+      "submitted_at": 0.5,
+      "finish_at": 40.5,
+      "no_return_at": 5.5,
+      "cancel_requested_at": null,
+      "finished_at": 40.5,
+      "result_json": "{\"dashboard\":\"daily-orders\",\"refreshed_at\":40.5}"
+    }
+  ]
+}

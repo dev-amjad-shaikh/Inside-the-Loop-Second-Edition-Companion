@@ -1,0 +1,39 @@
+{
+  "recomputed_under_active": {
+    "completed": 400,
+    "decisions_differ": 413,
+    "decisions_recomputed": 412,
+    "decisions_recorded": 413,
+    "first_difference": {
+      "attempt": 1,
+      "op": 0,
+      "recomputed": 300.0,
+      "recorded": 2.0
+    },
+    "journal": "01a42df3d1be",
+    "version": "static-v0"
+  },
+  "recomputed_under_candidate_2": {
+    "completed": 400,
+    "decisions_differ": 202,
+    "decisions_recomputed": 413,
+    "decisions_recorded": 413,
+    "first_difference": {
+      "attempt": 1,
+      "op": 1,
+      "recomputed": 300.0,
+      "recorded": 120.0
+    },
+    "journal": "d537ffe598a9",
+    "version": "p-de59111c6ffc"
+  },
+  "recorded": {
+    "completed": 400,
+    "journal": "c88b82c7b547"
+  },
+  "served_from_journal": {
+    "completed": 400,
+    "identical": true,
+    "journal": "c88b82c7b547"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "incident_id": "INC-75c9ba01aa3a",
+  "component": {
+    "name": "send_report",
+    "version": "2.0.0",
+    "manifest_hash": "fa1a57f0db40"
+  },
+  "detection": [
+    {
+      "signal": "denied_outbound_attempt",
+      "tenant": "acme",
+      "tool": "send_report",
+      "attempts": 2,
+      "distinct_destinations": [
+        "audit-7f3a@exfil.example"
+      ],
+      "runs": [
+        "run-9001",
+        "run-9002"
+      ]
+    },
+    {
+      "signal": "denied_outbound_attempt",
+      "tenant": "globex",
+      "tool": "send_report",
+      "attempts": 1,
+      "distinct_destinations": [
+        "audit-7f3a@exfil.example"
+      ],
+      "runs": [
+        "run-9003"
+      ]
+    },
+    {
+      "signal": "outbound_to_unregistered_domain",
+      "domain": "exfil.example",
+      "bytes": 1536,
+      "runs": [
+        "run-9001",
+        "run-9002",
+        "run-9003"
+      ]
+    }
+  ],
+  "affected_runs": [
+    "run-9001",
+    "run-9002",
+    "run-9003"
+  ],
+  "affected_tenants": [
+    "acme",
+    "globex"
+  ],
+  "data_left": [
+    {
+      "run_id": "run-9001",
+      "tenant": "acme",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1000
+    },
+    {
+      "run_id": "run-9002",
+      "tenant": "acme",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1100
+    },
+    {
+      "run_id": "run-9003",
+      "tenant": "globex",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1200
+    }
+  ],
+  "records_exfiltrated_bytes": 1536,
+  "containment": {
+    "kill_switches": [
+      {
+        "at": 120,
+        "action": "disable",
+        "kind": "tool",
+        "target": "send_report",
+        "reason": "compromised catalog build in use",
+        "by": "secops"
+      }
+    ],
+    "credentials_revoked": [
+      {
+        "at": 200,
+        "credential_id": "cred-acme-mail",
+        "action": "revoke",
+        "reason": "held by run on compromised build",
+        "by": "secops"
+      },
+      {
+        "at": 200,
+        "credential_id": "cred-globex-mail",
+        "action": "revoke",
+        "reason": "held by run on compromised build",
+        "by": "secops"
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "at": "T+0",
+      "event": "records show outbound to an unregistered domain and denied egress attempts"
+    },
+    {
+      "at": "T+2m",
+      "event": "kill switch: send_report disabled fleet-wide"
+    },
+    {
+      "at": "T+5m",
+      "event": "enumerated 3 runs on compromised build fa1a57f0db40"
+    },
+    {
+      "at": "T+9m",
+      "event": "revoked 2 credentials"
+    },
+    {
+      "at": "T+15m",
+      "event": "incident report assembled from records"
+    }
+  ]
+}

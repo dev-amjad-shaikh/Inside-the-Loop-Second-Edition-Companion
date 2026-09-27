@@ -1,0 +1,22 @@
+[
+  {
+    "call": 8,
+    "proposal_task_revision": 2,
+    "current_task_revision": 2,
+    "flawed_verifier": {
+      "complete": true,
+      "reason": "latest test result passed after latest edit"
+    },
+    "revision_verifier": {
+      "complete": true,
+      "task_revision": 2,
+      "version": "339d3a9f2656",
+      "missing": [],
+      "supporting": [
+        "E2",
+        "E3"
+      ]
+    },
+    "accepted": true
+  }
+]

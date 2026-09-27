@@ -1,0 +1,12 @@
+{
+  "rollback_journal_left": true,
+  "c7_state": "prepared",
+  "c7_observation": null,
+  "report_py_versions_recorded": 1,
+  "events": 35,
+  "report_py_on_disk": "78721bd28acc",
+  "point": "during_t1",
+  "exit_code": 70,
+  "restart_marked_uncertain": [],
+  "c7_state_after_restart": "prepared"
+}

@@ -1,0 +1,9 @@
+{
+  "model_calls": 16,
+  "tokens": 30000,
+  "sim_seconds": 240.0,
+  "tool:run_tests": 4,
+  "tool:replace_text": 8,
+  "tool:read_file": 20,
+  "tool:deploy": 1
+}

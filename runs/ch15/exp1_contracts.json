@@ -1,0 +1,163 @@
+{
+  "workers": [
+    {
+      "worker": "tz-boundary-reviewer",
+      "worker_version": "1.2.0",
+      "contract_version": "review-contract/1.1",
+      "input_revision": "r5",
+      "status": "accepted",
+      "verdict": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_excerpt": "{\"contract_id\": \"review-tz-r5\", \"input_revision\": \"r5\", \"verdict\": \"pass\", \"findings\": [], \"coverage\": {\"pdt_evening\": [\"ev-allcasespass\"], \"pdt_after_local_mid",
+          "violations": [
+            "evidence ev-allcasespass was not recorded by the runtime"
+          ]
+        },
+        {
+          "attempt": 2,
+          "raw_excerpt": "{\"contract_id\": \"review-tz-r5\", \"input_revision\": \"r5\", \"verdict\": \"pass\", \"findings\": [], \"coverage\": {\"pdt_midday\": [\"ev-da5e16e4f6a7\"], \"pdt_evening\": [\"ev-b",
+          "violations": []
+        }
+      ],
+      "tokens": 3315,
+      "model_calls": 4,
+      "sim_seconds": 11.467,
+      "operations": [
+        "read_file",
+        "read_file",
+        "run_cases"
+      ]
+    },
+    {
+      "worker": "interface-reviewer",
+      "worker_version": "1.0.3",
+      "contract_version": "review-contract/1.1",
+      "input_revision": "r5",
+      "status": "accepted",
+      "verdict": "pass",
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_excerpt": "Looks fine to me. The signature of belongs_to_report is unchanged and the timezone logic reads correctly.",
+          "violations": [
+            "result is not a JSON object"
+          ]
+        },
+        {
+          "attempt": 2,
+          "raw_excerpt": "{\"contract_id\": \"review-iface-r5\", \"input_revision\": \"r5\", \"verdict\": \"pass\", \"findings\": [{\"claim\": \"signature unchanged: belongs_to_report(created_at, request",
+          "violations": []
+        }
+      ],
+      "tokens": 2323,
+      "model_calls": 4,
+      "sim_seconds": 8.101,
+      "operations": [
+        "read_file",
+        "inspect_interface"
+      ]
+    }
+  ],
+  "integration": {
+    "current_revision": "r5",
+    "verdict": "verified",
+    "admitted": [
+      "tz-boundary-reviewer",
+      "interface-reviewer"
+    ],
+    "stale": [],
+    "rejected": [],
+    "missing_coverage": [],
+    "defects": [],
+    "coverage": {
+      "pdt_midday": [
+        "ev-da5e16e4f6a7"
+      ],
+      "pdt_evening": [
+        "ev-b71d614e7e9a"
+      ],
+      "pdt_after_local_midnight": [
+        "ev-2ef41dbee529"
+      ],
+      "pst_evening": [
+        "ev-47aee4ef65b3"
+      ],
+      "dst_fall_back_evening": [
+        "ev-6609238cf8d3"
+      ],
+      "dst_spring_forward_evening": [
+        "ev-103a48345f62"
+      ],
+      "public_interface": [
+        "ev-bccf23adcb92"
+      ]
+    }
+  },
+  "coordinator": {
+    "tokens_in": 284,
+    "tokens_out": 21,
+    "tokens_total": 305,
+    "sim_seconds": 1.291
+  },
+  "findings": {
+    "tz-boundary-reviewer": [],
+    "interface-reviewer": [
+      {
+        "claim": "signature unchanged: belongs_to_report(created_at, requested_day, timezone)",
+        "severity": "info",
+        "evidence": [
+          "ev-bccf23adcb92"
+        ]
+      }
+    ]
+  },
+  "results": {
+    "tz-boundary-reviewer": {
+      "contract_id": "review-tz-r5",
+      "input_revision": "r5",
+      "verdict": "pass",
+      "findings": [],
+      "coverage": {
+        "pdt_midday": [
+          "ev-da5e16e4f6a7"
+        ],
+        "pdt_evening": [
+          "ev-b71d614e7e9a"
+        ],
+        "pdt_after_local_midnight": [
+          "ev-2ef41dbee529"
+        ],
+        "pst_evening": [
+          "ev-47aee4ef65b3"
+        ],
+        "dst_fall_back_evening": [
+          "ev-6609238cf8d3"
+        ],
+        "dst_spring_forward_evening": [
+          "ev-103a48345f62"
+        ]
+      }
+    },
+    "interface-reviewer": {
+      "contract_id": "review-iface-r5",
+      "input_revision": "r5",
+      "verdict": "pass",
+      "findings": [
+        {
+          "claim": "signature unchanged: belongs_to_report(created_at, requested_day, timezone)",
+          "severity": "info",
+          "evidence": [
+            "ev-bccf23adcb92"
+          ]
+        }
+      ],
+      "coverage": {
+        "public_interface": [
+          "ev-bccf23adcb92"
+        ]
+      }
+    }
+  }
+}

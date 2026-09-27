@@ -1,0 +1,139 @@
+
+== Cosine example
+cos(q, A) = 0.9701   cos(q, B) = 0.2169
+
+== Ingestion
+fixed      chunks= 15  returns-policy v2 chunks=5
+structured chunks= 18  returns-policy v2 chunks=4
+  fixed returns-policy@v2#0      chars    0- 200 sha 09ab4f8abf93 | '# Return policy\n\nVersion 2. Applies to' ... ' refund. Start a return from t'
+  fixed returns-policy@v2#1      chars  180- 380 sha 5a2ec6da1409 | 'tart a return from the order page or c' ... 'r protective film has been rem'
+  fixed returns-policy@v2#2      chars  360- 560 sha 05f5594d54c2 | 've film has been removed, and items th' ... '\n|---|---|---|\n| Defective or '
+  fixed returns-policy@v2#3      chars  540- 740 sha dacd3412e849 | '---|\n| Defective or damaged on arrival' ... ' from delivery |\n\n## Refunds\n\n'
+  fixed returns-policy@v2#4      chars  720- 852 sha 47081b507b2b | 'very |\n\n## Refunds\n\nApproved refunds a' ... 'of the return being received.\n'
+  struct returns-policy@v2#0     chars    0-  81 sha 16a2fe862e32 | Return policy
+  struct returns-policy@v2#1     chars   81- 257 sha e509c59ac4e8 | Return policy > Return window
+  struct returns-policy@v2#2     chars  257- 728 sha 44dde78d3672 | Return policy > Opened products
+  struct returns-policy@v2#3     chars  728- 852 sha 2802a5f78bab | Return policy > Refunds
+
+== Q1 with fixed chunks, customer, order 2026-05-10
+  indexed chunks                           15
+  after access filter                      13
+  after withdrawal filter                  13
+  after effective-date filter              9
+  keyword candidates (BM25 > 0, top 8)     7
+  vector candidates (top 8)                8
+  fused candidates (union, RRF)            8
+  evidence after rerank (top 3)            3
+  rank  chunk_id                  bm25(r)        cos(r)        rrf     rerank
+     1  returns-policy@v2#1       3.197(1)   0.389(1)  0.03279  0.3650
+     2  returns-policy@v2#0       1.683(2)   0.356(2)  0.03226  0.1200
+     3  shipping@v4#1             1.609(3)   0.270(3)  0.03175  0.1200
+     4  returns-policy@v2#4       1.163(4)   0.243(4)  0.03125  0.1200
+     5  returns-policy@v2#2       1.111(5)   0.233(5)  0.03077  0.1200
+     6  returns-policy@v2#3       1.001(7)   0.180(6)  0.03008  0.1200
+     7  warranty@v1#0             1.065(6)   0.176(7)  0.03008  0.1200
+     8  shipping@v4#0             0.000(-)   0.100(8)  0.01471  0.0000
+  [E1] returns-policy v2 | (none) | chars 180-380 | sha 5a2ec6da1409
+  [E2] returns-policy v2 | (none) | chars 0-200 | sha 09ab4f8abf93
+  [E3] shipping v4 | (none) | chars 180-291 | sha de2d3a3eb938
+  answer: No. Opened products cannot be returned. [E1]
+  recall@3 of needed chunk: False   outcome: wrong (verdict no but gold is yes)
+
+== Q1 with structured chunks, customer, order 2026-05-10
+  indexed chunks                           18
+  after access filter                      16
+  after withdrawal filter                  16
+  after effective-date filter              10
+  keyword candidates (BM25 > 0, top 8)     6
+  vector candidates (top 8)                8
+  fused candidates (union, RRF)            8
+  evidence after rerank (top 3)            3
+  rank  chunk_id                  bm25(r)        cos(r)        rrf     rerank
+     1  returns-policy@v2#2       2.630(1)   0.335(2)  0.03252  0.4488
+     2  returns-policy@v2#1       1.337(4)   0.360(1)  0.03202  0.1500
+     3  returns-policy@v2#3       0.946(6)   0.247(3)  0.03102  0.1500
+     4  returns-policy@v2#0       1.029(5)   0.130(6)  0.03054  0.1500
+     5  shipping@v4#2             1.528(2)   0.234(4)  0.03175  0.1200
+     6  warranty@v1#1             1.452(3)   0.183(5)  0.03126  0.1200
+     7  warranty@v1#0             0.000(-)   0.086(7)  0.01493  0.0000
+     8  warranty@v1#2             0.000(-)   0.051(8)  0.01471  0.0000
+  [E1] returns-policy v2 | Return policy > Opened products | chars 257-728 | sha 44dde78d3672
+  [E2] returns-policy v2 | Return policy > Return window | chars 81-257 | sha e509c59ac4e8
+  [E3] returns-policy v2 | Return policy > Refunds | chars 728-852 | sha 2802a5f78bab
+  answer: Yes. Condition: Defective or damaged on arrival; Returnable: Yes; Window: 90 days from delivery [E1]
+  recall@3 of needed chunk: True   outcome: supported (verdict and cited unit agree with gold)
+  fixed chunks with k=8: answer: No. Opened products cannot be returned. [E1]  outcome=wrong
+  unreadable table fragments in those 8 chunks: ['| Defective or', '| Defective or damaged on arrival | Yes | 90 days from delivery |', '| Missing parts or accessories | Yes | 30 days from delivery |', '| Wrong item shipped | Yes | 30 days from delivery |']
+
+== Evaluation: recall@3 and answer outcome
+  fixed: recall@3 4/7  answers: supported 4, declined 0, wrong 3 (of 7)
+    q1-opened-defective    recall@3=False verdict=no           expected=yes            outcome=wrong
+    q2-opened-changed-mind recall@3=True  verdict=no           expected=no             outcome=supported
+    q3-old-order-opened    recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q4-unopened-window     recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q5-missing-parts       recall@3=False verdict=no           expected=yes            outcome=wrong
+    q6-misspelled          recall@3=False verdict=no           expected=yes            outcome=wrong
+    q7-reason-code         recall@3=True  verdict=yes          expected=retrieval-only outcome=n/a
+    q8-goodwill-customer   recall@3=None  verdict=insufficient expected=insufficient   outcome=supported
+  structured: recall@3 7/7  answers: supported 7, declined 0, wrong 0 (of 7)
+    q1-opened-defective    recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q2-opened-changed-mind recall@3=True  verdict=no           expected=no             outcome=supported
+    q3-old-order-opened    recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q4-unopened-window     recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q5-missing-parts       recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q6-misspelled          recall@3=True  verdict=yes          expected=yes            outcome=supported
+    q7-reason-code         recall@3=True  verdict=yes          expected=retrieval-only outcome=n/a
+    q8-goodwill-customer   recall@3=None  verdict=insufficient expected=insufficient   outcome=supported
+
+== Rank of the needed chunk by method (structured chunks)
+  question                        keyword           vector     hybrid (RRF)  hybrid + rerank
+  q1-opened-defective                   1                2                1                1
+  q2-opened-changed-mind                1                4                3                1
+  q3-old-order-opened                   1                2                2                1
+  q4-unopened-window                    1                1                1                1
+  q5-missing-parts                      1                1                1                1
+  q6-misspelled                         -                1                1                1
+  q7-reason-code                        1                1                1                1
+  recall@3 keyword          6/7
+  recall@3 vector           6/7
+  recall@3 hybrid (RRF)     7/7
+  recall@3 hybrid + rerank  7/7
+
+== Vector stand-in sanity check
+  'can i retrun an opend blender thats defectve': shared 4-grams=7 ['#def', '#ope', '#ret', 'defe', 'efec', 'fect', 'open'] cos@256=0.2546 cos@1024=0.1517
+  'Can I get my money back for a kettle I unboxed last week?': shared 4-grams=0 [] cos@256=0.2700 cos@1024=0.0379
+
+== Access filter
+  customer, filter applied: 1. returns-policy@v2#2 (0.4488), 2. returns-policy@v2#1 (0.15), 3. returns-policy@v2#3 (0.15)
+  customer, NO access filter: 1. staff-returns-playbook@v3#1 (0.545), 2. returns-policy@v2#2 (0.4488), 3. returns-policy@v2#1 (0.15)
+  staff principal, filter applied: 1. staff-returns-playbook@v3#1 (0.545), 2. returns-policy@v2#2 (0.4488), 3. returns-policy@v2#1 (0.15)
+  post-filter (rank all, keep top 3, then drop unauthorized): 2 of 3 remain: returns-policy@v2#2, returns-policy@v2#1
+
+== Effective date versus ingestion date
+  order 2026-05-10 rule=effective       policy versions in evidence=[('returns-policy', 2)] answer=no   expected=no   outcome=supported
+  order 2026-05-10 rule=latest-ingested policy versions in evidence=[('returns-policy', 1)] answer=yes  expected=no   outcome=wrong
+  order 2026-02-14 rule=effective       policy versions in evidence=[('returns-policy', 1)] answer=yes  expected=yes  outcome=supported
+  order 2026-02-14 rule=latest-ingested policy versions in evidence=[('returns-policy', 1)] answer=yes  expected=yes  outcome=supported
+
+== Withdrawal
+  before: holiday-returns-2025@v1#1, holiday-returns-2025@v1#0, returns-policy@v1#2
+  withdrawn doc chunks=['holiday-returns-2025@v1#0', 'holiday-returns-2025@v1#1'] cache entries invalidated=1
+  after:  returns-policy@v1#2, returns-policy@v1#1, returns-policy@v1#0
+
+== Embedding model change
+  refused: index vectors built with hashvec-4gram-1024/v1; query encoder is hashvec-4gram-2048/v2; re-index required (chunks needing re-embedding: 10)
+
+== Lineage verification
+  [E1] returns-policy@v2#2      slice hash matches=True source 3f7824dbed5b -> 3f7824dbed5b
+  [E2] returns-policy@v2#1      slice hash matches=True source 3f7824dbed5b -> 3f7824dbed5b
+  [E3] returns-policy@v2#3      slice hash matches=True source 3f7824dbed5b -> 3f7824dbed5b
+  after an in-place edit of returns-policy.v2.md: slice hash matches=False source 3f7824dbed5b -> 17c5e4560523
+
+== Agentic search
+  s1: input_error unexpected argument audience
+  s2: ok ['returns-policy v2 | Return policy > Opened products | chars 257-728 | sha 44dde78d3672', 'shipping v4 | Shipping and delivery > Damaged packages | chars 152-291 | sha a89fca74168d', 'warranty v1 | Manufacturer warranty > Coverage | chars 25-206 | sha 1797b6d2f52d']
+  s3: ok ['returns-policy v2 | Return policy > Opened products | chars 257-728 | sha 44dde78d3672', 'returns-policy v2 | Return policy > Return window | chars 81-257 | sha e509c59ac4e8', 'returns-policy v2 | Return policy | chars 0-81 | sha 16a2fe862e32']
+  model calls=4 executed searches=2 final: Yes. Opened products are normally not returnable, but a product that is defective or damaged on arrival can be returned within 90 days of delivery [E1].
+  pre-retrieval: model calls=1 searches=1 evidence=['returns-policy@v2#1', 'returns-policy@v2#0', 'returns-policy@v2#2'] final: Yes. A product that is defective or damaged on arrival can be returned within 90 days of delivery [E3].
+
+Wrote runs/ch07

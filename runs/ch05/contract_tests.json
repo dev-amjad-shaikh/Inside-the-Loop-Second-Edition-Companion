@@ -1,0 +1,274 @@
+{
+  "improved": {
+    "b_fix_done": {
+      "expected": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "9011849db927"
+        ]
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "9011849db927"
+        ]
+      },
+      "pass": true
+    },
+    "b_fix_cut": {
+      "expected": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "got": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "b_length_mid_args": {
+      "expected": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "got": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "b_filtered": {
+      "expected": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "got": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "b_answer_done": {
+      "expected": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_tests_done": {
+      "expected": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "fcdf185d2665"
+        ]
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "fcdf185d2665"
+        ]
+      },
+      "pass": true
+    },
+    "a_answer_done": {
+      "expected": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_answer_length": {
+      "expected": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "got": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_refusal": {
+      "expected": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "got": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_unknown_block": {
+      "expected": {
+        "kind": "unsupported",
+        "executable": 0
+      },
+      "got": {
+        "kind": "unsupported",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_two_tools_cut": {
+      "expected": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "got": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "pass": true
+    }
+  },
+  "flawed": {
+    "b_fix_done": {
+      "expected": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "9011849db927"
+        ]
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "daaeddac3420"
+        ]
+      },
+      "pass": false
+    },
+    "b_fix_cut": {
+      "expected": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1
+      },
+      "pass": false
+    },
+    "b_length_mid_args": {
+      "expected": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1
+      },
+      "pass": false
+    },
+    "b_filtered": {
+      "expected": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": false
+    },
+    "b_answer_done": {
+      "expected": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_tests_done": {
+      "expected": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "fcdf185d2665"
+        ]
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1,
+        "arguments_sha": [
+          "fcdf185d2665"
+        ]
+      },
+      "pass": true
+    },
+    "a_answer_done": {
+      "expected": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": true
+    },
+    "a_answer_length": {
+      "expected": {
+        "kind": "truncated_max_tokens",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": false
+    },
+    "a_refusal": {
+      "expected": {
+        "kind": "refused",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_text",
+        "executable": 0
+      },
+      "pass": false
+    },
+    "a_unknown_block": {
+      "expected": {
+        "kind": "unsupported",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1
+      },
+      "pass": false
+    },
+    "a_two_tools_cut": {
+      "expected": {
+        "kind": "interrupted",
+        "executable": 0
+      },
+      "got": {
+        "kind": "completed_tool_calls",
+        "executable": 1
+      },
+      "pass": false
+    }
+  },
+  "improved_passed": 11,
+  "flawed_passed": 3
+}

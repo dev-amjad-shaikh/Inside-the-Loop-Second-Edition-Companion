@@ -1,0 +1,218 @@
+{
+  "a_answer_length": {
+    "flawed": {
+      "status": "done",
+      "text": "The filter used the UTC calendar date. I changed it to convert each timestamp to the configured report timezone before comparing dates. The new near-midnight test failed before the fix; both tests ",
+      "dispatched": [],
+      "kept_block_types": [
+        "text"
+      ]
+    },
+    "improved": {
+      "kind": "truncated_max_tokens",
+      "cause": "max_tokens",
+      "raw_stop_reason": "max_tokens",
+      "stop_detail": null,
+      "text": "The filter used the UTC calendar date. I changed it to convert each timestamp to the configured report timezone before comparing dates. The new near-midnight test failed before the fix; both tests ",
+      "not_executable": [],
+      "unknown_blocks": [],
+      "unknown_events": [],
+      "ignored_events": [],
+      "usage": {
+        "input_tokens": 3104,
+        "cache_read_tokens": 2944,
+        "output_tokens": 48,
+        "complete": true
+      }
+    }
+  },
+  "b_length_mid_args": {
+    "flawed": {
+      "status": "done",
+      "text": "",
+      "dispatched": [
+        {
+          "id": "call_test_1",
+          "name": "replace_text",
+          "arguments": {
+            "path": "test_report.py",
+            "old": "\n\nif __name__ == \"__main__\":",
+            "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat("
+          }
+        }
+      ],
+      "kept_block_types": [
+        "tool_call"
+      ]
+    },
+    "improved": {
+      "kind": "truncated_max_tokens",
+      "cause": "incomplete:max_output_tokens",
+      "raw_stop_reason": "incomplete:max_output_tokens",
+      "stop_detail": {
+        "reason": "max_output_tokens"
+      },
+      "text": "",
+      "not_executable": [
+        {
+          "id": "call_test_1",
+          "name": "replace_text",
+          "complete_block": false,
+          "args_received": "{\"path\": \"test_report.py\", \"old\": \"\\n\\nif __name__ == \\\"__main__\\\":\", \"new\": \"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n",
+          "args_bytes": 241,
+          "strict_parse": false,
+          "lenient_keys": [
+            "new",
+            "old",
+            "path"
+          ]
+        }
+      ],
+      "unknown_blocks": [],
+      "unknown_events": [],
+      "ignored_events": [
+        "response.in_progress"
+      ],
+      "usage": {
+        "input_tokens": 1987,
+        "cache_read_tokens": 1536,
+        "output_tokens": 64,
+        "reasoning_tokens": 0,
+        "complete": true
+      }
+    }
+  },
+  "a_unknown_block": {
+    "flawed": {
+      "status": "done",
+      "text": "Updating the plan before running the tests.",
+      "dispatched": [
+        {
+          "id": "toolu_tests_3",
+          "name": "run_tests",
+          "arguments": {
+            "tests": [
+              "test_report.py"
+            ]
+          }
+        }
+      ],
+      "kept_block_types": [
+        "text",
+        "tool_call"
+      ]
+    },
+    "improved": {
+      "kind": "unsupported",
+      "cause": "unknown block type: plan_update",
+      "raw_stop_reason": "tool_use",
+      "stop_detail": null,
+      "text": "Updating the plan before running the tests.",
+      "not_executable": [
+        {
+          "id": "toolu_tests_3",
+          "name": "run_tests",
+          "arguments": {
+            "tests": [
+              "test_report.py"
+            ]
+          },
+          "complete_block": true,
+          "args_received": "{\"tests\": [\"test_report.py\"]}",
+          "note": "complete block in a response that did not complete"
+        }
+      ],
+      "unknown_blocks": [
+        {
+          "index": 1,
+          "type": "plan_update",
+          "raw": {
+            "type": "plan_update",
+            "plan": {
+              "steps": [
+                {
+                  "id": 1,
+                  "text": "Run test_report.py",
+                  "status": "in_progress"
+                },
+                {
+                  "id": 2,
+                  "text": "Report the result without deploying",
+                  "status": "pending"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "unknown_events": [
+        "rate_limit_hint"
+      ],
+      "ignored_events": [],
+      "usage": {
+        "input_tokens": 2402,
+        "cache_read_tokens": 1800,
+        "output_tokens": 97,
+        "complete": true
+      }
+    }
+  },
+  "b_filtered": {
+    "flawed": {
+      "status": "done",
+      "text": "",
+      "dispatched": [],
+      "kept_block_types": []
+    },
+    "improved": {
+      "kind": "refused",
+      "cause": "incomplete:content_filter",
+      "raw_stop_reason": "incomplete:content_filter",
+      "stop_detail": {
+        "reason": "content_filter"
+      },
+      "text": "",
+      "not_executable": [],
+      "unknown_blocks": [],
+      "unknown_events": [],
+      "ignored_events": [
+        "response.in_progress"
+      ],
+      "usage": {
+        "input_tokens": 2530,
+        "cache_read_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "complete": true
+      }
+    }
+  },
+  "a_refusal": {
+    "flawed": {
+      "status": "done",
+      "text": "",
+      "dispatched": [],
+      "kept_block_types": []
+    },
+    "improved": {
+      "kind": "refused",
+      "cause": "refusal",
+      "raw_stop_reason": "refusal",
+      "stop_detail": {
+        "category": "policy",
+        "explanation": "The request was declined by the provider's usage policy."
+      },
+      "text": "",
+      "not_executable": [],
+      "unknown_blocks": [],
+      "unknown_events": [],
+      "ignored_events": [],
+      "usage": {
+        "input_tokens": 2251,
+        "cache_read_tokens": 1800,
+        "output_tokens": 3,
+        "complete": true
+      }
+    }
+  }
+}

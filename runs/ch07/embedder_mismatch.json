@@ -1,0 +1,23 @@
+{
+  "status": "refused",
+  "reason": "index vectors built with hashvec-4gram-1024/v1; query encoder is hashvec-4gram-2048/v2; re-index required",
+  "chunks_needing_reindex": 10,
+  "stages": [
+    [
+      "indexed chunks",
+      18
+    ],
+    [
+      "after access filter",
+      16
+    ],
+    [
+      "after withdrawal filter",
+      14
+    ],
+    [
+      "after effective-date filter",
+      10
+    ]
+  ]
+}

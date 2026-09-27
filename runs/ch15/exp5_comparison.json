@@ -1,0 +1,420 @@
+{
+  "clean": {
+    "two_workers": {
+      "latency_s": 9.625,
+      "schedule": {
+        "sequential_s": 15.954,
+        "parallel_s": 9.625,
+        "tasks": {
+          "tz-boundary-reviewer": {
+            "start": 0.0,
+            "finish": 8.334
+          },
+          "interface-reviewer": {
+            "start": 0.0,
+            "finish": 6.329
+          },
+          "integrate": {
+            "start": 8.334,
+            "finish": 9.625
+          }
+        }
+      },
+      "tokens": 4023,
+      "worker_tokens": {
+        "tz-boundary-reviewer": 2122,
+        "interface-reviewer": 1596
+      },
+      "coordinator_tokens": 305,
+      "worker_steps": {
+        "tz-boundary-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 365,
+            "tokens_out": 50,
+            "seconds": 1.891
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 590,
+            "tokens_out": 60,
+            "seconds": 2.147
+          },
+          {
+            "kind": "tool",
+            "name": "run_cases",
+            "seconds": 0.9
+          },
+          {
+            "kind": "model",
+            "tokens_in": 944,
+            "tokens_out": 113,
+            "seconds": 3.296
+          }
+        ],
+        "interface-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 338,
+            "tokens_out": 31,
+            "seconds": 1.505
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 486,
+            "tokens_out": 36,
+            "seconds": 1.641
+          },
+          {
+            "kind": "tool",
+            "name": "inspect_interface",
+            "seconds": 0.3
+          },
+          {
+            "kind": "model",
+            "tokens_in": 611,
+            "tokens_out": 94,
+            "seconds": 2.833
+          }
+        ]
+      },
+      "model_calls": 7,
+      "file_reads": 3,
+      "verdict": "verified",
+      "defects": [],
+      "repair_attempts": 0
+    },
+    "one_worker": {
+      "latency_s": 12.74,
+      "schedule": {
+        "sequential_s": 12.74,
+        "parallel_s": 12.74,
+        "tasks": {
+          "combined-reviewer": {
+            "start": 0.0,
+            "finish": 11.457
+          },
+          "integrate": {
+            "start": 11.457,
+            "finish": 12.74
+          }
+        }
+      },
+      "tokens": 3693,
+      "worker_tokens": {
+        "combined-reviewer": 3419
+      },
+      "coordinator_tokens": 274,
+      "worker_steps": {
+        "combined-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 401,
+            "tokens_out": 50,
+            "seconds": 1.9
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 626,
+            "tokens_out": 60,
+            "seconds": 2.156
+          },
+          {
+            "kind": "tool",
+            "name": "run_cases",
+            "seconds": 0.9
+          },
+          {
+            "kind": "model",
+            "tokens_in": 979,
+            "tokens_out": 36,
+            "seconds": 1.765
+          },
+          {
+            "kind": "tool",
+            "name": "inspect_interface",
+            "seconds": 0.3
+          },
+          {
+            "kind": "model",
+            "tokens_in": 1104,
+            "tokens_out": 163,
+            "seconds": 4.336
+          }
+        ]
+      },
+      "model_calls": 5,
+      "file_reads": 2,
+      "verdict": "verified",
+      "defects": [],
+      "repair_attempts": 0
+    }
+  },
+  "with_malformed_first_answer": {
+    "two_workers": {
+      "latency_s": 9.625,
+      "schedule": {
+        "sequential_s": 17.321,
+        "parallel_s": 9.625,
+        "tasks": {
+          "tz-boundary-reviewer": {
+            "start": 0.0,
+            "finish": 8.334
+          },
+          "interface-reviewer": {
+            "start": 0.0,
+            "finish": 7.696
+          },
+          "integrate": {
+            "start": 8.334,
+            "finish": 9.625
+          }
+        }
+      },
+      "tokens": 4709,
+      "worker_tokens": {
+        "tz-boundary-reviewer": 2122,
+        "interface-reviewer": 2282
+      },
+      "coordinator_tokens": 305,
+      "worker_steps": {
+        "tz-boundary-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 365,
+            "tokens_out": 50,
+            "seconds": 1.891
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 590,
+            "tokens_out": 60,
+            "seconds": 2.147
+          },
+          {
+            "kind": "tool",
+            "name": "run_cases",
+            "seconds": 0.9
+          },
+          {
+            "kind": "model",
+            "tokens_in": 944,
+            "tokens_out": 113,
+            "seconds": 3.296
+          }
+        ],
+        "interface-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 338,
+            "tokens_out": 31,
+            "seconds": 1.505
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 486,
+            "tokens_out": 36,
+            "seconds": 1.641
+          },
+          {
+            "kind": "tool",
+            "name": "inspect_interface",
+            "seconds": 0.3
+          },
+          {
+            "kind": "model",
+            "tokens_in": 611,
+            "tokens_out": 20,
+            "seconds": 1.353
+          },
+          {
+            "kind": "model",
+            "tokens_in": 666,
+            "tokens_out": 94,
+            "seconds": 2.847
+          }
+        ]
+      },
+      "model_calls": 8,
+      "file_reads": 3,
+      "verdict": "verified",
+      "defects": [],
+      "repair_attempts": 1
+    },
+    "one_worker": {
+      "latency_s": 14.23,
+      "schedule": {
+        "sequential_s": 14.23,
+        "parallel_s": 14.23,
+        "tasks": {
+          "combined-reviewer": {
+            "start": 0.0,
+            "finish": 12.947
+          },
+          "integrate": {
+            "start": 12.947,
+            "finish": 14.23
+          }
+        }
+      },
+      "tokens": 4873,
+      "worker_tokens": {
+        "combined-reviewer": 4599
+      },
+      "coordinator_tokens": 274,
+      "worker_steps": {
+        "combined-reviewer": [
+          {
+            "kind": "model",
+            "tokens_in": 401,
+            "tokens_out": 50,
+            "seconds": 1.9
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "tool",
+            "name": "read_file",
+            "seconds": 0.05
+          },
+          {
+            "kind": "model",
+            "tokens_in": 626,
+            "tokens_out": 60,
+            "seconds": 2.156
+          },
+          {
+            "kind": "tool",
+            "name": "run_cases",
+            "seconds": 0.9
+          },
+          {
+            "kind": "model",
+            "tokens_in": 979,
+            "tokens_out": 36,
+            "seconds": 1.765
+          },
+          {
+            "kind": "tool",
+            "name": "inspect_interface",
+            "seconds": 0.3
+          },
+          {
+            "kind": "model",
+            "tokens_in": 1104,
+            "tokens_out": 20,
+            "seconds": 1.476
+          },
+          {
+            "kind": "model",
+            "tokens_in": 1160,
+            "tokens_out": 163,
+            "seconds": 4.35
+          }
+        ]
+      },
+      "model_calls": 6,
+      "file_reads": 2,
+      "verdict": "verified",
+      "defects": [],
+      "repair_attempts": 1
+    },
+    "repair_cost": {
+      "two_workers_interface_repair_call": {
+        "kind": "model",
+        "tokens_in": 666,
+        "tokens_out": 94,
+        "seconds": 2.847
+      },
+      "one_worker_repair_call": {
+        "kind": "model",
+        "tokens_in": 1160,
+        "tokens_out": 163,
+        "seconds": 4.35
+      }
+    }
+  },
+  "second_edition_schedule": {
+    "sequential_s": 17,
+    "parallel_s": 13.0,
+    "tasks": {
+      "read settings.json": {
+        "start": 0.0,
+        "finish": 2.0
+      },
+      "read report.py": {
+        "start": 0.0,
+        "finish": 3.0
+      },
+      "read test_report.py": {
+        "start": 0.0,
+        "finish": 2.0
+      },
+      "propose patch": {
+        "start": 3.0,
+        "finish": 7.0
+      },
+      "apply patch": {
+        "start": 7.0,
+        "finish": 8.0
+      },
+      "run tests": {
+        "start": 8.0,
+        "finish": 13.0
+      }
+    }
+  },
+  "sim_constants": {
+    "model_call_overhead_s": 0.8,
+    "input_s_per_token": 0.00025,
+    "output_s_per_token": 0.02,
+    "tool_s": {
+      "read_file": 0.05,
+      "run_cases": 0.9,
+      "inspect_interface": 0.3
+    }
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "illustrative_second_edition": {
+    "both succeed": 5,
+    "candidate only": 2,
+    "baseline only": 1,
+    "both fail": 2,
+    "baseline rate": 0.6,
+    "candidate rate": 0.7,
+    "mcnemar_p": 1.0,
+    "bootstrap95_diff": [
+      -0.2,
+      0.4
+    ],
+    "wilson95_baseline": [
+      0.313,
+      0.832
+    ],
+    "wilson95_candidate": [
+      0.397,
+      0.892
+    ]
+  },
+  "trial0": {
+    "both succeed": 19,
+    "candidate only": 7,
+    "baseline only": 7,
+    "both fail": 7,
+    "regressions": [
+      "E03",
+      "E05",
+      "E09",
+      "E15",
+      "E21",
+      "E26",
+      "E29"
+    ],
+    "improvements": [
+      "R03",
+      "R06",
+      "R11",
+      "R12",
+      "R14",
+      "R18",
+      "E08"
+    ],
+    "mcnemar_p": 1.0,
+    "bootstrap95_diff": [
+      -0.175,
+      0.175
+    ]
+  },
+  "pass@1": {
+    "baseline": 0.691,
+    "candidate": 0.678,
+    "diff": -0.013,
+    "bootstrap95": [
+      -0.133,
+      0.095
+    ],
+    "baseline95": [
+      0.619,
+      0.762
+    ],
+    "candidate95": [
+      0.556,
+      0.788
+    ]
+  },
+  "pass^4": {
+    "diff": 0.157,
+    "bootstrap95": [
+      0.054,
+      0.259
+    ]
+  },
+  "pass@4": {
+    "diff": -0.165,
+    "bootstrap95": [
+      -0.282,
+      -0.064
+    ]
+  },
+  "tasks_candidate_worse_by_0.5": [
+    "E03",
+    "E05",
+    "E09",
+    "E15",
+    "E21",
+    "E27"
+  ],
+  "tasks_candidate_better_by_0.5": [
+    "R03",
+    "R06",
+    "E08"
+  ],
+  "per_task": [
+    {
+      "task": "R02",
+      "slice": "report-dst",
+      "baseline": 0.438,
+      "candidate": 0.5
+    },
+    {
+      "task": "R03",
+      "slice": "report-dst",
+      "baseline": 0.312,
+      "candidate": 0.938
+    },
+    {
+      "task": "R05",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R06",
+      "slice": "report-dst",
+      "baseline": 0.375,
+      "candidate": 0.938
+    },
+    {
+      "task": "R08",
+      "slice": "report-dst",
+      "baseline": 0.25,
+      "candidate": 0.625
+    },
+    {
+      "task": "R09",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R11",
+      "slice": "report-dst",
+      "baseline": 0.562,
+      "candidate": 0.812
+    },
+    {
+      "task": "R12",
+      "slice": "report-dst",
+      "baseline": 0.562,
+      "candidate": 0.938
+    },
+    {
+      "task": "R14",
+      "slice": "report-no-dst",
+      "baseline": 0.625,
+      "candidate": 0.75
+    },
+    {
+      "task": "R15",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R17",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R18",
+      "slice": "report-dst",
+      "baseline": 0.688,
+      "candidate": 0.875
+    },
+    {
+      "task": "R20",
+      "slice": "report-dst",
+      "baseline": 0.375,
+      "candidate": 0.562
+    },
+    {
+      "task": "R21",
+      "slice": "report-dst",
+      "baseline": 0.688,
+      "candidate": 1.0
+    },
+    {
+      "task": "R23",
+      "slice": "report-dst",
+      "baseline": 0.625,
+      "candidate": 0.875
+    },
+    {
+      "task": "R24",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R26",
+      "slice": "report-dst",
+      "baseline": 0.5,
+      "candidate": 0.5
+    },
+    {
+      "task": "R27",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R29",
+      "slice": "report-no-dst",
+      "baseline": 1.0,
+      "candidate": 1.0
+    },
+    {
+      "task": "R30",
+      "slice": "report-dst",
+      "baseline": 0.562,
+      "candidate": 0.875
+    },
+    {
+      "task": "E02",
+      "slice": "export-explicit-day",
+      "baseline": 0.75,
+      "candidate": 0.875
+    },
+    {
+      "task": "E03",
+      "slice": "export-yesterday",
+      "baseline": 0.75,
+      "candidate": 0.062
+    },
+    {
+      "task": "E05",
+      "slice": "export-yesterday",
+      "baseline": 0.625,
+      "candidate": 0.0
+    },
+    {
+      "task": "E06",
+      "slice": "export-explicit-day",
+      "baseline": 0.875,
+      "candidate": 1.0
+    },
+    {
+      "task": "E08",
+      "slice": "export-explicit-day",
+      "baseline": 0.438,
+      "candidate": 0.938
+    },
+    {
+      "task": "E09",
+      "slice": "export-yesterday",
+      "baseline": 0.625,
+      "candidate": 0.062
+    },
+    {
+      "task": "E11",
+      "slice": "export-yesterday",
+      "baseline": 0.375,
+      "candidate": 0.062
+    },
+    {
+      "task": "E12",
+      "slice": "export-explicit-day",
+      "baseline": 1.0,
+      "candidate": 0.938
+    },
+    {
+      "task": "E14",
+      "slice": "export-explicit-day",
+      "baseline": 0.812,
+      "candidate": 0.875
+    },
+    {
+      "task": "E15",
+      "slice": "export-yesterday",
+      "baseline": 0.75,
+      "candidate": 0.0
+    },
+    {
+      "task": "E17",
+      "slice": "export-yesterday",
+      "baseline": 0.562,
+      "candidate": 0.125
+    },
+    {
+      "task": "E18",
+      "slice": "export-explicit-day",
+      "baseline": 0.812,
+      "candidate": 1.0
+    },
+    {
+      "task": "E20",
+      "slice": "export-explicit-day",
+      "baseline": 0.688,
+      "candidate": 0.875
+    },
+    {
+      "task": "E21",
+      "slice": "export-yesterday",
+      "baseline": 0.938,
+      "candidate": 0.0
+    },
+    {
+      "task": "E23",
+      "slice": "export-yesterday",
+      "baseline": 0.312,
+      "candidate": 0.062
+    },
+    {
+      "task": "E24",
+      "slice": "export-explicit-day",
+      "baseline": 0.938,
+      "candidate": 1.0
+    },
+    {
+      "task": "E26",
+      "slice": "export-explicit-day",
+      "baseline": 0.688,
+      "candidate": 0.875
+    },
+    {
+      "task": "E27",
+      "slice": "export-yesterday",
+      "baseline": 0.75,
+      "candidate": 0.062
+    },
+    {
+      "task": "E29",
+      "slice": "export-yesterday",
+      "baseline": 0.438,
+      "candidate": 0.125
+    },
+    {
+      "task": "E30",
+      "slice": "export-explicit-day",
+      "baseline": 0.938,
+      "candidate": 1.0
+    }
+  ]
+}

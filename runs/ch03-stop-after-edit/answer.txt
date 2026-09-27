@@ -1,0 +1,1 @@
+[run interrupted] process stopped after the edit executed, before its result was recorded

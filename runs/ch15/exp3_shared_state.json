@@ -1,0 +1,65 @@
+{
+  "finish_order": [
+    [
+      "interface-reviewer",
+      8.101
+    ],
+    [
+      "tz-boundary-reviewer",
+      8.396
+    ]
+  ],
+  "last_write_wins": {
+    "log": [
+      {
+        "writer": "interface-reviewer",
+        "key": "review_result",
+        "outcome": "written"
+      },
+      {
+        "writer": "tz-boundary-reviewer",
+        "key": "review_result",
+        "outcome": "overwrote interface-reviewer"
+      }
+    ],
+    "keys_after_step": {
+      "review_result": "tz-boundary-reviewer"
+    }
+  },
+  "reject_second_write": {
+    "log": [
+      {
+        "writer": "interface-reviewer",
+        "key": "review_result",
+        "outcome": "written"
+      },
+      {
+        "writer": "tz-boundary-reviewer",
+        "key": "review_result",
+        "outcome": "rejected",
+        "reason": "already written by interface-reviewer in this step"
+      }
+    ],
+    "keys_after_step": {
+      "review_result": "interface-reviewer"
+    }
+  },
+  "namespaced": {
+    "log": [
+      {
+        "writer": "interface-reviewer",
+        "key": "results/interface-reviewer",
+        "outcome": "written"
+      },
+      {
+        "writer": "tz-boundary-reviewer",
+        "key": "results/tz-boundary-reviewer",
+        "outcome": "written"
+      }
+    ],
+    "keys_after_step": {
+      "results/interface-reviewer": "interface-reviewer",
+      "results/tz-boundary-reviewer": "tz-boundary-reviewer"
+    }
+  }
+}

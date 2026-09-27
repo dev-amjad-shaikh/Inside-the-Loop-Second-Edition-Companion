@@ -1,0 +1,10 @@
+{
+  "age_s": 108000.0,
+  "decision": "reuse key",
+  "exports": [
+    "export-file-001",
+    "export-file-002"
+  ],
+  "op_status": "completed",
+  "repair_items": []
+}

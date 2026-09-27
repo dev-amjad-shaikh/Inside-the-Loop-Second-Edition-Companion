@@ -1,0 +1,299 @@
+[
+  {
+    "root": "/home/claude/src/skills/skills",
+    "skill_dirs": 19,
+    "parsed": 19,
+    "diagnostics": [],
+    "catalog_chars": 10906,
+    "catalog_tokens": 2727,
+    "description_chars": {
+      "min": 204,
+      "max": 1068,
+      "mean": 494
+    },
+    "format": [
+      {
+        "skill": "academy-guide",
+        "format_errors": []
+      },
+      {
+        "skill": "algorithmic-art",
+        "format_errors": []
+      },
+      {
+        "skill": "brand-guidelines",
+        "format_errors": []
+      },
+      {
+        "skill": "canvas-design",
+        "format_errors": []
+      },
+      {
+        "skill": "claude-api",
+        "format_errors": [
+          "Description exceeds 1024 character limit"
+        ]
+      },
+      {
+        "skill": "discernment-nudge",
+        "format_errors": []
+      },
+      {
+        "skill": "doc-coauthoring",
+        "format_errors": []
+      },
+      {
+        "skill": "docx",
+        "format_errors": []
+      },
+      {
+        "skill": "frontend-design",
+        "format_errors": []
+      },
+      {
+        "skill": "internal-comms",
+        "format_errors": []
+      },
+      {
+        "skill": "mcp-builder",
+        "format_errors": []
+      },
+      {
+        "skill": "pdf",
+        "format_errors": []
+      },
+      {
+        "skill": "pptx",
+        "format_errors": []
+      },
+      {
+        "skill": "skill-creator",
+        "format_errors": []
+      },
+      {
+        "skill": "slack-gif-creator",
+        "format_errors": []
+      },
+      {
+        "skill": "theme-factory",
+        "format_errors": []
+      },
+      {
+        "skill": "web-artifacts-builder",
+        "format_errors": []
+      },
+      {
+        "skill": "webapp-testing",
+        "format_errors": []
+      },
+      {
+        "skill": "xlsx",
+        "format_errors": []
+      }
+    ],
+    "top_overlap": [
+      {
+        "pair": [
+          "algorithmic-art",
+          "canvas-design"
+        ],
+        "jaccard": 0.268,
+        "shared": [
+          "art",
+          "artist",
+          "avoid",
+          "copy",
+          "copyright",
+          "create",
+          "exist",
+          "original",
+          "user",
+          "violation",
+          "work"
+        ]
+      },
+      {
+        "pair": [
+          "docx",
+          "pdf"
+        ],
+        "jaccard": 0.171,
+        "shared": [
+          "asks",
+          "extract",
+          "file",
+          "imag",
+          "mention",
+          "page",
+          "pdfs",
+          "produce",
+          "read",
+          "skill",
+          "tabl",
+          "user",
+          "want",
+          "whenever"
+        ]
+      },
+      {
+        "pair": [
+          "docx",
+          "xlsx"
+        ],
+        "jaccard": 0.162,
+        "shared": [
+          "also",
+          "convert",
+          "create",
+          "deliverable",
+          "document",
+          "edit",
+          "file",
+          "formatt",
+          "google",
+          "like",
+          "read",
+          "report",
+          "skill",
+          "spreadsheet",
+          "task",
+          "trigger",
+          "user",
+          "want",
+          "word"
+        ]
+      },
+      {
+        "pair": [
+          "pdf",
+          "pptx"
+        ],
+        "jaccard": 0.16,
+        "shared": [
+          "combin",
+          "creat",
+          "extract",
+          "file",
+          "includ",
+          "mention",
+          "read",
+          "skill",
+          "splitt",
+          "text",
+          "user",
+          "whenever"
+        ]
+      },
+      {
+        "pair": [
+          "docx",
+          "pptx"
+        ],
+        "jaccard": 0.144,
+        "shared": [
+          "comment",
+          "content",
+          "edit",
+          "extract",
+          "file",
+          "like",
+          "mention",
+          "read",
+          "skill",
+          "templat",
+          "trigger",
+          "user",
+          "whenever",
+          "work"
+        ]
+      }
+    ]
+  },
+  {
+    "root": "/home/claude/src/rusty/catalog/skills",
+    "skill_dirs": 5,
+    "parsed": 5,
+    "diagnostics": [],
+    "catalog_chars": 879,
+    "catalog_tokens": 220,
+    "description_chars": {
+      "min": 54,
+      "max": 59,
+      "mean": 56
+    },
+    "format": [
+      {
+        "skill": "form-filling",
+        "format_errors": [
+          "Unexpected fields in frontmatter: eval-gate"
+        ]
+      },
+      {
+        "skill": "kb-answer-with-citations",
+        "format_errors": [
+          "Unexpected fields in frontmatter: eval-gate"
+        ]
+      },
+      {
+        "skill": "research-and-summarize",
+        "format_errors": [
+          "Unexpected fields in frontmatter: eval-gate"
+        ]
+      },
+      {
+        "skill": "scheduled-digest",
+        "format_errors": [
+          "Unexpected fields in frontmatter: eval-gate"
+        ]
+      },
+      {
+        "skill": "triage-and-route",
+        "format_errors": [
+          "Unexpected fields in frontmatter: eval-gate"
+        ]
+      }
+    ],
+    "top_overlap": [
+      {
+        "pair": [
+          "form-filling",
+          "kb-answer-with-citations"
+        ],
+        "jaccard": 0.0,
+        "shared": []
+      },
+      {
+        "pair": [
+          "form-filling",
+          "research-and-summarize"
+        ],
+        "jaccard": 0.0,
+        "shared": []
+      },
+      {
+        "pair": [
+          "form-filling",
+          "scheduled-digest"
+        ],
+        "jaccard": 0.0,
+        "shared": []
+      },
+      {
+        "pair": [
+          "form-filling",
+          "triage-and-route"
+        ],
+        "jaccard": 0.0,
+        "shared": []
+      },
+      {
+        "pair": [
+          "kb-answer-with-citations",
+          "research-and-summarize"
+        ],
+        "jaccard": 0.0,
+        "shared": []
+      }
+    ]
+  }
+]

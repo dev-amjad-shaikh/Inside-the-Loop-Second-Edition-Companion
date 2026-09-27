@@ -1,0 +1,23 @@
+{
+  "cancel_at": 12.0,
+  "runtime_status": "cancelled",
+  "cancel_requested_at": null,
+  "service_status": "completed",
+  "service_finished_at": 40.0,
+  "no_return_at": 5.0,
+  "timeline": [
+    {
+      "t": 0.0,
+      "what": "submitted job-001"
+    },
+    {
+      "t": 12.0,
+      "what": "runtime marks op cancelled, stops polling"
+    },
+    {
+      "t": 40.0,
+      "what": "service: job-001 completed"
+    }
+  ],
+  "agree": false
+}

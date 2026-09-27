@@ -1,0 +1,89 @@
+[
+  {
+    "call": 1,
+    "input": 266,
+    "reusable": 0,
+    "output": 68,
+    "tools": [
+      {
+        "name": "read_file",
+        "rejected": false
+      },
+      {
+        "name": "read_file",
+        "rejected": false
+      },
+      {
+        "name": "read_file",
+        "rejected": false
+      }
+    ]
+  },
+  {
+    "call": 2,
+    "input": 596,
+    "reusable": 266,
+    "output": 111,
+    "tools": [
+      {
+        "name": "replace_text",
+        "rejected": false
+      }
+    ]
+  },
+  {
+    "call": 3,
+    "input": 753,
+    "reusable": 596,
+    "output": 32,
+    "tools": [
+      {
+        "name": "run_tests",
+        "rejected": true
+      }
+    ]
+  },
+  {
+    "call": 4,
+    "input": 816,
+    "reusable": 753,
+    "output": 32,
+    "tools": [
+      {
+        "name": "run_tests",
+        "rejected": false
+      }
+    ]
+  },
+  {
+    "call": 5,
+    "input": 921,
+    "reusable": 816,
+    "output": 74,
+    "tools": [
+      {
+        "name": "replace_text",
+        "rejected": false
+      }
+    ]
+  },
+  {
+    "call": 6,
+    "input": 1040,
+    "reusable": 921,
+    "output": 32,
+    "tools": [
+      {
+        "name": "run_tests",
+        "rejected": false
+      }
+    ]
+  },
+  {
+    "call": 7,
+    "input": 1123,
+    "reusable": 1040,
+    "output": 80,
+    "tools": []
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "point": "after_commit",
+    "before": {
+      "run_store_op": "dispatched",
+      "observation": 0,
+      "export_rows": 1
+    },
+    "decisions": [
+      [
+        "x2",
+        "reuse key"
+      ]
+    ],
+    "bridge": [
+      {
+        "op": "x2",
+        "status": "completed",
+        "via": "recovered_by_key",
+        "t": 5.5
+      }
+    ],
+    "swallowed_refusals": [],
+    "receipt": {
+      "created_at": 1.0,
+      "export_id": "export-file-001",
+      "file": "A/daily-2026-09-11.r6.export-file-001.csv",
+      "file_version": "374fbdb77b0b",
+      "op_key": "run-24:export:daily-2026-09-11:r6:A",
+      "payload_digest": "3f285654c3c90ab0",
+      "recorded_via": "recovered_by_key",
+      "replayed": true
+    },
+    "rebuilt_conversation_matches": {
+      "assistant_turns_equal": true,
+      "fold_equals_tables": true
+    },
+    "new_holder": [
+      "worker-2",
+      2
+    ]
+  }
+]

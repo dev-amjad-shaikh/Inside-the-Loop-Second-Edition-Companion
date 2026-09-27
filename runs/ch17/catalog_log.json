@@ -1,0 +1,93 @@
+[
+  {
+    "at": 175,
+    "event": "released",
+    "subject": "skill:report-helper@1.1.0",
+    "by": "reporting-platform",
+    "detail": "{\"hash\": \"2c2d8a21842f\"}"
+  },
+  {
+    "at": 176,
+    "event": "manifest_built",
+    "subject": "m-e7f21bba38fc",
+    "by": "reporting-platform",
+    "detail": "{\"agent\": \"report-fixer\", \"label\": \"report-helper 1.1.0\"}"
+  },
+  {
+    "at": 176,
+    "event": "pointer_moved",
+    "subject": "staging:report-fixer",
+    "by": "reporting-platform",
+    "detail": "{\"active\": \"m-e7f21bba38fc\", \"canary\": null, \"fraction\": null, \"cause\": \"gate allowed\"}"
+  },
+  {
+    "at": 177,
+    "event": "pointer_moved",
+    "subject": "prod:report-fixer",
+    "by": "reporting-platform",
+    "detail": "{\"active\": \"m-4ba6ae67aec2\", \"canary\": \"m-e7f21bba38fc\", \"fraction\": 0.1, \"cause\": \"canary report-helper 1.1.0\"}"
+  },
+  {
+    "at": 200,
+    "event": "released",
+    "subject": "tool:exports_create@2.0.0",
+    "by": "reporting-platform",
+    "detail": "{\"hash\": \"e42ecf0f6b18\"}"
+  },
+  {
+    "at": 200,
+    "event": "deprecated",
+    "subject": "tool:exports_create@1.0.0",
+    "by": "reporting-platform",
+    "detail": "{\"reason\": \"renamed day to report_date\", \"replacement\": \"2.0.0\", \"until\": \"2027-03-31\"}"
+  },
+  {
+    "at": 200,
+    "event": "repinned",
+    "subject": "tool:exports_create",
+    "by": "nightly finance workflow",
+    "detail": "{\"from\": \"1.0.0\", \"to\": \"2.0.0\", \"on\": \"2026-10-06\"}"
+  },
+  {
+    "at": 200,
+    "event": "repinned",
+    "subject": "tool:exports_create",
+    "by": "scheduled task: weekly revenue",
+    "detail": "{\"from\": \"1.0.0\", \"to\": \"2.0.0\", \"on\": \"2026-10-20\"}"
+  },
+  {
+    "at": 200,
+    "event": "repinned",
+    "subject": "tool:exports_create",
+    "by": "saved skill: month-end pack",
+    "detail": "{\"from\": \"1.0.0\", \"to\": \"2.0.0\", \"on\": \"2026-11-02\"}"
+  },
+  {
+    "at": 200,
+    "event": "repinned",
+    "subject": "tool:exports_create",
+    "by": "analytics agent",
+    "detail": "{\"from\": \"1.0.0\", \"to\": \"2.0.0\", \"on\": \"2027-01-15\"}"
+  },
+  {
+    "at": 232.999,
+    "event": "withdrawn",
+    "subject": "skill:report-helper@1.1.0",
+    "by": "reporting-platform",
+    "detail": "{\"reason\": \"canary regression on B3 new test failed before the fix: 100% of canary runs vs 0% of active runs\", \"replacement\": \"1.0.0\", \"until\": null}"
+  },
+  {
+    "at": 232.999,
+    "event": "pointer_moved",
+    "subject": "prod:report-fixer",
+    "by": "reporting-platform",
+    "detail": "{\"active\": \"m-4ba6ae67aec2\", \"canary\": null, \"fraction\": null, \"cause\": \"withdrawal clears canary\"}"
+  },
+  {
+    "at": 234.999,
+    "event": "released",
+    "subject": "evaluator:report-fix-behavior@2.0.0",
+    "by": "reporting-platform",
+    "detail": "{\"hash\": \"6f57bec57f8e\"}"
+  }
+]

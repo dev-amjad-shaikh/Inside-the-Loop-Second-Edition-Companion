@@ -1,0 +1,71 @@
+{
+  "cosine_example": {
+    "A": 0.9701,
+    "B": 0.2169
+  },
+  "chunk_counts": {
+    "fixed": 15,
+    "structured": 18
+  },
+  "q1_fixed_k8": {
+    "answer": "No. Opened products cannot be returned. [E1]",
+    "fragments": [
+      "| Defective or",
+      "| Defective or damaged on arrival | Yes | 90 days from delivery |",
+      "| Missing parts or accessories | Yes | 30 days from delivery |",
+      "| Wrong item shipped | Yes | 30 days from delivery |"
+    ]
+  },
+  "evaluation": {
+    "fixed": {
+      "recall@3": "4/7",
+      "supported": 4,
+      "declined": 0,
+      "wrong": 3
+    },
+    "structured": {
+      "recall@3": "7/7",
+      "supported": 7,
+      "declined": 0,
+      "wrong": 0
+    }
+  },
+  "access": {
+    "filtered_top1": "returns-policy@v2#2",
+    "unfiltered_top1": "staff-returns-playbook@v3#1"
+  },
+  "q1_structured_stages": [
+    [
+      "indexed chunks",
+      18
+    ],
+    [
+      "after access filter",
+      16
+    ],
+    [
+      "after withdrawal filter",
+      16
+    ],
+    [
+      "after effective-date filter",
+      10
+    ],
+    [
+      "keyword candidates (BM25 > 0, top 8)",
+      6
+    ],
+    [
+      "vector candidates (top 8)",
+      8
+    ],
+    [
+      "fused candidates (union, RRF)",
+      8
+    ],
+    [
+      "evidence after rerank (top 3)",
+      3
+    ]
+  ]
+}

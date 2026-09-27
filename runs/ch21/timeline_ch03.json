@@ -1,0 +1,1506 @@
+{
+  "idle, sequential tools, cache on": {
+    "segments": [
+      {
+        "kind": "queue",
+        "label": "admission queue",
+        "start": 0.0,
+        "end": 0.0,
+        "seconds": 0.0,
+        "cost_units": 0.0,
+        "lane": "queue",
+        "critical": true
+      },
+      {
+        "kind": "sandbox",
+        "label": "sandbox start",
+        "start": 0.0,
+        "end": 2.0,
+        "seconds": 2.0,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 1 to first token",
+        "start": 2.0,
+        "end": 2.567,
+        "seconds": 0.567,
+        "cost_units": 0.3325,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 1 generation",
+        "start": 2.567,
+        "end": 3.927,
+        "seconds": 1.36,
+        "cost_units": 0.34,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 intents (3)",
+        "start": 3.927,
+        "end": 3.939,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 3.939,
+        "end": 4.139,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 4.139,
+        "end": 4.339,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 4.339,
+        "end": 4.539,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 outcomes (3)",
+        "start": 4.539,
+        "end": 4.551,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 2 to first token",
+        "start": 4.551,
+        "end": 5.14,
+        "seconds": 0.589,
+        "cost_units": 0.4391,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 2 generation",
+        "start": 5.14,
+        "end": 7.36,
+        "seconds": 2.22,
+        "cost_units": 0.555,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 intents (1)",
+        "start": 7.36,
+        "end": 7.364,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 7.364,
+        "end": 7.664,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 outcomes (1)",
+        "start": 7.664,
+        "end": 7.668,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 3 to first token",
+        "start": 7.668,
+        "end": 8.222,
+        "seconds": 0.554,
+        "cost_units": 0.25585,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 3 generation",
+        "start": 8.222,
+        "end": 8.862,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 3 rejection recorded",
+        "start": 8.862,
+        "end": 8.866,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 4 to first token",
+        "start": 8.866,
+        "end": 9.401,
+        "seconds": 0.535,
+        "cost_units": 0.15405,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 4 generation",
+        "start": 9.401,
+        "end": 10.041,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 intents (1)",
+        "start": 10.041,
+        "end": 10.045,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 10.045,
+        "end": 16.045,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 outcomes (1)",
+        "start": 16.045,
+        "end": 16.049,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 5 to first token",
+        "start": 16.049,
+        "end": 16.596,
+        "seconds": 0.547,
+        "cost_units": 0.21285,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 5 generation",
+        "start": 16.596,
+        "end": 18.076,
+        "seconds": 1.48,
+        "cost_units": 0.37,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 intents (1)",
+        "start": 18.076,
+        "end": 18.08,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 18.08,
+        "end": 18.38,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 outcomes (1)",
+        "start": 18.38,
+        "end": 18.384,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 6 to first token",
+        "start": 18.384,
+        "end": 18.937,
+        "seconds": 0.553,
+        "cost_units": 0.24085,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 6 generation",
+        "start": 18.937,
+        "end": 19.577,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 intents (1)",
+        "start": 19.577,
+        "end": 19.581,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 19.581,
+        "end": 25.581,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 outcomes (1)",
+        "start": 25.581,
+        "end": 25.585,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 7 to first token",
+        "start": 25.585,
+        "end": 26.132,
+        "seconds": 0.547,
+        "cost_units": 0.20775,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 7 generation",
+        "start": 26.132,
+        "end": 27.732,
+        "seconds": 1.6,
+        "cost_units": 0.4,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: run_tests on current revision",
+        "start": 27.732,
+        "end": 33.732,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: evidence check",
+        "start": 33.732,
+        "end": 33.832,
+        "seconds": 0.1,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      }
+    ],
+    "total_seconds": 33.832,
+    "critical_path_by_kind": {
+      "queue": 0.0,
+      "sandbox": 2.0,
+      "ttft": 3.892,
+      "generation": 8.58,
+      "commit": 0.06,
+      "tool": 13.2,
+      "verification": 6.1
+    },
+    "model_cost_units": 3.988,
+    "sandbox_cost_units": 0.0677
+  },
+  "idle, parallel reads, cache on": {
+    "segments": [
+      {
+        "kind": "queue",
+        "label": "admission queue",
+        "start": 0.0,
+        "end": 0.0,
+        "seconds": 0.0,
+        "cost_units": 0.0,
+        "lane": "queue",
+        "critical": true
+      },
+      {
+        "kind": "sandbox",
+        "label": "sandbox start",
+        "start": 0.0,
+        "end": 2.0,
+        "seconds": 2.0,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 1 to first token",
+        "start": 2.0,
+        "end": 2.567,
+        "seconds": 0.567,
+        "cost_units": 0.3325,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 1 generation",
+        "start": 2.567,
+        "end": 3.927,
+        "seconds": 1.36,
+        "cost_units": 0.34,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 intents (3)",
+        "start": 3.927,
+        "end": 3.939,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 3.939,
+        "end": 4.139,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 3.939,
+        "end": 4.139,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": false
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 3.939,
+        "end": 4.139,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": false
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 outcomes (3)",
+        "start": 4.139,
+        "end": 4.151,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 2 to first token",
+        "start": 4.151,
+        "end": 4.74,
+        "seconds": 0.589,
+        "cost_units": 0.4391,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 2 generation",
+        "start": 4.74,
+        "end": 6.96,
+        "seconds": 2.22,
+        "cost_units": 0.555,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 intents (1)",
+        "start": 6.96,
+        "end": 6.964,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 6.964,
+        "end": 7.264,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 outcomes (1)",
+        "start": 7.264,
+        "end": 7.268,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 3 to first token",
+        "start": 7.268,
+        "end": 7.822,
+        "seconds": 0.554,
+        "cost_units": 0.25585,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 3 generation",
+        "start": 7.822,
+        "end": 8.462,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 3 rejection recorded",
+        "start": 8.462,
+        "end": 8.466,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 4 to first token",
+        "start": 8.466,
+        "end": 9.001,
+        "seconds": 0.535,
+        "cost_units": 0.15405,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 4 generation",
+        "start": 9.001,
+        "end": 9.641,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 intents (1)",
+        "start": 9.641,
+        "end": 9.645,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 9.645,
+        "end": 15.645,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 outcomes (1)",
+        "start": 15.645,
+        "end": 15.649,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 5 to first token",
+        "start": 15.649,
+        "end": 16.196,
+        "seconds": 0.547,
+        "cost_units": 0.21285,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 5 generation",
+        "start": 16.196,
+        "end": 17.676,
+        "seconds": 1.48,
+        "cost_units": 0.37,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 intents (1)",
+        "start": 17.676,
+        "end": 17.68,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 17.68,
+        "end": 17.98,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 outcomes (1)",
+        "start": 17.98,
+        "end": 17.984,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 6 to first token",
+        "start": 17.984,
+        "end": 18.537,
+        "seconds": 0.553,
+        "cost_units": 0.24085,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 6 generation",
+        "start": 18.537,
+        "end": 19.177,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 intents (1)",
+        "start": 19.177,
+        "end": 19.181,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 19.181,
+        "end": 25.181,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 outcomes (1)",
+        "start": 25.181,
+        "end": 25.185,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 7 to first token",
+        "start": 25.185,
+        "end": 25.732,
+        "seconds": 0.547,
+        "cost_units": 0.20775,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 7 generation",
+        "start": 25.732,
+        "end": 27.332,
+        "seconds": 1.6,
+        "cost_units": 0.4,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: run_tests on current revision",
+        "start": 27.332,
+        "end": 33.332,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: evidence check",
+        "start": 33.332,
+        "end": 33.432,
+        "seconds": 0.1,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      }
+    ],
+    "total_seconds": 33.432,
+    "critical_path_by_kind": {
+      "queue": 0.0,
+      "sandbox": 2.0,
+      "ttft": 3.892,
+      "generation": 8.58,
+      "commit": 0.06,
+      "tool": 12.8,
+      "verification": 6.1
+    },
+    "model_cost_units": 3.988,
+    "sandbox_cost_units": 0.0669
+  },
+  "idle, sequential tools, cache off": {
+    "segments": [
+      {
+        "kind": "queue",
+        "label": "admission queue",
+        "start": 0.0,
+        "end": 0.0,
+        "seconds": 0.0,
+        "cost_units": 0.0,
+        "lane": "queue",
+        "critical": true
+      },
+      {
+        "kind": "sandbox",
+        "label": "sandbox start",
+        "start": 0.0,
+        "end": 2.0,
+        "seconds": 2.0,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 1 to first token",
+        "start": 2.0,
+        "end": 2.567,
+        "seconds": 0.567,
+        "cost_units": 0.266,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 1 generation",
+        "start": 2.567,
+        "end": 3.927,
+        "seconds": 1.36,
+        "cost_units": 0.34,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 intents (3)",
+        "start": 3.927,
+        "end": 3.939,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 3.939,
+        "end": 4.139,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 4.139,
+        "end": 4.339,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 4.339,
+        "end": 4.539,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 outcomes (3)",
+        "start": 4.539,
+        "end": 4.551,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 2 to first token",
+        "start": 4.551,
+        "end": 5.2,
+        "seconds": 0.649,
+        "cost_units": 0.596,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 2 generation",
+        "start": 5.2,
+        "end": 7.42,
+        "seconds": 2.22,
+        "cost_units": 0.555,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 intents (1)",
+        "start": 7.42,
+        "end": 7.424,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 7.424,
+        "end": 7.724,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 outcomes (1)",
+        "start": 7.724,
+        "end": 7.728,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 3 to first token",
+        "start": 7.728,
+        "end": 8.416,
+        "seconds": 0.688,
+        "cost_units": 0.753,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 3 generation",
+        "start": 8.416,
+        "end": 9.056,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 3 rejection recorded",
+        "start": 9.056,
+        "end": 9.06,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 4 to first token",
+        "start": 9.06,
+        "end": 9.764,
+        "seconds": 0.704,
+        "cost_units": 0.816,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 4 generation",
+        "start": 9.764,
+        "end": 10.404,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 intents (1)",
+        "start": 10.404,
+        "end": 10.408,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 10.408,
+        "end": 16.408,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 outcomes (1)",
+        "start": 16.408,
+        "end": 16.412,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 5 to first token",
+        "start": 16.412,
+        "end": 17.142,
+        "seconds": 0.73,
+        "cost_units": 0.921,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 5 generation",
+        "start": 17.142,
+        "end": 18.622,
+        "seconds": 1.48,
+        "cost_units": 0.37,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 intents (1)",
+        "start": 18.622,
+        "end": 18.626,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 18.626,
+        "end": 18.926,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 outcomes (1)",
+        "start": 18.926,
+        "end": 18.93,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 6 to first token",
+        "start": 18.93,
+        "end": 19.69,
+        "seconds": 0.76,
+        "cost_units": 1.04,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 6 generation",
+        "start": 19.69,
+        "end": 20.33,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 intents (1)",
+        "start": 20.33,
+        "end": 20.334,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 20.334,
+        "end": 26.334,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 outcomes (1)",
+        "start": 26.334,
+        "end": 26.338,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 7 to first token",
+        "start": 26.338,
+        "end": 27.119,
+        "seconds": 0.781,
+        "cost_units": 1.123,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 7 generation",
+        "start": 27.119,
+        "end": 28.719,
+        "seconds": 1.6,
+        "cost_units": 0.4,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: run_tests on current revision",
+        "start": 28.719,
+        "end": 34.719,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: evidence check",
+        "start": 34.719,
+        "end": 34.819,
+        "seconds": 0.1,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      }
+    ],
+    "total_seconds": 34.819,
+    "critical_path_by_kind": {
+      "queue": 0.0,
+      "sandbox": 2.0,
+      "ttft": 4.879,
+      "generation": 8.58,
+      "commit": 0.06,
+      "tool": 13.2,
+      "verification": 6.1
+    },
+    "model_cost_units": 7.66,
+    "sandbox_cost_units": 0.0696
+  },
+  "queued 5.3 s (p50 wait at 90% load), sequential, cache on": {
+    "segments": [
+      {
+        "kind": "queue",
+        "label": "admission queue",
+        "start": 0.0,
+        "end": 5.26,
+        "seconds": 5.26,
+        "cost_units": 0.0,
+        "lane": "queue",
+        "critical": true
+      },
+      {
+        "kind": "sandbox",
+        "label": "sandbox start",
+        "start": 5.26,
+        "end": 7.26,
+        "seconds": 2.0,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 1 to first token",
+        "start": 7.26,
+        "end": 7.827,
+        "seconds": 0.567,
+        "cost_units": 0.3325,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 1 generation",
+        "start": 7.827,
+        "end": 9.187,
+        "seconds": 1.36,
+        "cost_units": 0.34,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 intents (3)",
+        "start": 9.187,
+        "end": 9.199,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 9.199,
+        "end": 9.399,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 9.399,
+        "end": 9.599,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "read_file",
+        "start": 9.599,
+        "end": 9.799,
+        "seconds": 0.2,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 1 outcomes (3)",
+        "start": 9.799,
+        "end": 9.811,
+        "seconds": 0.012,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 2 to first token",
+        "start": 9.811,
+        "end": 10.4,
+        "seconds": 0.589,
+        "cost_units": 0.4391,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 2 generation",
+        "start": 10.4,
+        "end": 12.62,
+        "seconds": 2.22,
+        "cost_units": 0.555,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 intents (1)",
+        "start": 12.62,
+        "end": 12.624,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 12.624,
+        "end": 12.924,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 2 outcomes (1)",
+        "start": 12.924,
+        "end": 12.928,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 3 to first token",
+        "start": 12.928,
+        "end": 13.482,
+        "seconds": 0.554,
+        "cost_units": 0.25585,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 3 generation",
+        "start": 13.482,
+        "end": 14.122,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 3 rejection recorded",
+        "start": 14.122,
+        "end": 14.126,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 4 to first token",
+        "start": 14.126,
+        "end": 14.661,
+        "seconds": 0.535,
+        "cost_units": 0.15405,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 4 generation",
+        "start": 14.661,
+        "end": 15.301,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 intents (1)",
+        "start": 15.301,
+        "end": 15.305,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 15.305,
+        "end": 21.305,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 4 outcomes (1)",
+        "start": 21.305,
+        "end": 21.309,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 5 to first token",
+        "start": 21.309,
+        "end": 21.856,
+        "seconds": 0.547,
+        "cost_units": 0.21285,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 5 generation",
+        "start": 21.856,
+        "end": 23.336,
+        "seconds": 1.48,
+        "cost_units": 0.37,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 intents (1)",
+        "start": 23.336,
+        "end": 23.34,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "replace_text",
+        "start": 23.34,
+        "end": 23.64,
+        "seconds": 0.3,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 5 outcomes (1)",
+        "start": 23.64,
+        "end": 23.644,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 6 to first token",
+        "start": 23.644,
+        "end": 24.197,
+        "seconds": 0.553,
+        "cost_units": 0.24085,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 6 generation",
+        "start": 24.197,
+        "end": 24.837,
+        "seconds": 0.64,
+        "cost_units": 0.16,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 intents (1)",
+        "start": 24.837,
+        "end": 24.841,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "tool",
+        "label": "run_tests",
+        "start": 24.841,
+        "end": 30.841,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "commit",
+        "label": "call 6 outcomes (1)",
+        "start": 30.841,
+        "end": 30.845,
+        "seconds": 0.004,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      },
+      {
+        "kind": "ttft",
+        "label": "call 7 to first token",
+        "start": 30.845,
+        "end": 31.392,
+        "seconds": 0.547,
+        "cost_units": 0.20775,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "generation",
+        "label": "call 7 generation",
+        "start": 31.392,
+        "end": 32.992,
+        "seconds": 1.6,
+        "cost_units": 0.4,
+        "lane": "model",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: run_tests on current revision",
+        "start": 32.992,
+        "end": 38.992,
+        "seconds": 6.0,
+        "cost_units": 0.0,
+        "lane": "tools",
+        "critical": true
+      },
+      {
+        "kind": "verification",
+        "label": "verifier: evidence check",
+        "start": 38.992,
+        "end": 39.092,
+        "seconds": 0.1,
+        "cost_units": 0.0,
+        "lane": "runtime",
+        "critical": true
+      }
+    ],
+    "total_seconds": 39.092,
+    "critical_path_by_kind": {
+      "queue": 5.26,
+      "sandbox": 2.0,
+      "ttft": 3.892,
+      "generation": 8.58,
+      "commit": 0.06,
+      "tool": 13.2,
+      "verification": 6.1
+    },
+    "model_cost_units": 3.988,
+    "sandbox_cost_units": 0.0677
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "per_run": {
+    "budget": 5.0,
+    "reserve": 0.5,
+    "calls": [
+      0.5363,
+      0.9705,
+      1.0441,
+      1.0966,
+      1.1703,
+      1.2252,
+      1.282,
+      1.3937,
+      1.4164,
+      1.4719,
+      0.9031,
+      0.8608
+    ],
+    "after_the_fact": {
+      "stopped_after_call": 6,
+      "spent": 6.043,
+      "over_by": 1.043
+    },
+    "before_dispatch": {
+      "refused_call": 4,
+      "spent": 2.551,
+      "projection": 2.937,
+      "left_for_reserve": 2.449
+    }
+  },
+  "fleet": {
+    "shared_meter": {
+      "admitted": 30,
+      "refused_at_admission": 0,
+      "runs_stopped": 30,
+      "runs_completed": 0,
+      "billed": 63.891,
+      "over_budget_by": 3.891
+    },
+    "reservation": {
+      "admitted": 15,
+      "refused_at_admission": 15,
+      "runs_stopped": 1,
+      "runs_completed": 14,
+      "billed": 53.831,
+      "over_budget_by": 0.0
+    },
+    "tenant_budget": 60.0,
+    "run_cap": 4.0
+  }
+}

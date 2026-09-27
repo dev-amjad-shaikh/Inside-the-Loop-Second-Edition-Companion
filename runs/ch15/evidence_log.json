@@ -1,0 +1,140 @@
+{
+  "ev-883a9d3fbd15": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "read_file",
+    "payload": {
+      "path": "report.py",
+      "version": "339d3a9f2656"
+    },
+    "coverage": null,
+    "evidence_id": "ev-883a9d3fbd15"
+  },
+  "ev-877497e66a1c": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "read_file",
+    "payload": {
+      "path": "settings.json",
+      "version": "fac6e0792573"
+    },
+    "coverage": null,
+    "evidence_id": "ev-877497e66a1c"
+  },
+  "ev-da5e16e4f6a7": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "pdt_midday",
+      "utc": "2026-09-11T19:00:00+00:00",
+      "requested_day": "2026-09-11",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    "coverage": "pdt_midday",
+    "evidence_id": "ev-da5e16e4f6a7"
+  },
+  "ev-b71d614e7e9a": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "pdt_evening",
+      "utc": "2026-09-12T00:30:00+00:00",
+      "requested_day": "2026-09-11",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    "coverage": "pdt_evening",
+    "evidence_id": "ev-b71d614e7e9a"
+  },
+  "ev-2ef41dbee529": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "pdt_after_local_midnight",
+      "utc": "2026-09-12T07:30:00+00:00",
+      "requested_day": "2026-09-11",
+      "expected": false,
+      "actual": false,
+      "ok": true
+    },
+    "coverage": "pdt_after_local_midnight",
+    "evidence_id": "ev-2ef41dbee529"
+  },
+  "ev-47aee4ef65b3": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "pst_evening",
+      "utc": "2026-01-12T07:30:00+00:00",
+      "requested_day": "2026-01-11",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    "coverage": "pst_evening",
+    "evidence_id": "ev-47aee4ef65b3"
+  },
+  "ev-6609238cf8d3": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "dst_fall_back_evening",
+      "utc": "2026-11-02T07:30:00+00:00",
+      "requested_day": "2026-11-01",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    "coverage": "dst_fall_back_evening",
+    "evidence_id": "ev-6609238cf8d3"
+  },
+  "ev-103a48345f62": {
+    "worker": "tz-boundary-reviewer",
+    "revision": "r5",
+    "operation": "run_cases",
+    "payload": {
+      "case": "dst_spring_forward_evening",
+      "utc": "2026-03-08T07:30:00+00:00",
+      "requested_day": "2026-03-07",
+      "expected": true,
+      "actual": true,
+      "ok": true
+    },
+    "coverage": "dst_spring_forward_evening",
+    "evidence_id": "ev-103a48345f62"
+  },
+  "ev-c11587f30b92": {
+    "worker": "interface-reviewer",
+    "revision": "r5",
+    "operation": "read_file",
+    "payload": {
+      "path": "report.py",
+      "version": "339d3a9f2656"
+    },
+    "coverage": null,
+    "evidence_id": "ev-c11587f30b92"
+  },
+  "ev-bccf23adcb92": {
+    "worker": "interface-reviewer",
+    "revision": "r5",
+    "operation": "inspect_interface",
+    "payload": {
+      "function": "belongs_to_report",
+      "revision": "r5",
+      "signature": "belongs_to_report(created_at, requested_day, timezone)",
+      "reference_revision": "r3",
+      "reference_signature": "belongs_to_report(created_at, requested_day, timezone)",
+      "unchanged": true
+    },
+    "coverage": "public_interface",
+    "evidence_id": "ev-bccf23adcb92"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "freetext_keep_recent": [
+    {
+      "keep_recent": 1,
+      "valid": false,
+      "C2": false,
+      "tokens": 1808,
+      "fits": true
+    },
+    {
+      "keep_recent": 2,
+      "valid": false,
+      "C2": false,
+      "tokens": 1958,
+      "fits": true
+    },
+    {
+      "keep_recent": 3,
+      "valid": false,
+      "C2": false,
+      "tokens": 2049,
+      "fits": true
+    },
+    {
+      "keep_recent": 4,
+      "valid": true,
+      "C2": false,
+      "tokens": 2111,
+      "fits": true
+    },
+    {
+      "keep_recent": 5,
+      "valid": true,
+      "C2": true,
+      "tokens": 2157,
+      "fits": true
+    },
+    {
+      "keep_recent": 6,
+      "valid": true,
+      "C2": true,
+      "tokens": 2225,
+      "fits": true
+    },
+    {
+      "keep_recent": 7,
+      "valid": false,
+      "C2": true,
+      "tokens": 2264,
+      "fits": true
+    },
+    {
+      "keep_recent": 8,
+      "valid": true,
+      "C2": true,
+      "tokens": 2287,
+      "fits": true
+    }
+  ],
+  "truncate_allowance": [
+    {
+      "allowance": 4000,
+      "valid": true,
+      "C2": false,
+      "removed": 21,
+      "tokens": 357
+    },
+    {
+      "allowance": 4500,
+      "valid": true,
+      "C2": false,
+      "removed": 21,
+      "tokens": 357
+    },
+    {
+      "allowance": 5000,
+      "valid": true,
+      "C2": false,
+      "removed": 21,
+      "tokens": 357
+    },
+    {
+      "allowance": 5500,
+      "valid": true,
+      "C2": false,
+      "removed": 21,
+      "tokens": 357
+    },
+    {
+      "allowance": 6000,
+      "valid": true,
+      "C2": false,
+      "removed": 21,
+      "tokens": 357
+    },
+    {
+      "allowance": 6500,
+      "valid": false,
+      "C2": false,
+      "removed": 20,
+      "tokens": 6499
+    },
+    {
+      "allowance": 7000,
+      "valid": true,
+      "C2": true,
+      "removed": 15,
+      "tokens": 6958
+    },
+    {
+      "allowance": 7500,
+      "valid": true,
+      "C2": true,
+      "removed": 5,
+      "tokens": 7449
+    },
+    {
+      "allowance": 8000,
+      "valid": true,
+      "C2": true,
+      "removed": 0,
+      "tokens": 7804
+    }
+  ],
+  "structured_recent_budget": [
+    {
+      "recent_budget": 0,
+      "valid": true,
+      "C2": true,
+      "tokens": 1345,
+      "summarized": 17
+    },
+    {
+      "recent_budget": 250,
+      "valid": true,
+      "C2": true,
+      "tokens": 1345,
+      "summarized": 17
+    },
+    {
+      "recent_budget": 500,
+      "valid": true,
+      "C2": true,
+      "tokens": 1345,
+      "summarized": 17
+    },
+    {
+      "recent_budget": 1000,
+      "valid": true,
+      "C2": true,
+      "tokens": 1655,
+      "summarized": 9
+    },
+    {
+      "recent_budget": 1500,
+      "valid": true,
+      "C2": true,
+      "tokens": 2083,
+      "summarized": 1
+    },
+    {
+      "recent_budget": 2000,
+      "valid": true,
+      "C2": true,
+      "tokens": 2047,
+      "summarized": 0
+    }
+  ]
+}

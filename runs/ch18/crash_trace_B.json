@@ -1,0 +1,58 @@
+[
+  {
+    "traceId": "ced96d7a92a74c70e2d289f4f20d97e1",
+    "spanId": "66e7c973f87416eb",
+    "parentSpanId": "64e5eb207b256048",
+    "name": "reconcile create_export",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330407700000000,
+    "endTimeUnixNano": 1790330408000000000,
+    "attributes": {
+      "itl.op.id": "op-0002",
+      "itl.recovery.class": "idempotent_key",
+      "itl.op.state_before": "dispatched",
+      "itl.recovery.decision": "reuse key",
+      "itl.op.state_after": "completed",
+      "itl.receipt.replayed": true
+    },
+    "events": [],
+    "links": [
+      {
+        "traceId": "de61e73b6372c33b5802917451357d0d",
+        "spanId": "eada2f8eb2b4baa0",
+        "attributes": {
+          "itl.link.reason": "operation dispatched by an earlier process"
+        }
+      }
+    ],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ced96d7a92a74c70e2d289f4f20d97e1",
+    "spanId": "64e5eb207b256048",
+    "parentSpanId": null,
+    "name": "reconcile run-13",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330407700000000,
+    "endTimeUnixNano": 1790330408000000000,
+    "attributes": {
+      "itl.component": "reconciler",
+      "itl.run.id": "run-13"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  }
+]

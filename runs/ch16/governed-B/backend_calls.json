@@ -1,0 +1,8 @@
+[
+  {
+    "service": "orders-api",
+    "credential": "sha256:ddd609981f90",
+    "tenant_header": "acme",
+    "order_id": "A-1042"
+  }
+]

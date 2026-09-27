@@ -1,0 +1,27 @@
+{
+  "digest_points_to": "R22",
+  "log_lines": 282,
+  "read": {
+    "status": "ok",
+    "record_id": "R22",
+    "lines": [
+      "ERROR: test_configured_default (test_report_matrix.MatrixTests.test_configured_default)",
+      "----------------------------------------------------------------------",
+      "Traceback (most recent call last):",
+      "  File \"test_report_matrix.py\", line 28, in test_configured_default",
+      "    self.assertTrue(belongs_to_report(order_time, local_day))",
+      "                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+      "TypeError: belongs_to_report() missing 1 required positional argument: 'timezone'",
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 268 tests",
+      ""
+    ],
+    "start_line": 271,
+    "total_lines": 282
+  },
+  "other_scope": {
+    "status": "refused",
+    "message": "no record O-r77-5 in this run's scope"
+  }
+}

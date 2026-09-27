@@ -1,0 +1,509 @@
+[
+  {
+    "seq": 1,
+    "t": "10:00:00",
+    "kind": "intake",
+    "user": "dev",
+    "tenant": "acme",
+    "session": "sess-acme-dev",
+    "profile": "report.fix_and_export",
+    "identity_fields_ignored": {
+      "tenant": "globex"
+    }
+  },
+  {
+    "seq": 2,
+    "t": "10:00:00",
+    "kind": "task_revised",
+    "task_revision": 1,
+    "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it. When the fix is verified, export the corrected daily report for 2026-09-11 to destination A.",
+    "checks": [],
+    "source": "initial request"
+  },
+  {
+    "seq": 3,
+    "t": "10:00:01",
+    "kind": "model_call_started",
+    "call": 1,
+    "task_revision": 1,
+    "request_sha": "ea516e0c73a7",
+    "input_tokens": 1332
+  },
+  {
+    "seq": 4,
+    "t": "10:00:07",
+    "kind": "model_call_finished",
+    "call": 1,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "k1 activate_skill"
+    ]
+  },
+  {
+    "seq": 5,
+    "t": "10:00:08",
+    "kind": "dispatched",
+    "call_id": "k1",
+    "tool": "activate_skill",
+    "task_revision": 1
+  },
+  {
+    "seq": 6,
+    "t": "10:00:10",
+    "kind": "observed",
+    "call_id": "k1",
+    "status": "ok"
+  },
+  {
+    "seq": 7,
+    "t": "10:00:11",
+    "kind": "model_call_started",
+    "call": 2,
+    "task_revision": 1,
+    "request_sha": "2ab97ea613b6",
+    "input_tokens": 1808
+  },
+  {
+    "seq": 8,
+    "t": "10:00:17",
+    "kind": "model_call_finished",
+    "call": 2,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "r1 read_skill_resource"
+    ]
+  },
+  {
+    "seq": 9,
+    "t": "10:00:18",
+    "kind": "dispatched",
+    "call_id": "c1",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 10,
+    "t": "10:00:20",
+    "kind": "observed",
+    "call_id": "c1",
+    "status": "ok"
+  },
+  {
+    "seq": 11,
+    "t": "10:00:21",
+    "kind": "dispatched",
+    "call_id": "c2",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 12,
+    "t": "10:00:23",
+    "kind": "observed",
+    "call_id": "c2",
+    "status": "ok"
+  },
+  {
+    "seq": 13,
+    "t": "10:00:24",
+    "kind": "dispatched",
+    "call_id": "c3",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 14,
+    "t": "10:00:26",
+    "kind": "observed",
+    "call_id": "c3",
+    "status": "ok"
+  },
+  {
+    "seq": 15,
+    "t": "10:00:27",
+    "kind": "dispatched",
+    "call_id": "r1",
+    "tool": "read_skill_resource",
+    "task_revision": 1
+  },
+  {
+    "seq": 16,
+    "t": "10:00:29",
+    "kind": "observed",
+    "call_id": "r1",
+    "status": "ok"
+  },
+  {
+    "seq": 17,
+    "t": "10:00:30",
+    "kind": "model_call_started",
+    "call": 3,
+    "task_revision": 1,
+    "request_sha": "26f4373ee66f",
+    "input_tokens": 2360
+  },
+  {
+    "seq": 18,
+    "t": "10:00:36",
+    "kind": "model_call_finished",
+    "call": 3,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c4 replace_text"
+    ]
+  },
+  {
+    "seq": 19,
+    "t": "10:00:37",
+    "kind": "dispatched",
+    "call_id": "c4",
+    "tool": "replace_text",
+    "task_revision": 1
+  },
+  {
+    "seq": 20,
+    "t": "10:00:39",
+    "kind": "observed",
+    "call_id": "c4",
+    "status": "ok",
+    "path": "test_report.py",
+    "before_version": "197c0720866d",
+    "after_version": "319f11ce22b8"
+  },
+  {
+    "seq": 21,
+    "t": "10:00:40",
+    "kind": "model_call_started",
+    "call": 4,
+    "task_revision": 1,
+    "request_sha": "83eb84b3dc22",
+    "input_tokens": 2510
+  },
+  {
+    "seq": 22,
+    "t": "10:00:46",
+    "kind": "model_call_finished",
+    "call": 4,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c6 run_tests"
+    ]
+  },
+  {
+    "seq": 23,
+    "t": "10:00:47",
+    "kind": "dispatched",
+    "call_id": "c6",
+    "tool": "run_tests",
+    "task_revision": 1
+  },
+  {
+    "seq": 24,
+    "t": "10:00:49",
+    "kind": "observed",
+    "call_id": "c6",
+    "status": "failed"
+  },
+  {
+    "seq": 25,
+    "t": "10:00:49",
+    "kind": "evidence_recorded",
+    "evidence": "E1",
+    "evidence_kind": "tests",
+    "result": "failed",
+    "version": "78721bd28acc",
+    "task_revision": 1
+  },
+  {
+    "seq": 26,
+    "t": "10:00:50",
+    "kind": "model_call_started",
+    "call": 5,
+    "task_revision": 1,
+    "request_sha": "a415e8d9f6e9",
+    "input_tokens": 2606
+  },
+  {
+    "seq": 27,
+    "t": "10:00:56",
+    "kind": "model_call_finished",
+    "call": 5,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c8 replace_text"
+    ]
+  },
+  {
+    "seq": 28,
+    "t": "10:00:57",
+    "kind": "dispatched",
+    "call_id": "c8",
+    "tool": "replace_text",
+    "task_revision": 1
+  },
+  {
+    "seq": 29,
+    "t": "10:00:57",
+    "kind": "evidence_historical",
+    "evidence": "E1",
+    "was_version": "78721bd28acc",
+    "now_version": "339d3a9f2656"
+  },
+  {
+    "seq": 30,
+    "t": "10:00:59",
+    "kind": "observed",
+    "call_id": "c8",
+    "status": "ok",
+    "path": "report.py",
+    "before_version": "78721bd28acc",
+    "after_version": "339d3a9f2656"
+  },
+  {
+    "seq": 31,
+    "t": "10:01:00",
+    "kind": "worker_dispatched",
+    "contract_id": "review-tz-r5",
+    "worker": "tz-boundary-reviewer",
+    "input_revision": "r5",
+    "input_digest": "025e5dc0e98d"
+  },
+  {
+    "seq": 32,
+    "t": "10:01:01",
+    "kind": "model_call_started",
+    "call": 6,
+    "task_revision": 1,
+    "request_sha": "d7345ea8a734",
+    "input_tokens": 2717
+  },
+  {
+    "seq": 33,
+    "t": "10:01:07",
+    "kind": "model_call_finished",
+    "call": 6,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "s1 run_skill_script"
+    ]
+  },
+  {
+    "seq": 34,
+    "t": "10:01:08",
+    "kind": "dispatched",
+    "call_id": "s1",
+    "tool": "run_skill_script",
+    "task_revision": 1
+  },
+  {
+    "seq": 35,
+    "t": "10:01:10",
+    "kind": "observed",
+    "call_id": "s1",
+    "status": "ok"
+  },
+  {
+    "seq": 36,
+    "t": "10:01:10",
+    "kind": "worker_returned",
+    "contract_id": "review-tz-r5",
+    "finished": "10:01:09",
+    "status": "accepted",
+    "verdict": "pass",
+    "input_revision": "r5",
+    "current_revision": "r5"
+  },
+  {
+    "seq": 37,
+    "t": "10:01:11",
+    "kind": "model_call_started",
+    "call": 7,
+    "task_revision": 1,
+    "request_sha": "7dcb9b9f3e14",
+    "input_tokens": 2814
+  },
+  {
+    "seq": 38,
+    "t": "10:01:17",
+    "kind": "model_call_finished",
+    "call": 7,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c9 run_tests"
+    ]
+  },
+  {
+    "seq": 39,
+    "t": "10:01:18",
+    "kind": "dispatched",
+    "call_id": "c9",
+    "tool": "run_tests",
+    "task_revision": 1
+  },
+  {
+    "seq": 40,
+    "t": "10:01:20",
+    "kind": "observed",
+    "call_id": "c9",
+    "status": "passed"
+  },
+  {
+    "seq": 41,
+    "t": "10:01:20",
+    "kind": "evidence_recorded",
+    "evidence": "E2",
+    "evidence_kind": "tests",
+    "result": "passed",
+    "version": "339d3a9f2656",
+    "task_revision": 1
+  },
+  {
+    "seq": 42,
+    "t": "10:01:21",
+    "kind": "skill_scope_closed",
+    "skill": "report-helper",
+    "version": "1.0.0"
+  },
+  {
+    "seq": 43,
+    "t": "10:01:22",
+    "kind": "reviews_integrated",
+    "current_revision": "r5",
+    "verdict": "verified",
+    "stale": []
+  },
+  {
+    "seq": 44,
+    "t": "10:01:23",
+    "kind": "model_call_started",
+    "call": 8,
+    "task_revision": 1,
+    "request_sha": "6e08150f1fe9",
+    "input_tokens": 2889
+  },
+  {
+    "seq": 45,
+    "t": "10:01:29",
+    "kind": "model_call_finished",
+    "call": 8,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "x1 export_report"
+    ]
+  },
+  {
+    "seq": 46,
+    "t": "10:01:31",
+    "kind": "approval_check",
+    "call_id": "x1",
+    "allowed": false,
+    "mismatches": [],
+    "reason": "no active approval"
+  },
+  {
+    "seq": 47,
+    "t": "10:01:33",
+    "kind": "approval_requested",
+    "request_id": "RQ1",
+    "call_id": "x1",
+    "revision": "r5",
+    "artifact_version": "af0093264abc"
+  },
+  {
+    "seq": 48,
+    "t": "10:01:35",
+    "kind": "decision",
+    "request_id": "RQ1",
+    "actor": "maria",
+    "choice": "approve",
+    "status": "recorded",
+    "approval_id": "AP1",
+    "reason": null
+  },
+  {
+    "seq": 49,
+    "t": "10:01:37",
+    "kind": "approval_consumed",
+    "call_id": "x1",
+    "approval_id": "AP1",
+    "actor": "maria",
+    "artifact_version": "af0093264abc"
+  },
+  {
+    "seq": 50,
+    "t": "10:01:38",
+    "kind": "worker_lost",
+    "call_id": "x1",
+    "point": "after_commit",
+    "worker": "worker-1",
+    "fence": 1
+  },
+  {
+    "seq": 51,
+    "t": "10:01:43",
+    "kind": "worker_restarted",
+    "worker": "worker-2",
+    "fence": 2
+  },
+  {
+    "seq": 52,
+    "t": "10:01:44",
+    "kind": "reconciled",
+    "call_id": "x1",
+    "decisions": [
+      [
+        "x1",
+        "reuse key"
+      ]
+    ],
+    "export_id": "export-file-001",
+    "replayed": true
+  },
+  {
+    "seq": 53,
+    "t": "10:01:46",
+    "kind": "observed",
+    "call_id": "x1",
+    "status": "completed",
+    "export_id": "export-file-001",
+    "replayed": true
+  },
+  {
+    "seq": 54,
+    "t": "10:01:47",
+    "kind": "model_call_started",
+    "call": 9,
+    "task_revision": 1,
+    "request_sha": "2cdb69f85ab8",
+    "input_tokens": 2978
+  },
+  {
+    "seq": 55,
+    "t": "10:01:53",
+    "kind": "model_call_finished",
+    "call": 9,
+    "task_revision": 1,
+    "outcome": "completed_text",
+    "proposal": [
+      "final answer"
+    ]
+  },
+  {
+    "seq": 56,
+    "t": "10:01:54",
+    "kind": "run_completed",
+    "call": 9,
+    "task_revision": 1
+  }
+]

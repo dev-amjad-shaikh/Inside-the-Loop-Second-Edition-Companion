@@ -1,0 +1,664 @@
+[
+  {
+    "seq": 1,
+    "t": "10:00:00",
+    "kind": "intake",
+    "user": "dev",
+    "tenant": "acme",
+    "session": "sess-acme-dev",
+    "profile": "report.fix_and_export",
+    "identity_fields_ignored": {
+      "tenant": "globex"
+    }
+  },
+  {
+    "seq": 2,
+    "t": "10:00:00",
+    "kind": "task_revised",
+    "task_revision": 1,
+    "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it. When the fix is verified, export the corrected daily report for 2026-09-11 to destination A.",
+    "checks": [],
+    "source": "initial request"
+  },
+  {
+    "seq": 3,
+    "t": "10:00:01",
+    "kind": "model_call_started",
+    "call": 1,
+    "task_revision": 1,
+    "request_sha": "ea516e0c73a7",
+    "input_tokens": 1332
+  },
+  {
+    "seq": 4,
+    "t": "10:00:07",
+    "kind": "model_call_finished",
+    "call": 1,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "k1 activate_skill"
+    ]
+  },
+  {
+    "seq": 5,
+    "t": "10:00:08",
+    "kind": "dispatched",
+    "call_id": "k1",
+    "tool": "activate_skill",
+    "task_revision": 1
+  },
+  {
+    "seq": 6,
+    "t": "10:00:10",
+    "kind": "observed",
+    "call_id": "k1",
+    "status": "ok"
+  },
+  {
+    "seq": 7,
+    "t": "10:00:11",
+    "kind": "model_call_started",
+    "call": 2,
+    "task_revision": 1,
+    "request_sha": "2ab97ea613b6",
+    "input_tokens": 1808
+  },
+  {
+    "seq": 8,
+    "t": "10:00:17",
+    "kind": "model_call_finished",
+    "call": 2,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "r1 read_skill_resource"
+    ]
+  },
+  {
+    "seq": 9,
+    "t": "10:00:18",
+    "kind": "dispatched",
+    "call_id": "c1",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 10,
+    "t": "10:00:20",
+    "kind": "observed",
+    "call_id": "c1",
+    "status": "ok"
+  },
+  {
+    "seq": 11,
+    "t": "10:00:21",
+    "kind": "dispatched",
+    "call_id": "c2",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 12,
+    "t": "10:00:23",
+    "kind": "observed",
+    "call_id": "c2",
+    "status": "ok"
+  },
+  {
+    "seq": 13,
+    "t": "10:00:24",
+    "kind": "dispatched",
+    "call_id": "c3",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 14,
+    "t": "10:00:26",
+    "kind": "observed",
+    "call_id": "c3",
+    "status": "ok"
+  },
+  {
+    "seq": 15,
+    "t": "10:00:27",
+    "kind": "dispatched",
+    "call_id": "r1",
+    "tool": "read_skill_resource",
+    "task_revision": 1
+  },
+  {
+    "seq": 16,
+    "t": "10:00:29",
+    "kind": "observed",
+    "call_id": "r1",
+    "status": "ok"
+  },
+  {
+    "seq": 17,
+    "t": "10:00:30",
+    "kind": "model_call_started",
+    "call": 3,
+    "task_revision": 1,
+    "request_sha": "26f4373ee66f",
+    "input_tokens": 2360
+  },
+  {
+    "seq": 18,
+    "t": "10:00:36",
+    "kind": "model_call_finished",
+    "call": 3,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c4 replace_text"
+    ]
+  },
+  {
+    "seq": 19,
+    "t": "10:00:37",
+    "kind": "dispatched",
+    "call_id": "c4",
+    "tool": "replace_text",
+    "task_revision": 1
+  },
+  {
+    "seq": 20,
+    "t": "10:00:39",
+    "kind": "observed",
+    "call_id": "c4",
+    "status": "ok",
+    "path": "test_report.py",
+    "before_version": "197c0720866d",
+    "after_version": "319f11ce22b8"
+  },
+  {
+    "seq": 21,
+    "t": "10:00:40",
+    "kind": "model_call_started",
+    "call": 4,
+    "task_revision": 1,
+    "request_sha": "83eb84b3dc22",
+    "input_tokens": 2510
+  },
+  {
+    "seq": 22,
+    "t": "10:00:46",
+    "kind": "model_call_finished",
+    "call": 4,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c5 run_tests"
+    ]
+  },
+  {
+    "seq": 23,
+    "t": "10:00:47",
+    "kind": "input_error",
+    "call_id": "c5",
+    "message": "tests must be a list of strings"
+  },
+  {
+    "seq": 24,
+    "t": "10:00:48",
+    "kind": "model_call_started",
+    "call": 5,
+    "task_revision": 1,
+    "request_sha": "324dd14e7fb7",
+    "input_tokens": 2577
+  },
+  {
+    "seq": 25,
+    "t": "10:00:54",
+    "kind": "model_call_finished",
+    "call": 5,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c6 run_tests"
+    ]
+  },
+  {
+    "seq": 26,
+    "t": "10:00:55",
+    "kind": "dispatched",
+    "call_id": "c6",
+    "tool": "run_tests",
+    "task_revision": 1
+  },
+  {
+    "seq": 27,
+    "t": "10:00:57",
+    "kind": "observed",
+    "call_id": "c6",
+    "status": "failed"
+  },
+  {
+    "seq": 28,
+    "t": "10:00:57",
+    "kind": "evidence_recorded",
+    "evidence": "E1",
+    "evidence_kind": "tests",
+    "result": "failed",
+    "version": "78721bd28acc",
+    "task_revision": 1
+  },
+  {
+    "seq": 29,
+    "t": "10:00:58",
+    "kind": "worker_dispatched",
+    "contract_id": "review-tz-r4",
+    "worker": "tz-boundary-reviewer",
+    "input_revision": "r4",
+    "input_digest": "8caa6dfca483"
+  },
+  {
+    "seq": 30,
+    "t": "10:00:59",
+    "kind": "model_call_started",
+    "call": 6,
+    "task_revision": 1,
+    "request_sha": "9a3882f123ee",
+    "input_tokens": 2673
+  },
+  {
+    "seq": 31,
+    "t": "10:01:02",
+    "kind": "task_revised",
+    "task_revision": 2,
+    "text": "Keep the public function signature unchanged.",
+    "checks": [
+      "signature:belongs_to_report"
+    ],
+    "source": "user message"
+  },
+  {
+    "seq": 32,
+    "t": "10:01:08",
+    "kind": "model_call_finished",
+    "call": 6,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c7 replace_text"
+    ]
+  },
+  {
+    "seq": 33,
+    "t": "10:01:09",
+    "kind": "dispatch_refused",
+    "call_id": "c7",
+    "tool": "replace_text",
+    "reason": "stale_task_revision",
+    "proposal_task_revision": 1,
+    "current_task_revision": 2
+  },
+  {
+    "seq": 34,
+    "t": "10:01:10",
+    "kind": "model_call_started",
+    "call": 7,
+    "task_revision": 2,
+    "request_sha": "e69a4ff0815d",
+    "input_tokens": 2931
+  },
+  {
+    "seq": 35,
+    "t": "10:01:16",
+    "kind": "model_call_finished",
+    "call": 7,
+    "task_revision": 2,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c8 replace_text"
+    ]
+  },
+  {
+    "seq": 36,
+    "t": "10:01:17",
+    "kind": "dispatched",
+    "call_id": "c8",
+    "tool": "replace_text",
+    "task_revision": 2
+  },
+  {
+    "seq": 37,
+    "t": "10:01:17",
+    "kind": "evidence_historical",
+    "evidence": "E1",
+    "was_version": "78721bd28acc",
+    "now_version": "339d3a9f2656"
+  },
+  {
+    "seq": 38,
+    "t": "10:01:19",
+    "kind": "observed",
+    "call_id": "c8",
+    "status": "ok",
+    "path": "report.py",
+    "before_version": "78721bd28acc",
+    "after_version": "339d3a9f2656"
+  },
+  {
+    "seq": 39,
+    "t": "10:01:20",
+    "kind": "worker_dispatched",
+    "contract_id": "review-tz-r5",
+    "worker": "tz-boundary-reviewer",
+    "input_revision": "r5",
+    "input_digest": "025e5dc0e98d"
+  },
+  {
+    "seq": 40,
+    "t": "10:01:21",
+    "kind": "worker_dispatched",
+    "contract_id": "review-iface-r5",
+    "worker": "interface-reviewer",
+    "input_revision": "r5",
+    "input_digest": "025e5dc0e98d"
+  },
+  {
+    "seq": 41,
+    "t": "10:01:21",
+    "kind": "worker_returned",
+    "contract_id": "review-tz-r4",
+    "finished": "10:01:10",
+    "status": "accepted",
+    "verdict": "fail",
+    "input_revision": "r4",
+    "current_revision": "r5"
+  },
+  {
+    "seq": 42,
+    "t": "10:01:22",
+    "kind": "model_call_started",
+    "call": 8,
+    "task_revision": 2,
+    "request_sha": "b4f543126a56",
+    "input_tokens": 3042
+  },
+  {
+    "seq": 43,
+    "t": "10:01:28",
+    "kind": "model_call_finished",
+    "call": 8,
+    "task_revision": 2,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "s1 run_skill_script"
+    ]
+  },
+  {
+    "seq": 44,
+    "t": "10:01:29",
+    "kind": "dispatched",
+    "call_id": "s1",
+    "tool": "run_skill_script",
+    "task_revision": 2
+  },
+  {
+    "seq": 45,
+    "t": "10:01:31",
+    "kind": "observed",
+    "call_id": "s1",
+    "status": "ok"
+  },
+  {
+    "seq": 46,
+    "t": "10:01:31",
+    "kind": "worker_returned",
+    "contract_id": "review-tz-r5",
+    "finished": "10:01:29",
+    "status": "accepted",
+    "verdict": "pass",
+    "input_revision": "r5",
+    "current_revision": "r5"
+  },
+  {
+    "seq": 47,
+    "t": "10:01:31",
+    "kind": "worker_returned",
+    "contract_id": "review-iface-r5",
+    "finished": "10:01:28",
+    "status": "accepted",
+    "verdict": "pass",
+    "input_revision": "r5",
+    "current_revision": "r5"
+  },
+  {
+    "seq": 48,
+    "t": "10:01:32",
+    "kind": "model_call_started",
+    "call": 9,
+    "task_revision": 2,
+    "request_sha": "52424545dd97",
+    "input_tokens": 3139
+  },
+  {
+    "seq": 49,
+    "t": "10:01:38",
+    "kind": "model_call_finished",
+    "call": 9,
+    "task_revision": 2,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c9 run_tests"
+    ]
+  },
+  {
+    "seq": 50,
+    "t": "10:01:39",
+    "kind": "dispatched",
+    "call_id": "c9",
+    "tool": "run_tests",
+    "task_revision": 2
+  },
+  {
+    "seq": 51,
+    "t": "10:01:41",
+    "kind": "observed",
+    "call_id": "c9",
+    "status": "passed"
+  },
+  {
+    "seq": 52,
+    "t": "10:01:41",
+    "kind": "evidence_recorded",
+    "evidence": "E2",
+    "evidence_kind": "tests",
+    "result": "passed",
+    "version": "339d3a9f2656",
+    "task_revision": 2
+  },
+  {
+    "seq": 53,
+    "t": "10:01:42",
+    "kind": "skill_scope_closed",
+    "skill": "report-helper",
+    "version": "1.0.0"
+  },
+  {
+    "seq": 54,
+    "t": "10:01:43",
+    "kind": "reviews_integrated",
+    "current_revision": "r5",
+    "verdict": "verified",
+    "stale": [
+      "tz-boundary-reviewer@r4"
+    ]
+  },
+  {
+    "seq": 55,
+    "t": "10:01:43",
+    "kind": "evidence_recorded",
+    "evidence": "E3",
+    "evidence_kind": "signature",
+    "result": "match",
+    "version": "339d3a9f2656",
+    "task_revision": 2
+  },
+  {
+    "seq": 56,
+    "t": "10:01:44",
+    "kind": "model_call_started",
+    "call": 10,
+    "task_revision": 2,
+    "request_sha": "9af88a95206d",
+    "input_tokens": 3214
+  },
+  {
+    "seq": 57,
+    "t": "10:01:50",
+    "kind": "model_call_finished",
+    "call": 10,
+    "task_revision": 2,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "x1 export_report"
+    ]
+  },
+  {
+    "seq": 58,
+    "t": "10:01:52",
+    "kind": "approval_requested",
+    "request_id": "RQ1",
+    "call_id": "x1",
+    "revision": "r5",
+    "artifact_version": "af0093264abc"
+  },
+  {
+    "seq": 59,
+    "t": "10:01:54",
+    "kind": "decision",
+    "request_id": "RQ1",
+    "actor": "dev",
+    "choice": "approve",
+    "status": "refused",
+    "approval_id": null,
+    "reason": "role engineer may not approve export_report"
+  },
+  {
+    "seq": 60,
+    "t": "10:01:56",
+    "kind": "decision",
+    "request_id": "RQ1",
+    "actor": "maria",
+    "choice": "approve",
+    "status": "recorded",
+    "approval_id": "AP1",
+    "reason": null
+  },
+  {
+    "seq": 61,
+    "t": "10:01:57",
+    "kind": "artifact_published",
+    "report": "daily-2026-09-11",
+    "revision": "r6",
+    "by": "finance-review",
+    "version": "374fbdb77b0b"
+  },
+  {
+    "seq": 62,
+    "t": "10:01:58",
+    "kind": "model_call_started",
+    "call": 11,
+    "task_revision": 2,
+    "request_sha": "0dc1cdd38f12",
+    "input_tokens": 3303
+  },
+  {
+    "seq": 63,
+    "t": "10:02:04",
+    "kind": "model_call_finished",
+    "call": 11,
+    "task_revision": 2,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "x2 export_report"
+    ]
+  },
+  {
+    "seq": 64,
+    "t": "10:02:05",
+    "kind": "approval_consumed",
+    "call_id": "x2",
+    "approval_id": "loose",
+    "actor": "maria",
+    "artifact_version": null
+  },
+  {
+    "seq": 65,
+    "t": "10:02:06",
+    "kind": "worker_lost",
+    "call_id": "x2",
+    "point": "after_commit",
+    "worker": "worker-1",
+    "fence": 1
+  },
+  {
+    "seq": 66,
+    "t": "10:02:11",
+    "kind": "worker_restarted",
+    "worker": "worker-2",
+    "fence": 2
+  },
+  {
+    "seq": 67,
+    "t": "10:02:12",
+    "kind": "reconciled",
+    "call_id": "x2",
+    "decisions": [
+      [
+        "x1",
+        "resend"
+      ],
+      [
+        "x2",
+        "resend"
+      ]
+    ],
+    "export_id": "export-file-001",
+    "replayed": true
+  },
+  {
+    "seq": 68,
+    "t": "10:02:14",
+    "kind": "observed",
+    "call_id": "x2",
+    "status": "completed",
+    "export_id": "export-file-001",
+    "replayed": true
+  },
+  {
+    "seq": 69,
+    "t": "10:02:15",
+    "kind": "model_call_started",
+    "call": 12,
+    "task_revision": 2,
+    "request_sha": "2ecc6626651d",
+    "input_tokens": 3392
+  },
+  {
+    "seq": 70,
+    "t": "10:02:21",
+    "kind": "model_call_finished",
+    "call": 12,
+    "task_revision": 2,
+    "outcome": "completed_text",
+    "proposal": [
+      "final answer"
+    ]
+  },
+  {
+    "seq": 71,
+    "t": "10:02:22",
+    "kind": "run_completed",
+    "call": 12,
+    "task_revision": 2
+  }
+]

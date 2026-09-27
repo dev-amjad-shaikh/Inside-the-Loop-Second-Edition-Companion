@@ -1,0 +1,44 @@
+: t=0
+: t=160
+event: message_start
+data: {"type":"message_start","message":{"id":"msg_a71a","type":"message","role":"assistant","model":"coder-large-2026-08-14","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":2402,"cache_read_input_tokens":1800,"output_tokens":1}}}
+
+: t=200
+event: content_block_start
+data: {"type":"content_block_start","index":0,"content_block":{"type":"text","text":""}}
+
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"text_delta","text":"Updating the plan before running the tests."}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":0}
+
+: t=260
+event: content_block_start
+data: {"type":"content_block_start","index":1,"content_block":{"type":"plan_update","plan":{"steps":[{"id":1,"text":"Run test_report.py","status":"in_progress"},{"id":2,"text":"Report the result without deploying","status":"pending"}]}}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":1}
+
+: t=270
+event: rate_limit_hint
+data: {"type":"rate_limit_hint","remaining_requests":41}
+
+: t=300
+event: content_block_start
+data: {"type":"content_block_start","index":2,"content_block":{"type":"tool_use","id":"toolu_tests_3","name":"run_tests","input":{}}}
+
+: t=350
+event: content_block_delta
+data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"{\"tests\": [\"test_report.py\"]}"}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":2}
+
+: t=360
+event: message_delta
+data: {"type":"message_delta","delta":{"stop_reason":"tool_use","stop_sequence":null},"usage":{"output_tokens":97}}
+
+event: message_stop
+data: {"type":"message_stop"}
+

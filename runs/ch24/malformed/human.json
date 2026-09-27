@@ -1,0 +1,96 @@
+{
+  "events": [
+    {
+      "request_id": "RQ1",
+      "actor": "maria",
+      "session": "sess-acme-maria",
+      "choice": "approve",
+      "result": {
+        "status": "recorded",
+        "decision_id": "D1",
+        "choice": "approve",
+        "approval_id": "AP1"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "report": "daily-2026-09-11",
+      "revision": "r5",
+      "by": "reporting-pipeline",
+      "version": "af0093264abc",
+      "source_revision": "339d3a9f2656",
+      "t": "10:00:00"
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "RQ1",
+      "request_key": "8c318dcb23023711",
+      "run_id": "run-24",
+      "operation": "export_report",
+      "args_json": "{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\"}",
+      "args_digest": "c66ff54422eb9ffa",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "af0093264abc",
+      "presented_json": "{\"arguments\":{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\"},\"artifact_version\":\"af0093264abc\",\"choices\":[{\"consequence\":\"Export runs once, for this revision and destination only.\",\"id\":\"approve\"},{\"consequence\":\"Nothing is exported; the run reports the refusal.\",\"id\":\"reject\"}],\"decision\":\"Export daily-2026-09-11 r5 to destination A?\",\"evidence\":[\"E2: tests passed on report.py 339d3a9f2656\"],\"expires_in_s\":900,\"operation\":\"export_report\",\"what_changes\":\"Writes one CSV (4 orders, total 153.50 USD) to destination A; recipients can read it immediately.\"}",
+      "status": "decided",
+      "created_t": "10:01:39"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "D1",
+      "request_id": "RQ1",
+      "submission_key": "RQ1:maria:1",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "choice": "approve",
+      "decided_t": "10:01:41"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "AP1",
+      "request_id": "RQ1",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "operation": "export_report",
+      "args_digest": "c66ff54422eb9ffa",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "af0093264abc",
+      "scope": "run-24; destination A; one use",
+      "expires_s": 1001,
+      "status": "consumed",
+      "consumed_by": "x1"
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "t": "10:01:38",
+      "kind": "dispatch_refused",
+      "detail": "{\"args_digest\":\"c66ff54422eb9ffa\",\"call_id\":\"x1\",\"mismatches\":[],\"operation\":\"export_report\",\"reason\":\"no active approval\"}"
+    },
+    {
+      "seq": 2,
+      "t": "10:01:40",
+      "kind": "request_created",
+      "detail": "{\"args_digest\":\"c66ff54422eb9ffa\",\"artifact\":\"daily-2026-09-11\",\"artifact_version\":\"af0093264abc\",\"operation\":\"export_report\",\"request_id\":\"RQ1\"}"
+    },
+    {
+      "seq": 3,
+      "t": "10:01:42",
+      "kind": "decision_recorded",
+      "detail": "{\"actor\":\"maria\",\"approval_id\":\"AP1\",\"choice\":\"approve\",\"delegated_by\":null,\"request_id\":\"RQ1\",\"role\":\"report_owner\",\"submission_key\":\"RQ1:maria:1\"}"
+    },
+    {
+      "seq": 4,
+      "t": "10:01:44",
+      "kind": "approval_consumed",
+      "detail": "{\"approval_id\":\"AP1\",\"call_id\":\"x1\"}"
+    }
+  ]
+}

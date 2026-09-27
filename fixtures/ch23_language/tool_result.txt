@@ -1,0 +1,27 @@
+def bucket_331(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 0
+def bucket_970(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 1
+def bucket_154(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 2
+def bucket_404(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 3
+def bucket_666(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 4
+def bucket_49(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 5
+def bucket_74(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 6
+def bucket_840(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 7
+def bucket_548(order, day, tz="America/Los_Angeles"):
+    local = order.created_at.astimezone(ZoneInfo(tz))
+    return local.date() == day  # revision 339d3a9f2656 line 8

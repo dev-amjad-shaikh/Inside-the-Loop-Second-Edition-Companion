@@ -1,0 +1,86 @@
+== E1 lost receipt (runtime.db and export.db) ==
+source revision read: 339d3a9f2656
+op_key: run-13:export:daily-orders:2026-09-11  payload_digest: 07c41c5e8976f552
+runtime row after interruption: {"op_id": "op-0002", "tool": "create_export", "recovery_class": "idempotent_key", "op_key": "run-13:export:daily-orders:2026-09-11", "payload_digest": "07c41c5e8976f552", "status": "dispatched", "attempts": 1, "first_dispatched_at": 1.7, "receipt": null}
+  Runtime after interruption: dispatched, no receipt
+  Service after interruption: export-file-001 exists
+  Repeated key and same payload: existing receipt returned
+  Repeated key and different payload: rejected
+  Final number of export records: 1
+recovered receipt: {"created_at": 1.7, "export_id": "export-file-001", "op_key": "run-13:export:daily-orders:2026-09-11", "payload_digest": "07c41c5e8976f552", "replayed": true}
+changed payload: rejected (422: operation key reused with a different payload) digest a539c24cf080dd2c
+fresh key per retry: 2 export records (export-file-001, export-file-002)
+
+== E2 interruption point x recovery class ==
+point            class           after       reconciler decision        final external state               naive
+before_dispatch  safe_repeat     prepared    revalidate and dispatch    no external change                 resend: no external change
+in_transit       safe_repeat     dispatched  repeat read                no external change                 resend: no external change
+after_commit     safe_repeat     dispatched  repeat read                no external change                 resend: no external change
+after_receipt    safe_repeat     completed   continue from receipt      no external change                 continue from receipt: no external change
+before_dispatch  idempotent_key  prepared    revalidate and dispatch    1 export: export-file-001          resend: 1 export: export-file-001
+in_transit       idempotent_key  dispatched  reuse key                  1 export: export-file-001          resend: 1 export: export-file-001
+after_commit     idempotent_key  dispatched  reuse key                  1 export: export-file-001          resend: 1 export: export-file-001
+after_receipt    idempotent_key  completed   continue from receipt      1 export: export-file-001          continue from receipt: 1 export: export-file-001
+before_dispatch  queryable       prepared    revalidate and dispatch    1 job: job-001 completed           resend: 1 job: job-001 completed
+in_transit       queryable       dispatched  query status: absent, dispatch 1 job: job-001 completed           resend: 1 job: job-001 completed
+after_commit     queryable       dispatched  query status               1 job: job-001 completed           resend: 2 jobs: job-001 completed, job-002 completed
+after_receipt    queryable       accepted    poll job by receipt        1 job: job-001 completed           leave accepted: 1 job: job-001 completed
+before_dispatch  non_repeatable  prepared    revalidate and dispatch    1 message                          resend: 1 message
+in_transit       non_repeatable  dispatched  escalate to a person       0 messages; R-1 open               resend: 1 message
+after_commit     non_repeatable  dispatched  escalate to a person       1 message; R-1 open                resend: 2 messages
+after_receipt    non_repeatable  completed   continue from receipt      1 message                          continue from receipt: 1 message
+stale intent (task revised 3 -> 4 before recovery): withdraw stale intent; final status withdrawn; 0 messages
+
+== E3 notification: naive retry-all vs reconciler ==
+naive_after_commit       messages=2 op_status=completed open_items=[]
+naive_in_transit         messages=1 op_status=completed open_items=[]
+reconciler_after_commit  messages=1 op_status=uncertain open_items=['R-1']
+reconciler_in_transit    messages=0 op_status=uncertain open_items=['R-1']
+runtime row after interruption, after_commit vs in_transit:
+  op_id                "op-0003"                    "op-0003"                    same
+  tool                 "notify_oncall"              "notify_oncall"              same
+  recovery_class       "non_repeatable"             "non_repeatable"             same
+  op_key               null                         null                         same
+  payload_digest       "d147382f1dad2799"           "d147382f1dad2799"           same
+  status               "dispatched"                 "dispatched"                 same
+  attempts             1                            1                            same
+  first_dispatched_at  2.5                          2.5                          same
+  receipt              null                         null                         same
+repair item: {"item_id": "R-1", "op_id": "op-0003", "reason": "dispatched; no receipt; service offers no idempotency and no query", "evidence": {"attempts": 1, "first_dispatched_at": 2.5, "payload_digest": "d147382f1dad2799", "recipient": "reports-oncall@example.com", "subject": "Daily orders export for 2026-09-11 is ready", "tool": "notify_oncall"}}
+resolution by agent:run-13: {"accepted": false, "reason": "agent:run-13 lacks role reports-oncall-lead"}
+resolution by user:dana (after_commit): {"accepted": true, "status": "completed", "receipt": {"source": "manual", "message_id": "msg-001", "resolved_by": "user:dana"}}
+resolution by user:dana (in_transit): {"accepted": true, "status": "completed", "receipt": {"source": "resend authorized by user:dana", "message_id": "msg-001"}}
+messages after resolution: after_commit=1 in_transit=1
+
+== E4 backoff with full jitter, deadline (simulated seconds) ==
+restart t=5.5  deadline t=125.5  status endpoint down until t=205.5
+  t=  5.500 attempt 1 got 503; bound   1.0s; wait  0.259s
+  t=  5.759 attempt 2 got 503; bound   2.0s; wait  1.371s
+  t=  7.130 attempt 3 got 503; bound   4.0s; wait  2.736s
+  t=  9.866 attempt 4 got 503; bound   8.0s; wait  6.795s
+  t= 16.661 attempt 5 got 503; bound  16.0s; wait  2.972s
+  t= 19.633 attempt 6 got 503; bound  30.0s; wait  6.917s
+  t= 26.550 attempt 7 got 503; bound  30.0s; wait  4.415s
+  t= 30.965 attempt 8 got 503; bound  30.0s; wait  6.755s
+  t= 37.720 attempt 9 got 503; bound  30.0s; wait 22.021s
+  t= 59.741 attempt 10 got 503; bound  30.0s; wait  3.906s
+  t= 63.647 attempt 11 got 503; bound  30.0s; wait 15.939s
+  t= 79.586 attempt 12 got 503; bound  30.0s; wait  6.417s
+  t= 86.003 attempt 13 got 503; bound  30.0s; wait  8.840s
+  t= 94.843 attempt 14 got 503; bound  30.0s; wait 12.947s
+  t=107.790 deadline: {"what": "status query", "attempt": 15, "would_wait_s": 25.13, "deadline": 125.5}
+first pass: query status: unavailable, mark uncertain -> status uncertain (ended t=107.79)
+later sweep at t=305.5: query status again -> status completed; jobs at service: 1
+50 reconcilers x 6 attempts, no_jitter: 300 requests; busiest 100 ms window 50 requests at t=1.0; 6 windows used; last request t=61.0
+50 reconcilers x 6 attempts, full_jitter: 300 requests; busiest 100 ms window 12 requests at t=0.5; 159 windows used; last request t=49.726
+
+== E5 cancellation ==
+flawed_late    cancel at +12.0s (no return at +5.0s): runtime=cancelled service=completed at t=40.0 agree=False
+revised_late   cancel at +12.0s (no return at +5.0s): runtime=completed service=completed at t=40.0 agree=True
+    ack: {"job_id": "job-001", "cancel_requested": true, "status": "running"}
+revised_early  cancel at +3.0s (no return at +5.0s): runtime=cancelled service=cancelled at t=3.0 agree=True
+    ack: {"job_id": "job-001", "cancel_requested": true, "status": "cancelled"}
+
+== E6 key retention (restart after 30 h; service keeps keys 24 h) ==
+naive_key_reuse  decision=reuse key; exports=['export-file-001', 'export-file-002']; op status=completed
+reconciler       decision=escalate (key past retention); exports=['export-file-001']; op status=uncertain

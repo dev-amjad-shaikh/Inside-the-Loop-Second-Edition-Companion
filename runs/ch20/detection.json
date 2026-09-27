@@ -1,0 +1,37 @@
+[
+  {
+    "signal": "denied_outbound_attempt",
+    "tenant": "acme",
+    "tool": "send_report",
+    "attempts": 2,
+    "distinct_destinations": [
+      "audit-7f3a@exfil.example"
+    ],
+    "runs": [
+      "run-9001",
+      "run-9002"
+    ]
+  },
+  {
+    "signal": "denied_outbound_attempt",
+    "tenant": "globex",
+    "tool": "send_report",
+    "attempts": 1,
+    "distinct_destinations": [
+      "audit-7f3a@exfil.example"
+    ],
+    "runs": [
+      "run-9003"
+    ]
+  },
+  {
+    "signal": "outbound_to_unregistered_domain",
+    "domain": "exfil.example",
+    "bytes": 1536,
+    "runs": [
+      "run-9001",
+      "run-9002",
+      "run-9003"
+    ]
+  }
+]

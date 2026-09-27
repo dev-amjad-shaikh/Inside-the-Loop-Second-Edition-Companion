@@ -1,0 +1,71 @@
+[
+  {
+    "t": 0.2,
+    "decided_by": "program",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 0.4,
+    "decided_by": "program",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 0.6,
+    "decided_by": "program",
+    "op": "read_file:test_report.py:1eb31f02",
+    "status": "ok"
+  },
+  {
+    "t": 2.364,
+    "decided_by": "model",
+    "op": "propose regression test"
+  },
+  {
+    "t": 2.664,
+    "decided_by": "program",
+    "op": "replace_text:test_report.py:29fa54fb",
+    "status": "ok"
+  },
+  {
+    "t": 8.664,
+    "decided_by": "program",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 10.701,
+    "decided_by": "model",
+    "op": "propose patch (attempt 1)"
+  },
+  {
+    "t": 11.001,
+    "decided_by": "program",
+    "op": "replace_text:report.py:34bcb00f",
+    "status": "ok"
+  },
+  {
+    "t": 17.001,
+    "decided_by": "program",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 19.299,
+    "decided_by": "model",
+    "op": "propose patch (attempt 2)"
+  },
+  {
+    "t": 19.599,
+    "decided_by": "program",
+    "op": "replace_text:report.py:34bcb00f",
+    "status": "ok"
+  },
+  {
+    "t": 25.599,
+    "decided_by": "program",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  }
+]

@@ -1,0 +1,503 @@
+[
+  {
+    "skill": "csv-cleanup",
+    "version": "1.0.0",
+    "hash": "dc55bc010138",
+    "format_errors": [],
+    "lint_failed": [
+      "description names a non-trigger",
+      "verification step"
+    ],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": false,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "data-platform"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.0.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "3 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": false,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "undeclared",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 158,
+    "body_tokens": 52,
+    "files": [
+      "SKILL.md"
+    ]
+  },
+  {
+    "skill": "release-notes",
+    "version": "1.0.0",
+    "hash": "d9beb8791acf",
+    "format_errors": [],
+    "lint_failed": [
+      "description names a non-trigger",
+      "verification step"
+    ],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": false,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "developer-experience"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.0.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "3 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": false,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "undeclared",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 134,
+    "body_tokens": 52,
+    "files": [
+      "SKILL.md"
+    ]
+  },
+  {
+    "skill": "report-helper",
+    "version": "0.1.0",
+    "hash": "7cc407e6890c",
+    "format_errors": [],
+    "lint_failed": [
+      "description names a trigger",
+      "description names a non-trigger",
+      "maintainer declared",
+      "stepwise procedure",
+      "verification step",
+      "scripts pinned by hash",
+      "network use declared"
+    ],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": false,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": false,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": false,
+        "detail": "missing"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "0.1.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": false,
+        "detail": "0 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": false,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": false,
+        "detail": [
+          "scripts/fix_report.py"
+        ]
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": false,
+        "detail": {
+          "declared": "undeclared",
+          "scripts_using_network": [
+            "scripts/fix_report.py"
+          ]
+        }
+      }
+    ],
+    "description_chars": 115,
+    "body_tokens": 77,
+    "files": [
+      "SKILL.md",
+      "scripts/fix_report.py"
+    ]
+  },
+  {
+    "skill": "report-helper",
+    "version": "1.0.0",
+    "hash": "4818324b70eb",
+    "format_errors": [],
+    "lint_failed": [],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": true,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "reporting-platform"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.0.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "7 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": true,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "none",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 426,
+    "body_tokens": 338,
+    "files": [
+      "SKILL.md",
+      "references/regression-test.md",
+      "references/timezone-gotchas.md",
+      "scripts/probe_boundary.py"
+    ]
+  },
+  {
+    "skill": "report-helper",
+    "version": "1.1.0",
+    "hash": "2c2d8a21842f",
+    "format_errors": [],
+    "lint_failed": [],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": true,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "reporting-platform"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.1.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "7 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": true,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "none",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 426,
+    "body_tokens": 327,
+    "files": [
+      "SKILL.md",
+      "references/regression-test.md",
+      "references/timezone-gotchas.md",
+      "scripts/probe_boundary.py"
+    ]
+  },
+  {
+    "skill": "status-report-writer",
+    "version": "1.0.0",
+    "hash": "f1630f9805cc",
+    "format_errors": [],
+    "lint_failed": [
+      "description names a non-trigger",
+      "verification step"
+    ],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": false,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "team-communications"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.0.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "4 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": false,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "undeclared",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 139,
+    "body_tokens": 78,
+    "files": [
+      "SKILL.md",
+      "assets/status-template.md"
+    ]
+  },
+  {
+    "skill": "status-report-writer",
+    "version": "1.1.0",
+    "hash": "ce349d0c9692",
+    "format_errors": [],
+    "lint_failed": [
+      "verification step"
+    ],
+    "lint": [
+      {
+        "check": "description names a trigger",
+        "ok": true,
+        "detail": "description says when to use the skill"
+      },
+      {
+        "check": "description names a non-trigger",
+        "ok": true,
+        "detail": "description says when not to use the skill"
+      },
+      {
+        "check": "maintainer declared",
+        "ok": true,
+        "detail": "team-communications"
+      },
+      {
+        "check": "version declared",
+        "ok": true,
+        "detail": "1.1.0"
+      },
+      {
+        "check": "stepwise procedure",
+        "ok": true,
+        "detail": "4 numbered steps"
+      },
+      {
+        "check": "verification step",
+        "ok": false,
+        "detail": "instructions ask for evidence before finishing"
+      },
+      {
+        "check": "referenced resources exist",
+        "ok": true,
+        "detail": "all present"
+      },
+      {
+        "check": "scripts pinned by hash",
+        "ok": true,
+        "detail": "all pinned"
+      },
+      {
+        "check": "pins match files",
+        "ok": true,
+        "detail": "all match"
+      },
+      {
+        "check": "network use declared",
+        "ok": true,
+        "detail": {
+          "declared": "undeclared",
+          "scripts_using_network": []
+        }
+      }
+    ],
+    "description_chars": 315,
+    "body_tokens": 78,
+    "files": [
+      "SKILL.md",
+      "assets/status-template.md"
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "correction": {
+    "at": "2026-09-22T16:00:00Z",
+    "subject": "user-17",
+    "kind": "display_timezone",
+    "key": "display_timezone",
+    "value": "America/New_York",
+    "scope_type": "user",
+    "source_event": "message-131",
+    "source_kind": "user_message",
+    "assertion": "stated",
+    "statement": "I've moved to New York; show times in America/New_York.",
+    "proposer": "extractor"
+  },
+  "stale_paths": {
+    "records_active": [
+      {
+        "id": "mem-fea70381",
+        "value": "Europe/Berlin",
+        "status": "superseded",
+        "supersedes": null
+      },
+      {
+        "id": "mem-7f255737",
+        "value": "America/New_York",
+        "status": "active",
+        "supersedes": "mem-fea70381"
+      }
+    ],
+    "summary": {
+      "subject": "user-17",
+      "text": "display_timezone=Europe/Berlin",
+      "built_at": "2026-09-21T10:00:00Z"
+    },
+    "index_lookup_timezone": [
+      {
+        "term": "timezone",
+        "record_id": "mem-fea70381",
+        "snippet": "display_timezone=Europe/Berlin"
+      }
+    ],
+    "dependents_of_old_record": [
+      "index",
+      "summary:user-17"
+    ]
+  },
+  "T4_stale": {
+    "answer": "17:00 Europe/Berlin.",
+    "check": "wrong (17:00 Europe/Berlin)"
+  },
+  "T4_stale_model_input": {
+    "at": "2026-09-23T09:00:00Z",
+    "context": {
+      "user": "user-17",
+      "session": "s-55"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Memory for user-17:\ndisplay_timezone=Europe/Berlin  [summary:user-17 built 2026-09-21T10:00:00Z]"
+      },
+      {
+        "role": "user",
+        "content": "When is the 15:00 UTC review call on 2026-09-28 in my time?"
+      }
+    ]
+  },
+  "T4_none": {
+    "answer": "15:00 UTC.",
+    "check": "miss (unpersonalized)"
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "t": 1.903,
+    "decided_by": "model",
+    "op": "read_file:billing.py:6a5757fd",
+    "status": "ok"
+  },
+  {
+    "t": 4.222,
+    "decided_by": "model",
+    "op": "read_file:customers.py:4cc5bdb4",
+    "status": "ok"
+  },
+  {
+    "t": 6.966,
+    "decided_by": "model",
+    "op": "read_file:exports.py:c38fc0f3",
+    "status": "ok"
+  },
+  {
+    "t": 10.126,
+    "decided_by": "model",
+    "op": "read_file:inventory.py:ec3aff9b",
+    "status": "ok"
+  },
+  {
+    "t": 13.711,
+    "decided_by": "model",
+    "op": "read_file:invoices.py:e803f5fe",
+    "status": "ok"
+  },
+  {
+    "t": 17.716,
+    "decided_by": "model",
+    "op": "read_file:ledger.py:7f62a399",
+    "status": "ok"
+  },
+  {
+    "t": 22.132,
+    "decided_by": "model",
+    "op": "read_file:notifications.py:d9b33def",
+    "status": "ok"
+  },
+  {
+    "t": 26.991,
+    "decided_by": "model",
+    "op": "read_file:payments.py:a0e8db60",
+    "status": "ok"
+  },
+  {
+    "t": 32.27,
+    "decided_by": "model",
+    "op": "read_file:refunds.py:0287a7fa",
+    "status": "ok"
+  },
+  {
+    "t": 37.965,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 43.737,
+    "decided_by": "model",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 49.557,
+    "decided_by": "model",
+    "op": "read_file:shipping.py:a90f30ad",
+    "status": "ok"
+  }
+]

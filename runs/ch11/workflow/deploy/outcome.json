@@ -1,0 +1,13 @@
+{
+  "controller": "workflow",
+  "outcome": "completed-verified",
+  "reason": "tests passed after attempt 1",
+  "model_calls": 2,
+  "tokens": 1214,
+  "sim_seconds": 17.009,
+  "executions": 7,
+  "audit": {
+    "acceptance_passed": true,
+    "deployed": false
+  }
+}

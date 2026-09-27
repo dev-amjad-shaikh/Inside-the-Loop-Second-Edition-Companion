@@ -1,0 +1,128 @@
+[
+  {
+    "model": "M-8B bf16",
+    "hardware": "1 x 24 GiB workstation card",
+    "device_bytes": 25769803776,
+    "usable_bytes": 23708219473,
+    "weights_bytes": 16000000000,
+    "reserve_bytes": 1610612736,
+    "kv_bytes": 6097606737,
+    "kv_per_token": 131072,
+    "kv_tokens": 46521,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 11,
+      "16384": 2,
+      "32768": 1,
+      "131072": 0
+    }
+  },
+  {
+    "model": "M-8B 4.5-bit",
+    "hardware": "1 x 24 GiB workstation card",
+    "device_bytes": 25769803776,
+    "usable_bytes": 23708219473,
+    "weights_bytes": 4500000000,
+    "reserve_bytes": 1610612736,
+    "kv_bytes": 17597606737,
+    "kv_per_token": 131072,
+    "kv_tokens": 134259,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 32,
+      "16384": 8,
+      "32768": 4,
+      "131072": 1
+    }
+  },
+  {
+    "model": "M-8B bf16",
+    "hardware": "1 x 80 GiB data-center card",
+    "device_bytes": 85899345920,
+    "usable_bytes": 79027398246,
+    "weights_bytes": 16000000000,
+    "reserve_bytes": 1610612736,
+    "kv_bytes": 61416785510,
+    "kv_per_token": 131072,
+    "kv_tokens": 468572,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 114,
+      "16384": 28,
+      "32768": 14,
+      "131072": 3
+    }
+  },
+  {
+    "model": "M-70B bf16",
+    "hardware": "1 x 80 GiB data-center card",
+    "device_bytes": 85899345920,
+    "usable_bytes": 79027398246,
+    "weights_bytes": 140000000000,
+    "reserve_bytes": 1610612736,
+    "kv_bytes": -62583214489,
+    "kv_per_token": 327680,
+    "kv_tokens": 0,
+    "fits_by_weights": false,
+    "max_sequences_at_full_context": {
+      "4096": 0,
+      "16384": 0,
+      "32768": 0,
+      "131072": 0
+    }
+  },
+  {
+    "model": "M-70B 4.5-bit",
+    "hardware": "1 x 80 GiB data-center card",
+    "device_bytes": 85899345920,
+    "usable_bytes": 79027398246,
+    "weights_bytes": 39375000000,
+    "reserve_bytes": 1610612736,
+    "kv_bytes": 38041785510,
+    "kv_per_token": 327680,
+    "kv_tokens": 116094,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 28,
+      "16384": 7,
+      "32768": 3,
+      "131072": 0
+    }
+  },
+  {
+    "model": "M-70B bf16",
+    "hardware": "2 x 80 GiB",
+    "device_bytes": 171798691840,
+    "usable_bytes": 158054796492,
+    "weights_bytes": 140000000000,
+    "reserve_bytes": 3221225472,
+    "kv_bytes": 14833571020,
+    "kv_per_token": 327680,
+    "kv_tokens": 45268,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 11,
+      "16384": 2,
+      "32768": 1,
+      "131072": 0
+    }
+  },
+  {
+    "model": "M-70B bf16",
+    "hardware": "8 x 80 GiB node",
+    "device_bytes": 687194767360,
+    "usable_bytes": 632219185971,
+    "weights_bytes": 140000000000,
+    "reserve_bytes": 12884901888,
+    "kv_bytes": 479334284083,
+    "kv_per_token": 327680,
+    "kv_tokens": 1462812,
+    "fits_by_weights": true,
+    "max_sequences_at_full_context": {
+      "4096": 357,
+      "16384": 89,
+      "32768": 44,
+      "131072": 11
+    }
+  }
+]

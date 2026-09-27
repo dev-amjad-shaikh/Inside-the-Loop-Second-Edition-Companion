@@ -1,0 +1,82 @@
+== 1. Memory budget and concurrent sequences at full context
+  utilization 0.92, reserve 1.5 GiB per GPU; KV bytes per token = 2 x layers x kv_heads x head_dim x 2
+  M-8B bf16      on 1 x 24 GiB workstation card  weights   14.90 GiB  KV budget    5.68 GiB  KV/token 128 KiB  tokens    46,521  seqs 4k:11 16k:2 32k:1 128k:0
+  M-8B 4.5-bit   on 1 x 24 GiB workstation card  weights    4.19 GiB  KV budget   16.39 GiB  KV/token 128 KiB  tokens   134,259  seqs 4k:32 16k:8 32k:4 128k:1
+  M-8B bf16      on 1 x 80 GiB data-center card  weights   14.90 GiB  KV budget   57.20 GiB  KV/token 128 KiB  tokens   468,572  seqs 4k:114 16k:28 32k:14 128k:3
+  M-70B bf16     on 1 x 80 GiB data-center card  weights  130.39 GiB  KV budget  -58.29 GiB  KV/token 320 KiB  tokens         0  seqs 4k:0 16k:0 32k:0 128k:0
+  M-70B 4.5-bit  on 1 x 80 GiB data-center card  weights   36.67 GiB  KV budget   35.43 GiB  KV/token 320 KiB  tokens   116,094  seqs 4k:28 16k:7 32k:3 128k:0
+  M-70B bf16     on 2 x 80 GiB                   weights  130.39 GiB  KV budget   13.81 GiB  KV/token 320 KiB  tokens    45,268  seqs 4k:11 16k:2 32k:1 128k:0
+  M-70B bf16     on 8 x 80 GiB node              weights  130.39 GiB  KV budget  446.41 GiB  KV/token 320 KiB  tokens 1,462,812  seqs 4k:357 16k:89 32k:44 128k:11
+
+== 2. Allocation of a seeded mix of agent-call lengths (median 12k, cap 32k, +1k output)
+  mix: n=4000 mean=15,565 tokens min=2,024 max=33,792
+  M-8B bf16   1 x 80 GiB data-center card  contiguous                           admitted   13  allocated   439,296  waste  53.8%  prefix copies 0
+  M-8B bf16   1 x 80 GiB data-center card  paged                                admitted   31  allocated   448,640  waste   0.1%  prefix copies 0
+  M-8B bf16   1 x 80 GiB data-center card  paged_prefix (one cache domain)      admitted   42  allocated   449,296  waste   0.1%  prefix copies 1
+  M-8B bf16   1 x 80 GiB data-center card  paged_prefix (20 salted tenants)     admitted   37  allocated   464,240  waste   0.1%  prefix copies 15
+  M-70B bf16  8 x 80 GiB node              contiguous                           admitted   43  allocated 1,453,056  waste  49.4%  prefix copies 0
+  M-70B bf16  8 x 80 GiB node              paged                                admitted   91  allocated 1,457,200  waste   0.0%  prefix copies 0
+  M-70B bf16  8 x 80 GiB node              paged_prefix (one cache domain)      admitted  153  allocated 1,460,960  waste   0.1%  prefix copies 1
+  M-70B bf16  8 x 80 GiB node              paged_prefix (20 salted tenants)     admitted  137  allocated 1,458,448  waste   0.1%  prefix copies 20
+  M-70B bf16  2 x 80 GiB                   contiguous                           admitted    1  allocated    33,792  waste  42.7%  prefix copies 0
+  M-70B bf16  2 x 80 GiB                   paged                                admitted    2  allocated    31,120  waste   0.0%  prefix copies 0
+  M-70B bf16  2 x 80 GiB                   paged_prefix (one cache domain)      admitted    2  allocated    24,976  waste   0.1%  prefix copies 1
+  M-70B bf16  2 x 80 GiB                   paged_prefix (20 salted tenants)     admitted    2  allocated    31,120  waste   0.0%  prefix copies 2
+
+== 3. Prefill/decode contention: 24 decoders at 8k context, a 32k-token prompt arrives at 0.5 s
+  cost model: step = max((weights + KV read) / 2.0 TB/s, 2 x params x tokens / 400 TFLOP/s)
+  M-8B one step    steps  224  decode gap p50   21.1 ms  p99    21.2 ms  max  1311.7 ms  long-prompt TTFT 1313.4 ms
+  M-8B chunk 8192  steps  227  decode gap p50   21.1 ms  p99   328.6 ms  max   328.6 ms  long-prompt TTFT 1316.2 ms
+  M-8B chunk 2048  steps  238  decode gap p50   21.1 ms  p99    82.9 ms  max    82.9 ms  long-prompt TTFT 1327.8 ms
+  M-8B chunk 512   steps  283  decode gap p50   21.2 ms  p99    21.4 ms  max    21.4 ms  long-prompt TTFT 1373.8 ms
+
+== 4. At-least-once queue: 3,000 tasks, 24 worker slots, lease 30 s, heartbeat 10 s
+  fates per attempt: 1% crash before effect, 1% crash after effect, 2% freeze mid-work,
+  1% freeze between effect and write; freezes of 40-240 s; replacement after 45 s
+  ids=fresh  lease_only  done 3000  claims 3178  effects 3070 (dup 70)  abandoned 67  late writes 47 accepted 47  written twice 46  final from superseded 31  refused 0
+  ids=fresh  owner_check done 3000  claims 3178  effects 3061 (dup 61)  abandoned 76  late writes 38 accepted 0  written twice 0  final from superseded 0  refused 38
+  ids=fresh  fenced      done 3000  claims 3178  effects 3061 (dup 61)  abandoned 76  late writes 38 accepted 0  written twice 0  final from superseded 0  refused 38
+  ids=stable lease_only  done 3000  claims 3178  effects 3070 (dup 70)  abandoned 67  late writes 47 accepted 47  written twice 46  final from superseded 31  refused 0
+  ids=stable owner_check done 3000  claims 3178  effects 3062 (dup 62)  abandoned 75  late writes 39 accepted 1  written twice 0  final from superseded 1  refused 39
+  ids=stable fenced      done 3000  claims 3178  effects 3061 (dup 61)  abandoned 76  late writes 38 accepted 0  written twice 0  final from superseded 0  refused 38
+  timeline of t0014 under lease_only with stable ids (time, record, fence, worker, detail):
+    (7.0, 'claim', 1, 'w14', '')
+    (69.4, 'effect', 1, 'w14', '')
+    (97.8, 'claim', 2, 'w15', '')
+    (136.5, 'effect', 2, 'w15', '')
+    (136.5, 'write', 2, 'w15', 0)
+    (206.7, 'write', 1, 'w14', 1)
+  timeline of t0638 under owner_check with stable ids (time, record, fence, worker, detail):
+    (1499.1, 'claim', 1, 'w00', '')
+    (1540.0, 'claim', 2, 'w21', '')
+    (1580.0, 'claim', 3, 'w00', '')
+    (1594.4, 'effect', 1, 'w00', '')
+    (1594.4, 'write', 1, 'w00', 1)
+    (1642.4, 'effect', 3, 'w00', '')
+    (1642.4, 'refusal', 3, 'w00', 'row status=done owner=None fence=3')
+
+== 5. Admission: 16 slots, 9 quiet tenants at 0.18/s, one tenant adds 0.30/s for 30 min; deadline 15 min
+  unbounded  quiet arrivals  1277  served  1277  rejected    0  missed deadline  444  wait p50   636.6 s  p95  1376.8 s
+  unbounded  noisy arrivals   482  served   482  rejected    0  missed deadline  150  wait p50   598.9 s  p95  1328.5 s
+  global_cap quiet arrivals  1277  served  1191  rejected   86  missed deadline    0  wait p50    47.6 s  p95   657.4 s
+  global_cap noisy arrivals   482  served   385  rejected   97  missed deadline    0  wait p50   514.5 s  p95   687.3 s
+  tenant_cap quiet arrivals  1277  served  1277  rejected    0  missed deadline    0  wait p50     0.2 s  p95   276.7 s
+  tenant_cap noisy arrivals   482  served   214  rejected  268  missed deadline    0  wait p50   141.1 s  p95   281.6 s
+
+== 6. Sandbox starts: 0.25 runs/s, a burst of 40 at 30 min; cold median 6 s, warm claim 0.15 s
+  pool  0  steady p50  6.07 s  p95 13.28 s  p99 18.93 s  burst p50  6.83 s  max 32.66 s  idle warm sandbox-hours 0.0
+  pool  4  steady p50  0.15 s  p95  3.33 s  p99  9.87 s  burst p50  6.83 s  max 32.66 s  idle warm sandbox-hours 2.4
+  pool  8  steady p50  0.15 s  p95  0.15 s  p99  0.15 s  burst p50  6.59 s  max 32.66 s  idle warm sandbox-hours 6.29
+  pool 16  steady p50  0.15 s  p95  0.15 s  p99  0.15 s  burst p50  5.62 s  max 32.66 s  idle warm sandbox-hours 14.28
+  pool 48  steady p50  0.15 s  p95  0.15 s  p99  0.15 s  burst p50  0.15 s  max  0.15 s  idle warm sandbox-hours 46.22
+
+== 7. Storage: the Chapter 3 run's seven model inputs, with tool definitions
+  full input per call (bytes): [1027, 2287, 2884, 3118, 3502, 3947, 4246]
+  A. every input stored in full             21,011 bytes
+  B. every input compressed separately       6,911 bytes
+  C. content-addressed items + manifests     4,704 bytes (4,217 item bytes + 487 manifest bytes)
+  D. whole run in one compressed file        1,411 bytes
+  projection (arithmetic): each call adds 536 bytes of new items, manifests 68 bytes
+    n=  7 calls: A       18,455 bytes   C      4,720 bytes
+    n= 50 calls: A      708,562 bytes   C     30,707 bytes
+    n=200 calls: A   10,881,750 bytes   C    121,357 bytes

@@ -1,0 +1,182 @@
+{
+  "proposal": {
+    "at": "2026-09-21T09:05:00Z",
+    "subject": "user-17",
+    "kind": "response_preference",
+    "key": "answer_length",
+    "value": "brief",
+    "scope_type": "meeting",
+    "scope_id": "meeting-42",
+    "expires_at": "2026-09-21T10:00:00Z",
+    "source_event": "message-108",
+    "source_kind": "user_message",
+    "assertion": "stated",
+    "statement": "Use brief answers for this meeting.",
+    "proposer": "extractor"
+  },
+  "governed_record": [
+    {
+      "id": "mem-4890ed02",
+      "kind": "response_preference",
+      "key": "answer_length",
+      "value": "brief",
+      "scope_type": "meeting",
+      "scope_id": "meeting-42",
+      "source_event": "message-108",
+      "assertion": "stated",
+      "created_at": "2026-09-21T09:05:00Z",
+      "expires_at": "2026-09-21T10:00:00Z",
+      "status": "expired"
+    }
+  ],
+  "unscoped_record": [
+    {
+      "id": "mem-4890ed02",
+      "kind": "response_preference",
+      "key": "answer_length",
+      "value": "brief",
+      "scope_type": "global",
+      "scope_id": "*",
+      "source_event": "message-108",
+      "assertion": "stated",
+      "created_at": "2026-09-21T09:05:00Z",
+      "expires_at": null,
+      "status": "active"
+    }
+  ],
+  "trace_T1_in_meeting": {
+    "included": [
+      {
+        "id": "mem-fea70381",
+        "key": "display_timezone",
+        "value": "Europe/Berlin",
+        "scope": "user:user-17",
+        "assertion": "stated"
+      },
+      {
+        "id": "mem-4890ed02",
+        "key": "answer_length",
+        "value": "brief",
+        "scope": "meeting:meeting-42",
+        "assertion": "stated"
+      }
+    ],
+    "excluded": [
+      {
+        "id": "mem-321ad9b0",
+        "key": "answer_language",
+        "value": "English",
+        "scope": "user:user-17",
+        "assertion": "unknown",
+        "reason": "status proposed"
+      },
+      {
+        "id": "mem-2fa8dba3",
+        "key": "timezone",
+        "value": "UTC",
+        "scope": "session:s-48",
+        "assertion": "inferred",
+        "reason": "status proposed"
+      }
+    ]
+  },
+  "trace_probe_other_session": {
+    "included": [
+      {
+        "id": "mem-fea70381",
+        "key": "display_timezone",
+        "value": "Europe/Berlin",
+        "scope": "user:user-17",
+        "assertion": "stated"
+      }
+    ],
+    "excluded": [
+      {
+        "id": "mem-321ad9b0",
+        "key": "answer_language",
+        "value": "English",
+        "scope": "user:user-17",
+        "assertion": "unknown",
+        "reason": "status proposed"
+      },
+      {
+        "id": "mem-4890ed02",
+        "key": "answer_length",
+        "value": "brief",
+        "scope": "meeting:meeting-42",
+        "assertion": "stated",
+        "reason": "scope mismatch: record meeting:meeting-42, context has no meeting"
+      },
+      {
+        "id": "mem-2fa8dba3",
+        "key": "timezone",
+        "value": "UTC",
+        "scope": "session:s-48",
+        "assertion": "inferred",
+        "reason": "status proposed"
+      }
+    ]
+  },
+  "trace_T2_after_meeting": {
+    "included": [
+      {
+        "id": "mem-fea70381",
+        "key": "display_timezone",
+        "value": "Europe/Berlin",
+        "scope": "user:user-17",
+        "assertion": "stated"
+      }
+    ],
+    "excluded": [
+      {
+        "id": "mem-321ad9b0",
+        "key": "answer_language",
+        "value": "English",
+        "scope": "user:user-17",
+        "assertion": "unknown",
+        "reason": "status proposed"
+      },
+      {
+        "id": "mem-4890ed02",
+        "key": "answer_length",
+        "value": "brief",
+        "scope": "meeting:meeting-42",
+        "assertion": "stated",
+        "reason": "status expired"
+      },
+      {
+        "id": "mem-2fa8dba3",
+        "key": "timezone",
+        "value": "UTC",
+        "scope": "session:s-48",
+        "assertion": "inferred",
+        "reason": "status proposed"
+      }
+    ]
+  },
+  "T2_governed": {
+    "answer": "The filter used the UTC calendar date. I changed report.py to convert each timestamp to the configured report timezone before comparing dates (revision 78721bd28acc to 339d3a9f2656). The new test test_order_near_midnight failed before the fix; both tests now pass. Nothing was deployed.",
+    "check": "pass"
+  },
+  "T2_unscoped": {
+    "answer": "Fixed the near-midnight filter in report.py; both tests pass; nothing deployed.",
+    "check": "fail (omits 3 required items)"
+  },
+  "T2_unscoped_model_input": {
+    "at": "2026-09-21T14:00:00Z",
+    "context": {
+      "user": "user-17",
+      "session": "s-51"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Memory for user-17:\ndisplay_timezone=Europe/Berlin  [record mem-fea70381 global:* stated]\nanswer_length=brief  [record mem-4890ed02 global:* stated]\ntimezone=UTC  [record mem-2fa8dba3 global:* stated]\nabsence=medical appointment on Friday  [record mem-907bd483 global:* stated]\nexport_approval=approval is unnecessary for exports of the daily report  [record mem-05cff6a1 global:* stated]"
+      },
+      {
+        "role": "user",
+        "content": "Write the explanation of the reporting fix for the incident review document."
+      }
+    ]
+  }
+}

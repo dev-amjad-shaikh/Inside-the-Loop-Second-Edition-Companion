@@ -1,0 +1,195 @@
+[
+  {
+    "seq": 1,
+    "t": "10:00:01",
+    "kind": "request_created",
+    "detail": {
+      "args_digest": "c66ff54422eb9ffa",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "af0093264abc",
+      "operation": "export_report",
+      "request_id": "RQ1"
+    }
+  },
+  {
+    "seq": 2,
+    "t": "10:00:02",
+    "kind": "decision_recorded",
+    "detail": {
+      "actor": "maria",
+      "approval_id": "AP1",
+      "choice": "approve",
+      "delegated_by": null,
+      "request_id": "RQ1",
+      "role": "report_owner",
+      "submission_key": "ui-maria-0001"
+    }
+  },
+  {
+    "seq": 3,
+    "t": "10:00:43",
+    "kind": "artifact_revised",
+    "detail": {
+      "current": "r6",
+      "current_version": "374fbdb77b0b",
+      "previous": "r5",
+      "previous_version": "af0093264abc",
+      "reason": "refunded orders excluded",
+      "report": "daily-2026-09-11"
+    }
+  },
+  {
+    "seq": 4,
+    "t": "10:00:44",
+    "kind": "dispatch_refused",
+    "detail": {
+      "args_digest": "3f61b586ec4646c6",
+      "call_id": "x2",
+      "mismatches": [
+        {
+          "approval_id": "AP1",
+          "problems": [
+            "arguments differ",
+            "artifact version af0093264abc approved, 374fbdb77b0b proposed"
+          ]
+        }
+      ],
+      "operation": "export_report"
+    }
+  },
+  {
+    "seq": 5,
+    "t": "10:00:45",
+    "kind": "request_created",
+    "detail": {
+      "args_digest": "3f61b586ec4646c6",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "operation": "export_report",
+      "request_id": "RQ2"
+    }
+  },
+  {
+    "seq": 6,
+    "t": "10:00:46",
+    "kind": "decision_recorded",
+    "detail": {
+      "actor": "maria",
+      "approval_id": "AP2",
+      "choice": "approve",
+      "delegated_by": null,
+      "request_id": "RQ2",
+      "role": "report_owner",
+      "submission_key": "ui-maria-0002"
+    }
+  },
+  {
+    "seq": 7,
+    "t": "10:00:47",
+    "kind": "approval_consumed",
+    "detail": {
+      "approval_id": "AP2",
+      "call_id": "x3"
+    }
+  },
+  {
+    "seq": 8,
+    "t": "10:00:48",
+    "kind": "dispatch_refused",
+    "detail": {
+      "args_digest": "3f61b586ec4646c6",
+      "call_id": "x4",
+      "mismatches": [],
+      "operation": "export_report",
+      "reason": "no active approval"
+    }
+  },
+  {
+    "seq": 9,
+    "t": "10:00:49",
+    "kind": "request_created",
+    "detail": {
+      "args_digest": "781cfa467212dc62",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "operation": "export_report",
+      "request_id": "RQ3"
+    }
+  },
+  {
+    "seq": 10,
+    "t": "10:00:50",
+    "kind": "decision_refused",
+    "detail": {
+      "actor": "sam",
+      "reason": "role analyst may not approve export_report",
+      "request_id": "RQ3"
+    }
+  },
+  {
+    "seq": 11,
+    "t": "10:00:51",
+    "kind": "delegation_granted",
+    "detail": {
+      "delegate": "dev",
+      "delegator": "maria",
+      "destination": "A",
+      "expires": "11:00:50",
+      "operation": "export_report"
+    }
+  },
+  {
+    "seq": 12,
+    "t": "10:00:52",
+    "kind": "decision_refused",
+    "detail": {
+      "actor": "dev",
+      "reason": "delegation from maria covers destination A, not B",
+      "request_id": "RQ3"
+    }
+  },
+  {
+    "seq": 13,
+    "t": "10:00:53",
+    "kind": "request_created",
+    "detail": {
+      "args_digest": "6769f1a16aa68ce0",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "operation": "export_report",
+      "request_id": "RQ4"
+    }
+  },
+  {
+    "seq": 14,
+    "t": "10:00:54",
+    "kind": "decision_recorded",
+    "detail": {
+      "actor": "dev",
+      "approval_id": "AP3",
+      "choice": "approve",
+      "delegated_by": "maria",
+      "request_id": "RQ4",
+      "role": "engineer",
+      "submission_key": "ui-dev-0002"
+    }
+  },
+  {
+    "seq": 15,
+    "t": "10:17:35",
+    "kind": "dispatch_refused",
+    "detail": {
+      "args_digest": "6769f1a16aa68ce0",
+      "call_id": "x5",
+      "mismatches": [
+        {
+          "approval_id": "AP3",
+          "problems": [
+            "approval expired"
+          ]
+        }
+      ],
+      "operation": "export_report"
+    }
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "complete": true,
+    "missing": [],
+    "checks": {
+      "plan": [
+        {
+          "id": "P1",
+          "claim": "Reporting timezone established",
+          "status": "satisfied",
+          "evidence": "e1"
+        },
+        {
+          "id": "P2",
+          "claim": "Failure reproduced",
+          "status": "satisfied",
+          "evidence": "e5"
+        },
+        {
+          "id": "P3",
+          "claim": "Source changed after reproduction",
+          "status": "satisfied",
+          "evidence": "e6"
+        },
+        {
+          "id": "P4",
+          "claim": "Fix verified",
+          "status": "satisfied",
+          "evidence": "e7"
+        },
+        {
+          "id": "P5",
+          "claim": "No deployment executed",
+          "status": "satisfied",
+          "evidence": "absence checked"
+        }
+      ],
+      "revision_verifier": {
+        "complete": true,
+        "task_revision": 2,
+        "version": "339d3a9f2656",
+        "missing": [],
+        "supporting": [
+          "E2",
+          "E3"
+        ]
+      },
+      "P6": {
+        "claim": "Independent review verified at the current revision",
+        "status": "satisfied",
+        "evidence": {
+          "current_revision": "r5",
+          "verdict": "verified",
+          "admitted": [
+            "tz-boundary-reviewer",
+            "interface-reviewer"
+          ],
+          "stale": [
+            {
+              "worker": "tz-boundary-reviewer",
+              "reviewed": "r4",
+              "current": "r5",
+              "verdict": "fail",
+              "reclassified_as": "evidence about r4"
+            }
+          ],
+          "rejected": [],
+          "missing_coverage": [],
+          "defects": [],
+          "coverage": {
+            "pdt_midday": [
+              "ev-da5e16e4f6a7"
+            ],
+            "pdt_evening": [
+              "ev-b71d614e7e9a"
+            ],
+            "pdt_after_local_midnight": [
+              "ev-2ef41dbee529"
+            ],
+            "pst_evening": [
+              "ev-47aee4ef65b3"
+            ],
+            "dst_fall_back_evening": [
+              "ev-6609238cf8d3"
+            ],
+            "dst_spring_forward_evening": [
+              "ev-103a48345f62"
+            ],
+            "public_interface": [
+              "ev-bccf23adcb92"
+            ]
+          }
+        }
+      },
+      "P7": {
+        "claim": "Export delivered exactly once, as approved, consistent with the source",
+        "status": "pending",
+        "problems": [
+          "destination A holds 2 files",
+          "approval loose by maria covers None, delivered file is 374fbdb77b0b"
+        ],
+        "export_rows": [
+          {
+            "export_id": "export-file-001",
+            "op_key": "run-24:export:daily-2026-09-11:r6:A",
+            "payload_digest": "3f285654c3c90ab0",
+            "destination": "A",
+            "source_revision": "339d3a9f2656"
+          },
+          {
+            "export_id": "export-file-002",
+            "op_key": "run-24:export:daily-2026-09-11:r5:A",
+            "payload_digest": "3e5c6d59ef3dae3b",
+            "destination": "A",
+            "source_revision": "339d3a9f2656"
+          }
+        ],
+        "outbox": {
+          "A": [
+            {
+              "file": "daily-2026-09-11.r5.export-file-002.csv",
+              "version": "af0093264abc"
+            },
+            {
+              "file": "daily-2026-09-11.r6.export-file-001.csv",
+              "version": "374fbdb77b0b"
+            }
+          ]
+        },
+        "approval": {
+          "approval_id": "loose",
+          "actor": "maria",
+          "artifact_version": null,
+          "scope": "tool and destination"
+        },
+        "content": {
+          "file": "daily-2026-09-11.r6.export-file-001.csv",
+          "rows": 3,
+          "belong_under_current_source": 3,
+          "belong_under_original_source": 2,
+          "current_source": "339d3a9f2656",
+          "original_source": "78721bd28acc"
+        }
+      },
+      "claims": {
+        "named": [
+          "319f11ce22b8",
+          "339d3a9f2656",
+          "export-file-001",
+          "r6"
+        ],
+        "unsupported": []
+      }
+    },
+    "task_revision": 2,
+    "revised_verifier_complete": false,
+    "revised_verifier_missing": [
+      "P7 destination A holds 2 files",
+      "P7 approval loose by maria covers None, delivered file is 374fbdb77b0b"
+    ],
+    "naive_verifier": {
+      "complete": true,
+      "reason": "latest test result passed after latest edit; export tool returned completed"
+    },
+    "call": 12
+  }
+]

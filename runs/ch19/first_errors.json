@@ -1,0 +1,45 @@
+{
+  "baseline": {
+    "failed_runs": 198,
+    "first_consequential": {
+      "Wrong mechanism: fixed UTC offset [Model]": 83,
+      "Uniform failure handling (resend after unknown outcome) [Tools and executor]": 43,
+      "Relative day resolved in UTC [Model]": 33,
+      "Wrong argument value: format [Model]": 19,
+      "Constraint lost in compaction [Context builder]": 16,
+      "Constraint ignored with constraint in input [Model]": 4
+    },
+    "first_error_of_any_kind": {
+      "fixed_offset": 74,
+      "blind_resend": 40,
+      "utc_day": 30,
+      "format_slip": 19,
+      "constraint_lost": 16,
+      "deploy_report refused": 9,
+      "exports_list input_error": 6,
+      "constraint_ignored": 4
+    },
+    "runs_where_first_error_is_not_the_consequential_one": 15
+  },
+  "candidate": {
+    "failed_runs": 206,
+    "first_consequential": {
+      "Relative day resolved in UTC [Model]": 148,
+      "Constraint lost in compaction [Context builder]": 28,
+      "Wrong mechanism: fixed UTC offset [Model]": 16,
+      "Uniform failure handling (resend after unknown outcome) [Tools and executor]": 10,
+      "Wrong argument value: format [Model]": 3,
+      "Constraint ignored with constraint in input [Model]": 1
+    },
+    "first_error_of_any_kind": {
+      "utc_day": 146,
+      "constraint_lost": 28,
+      "fixed_offset": 16,
+      "blind_resend": 10,
+      "format_slip": 3,
+      "exports_list input_error": 2,
+      "constraint_ignored": 1
+    },
+    "runs_where_first_error_is_not_the_consequential_one": 2
+  }
+}

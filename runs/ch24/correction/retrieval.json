@@ -1,0 +1,133 @@
+{
+  "principal": {
+    "id": "dev@acme",
+    "audiences": [
+      "engineering",
+      "all"
+    ]
+  },
+  "stages": [
+    [
+      "indexed chunks",
+      10
+    ],
+    [
+      "after access filter",
+      7
+    ],
+    [
+      "after withdrawal filter",
+      4
+    ],
+    [
+      "after effective-date filter",
+      4
+    ],
+    [
+      "keyword candidates (BM25 > 0, top 8)",
+      4
+    ],
+    [
+      "vector candidates (top 8)",
+      4
+    ],
+    [
+      "fused candidates (union, RRF)",
+      4
+    ],
+    [
+      "evidence after rerank (top 2)",
+      2
+    ]
+  ],
+  "top": [
+    {
+      "chunk_id": "reporting-calendar@v2#1",
+      "doc_id": "reporting-calendar",
+      "version": 2,
+      "section": "Reporting calendar > Report day",
+      "start": 22,
+      "end": 339,
+      "content_hash": "a09d9944eb9b"
+    },
+    {
+      "chunk_id": "reporting-calendar@v2#2",
+      "doc_id": "reporting-calendar",
+      "version": 2,
+      "section": "Reporting calendar > Changes to this definition",
+      "start": 339,
+      "end": 564,
+      "content_hash": "b255022d45e2"
+    }
+  ],
+  "evidence": [
+    {
+      "cite": "E1",
+      "chunk_id": "reporting-calendar@v2#1",
+      "citation": "reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "A report day is the calendar day in the report timezone configured for the",
+          "raw": "A report day is the calendar day in the report timezone configured for the"
+        },
+        {
+          "kind": "sentence",
+          "text": "tenant in settings.json under report_timezone.",
+          "raw": "tenant in settings.json under report_timezone."
+        },
+        {
+          "kind": "sentence",
+          "text": "An order belongs to the daily",
+          "raw": "An order belongs to the daily"
+        },
+        {
+          "kind": "sentence",
+          "text": "report for the local date on which it was placed.",
+          "raw": "report for the local date on which it was placed."
+        },
+        {
+          "kind": "sentence",
+          "text": "Timestamps are stored in",
+          "raw": "Timestamps are stored in"
+        },
+        {
+          "kind": "sentence",
+          "text": "UTC, so convert created_at to the report timezone before taking its date.",
+          "raw": "UTC, so convert created_at to the report timezone before taking its date."
+        }
+      ],
+      "unreadable_fragments": []
+    },
+    {
+      "cite": "E2",
+      "chunk_id": "reporting-calendar@v2#2",
+      "citation": "reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "The public function belongs_to_report(created_at, requested_day, timezone) is",
+          "raw": "The public function belongs_to_report(created_at, requested_day, timezone) is"
+        },
+        {
+          "kind": "sentence",
+          "text": "called by the export job and the dashboard.",
+          "raw": "called by the export job and the dashboard."
+        },
+        {
+          "kind": "sentence",
+          "text": "Changing its signature requires a",
+          "raw": "Changing its signature requires a"
+        },
+        {
+          "kind": "sentence",
+          "text": "coordinated release of both callers.",
+          "raw": "coordinated release of both callers."
+        }
+      ],
+      "unreadable_fragments": []
+    }
+  ]
+}

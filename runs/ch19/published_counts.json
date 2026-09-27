@@ -1,0 +1,47 @@
+{
+  "source": "goose evals/harbor/README.md at 04ed836c8cde",
+  "rows": [
+    {
+      "job": "sonnet46-full",
+      "pass": 45,
+      "n": 89,
+      "rate": 0.506,
+      "wilson95": [
+        0.404,
+        0.607
+      ]
+    },
+    {
+      "job": "goose-1.30-sonnet46-full",
+      "pass": 45,
+      "n": 89,
+      "rate": 0.506,
+      "wilson95": [
+        0.404,
+        0.607
+      ]
+    },
+    {
+      "job": "sonnet46-dev-only",
+      "pass": 43,
+      "n": 89,
+      "rate": 0.483,
+      "wilson95": [
+        0.382,
+        0.585
+      ]
+    },
+    {
+      "job": "goose-sonnet46-full-code-mode",
+      "pass": 51,
+      "n": 89,
+      "rate": 0.573,
+      "wilson95": [
+        0.469,
+        0.671
+      ]
+    }
+  ],
+  "diff": 0.067,
+  "unpaired_halfwidth95": 0.146
+}

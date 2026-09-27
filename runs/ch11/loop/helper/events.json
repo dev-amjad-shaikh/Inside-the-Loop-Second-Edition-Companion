@@ -1,0 +1,50 @@
+[
+  {
+    "t": 1.879,
+    "decided_by": "model",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 2.079,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 2.279,
+    "decided_by": "model",
+    "op": "read_file:test_report.py:1eb31f02",
+    "status": "ok"
+  },
+  {
+    "t": 4.398,
+    "decided_by": "model",
+    "op": "read_file:timeutil.py:73cde9c9",
+    "status": "ok"
+  },
+  {
+    "t": 6.685,
+    "decided_by": "model",
+    "op": "replace_text:test_report.py:29fa54fb",
+    "status": "ok"
+  },
+  {
+    "t": 14.778,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 17.241,
+    "decided_by": "model",
+    "op": "replace_text:timeutil.py:a0bce87e",
+    "status": "ok"
+  },
+  {
+    "t": 25.472,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "passed"
+  }
+]

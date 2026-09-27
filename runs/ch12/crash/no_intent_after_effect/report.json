@@ -1,0 +1,15 @@
+{
+  "rollback_journal_left": false,
+  "c7_state": "prepared",
+  "c7_observation": null,
+  "report_py_versions_recorded": 1,
+  "events": 35,
+  "report_py_on_disk": "339d3a9f2656",
+  "point": "after_effect (no intent record)",
+  "exit_code": 70,
+  "restart_marked_uncertain": [],
+  "redispatch_status": "input_error",
+  "c7_state_after_redispatch": "failed_before_effect",
+  "redispatch_message": "old text occurs 0 times; expected exactly once",
+  "report_py_on_disk_after": "339d3a9f2656"
+}

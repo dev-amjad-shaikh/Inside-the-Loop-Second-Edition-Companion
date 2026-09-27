@@ -1,0 +1,77 @@
+{
+  "run_id": "run_after_withdrawal",
+  "task": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it.",
+  "policy": {
+    "policy_id": "report-fix-no-deploy",
+    "allowed_tools": [
+      "activate_skill",
+      "read_file",
+      "read_skill_resource",
+      "replace_text",
+      "run_skill_script",
+      "run_tests"
+    ],
+    "network": false,
+    "require_pinned_scripts": false
+  },
+  "catalog": [
+    {
+      "name": "csv-cleanup",
+      "version": "1.0.0",
+      "hash": "dc55bc010138"
+    },
+    {
+      "name": "release-notes",
+      "version": "1.0.0",
+      "hash": "d9beb8791acf"
+    },
+    {
+      "name": "report-helper",
+      "version": "1.0.0",
+      "hash": "4818324b70eb"
+    },
+    {
+      "name": "status-report-writer",
+      "version": "1.1.0",
+      "hash": "ce349d0c9692"
+    }
+  ],
+  "catalog_tokens": 386,
+  "activated": [
+    {
+      "name": "report-helper",
+      "version": "1.0.0",
+      "hash": "4818324b70eb",
+      "mode": "model"
+    }
+  ],
+  "resources_loaded": [
+    {
+      "skill": "report-helper",
+      "path": "references/regression-test.md",
+      "tokens": 169
+    }
+  ],
+  "scripts": [
+    {
+      "call_id": "c9",
+      "skill": "report-helper",
+      "version": "1.0.0",
+      "script": "scripts/probe_boundary.py",
+      "args": [
+        "report.py",
+        "America/Los_Angeles",
+        "2026-09-11",
+        "2026-11-01"
+      ],
+      "sha256": "c56c68f90d2b",
+      "decision": "executed",
+      "exit_code": 0,
+      "denied_effects": []
+    }
+  ],
+  "stand_in_choice": {
+    "chosen": "report-helper",
+    "contested_with": []
+  }
+}

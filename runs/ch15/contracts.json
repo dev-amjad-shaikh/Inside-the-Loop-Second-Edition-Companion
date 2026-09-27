@@ -1,0 +1,128 @@
+[
+  {
+    "contract_id": "review-tz-r5",
+    "contract_version": "review-contract/1.1",
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "objective": "Check revision r5 of report.py for timezone boundary errors in belongs_to_report and return concrete failing cases.",
+    "input_revision": "r5",
+    "input_digest": "025e5dc0e98d",
+    "reference_revision": null,
+    "allowed_operations": [
+      "read_file",
+      "run_cases"
+    ],
+    "required_coverage": [
+      "pdt_evening",
+      "pdt_after_local_midnight",
+      "pst_evening",
+      "dst_fall_back_evening",
+      "dst_spring_forward_evening"
+    ],
+    "budget": {
+      "max_tokens": 6000,
+      "max_model_calls": 20,
+      "repair_attempts": 1
+    },
+    "deadline_s": 30.0,
+    "result_schema": {
+      "type": "object",
+      "required": [
+        "contract_id",
+        "input_revision",
+        "verdict",
+        "findings",
+        "coverage"
+      ],
+      "properties": {
+        "contract_id": {
+          "type": "string"
+        },
+        "input_revision": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail",
+            "incomplete"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim",
+              "evidence"
+            ]
+          }
+        },
+        "coverage": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  {
+    "contract_id": "review-iface-r5",
+    "contract_version": "review-contract/1.1",
+    "worker": "interface-reviewer",
+    "worker_version": "1.0.3",
+    "objective": "Check that revision r5 keeps the public signature of belongs_to_report unchanged relative to r3.",
+    "input_revision": "r5",
+    "input_digest": "025e5dc0e98d",
+    "reference_revision": "r3",
+    "allowed_operations": [
+      "read_file",
+      "inspect_interface"
+    ],
+    "required_coverage": [
+      "public_interface"
+    ],
+    "budget": {
+      "max_tokens": 3000,
+      "max_model_calls": 20,
+      "repair_attempts": 1
+    },
+    "deadline_s": 30.0,
+    "result_schema": {
+      "type": "object",
+      "required": [
+        "contract_id",
+        "input_revision",
+        "verdict",
+        "findings",
+        "coverage"
+      ],
+      "properties": {
+        "contract_id": {
+          "type": "string"
+        },
+        "input_revision": {
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail",
+            "incomplete"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim",
+              "evidence"
+            ]
+          }
+        },
+        "coverage": {
+          "type": "object"
+        }
+      }
+    }
+  }
+]

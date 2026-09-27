@@ -1,0 +1,31 @@
+{
+  "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+  "window": 8192,
+  "output_reserve": 1536,
+  "input_allowance": 6656,
+  "tool_definitions": 318,
+  "sections": [
+    {
+      "name": "instructions",
+      "items": 1,
+      "tokens": 39
+    },
+    {
+      "name": "pinned task",
+      "items": 1,
+      "tokens": 87,
+      "cap": 450
+    },
+    {
+      "name": "history (whole groups)",
+      "items": 15,
+      "tokens": 846
+    }
+  ],
+  "total_input": 1290,
+  "headroom": 5366,
+  "fits": true,
+  "compacted": false,
+  "compaction_fired": false,
+  "trigger_tokens": 4992
+}

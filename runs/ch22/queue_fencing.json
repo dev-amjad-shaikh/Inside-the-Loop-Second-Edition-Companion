@@ -1,0 +1,246 @@
+[
+  {
+    "policy": "lease_only",
+    "ids": "fresh",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3070,
+    "duplicate_effects_without_key": 70,
+    "abandoned_after_lost_lease": 67,
+    "late_writes_attempted": 47,
+    "late_writes_accepted": 47,
+    "tasks_written_twice": 46,
+    "final_result_from_superseded_attempt": 31,
+    "refused_writes": 0,
+    "superseded_examples": {
+      "t0014": [
+        [
+          7.0,
+          "claim",
+          1,
+          "w14-0",
+          ""
+        ],
+        [
+          69.4,
+          "effect",
+          1,
+          "w14-0",
+          ""
+        ],
+        [
+          97.8,
+          "claim",
+          2,
+          "w15-0",
+          ""
+        ],
+        [
+          136.5,
+          "effect",
+          2,
+          "w15-0",
+          ""
+        ],
+        [
+          136.5,
+          "write",
+          2,
+          "w15-0",
+          0
+        ],
+        [
+          206.7,
+          "write",
+          1,
+          "w14-0",
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "policy": "owner_check",
+    "ids": "fresh",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3061,
+    "duplicate_effects_without_key": 61,
+    "abandoned_after_lost_lease": 76,
+    "late_writes_attempted": 38,
+    "late_writes_accepted": 0,
+    "tasks_written_twice": 0,
+    "final_result_from_superseded_attempt": 0,
+    "refused_writes": 38,
+    "superseded_examples": {}
+  },
+  {
+    "policy": "fenced",
+    "ids": "fresh",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3061,
+    "duplicate_effects_without_key": 61,
+    "abandoned_after_lost_lease": 76,
+    "late_writes_attempted": 38,
+    "late_writes_accepted": 0,
+    "tasks_written_twice": 0,
+    "final_result_from_superseded_attempt": 0,
+    "refused_writes": 38,
+    "superseded_examples": {}
+  },
+  {
+    "policy": "lease_only",
+    "ids": "stable",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3070,
+    "duplicate_effects_without_key": 70,
+    "abandoned_after_lost_lease": 67,
+    "late_writes_attempted": 47,
+    "late_writes_accepted": 47,
+    "tasks_written_twice": 46,
+    "final_result_from_superseded_attempt": 31,
+    "refused_writes": 0,
+    "superseded_examples": {
+      "t0014": [
+        [
+          7.0,
+          "claim",
+          1,
+          "w14",
+          ""
+        ],
+        [
+          69.4,
+          "effect",
+          1,
+          "w14",
+          ""
+        ],
+        [
+          97.8,
+          "claim",
+          2,
+          "w15",
+          ""
+        ],
+        [
+          136.5,
+          "effect",
+          2,
+          "w15",
+          ""
+        ],
+        [
+          136.5,
+          "write",
+          2,
+          "w15",
+          0
+        ],
+        [
+          206.7,
+          "write",
+          1,
+          "w14",
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "policy": "owner_check",
+    "ids": "stable",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3062,
+    "duplicate_effects_without_key": 62,
+    "abandoned_after_lost_lease": 75,
+    "late_writes_attempted": 39,
+    "late_writes_accepted": 1,
+    "tasks_written_twice": 0,
+    "final_result_from_superseded_attempt": 1,
+    "refused_writes": 39,
+    "superseded_examples": {
+      "t0638": [
+        [
+          1499.1,
+          "claim",
+          1,
+          "w00",
+          ""
+        ],
+        [
+          1540.0,
+          "claim",
+          2,
+          "w21",
+          ""
+        ],
+        [
+          1580.0,
+          "claim",
+          3,
+          "w00",
+          ""
+        ],
+        [
+          1594.4,
+          "effect",
+          1,
+          "w00",
+          ""
+        ],
+        [
+          1594.4,
+          "write",
+          1,
+          "w00",
+          1
+        ],
+        [
+          1642.4,
+          "effect",
+          3,
+          "w00",
+          ""
+        ],
+        [
+          1642.4,
+          "refusal",
+          3,
+          "w00",
+          "row status=done owner=None fence=3"
+        ]
+      ]
+    }
+  },
+  {
+    "policy": "fenced",
+    "ids": "stable",
+    "tasks": 3000,
+    "done": 3000,
+    "claims": 3178,
+    "redeliveries": 178,
+    "effect_invocations": 3061,
+    "duplicate_effects_without_key": 61,
+    "abandoned_after_lost_lease": 76,
+    "late_writes_attempted": 38,
+    "late_writes_accepted": 0,
+    "tasks_written_twice": 0,
+    "final_result_from_superseded_attempt": 0,
+    "refused_writes": 38,
+    "superseded_examples": {}
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "attempts": [
+    {
+      "version": "1.0.0",
+      "result": "refused",
+      "message": "tool exports_create@1.0.0 is released with hash bd2d8b348f57; new content hashes to e42ecf0f6b18. Released versions are immutable: publish a new version."
+    },
+    {
+      "version": "1.1.0",
+      "result": "refused",
+      "message": "tool exports_create@1.1.0 is a breaking change from 1.0.0 (property day removed; property report_date added as required); a breaking change needs a new major version."
+    },
+    {
+      "version": "2.0.0",
+      "result": "released",
+      "hash": "e42ecf0f6b18"
+    }
+  ],
+  "dependents_at_deprecation": [
+    {
+      "consumer": "analytics agent",
+      "consumer_owner": "analytics",
+      "version": "1.0.0"
+    },
+    {
+      "consumer": "export-assistant",
+      "consumer_owner": "finance-ops",
+      "version": "1.0.0"
+    },
+    {
+      "consumer": "nightly finance workflow",
+      "consumer_owner": "finance-ops",
+      "version": "1.0.0"
+    },
+    {
+      "consumer": "replay of agent run r-2291",
+      "consumer_owner": "eval-platform",
+      "version": "1.0.0"
+    },
+    {
+      "consumer": "saved skill: month-end pack",
+      "consumer_owner": "finance-ops",
+      "version": "1.0.0"
+    },
+    {
+      "consumer": "scheduled task: weekly revenue",
+      "consumer_owner": "analytics",
+      "version": "1.0.0"
+    }
+  ],
+  "owners_notified": [
+    "analytics",
+    "eval-platform",
+    "finance-ops"
+  ],
+  "ch09_rerun": {
+    "v1": {
+      "ok": 5,
+      "failed": 0,
+      "silently_wrong": 0,
+      "deprecation_notices": 0
+    },
+    "v2 unversioned, strict schema": {
+      "ok": 0,
+      "failed": 5,
+      "silently_wrong": 0,
+      "deprecation_notices": 0
+    },
+    "v2 unversioned, lax schema": {
+      "ok": 2,
+      "failed": 0,
+      "silently_wrong": 3,
+      "deprecation_notices": 0
+    },
+    "v2 versioned, v1 pinned by caller": {
+      "ok": 5,
+      "failed": 0,
+      "silently_wrong": 0,
+      "deprecation_notices": 5
+    }
+  },
+  "remaining_on_1_0_0": {
+    "2026-09-30": [
+      "analytics agent",
+      "export-assistant",
+      "nightly finance workflow",
+      "replay of agent run r-2291",
+      "saved skill: month-end pack",
+      "scheduled task: weekly revenue"
+    ],
+    "2026-10-31": [
+      "analytics agent",
+      "export-assistant",
+      "replay of agent run r-2291",
+      "saved skill: month-end pack"
+    ],
+    "2026-12-31": [
+      "analytics agent",
+      "export-assistant",
+      "replay of agent run r-2291"
+    ],
+    "2027-03-31": [
+      "export-assistant",
+      "replay of agent run r-2291"
+    ]
+  },
+  "migration_schedule_authored": [
+    [
+      "nightly finance workflow",
+      "2026-10-06"
+    ],
+    [
+      "scheduled task: weekly revenue",
+      "2026-10-20"
+    ],
+    [
+      "saved skill: month-end pack",
+      "2026-11-02"
+    ],
+    [
+      "analytics agent",
+      "2027-01-15"
+    ]
+  ]
+}

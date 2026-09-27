@@ -1,0 +1,102 @@
+{
+  "total_log_lines": 597,
+  "cases": [
+    {
+      "case": "flawed tool, head-only truncation without marker",
+      "chars_available": 37254,
+      "chars_shown": 4000,
+      "lines_shown_of_total": "66 of 597",
+      "reader_concludes": "succeeded",
+      "observation_end": "s 123-124 to staging file (ok)\\n2026-09-11T06:01:03Z wrote rows 125-126 to staging file (ok)\\n2026-09-11T06:01:04Z wrote rows 127-128 to staging file (ok)\\n2026"
+    },
+    {
+      "case": "flawed tool, runtime keeps head and tail with a marker",
+      "chars_shown": 4050,
+      "reader_concludes": "failed",
+      "marker": "...[33254 characters omitted from the middle]...",
+      "observation_end": "ing to finance_sftp:/inbound/acme/daily_orders_2026-09-10.csv\\n2026-09-11T06:10:26Z ERROR upload failed: permission denied (SFTP status 3) on /inbound/acme/; file not delivered\\n2026-09-11T06:10:26Z export exp_0412 status=failed\"}"
+    },
+    {
+      "case": "revised tool, default read from the end",
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "export_id": "exp_0412",
+          "total_lines": 597,
+          "returned_lines": "558-597",
+          "omitted": {
+            "before": 557,
+            "after": 0
+          },
+          "cursor_before": "517",
+          "lines": [
+            "2026-09-11T06:09:17Z wrote rows 1113-1114 to staging file (ok)",
+            "2026-09-11T06:09:18Z wrote rows 1115-1116 to staging file (ok)",
+            "2026-09-11T06:09:19Z wrote rows 1117-1118 to staging file (ok)",
+            "2026-09-11T06:09:20Z wrote rows 1119-1120 to staging file (ok)",
+            "2026-09-11T06:09:21Z wrote rows 1121-1122 to staging file (ok)",
+            "2026-09-11T06:09:22Z wrote rows 1123-1124 to staging file (ok)",
+            "2026-09-11T06:09:23Z wrote rows 1125-1126 to staging file (ok)",
+            "2026-09-11T06:09:24Z wrote rows 1127-1128 to staging file (ok)",
+            "2026-09-11T06:09:25Z wrote rows 1129-1130 to staging file (ok)",
+            "2026-09-11T06:09:26Z wrote rows 1131-1132 to staging file (ok)",
+            "2026-09-11T06:09:27Z wrote rows 1133-1134 to staging file (ok)",
+            "2026-09-11T06:09:28Z wrote rows 1135-1136 to staging file (ok)",
+            "2026-09-11T06:09:29Z wrote rows 1137-1138 to staging file (ok)",
+            "2026-09-11T06:09:30Z wrote rows 1139-1140 to staging file (ok)",
+            "2026-09-11T06:09:31Z wrote rows 1141-1142 to staging file (ok)",
+            "2026-09-11T06:09:32Z wrote rows 1143-1144 to staging file (ok)",
+            "2026-09-11T06:09:33Z wrote rows 1145-1146 to staging file (ok)",
+            "2026-09-11T06:09:34Z wrote rows 1147-1148 to staging file (ok)",
+            "2026-09-11T06:09:35Z wrote rows 1149-1150 to staging file (ok)",
+            "2026-09-11T06:09:36Z wrote rows 1151-1152 to staging file (ok)",
+            "2026-09-11T06:09:37Z wrote rows 1153-1154 to staging file (ok)",
+            "2026-09-11T06:09:38Z wrote rows 1155-1156 to staging file (ok)",
+            "2026-09-11T06:09:39Z wrote rows 1157-1158 to staging file (ok)",
+            "2026-09-11T06:09:40Z wrote rows 1159-1160 to staging file (ok)",
+            "2026-09-11T06:09:41Z wrote rows 1161-1162 to staging file (ok)",
+            "2026-09-11T06:09:42Z wrote rows 1163-1164 to staging file (ok)",
+            "2026-09-11T06:09:43Z wrote rows 1165-1166 to staging file (ok)",
+            "2026-09-11T06:09:44Z wrote rows 1167-1168 to staging file (ok)",
+            "2026-09-11T06:09:45Z wrote rows 1169-1170 to staging file (ok)",
+            "2026-09-11T06:09:46Z wrote rows 1171-1172 to staging file (ok)",
+            "2026-09-11T06:09:47Z wrote rows 1173-1174 to staging file (ok)",
+            "2026-09-11T06:09:48Z wrote rows 1175-1176 to staging file (ok)",
+            "2026-09-11T06:09:49Z wrote rows 1177-1178 to staging file (ok)",
+            "2026-09-11T06:09:50Z wrote rows 1179-1180 to staging file (ok)",
+            "2026-09-11T06:09:51Z wrote rows 1181-1182 to staging file (ok)",
+            "2026-09-11T06:09:52Z wrote rows 1183-1184 to staging file (ok)",
+            "2026-09-11T06:09:55Z staging complete: 1184 rows, checksum sha256:4be1c09e77d2",
+            "2026-09-11T06:09:56Z uploading to finance_sftp:/inbound/acme/daily_orders_2026-09-10.csv",
+            "2026-09-11T06:10:26Z ERROR upload failed: permission denied (SFTP status 3) on /inbound/acme/; file not delivered",
+            "2026-09-11T06:10:26Z export exp_0412 status=failed"
+          ]
+        }
+      },
+      "reader_concludes": "failed"
+    },
+    {
+      "case": "revised tool, explicit read from the start",
+      "omitted": {
+        "before": 0,
+        "after": 557
+      },
+      "returned_lines": "1-40",
+      "reader_concludes": "unknown: part of the log was omitted"
+    },
+    {
+      "case": "revised status tool",
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "export_id": "exp_0412",
+          "status": "failed",
+          "summary": "daily_orders v4 2026-09-10 csv to finance_sftp: failed"
+        }
+      },
+      "reader_concludes": "failed"
+    }
+  ]
+}

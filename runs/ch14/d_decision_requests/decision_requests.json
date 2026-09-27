@@ -1,0 +1,102 @@
+{
+  "vague_request": {
+    "decision": "Should I proceed?",
+    "choices": [
+      "yes",
+      "no"
+    ]
+  },
+  "concrete_request": {
+    "decision": "Export daily-2026-09-11 r6 to destination A?",
+    "operation": "export_report",
+    "arguments": {
+      "report": "daily-2026-09-11",
+      "revision": "r6",
+      "destination": "A"
+    },
+    "artifact_version": "374fbdb77b0b",
+    "what_changes": "Writes one CSV (3 orders, total 88.25 USD) to destination A; recipients can read it immediately.",
+    "choices": [
+      {
+        "id": "approve",
+        "consequence": "Export runs once, for this revision and destination only."
+      },
+      {
+        "id": "hold",
+        "consequence": "Nothing is exported; the run waits and keeps its work."
+      },
+      {
+        "id": "reject",
+        "consequence": "Export is dropped; the run continues without it."
+      }
+    ],
+    "expires_in_s": 900,
+    "evidence": [
+      "E2: tests passed on report.py 339d3a9f2656 (task revision 2)"
+    ]
+  },
+  "scores": {
+    "vague": {
+      "names the operation": false,
+      "names the artifact and version": false,
+      "states what changes in the world": false,
+      "shows evidence with its version": false,
+      "offers alternatives with consequences": false,
+      "answer binds to an exact operation": false
+    },
+    "concrete": {
+      "names the operation": true,
+      "names the artifact and version": true,
+      "states what changes in the world": true,
+      "shows evidence with its version": true,
+      "offers alternatives with consequences": true,
+      "answer binds to an exact operation": true
+    }
+  },
+  "outcomes": {
+    "vague": {
+      "answer": "yes",
+      "next_proposal": {
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "B"
+      },
+      "dispatch": "executed",
+      "receipt": {
+        "receipt": "X1",
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "B",
+        "version": "374fbdb77b0b",
+        "file": "daily-2026-09-11.r6.X1.csv"
+      },
+      "outbox": {
+        "B": [
+          "daily-2026-09-11.r6.X1.csv"
+        ]
+      }
+    },
+    "concrete": {
+      "answer": "approve",
+      "next_proposal": {
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "B"
+      },
+      "dispatch": "refused",
+      "check": {
+        "allowed": false,
+        "reason": "approval does not cover this operation",
+        "mismatches": [
+          {
+            "approval_id": "AP1",
+            "problems": [
+              "arguments differ"
+            ]
+          }
+        ]
+      },
+      "outbox": {}
+    }
+  }
+}

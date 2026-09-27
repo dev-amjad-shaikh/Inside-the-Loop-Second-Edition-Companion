@@ -1,0 +1,70 @@
+{
+  "full_diff": -0.013,
+  "draws_per_design": 1000,
+  "designs": [
+    {
+      "tasks": 10,
+      "trials": 1,
+      "share_candidate_ahead_by_5pts": 0.362,
+      "share_candidate_behind_by_5pts": 0.415,
+      "median_ci_width": 0.668
+    },
+    {
+      "tasks": 10,
+      "trials": 4,
+      "share_candidate_ahead_by_5pts": 0.35,
+      "share_candidate_behind_by_5pts": 0.391,
+      "median_ci_width": 0.485
+    },
+    {
+      "tasks": 10,
+      "trials": 16,
+      "share_candidate_ahead_by_5pts": 0.279,
+      "share_candidate_behind_by_5pts": 0.395,
+      "median_ci_width": 0.432
+    },
+    {
+      "tasks": 20,
+      "trials": 1,
+      "share_candidate_ahead_by_5pts": 0.381,
+      "share_candidate_behind_by_5pts": 0.456,
+      "median_ci_width": 0.517
+    },
+    {
+      "tasks": 20,
+      "trials": 4,
+      "share_candidate_ahead_by_5pts": 0.229,
+      "share_candidate_behind_by_5pts": 0.34,
+      "median_ci_width": 0.363
+    },
+    {
+      "tasks": 20,
+      "trials": 16,
+      "share_candidate_ahead_by_5pts": 0.147,
+      "share_candidate_behind_by_5pts": 0.262,
+      "median_ci_width": 0.317
+    },
+    {
+      "tasks": 40,
+      "trials": 1,
+      "share_candidate_ahead_by_5pts": 0.268,
+      "share_candidate_behind_by_5pts": 0.37,
+      "median_ci_width": 0.372
+    },
+    {
+      "tasks": 40,
+      "trials": 4,
+      "share_candidate_ahead_by_5pts": 0.041,
+      "share_candidate_behind_by_5pts": 0.144,
+      "median_ci_width": 0.261
+    },
+    {
+      "tasks": 40,
+      "trials": 16,
+      "share_candidate_ahead_by_5pts": 0.0,
+      "share_candidate_behind_by_5pts": 0.0,
+      "median_ci_width": 0.226
+    }
+  ],
+  "ci_method": "normal approximation on per-task paired differences"
+}

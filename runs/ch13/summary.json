@@ -1,0 +1,339 @@
+{
+  "e1": [
+    "Runtime after interruption: dispatched, no receipt",
+    "Service after interruption: export-file-001 exists",
+    "Repeated key and same payload: existing receipt returned",
+    "Repeated key and different payload: rejected",
+    "Final number of export records: 1"
+  ],
+  "matrix": [
+    {
+      "tool": "read_revision",
+      "class": "safe_repeat",
+      "point": "before_dispatch",
+      "policy": "reconciler",
+      "status_after_interruption": "prepared",
+      "decision": "revalidate and dispatch",
+      "final_status": "completed",
+      "external": "no external change",
+      "naive_decision": "resend",
+      "naive_external": "no external change"
+    },
+    {
+      "tool": "read_revision",
+      "class": "safe_repeat",
+      "point": "in_transit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "repeat read",
+      "final_status": "completed",
+      "external": "no external change",
+      "naive_decision": "resend",
+      "naive_external": "no external change"
+    },
+    {
+      "tool": "read_revision",
+      "class": "safe_repeat",
+      "point": "after_commit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "repeat read",
+      "final_status": "completed",
+      "external": "no external change",
+      "naive_decision": "resend",
+      "naive_external": "no external change"
+    },
+    {
+      "tool": "read_revision",
+      "class": "safe_repeat",
+      "point": "after_receipt",
+      "policy": "reconciler",
+      "status_after_interruption": "completed",
+      "decision": "continue from receipt",
+      "final_status": "completed",
+      "external": "no external change",
+      "naive_decision": "continue from receipt",
+      "naive_external": "no external change"
+    },
+    {
+      "tool": "create_export",
+      "class": "idempotent_key",
+      "point": "before_dispatch",
+      "policy": "reconciler",
+      "status_after_interruption": "prepared",
+      "decision": "revalidate and dispatch",
+      "final_status": "completed",
+      "external": "1 export: export-file-001",
+      "naive_decision": "resend",
+      "naive_external": "1 export: export-file-001"
+    },
+    {
+      "tool": "create_export",
+      "class": "idempotent_key",
+      "point": "in_transit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "reuse key",
+      "final_status": "completed",
+      "external": "1 export: export-file-001",
+      "naive_decision": "resend",
+      "naive_external": "1 export: export-file-001"
+    },
+    {
+      "tool": "create_export",
+      "class": "idempotent_key",
+      "point": "after_commit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "reuse key",
+      "final_status": "completed",
+      "external": "1 export: export-file-001",
+      "naive_decision": "resend",
+      "naive_external": "1 export: export-file-001"
+    },
+    {
+      "tool": "create_export",
+      "class": "idempotent_key",
+      "point": "after_receipt",
+      "policy": "reconciler",
+      "status_after_interruption": "completed",
+      "decision": "continue from receipt",
+      "final_status": "completed",
+      "external": "1 export: export-file-001",
+      "naive_decision": "continue from receipt",
+      "naive_external": "1 export: export-file-001"
+    },
+    {
+      "tool": "refresh_dashboard",
+      "class": "queryable",
+      "point": "before_dispatch",
+      "policy": "reconciler",
+      "status_after_interruption": "prepared",
+      "decision": "revalidate and dispatch",
+      "final_status": "completed",
+      "external": "1 job: job-001 completed",
+      "naive_decision": "resend",
+      "naive_external": "1 job: job-001 completed"
+    },
+    {
+      "tool": "refresh_dashboard",
+      "class": "queryable",
+      "point": "in_transit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "query status: absent, dispatch",
+      "final_status": "completed",
+      "external": "1 job: job-001 completed",
+      "naive_decision": "resend",
+      "naive_external": "1 job: job-001 completed"
+    },
+    {
+      "tool": "refresh_dashboard",
+      "class": "queryable",
+      "point": "after_commit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "query status",
+      "final_status": "completed",
+      "external": "1 job: job-001 completed",
+      "naive_decision": "resend",
+      "naive_external": "2 jobs: job-001 completed, job-002 completed"
+    },
+    {
+      "tool": "refresh_dashboard",
+      "class": "queryable",
+      "point": "after_receipt",
+      "policy": "reconciler",
+      "status_after_interruption": "accepted",
+      "decision": "poll job by receipt",
+      "final_status": "completed",
+      "external": "1 job: job-001 completed",
+      "naive_decision": "leave accepted",
+      "naive_external": "1 job: job-001 completed"
+    },
+    {
+      "tool": "notify_oncall",
+      "class": "non_repeatable",
+      "point": "before_dispatch",
+      "policy": "reconciler",
+      "status_after_interruption": "prepared",
+      "decision": "revalidate and dispatch",
+      "final_status": "completed",
+      "external": "1 message",
+      "naive_decision": "resend",
+      "naive_external": "1 message"
+    },
+    {
+      "tool": "notify_oncall",
+      "class": "non_repeatable",
+      "point": "in_transit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "escalate to a person",
+      "final_status": "uncertain",
+      "external": "0 messages; R-1 open",
+      "naive_decision": "resend",
+      "naive_external": "1 message"
+    },
+    {
+      "tool": "notify_oncall",
+      "class": "non_repeatable",
+      "point": "after_commit",
+      "policy": "reconciler",
+      "status_after_interruption": "dispatched",
+      "decision": "escalate to a person",
+      "final_status": "uncertain",
+      "external": "1 message; R-1 open",
+      "naive_decision": "resend",
+      "naive_external": "2 messages"
+    },
+    {
+      "tool": "notify_oncall",
+      "class": "non_repeatable",
+      "point": "after_receipt",
+      "policy": "reconciler",
+      "status_after_interruption": "completed",
+      "decision": "continue from receipt",
+      "final_status": "completed",
+      "external": "1 message",
+      "naive_decision": "continue from receipt",
+      "naive_external": "1 message"
+    }
+  ],
+  "stale": {
+    "tool": "notify_oncall",
+    "class": "non_repeatable",
+    "point": "before_dispatch",
+    "policy": "reconciler",
+    "status_after_interruption": "prepared",
+    "decision": "withdraw stale intent",
+    "final_status": "withdrawn",
+    "external": "0 messages"
+  },
+  "e3_counts": {
+    "naive_after_commit": 2,
+    "naive_in_transit": 1,
+    "reconciler_after_commit": 1,
+    "reconciler_in_transit": 0
+  },
+  "e5": {
+    "flawed_late": {
+      "cancel_at": 12.0,
+      "runtime_status": "cancelled",
+      "cancel_requested_at": null,
+      "service_status": "completed",
+      "service_finished_at": 40.0,
+      "no_return_at": 5.0,
+      "timeline": [
+        {
+          "t": 0.0,
+          "what": "submitted job-001"
+        },
+        {
+          "t": 12.0,
+          "what": "runtime marks op cancelled, stops polling"
+        },
+        {
+          "t": 40.0,
+          "what": "service: job-001 completed"
+        }
+      ],
+      "agree": false
+    },
+    "revised_late": {
+      "cancel_at": 12.0,
+      "runtime_status": "completed",
+      "cancel_requested_at": 12.0,
+      "service_status": "completed",
+      "service_finished_at": 40.0,
+      "no_return_at": 5.0,
+      "timeline": [
+        {
+          "t": 0.0,
+          "what": "submitted job-001"
+        },
+        {
+          "t": 12.0,
+          "what": "cancel requested",
+          "ack": {
+            "job_id": "job-001",
+            "cancel_requested": true,
+            "status": "running"
+          }
+        },
+        {
+          "t": 40.0,
+          "what": "service: job-001 completed"
+        }
+      ],
+      "agree": true
+    },
+    "revised_early": {
+      "cancel_at": 3.0,
+      "runtime_status": "cancelled",
+      "cancel_requested_at": 3.0,
+      "service_status": "cancelled",
+      "service_finished_at": 3.0,
+      "no_return_at": 5.0,
+      "timeline": [
+        {
+          "t": 0.0,
+          "what": "submitted job-001"
+        },
+        {
+          "t": 3.0,
+          "what": "cancel requested",
+          "ack": {
+            "job_id": "job-001",
+            "cancel_requested": true,
+            "status": "cancelled"
+          }
+        },
+        {
+          "t": 3.0,
+          "what": "service: job-001 cancelled"
+        }
+      ],
+      "agree": true
+    }
+  },
+  "e6": {
+    "naive_key_reuse": {
+      "age_s": 108000.0,
+      "decision": "reuse key",
+      "exports": [
+        "export-file-001",
+        "export-file-002"
+      ],
+      "op_status": "completed",
+      "repair_items": []
+    },
+    "reconciler": {
+      "age_s": 108000.0,
+      "decision": "escalate (key past retention)",
+      "exports": [
+        "export-file-001"
+      ],
+      "op_status": "uncertain",
+      "repair_items": [
+        {
+          "item_id": "R-1",
+          "op_id": "op-0001",
+          "opened_at": 108000.0,
+          "reason": "operation key may have expired at the service",
+          "evidence": {
+            "age_s": 108000.0,
+            "first_dispatched_at": 0.0,
+            "op_key": "run-13:export:daily-orders:2026-09-11",
+            "payload_digest": "07c41c5e8976f552",
+            "service_retention_s": 86400
+          },
+          "status": "open",
+          "resolved_by": null,
+          "resolution": null,
+          "resolved_at": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "runtime_row_after_interruption": {
+    "op_id": "op-0003",
+    "tool": "notify_oncall",
+    "recovery_class": "non_repeatable",
+    "op_key": null,
+    "payload_digest": "d147382f1dad2799",
+    "status": "dispatched",
+    "attempts": 1,
+    "first_dispatched_at": 2.5,
+    "receipt": null
+  },
+  "decisions": [
+    [
+      "op-0003",
+      "resend"
+    ]
+  ],
+  "messages": [
+    {
+      "message_id": "msg-001",
+      "recipient": "reports-oncall@example.com",
+      "subject": "Daily orders export for 2026-09-11 is ready",
+      "sent_at": 8.5
+    }
+  ],
+  "message_count": 1,
+  "repair_items": [],
+  "op_final": {
+    "op_id": "op-0003",
+    "tool": "notify_oncall",
+    "recovery_class": "non_repeatable",
+    "op_key": null,
+    "payload_digest": "d147382f1dad2799",
+    "status": "completed",
+    "attempts": 2,
+    "first_dispatched_at": 2.5,
+    "receipt": {
+      "message_id": "msg-001"
+    }
+  }
+}

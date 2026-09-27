@@ -1,0 +1,24 @@
+{
+  "before": [
+    "holiday-returns-2025@v1#1",
+    "holiday-returns-2025@v1#0",
+    "returns-policy@v1#2"
+  ],
+  "after": [
+    "returns-policy@v1#2",
+    "returns-policy@v1#1",
+    "returns-policy@v1#0"
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "kind": "ingest",
+      "detail": "{\"chunker\": \"structured-700\", \"documents\": 6}"
+    },
+    {
+      "seq": 2,
+      "kind": "withdraw",
+      "detail": "{\"doc_id\": \"holiday-returns-2025\", \"chunks\": [\"holiday-returns-2025@v1#0\", \"holiday-returns-2025@v1#1\"], \"cache_entries_invalidated\": 1}"
+    }
+  ]
+}

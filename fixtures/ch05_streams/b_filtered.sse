@@ -1,0 +1,11 @@
+: t=180
+event: response.created
+data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_b7f5e6","object":"response","model":"coder-pro-2026-07-30","status":"in_progress","output":[]}}
+
+event: response.in_progress
+data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_b7f5e6","status":"in_progress"}}
+
+: t=520
+event: response.incomplete
+data: {"type":"response.incomplete","sequence_number":2,"response":{"id":"resp_b7f5e6","object":"response","model":"coder-pro-2026-07-30","status":"incomplete","incomplete_details":{"reason":"content_filter"},"output":[],"usage":{"input_tokens":2530,"input_tokens_details":{"cached_tokens":0},"output_tokens":0,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":2530}}}
+

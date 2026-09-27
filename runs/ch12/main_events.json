@@ -1,0 +1,450 @@
+[
+  {
+    "seq": 1,
+    "event_id": "run-12:created",
+    "type": "run.created",
+    "entity": "run-12",
+    "writer": "control"
+  },
+  {
+    "seq": 2,
+    "event_id": "run-12:lease:1",
+    "type": "lease.claimed",
+    "entity": "run-12",
+    "writer": "control"
+  },
+  {
+    "seq": 3,
+    "event_id": "report.py@1:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "report.py@1",
+    "writer": "executor"
+  },
+  {
+    "seq": 4,
+    "event_id": "settings.json@1:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "settings.json@1",
+    "writer": "executor"
+  },
+  {
+    "seq": 5,
+    "event_id": "test_report.py@1:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "test_report.py@1",
+    "writer": "executor"
+  },
+  {
+    "seq": 6,
+    "event_id": "m1:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m1",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 7,
+    "event_id": "c1:op.prepared",
+    "type": "op.prepared",
+    "entity": "c1",
+    "writer": "control"
+  },
+  {
+    "seq": 8,
+    "event_id": "c2:op.prepared",
+    "type": "op.prepared",
+    "entity": "c2",
+    "writer": "control"
+  },
+  {
+    "seq": 9,
+    "event_id": "c3:op.prepared",
+    "type": "op.prepared",
+    "entity": "c3",
+    "writer": "control"
+  },
+  {
+    "seq": 10,
+    "event_id": "c1:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c1",
+    "writer": "executor"
+  },
+  {
+    "seq": 11,
+    "event_id": "c1:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c1",
+    "writer": "executor"
+  },
+  {
+    "seq": 12,
+    "event_id": "c1:op.completed",
+    "type": "op.completed",
+    "entity": "c1",
+    "writer": "executor"
+  },
+  {
+    "seq": 13,
+    "event_id": "c2:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c2",
+    "writer": "executor"
+  },
+  {
+    "seq": 14,
+    "event_id": "c2:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c2",
+    "writer": "executor"
+  },
+  {
+    "seq": 15,
+    "event_id": "c2:op.completed",
+    "type": "op.completed",
+    "entity": "c2",
+    "writer": "executor"
+  },
+  {
+    "seq": 16,
+    "event_id": "c3:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c3",
+    "writer": "executor"
+  },
+  {
+    "seq": 17,
+    "event_id": "c3:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c3",
+    "writer": "executor"
+  },
+  {
+    "seq": 18,
+    "event_id": "c3:op.completed",
+    "type": "op.completed",
+    "entity": "c3",
+    "writer": "executor"
+  },
+  {
+    "seq": 19,
+    "event_id": "m2:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m2",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 20,
+    "event_id": "c4:op.prepared",
+    "type": "op.prepared",
+    "entity": "c4",
+    "writer": "control"
+  },
+  {
+    "seq": 21,
+    "event_id": "c4:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c4",
+    "writer": "executor"
+  },
+  {
+    "seq": 22,
+    "event_id": "c4:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c4",
+    "writer": "executor"
+  },
+  {
+    "seq": 23,
+    "event_id": "c4:op.completed",
+    "type": "op.completed",
+    "entity": "c4",
+    "writer": "executor"
+  },
+  {
+    "seq": 24,
+    "event_id": "test_report.py@2:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "test_report.py@2",
+    "writer": "executor"
+  },
+  {
+    "seq": 25,
+    "event_id": "m3:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m3",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 26,
+    "event_id": "c5:op.prepared",
+    "type": "op.prepared",
+    "entity": "c5",
+    "writer": "control"
+  },
+  {
+    "seq": 27,
+    "event_id": "c5:op.failed_before_effect",
+    "type": "op.failed_before_effect",
+    "entity": "c5",
+    "writer": "executor"
+  },
+  {
+    "seq": 28,
+    "event_id": "c5:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c5",
+    "writer": "executor"
+  },
+  {
+    "seq": 29,
+    "event_id": "m4:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m4",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 30,
+    "event_id": "c6:op.prepared",
+    "type": "op.prepared",
+    "entity": "c6",
+    "writer": "control"
+  },
+  {
+    "seq": 31,
+    "event_id": "c6:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c6",
+    "writer": "executor"
+  },
+  {
+    "seq": 32,
+    "event_id": "c6:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c6",
+    "writer": "executor"
+  },
+  {
+    "seq": 33,
+    "event_id": "c6:op.completed",
+    "type": "op.completed",
+    "entity": "c6",
+    "writer": "executor"
+  },
+  {
+    "seq": 34,
+    "event_id": "m5:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m5",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 35,
+    "event_id": "c7:op.prepared",
+    "type": "op.prepared",
+    "entity": "c7",
+    "writer": "control"
+  },
+  {
+    "seq": 36,
+    "event_id": "c7:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c7",
+    "writer": "executor"
+  },
+  {
+    "seq": 37,
+    "event_id": "c7:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c7",
+    "writer": "executor"
+  },
+  {
+    "seq": 38,
+    "event_id": "c7:op.completed",
+    "type": "op.completed",
+    "entity": "c7",
+    "writer": "executor"
+  },
+  {
+    "seq": 39,
+    "event_id": "report.py@2:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "report.py@2",
+    "writer": "executor"
+  },
+  {
+    "seq": 40,
+    "event_id": "m6:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m6",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 41,
+    "event_id": "c8:op.prepared",
+    "type": "op.prepared",
+    "entity": "c8",
+    "writer": "control"
+  },
+  {
+    "seq": 42,
+    "event_id": "c8:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c8",
+    "writer": "executor"
+  },
+  {
+    "seq": 43,
+    "event_id": "c8:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c8",
+    "writer": "executor"
+  },
+  {
+    "seq": 44,
+    "event_id": "c8:op.completed",
+    "type": "op.completed",
+    "entity": "c8",
+    "writer": "executor"
+  },
+  {
+    "seq": 45,
+    "event_id": "m7:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m7",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 46,
+    "event_id": "c9:op.prepared",
+    "type": "op.prepared",
+    "entity": "c9",
+    "writer": "control"
+  },
+  {
+    "seq": 47,
+    "event_id": "c9:op.awaiting_approval",
+    "type": "op.awaiting_approval",
+    "entity": "c9",
+    "writer": "policy"
+  },
+  {
+    "seq": 48,
+    "event_id": "run-12:status:1:waiting_for_person",
+    "type": "run.status",
+    "entity": "run-12",
+    "writer": "control"
+  },
+  {
+    "seq": 49,
+    "event_id": "run-12:task:2",
+    "type": "task.revised",
+    "entity": "run-12",
+    "writer": "control"
+  },
+  {
+    "seq": 50,
+    "event_id": "c9:op.cancelled",
+    "type": "op.cancelled",
+    "entity": "c9",
+    "writer": "control"
+  },
+  {
+    "seq": 51,
+    "event_id": "run-12:status:2:running",
+    "type": "run.status",
+    "entity": "run-12",
+    "writer": "control"
+  },
+  {
+    "seq": 52,
+    "event_id": "m8:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m8",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 53,
+    "event_id": "c10:op.prepared",
+    "type": "op.prepared",
+    "entity": "c10",
+    "writer": "control"
+  },
+  {
+    "seq": 54,
+    "event_id": "c10:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c10",
+    "writer": "executor"
+  },
+  {
+    "seq": 55,
+    "event_id": "c10:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c10",
+    "writer": "executor"
+  },
+  {
+    "seq": 56,
+    "event_id": "c10:op.completed",
+    "type": "op.completed",
+    "entity": "c10",
+    "writer": "executor"
+  },
+  {
+    "seq": 57,
+    "event_id": "report.py@3:artifact.versioned",
+    "type": "artifact.versioned",
+    "entity": "report.py@3",
+    "writer": "executor"
+  },
+  {
+    "seq": 58,
+    "event_id": "m9:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m9",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 59,
+    "event_id": "c11:op.prepared",
+    "type": "op.prepared",
+    "entity": "c11",
+    "writer": "control"
+  },
+  {
+    "seq": 60,
+    "event_id": "c11:op.dispatched",
+    "type": "op.dispatched",
+    "entity": "c11",
+    "writer": "executor"
+  },
+  {
+    "seq": 61,
+    "event_id": "c11:observation.recorded",
+    "type": "observation.recorded",
+    "entity": "c11",
+    "writer": "executor"
+  },
+  {
+    "seq": 62,
+    "event_id": "c11:op.completed",
+    "type": "op.completed",
+    "entity": "c11",
+    "writer": "executor"
+  },
+  {
+    "seq": 63,
+    "event_id": "m10:model_call.recorded",
+    "type": "model_call.recorded",
+    "entity": "m10",
+    "writer": "model_adapter"
+  },
+  {
+    "seq": 64,
+    "event_id": "run-12:completed",
+    "type": "run.completed",
+    "entity": "run-12",
+    "writer": "control"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {"customer_id": "AC-17", "tenant": "acme", "name": "Priya Raman", "email": "priya.raman@example.com"},
+  {"customer_id": "AC-22", "tenant": "acme", "name": "Tom Keller", "email": "tom.keller@example.com"},
+  {"customer_id": "AC-31", "tenant": "acme", "name": "Ines Duarte", "email": "ines.duarte@example.com"},
+  {"customer_id": "GX-03", "tenant": "globex", "name": "Rafael Okafor", "email": "r.okafor@example.net"},
+  {"customer_id": "GX-08", "tenant": "globex", "name": "Mei Lin", "email": "mei.lin@example.net"},
+  {"customer_id": "GX-11", "tenant": "globex", "name": "Sven Aalto", "email": "sven.aalto@example.net"},
+  {"customer_id": "GX-12", "tenant": "globex", "name": "Joy Mensah", "email": "joy.mensah@example.net"}
+]

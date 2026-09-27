@@ -1,0 +1,134 @@
+[
+  {
+    "chapter": 6,
+    "component": "Context builder",
+    "layer": "runtime contract",
+    "evidence": "context tests, truncate builder",
+    "k": 2,
+    "n": 5,
+    "wilson95": [
+      0.118,
+      0.769
+    ]
+  },
+  {
+    "chapter": 6,
+    "component": "Context builder",
+    "layer": "runtime contract",
+    "evidence": "context tests, structured builder",
+    "k": 6,
+    "n": 6,
+    "wilson95": [
+      0.61,
+      1.0
+    ]
+  },
+  {
+    "chapter": 7,
+    "component": "Retrieval",
+    "layer": "component (stand-in ranker)",
+    "evidence": "recall@3, fixed chunking",
+    "k": 4,
+    "n": 7,
+    "wilson95": [
+      0.25,
+      0.842
+    ]
+  },
+  {
+    "chapter": 7,
+    "component": "Retrieval",
+    "layer": "component (stand-in ranker)",
+    "evidence": "recall@3, structured chunking",
+    "k": 7,
+    "n": 7,
+    "wilson95": [
+      0.646,
+      1.0
+    ]
+  },
+  {
+    "chapter": 9,
+    "component": "Tools and executor",
+    "layer": "decision (lexical stand-in)",
+    "evidence": "tool selection, revised contracts, development",
+    "k": 9,
+    "n": 12,
+    "wilson95": [
+      0.468,
+      0.911
+    ]
+  },
+  {
+    "chapter": 9,
+    "component": "Tools and executor",
+    "layer": "decision (lexical stand-in)",
+    "evidence": "tool selection, revised contracts, held_out",
+    "k": 1,
+    "n": 6,
+    "wilson95": [
+      0.03,
+      0.564
+    ]
+  },
+  {
+    "chapter": 10,
+    "component": "Skills",
+    "layer": "decision (lexical stand-in)",
+    "evidence": "activation suite, A_flawed",
+    "k": 9,
+    "n": 16,
+    "wilson95": [
+      0.332,
+      0.769
+    ]
+  },
+  {
+    "chapter": 10,
+    "component": "Skills",
+    "layer": "decision (lexical stand-in)",
+    "evidence": "activation suite, C_both_revised",
+    "k": 13,
+    "n": 16,
+    "wilson95": [
+      0.57,
+      0.934
+    ]
+  },
+  {
+    "chapter": 11,
+    "component": "Control",
+    "layer": "runtime contract (scripted)",
+    "evidence": "acceptance passed, loop controller",
+    "k": 4,
+    "n": 8,
+    "wilson95": [
+      0.215,
+      0.785
+    ]
+  },
+  {
+    "chapter": 11,
+    "component": "Control",
+    "layer": "runtime contract (scripted)",
+    "evidence": "acceptance passed, hybrid controller",
+    "k": 4,
+    "n": 8,
+    "wilson95": [
+      0.215,
+      0.785
+    ]
+  },
+  {
+    "chapter": 16,
+    "component": "Policy and authority",
+    "layer": "runtime contract",
+    "evidence": "boundary suite, governed policy",
+    "k": 13,
+    "n": 13,
+    "wilson95": [
+      0.772,
+      1.0
+    ]
+  }
+]

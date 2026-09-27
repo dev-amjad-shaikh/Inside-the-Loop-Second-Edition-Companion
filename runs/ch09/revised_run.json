@@ -1,0 +1,744 @@
+{
+  "session": {
+    "tenant": "acme",
+    "user": "maria@acme",
+    "grants": [
+      "exports.create",
+      "exports.read",
+      "reports.read"
+    ]
+  },
+  "steps": [
+    {
+      "note": "catalog read before the fix ships",
+      "call": {
+        "id": "r1",
+        "name": "reports_search",
+        "arguments": {
+          "query": "daily orders"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "matches": [
+            {
+              "report": "daily_orders",
+              "title": "Daily orders",
+              "current_version": 4
+            }
+          ]
+        }
+      },
+      "exports_after": []
+    },
+    {
+      "note": "external event: reporting team publishes daily_orders v5 (source 339d3a9f2656, the timezone fix)"
+    },
+    {
+      "note": "shape",
+      "call": {
+        "id": "r2",
+        "name": "exports_create",
+        "arguments": {
+          "report": "daily_orders",
+          "day": "Sept 11",
+          "format": "CSV",
+          "destination": "finance sftp",
+          "expected_report_version": 4,
+          "tenant": "acme"
+        }
+      },
+      "observation": {
+        "status": "input_error",
+        "stage": "shape",
+        "retryable": true,
+        "message": "unexpected argument tenant: the tenant is taken from the signed-in session and cannot be chosen per call; day must match YYYY-MM-DD; got 'Sept 11'; format must be one of csv, parquet; got 'CSV'; destination must be one of finance_sftp, analytics_bucket; got 'finance sftp'",
+        "violations": [
+          {
+            "path": "tenant",
+            "rule": "additionalProperties",
+            "message": "unexpected argument tenant: the tenant is taken from the signed-in session and cannot be chosen per call"
+          },
+          {
+            "path": "day",
+            "rule": "pattern",
+            "message": "day must match YYYY-MM-DD; got 'Sept 11'"
+          },
+          {
+            "path": "format",
+            "rule": "enum",
+            "message": "format must be one of csv, parquet; got 'CSV'"
+          },
+          {
+            "path": "destination",
+            "rule": "enum",
+            "message": "destination must be one of finance_sftp, analytics_bucket; got 'finance sftp'"
+          }
+        ]
+      },
+      "exports_after": []
+    },
+    {
+      "note": "cross-field",
+      "call": {
+        "id": "r3",
+        "name": "exports_create",
+        "arguments": {
+          "report": "daily_orders",
+          "day": "2026-09-11",
+          "format": "parquet",
+          "destination": "finance_sftp",
+          "expected_report_version": 4
+        }
+      },
+      "observation": {
+        "status": "input_error",
+        "stage": "semantics",
+        "retryable": true,
+        "message": "finance_sftp accepts csv only; got format parquet. Use format csv, or destination analytics_bucket for parquet."
+      },
+      "exports_after": []
+    },
+    {
+      "note": "range",
+      "call": {
+        "id": "r4",
+        "name": "exports_create",
+        "arguments": {
+          "report": "daily_orders",
+          "day": "2026-09-12",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "expected_report_version": 4
+        }
+      },
+      "observation": {
+        "status": "input_error",
+        "stage": "semantics",
+        "retryable": true,
+        "message": "day must be before 2026-09-12 (the service's current day); got 2026-09-12"
+      },
+      "exports_after": []
+    },
+    {
+      "note": "precondition",
+      "call": {
+        "id": "r5",
+        "name": "exports_create",
+        "arguments": {
+          "report": "daily_orders",
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "expected_report_version": 4
+        }
+      },
+      "observation": {
+        "status": "precondition_failed",
+        "stage": "precondition",
+        "retryable": false,
+        "message": "report daily_orders is at version 5 (source 339d3a9f2656), not 4. Confirm the version with the user or re-read it with reports_search before exporting.",
+        "current_version": 5
+      },
+      "exports_after": []
+    },
+    {
+      "note": "re-read after precondition failure",
+      "call": {
+        "id": "r6",
+        "name": "reports_search",
+        "arguments": {
+          "query": "daily orders"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "matches": [
+            {
+              "report": "daily_orders",
+              "title": "Daily orders",
+              "current_version": 5
+            }
+          ]
+        }
+      },
+      "exports_after": []
+    },
+    {
+      "note": "correct call",
+      "call": {
+        "id": "r7",
+        "name": "exports_create",
+        "arguments": {
+          "report": "daily_orders",
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "expected_report_version": 5
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "effect": "creates_external_record",
+        "result": {
+          "export_id": "exp_0413",
+          "status": "delivered",
+          "summary": "daily_orders v5 for 2026-09-11 as csv delivered to finance_sftp"
+        },
+        "verification": {
+          "verified": true,
+          "checked": [
+            "day",
+            "destination",
+            "format",
+            "report",
+            "report_version",
+            "status",
+            "tenant"
+          ],
+          "differences": {}
+        }
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 5,
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "r7"
+        }
+      ]
+    },
+    {
+      "note": "authorization",
+      "call": {
+        "id": "r8",
+        "name": "exports_create",
+        "arguments": {
+          "report": "payroll_summary",
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "expected_report_version": 7
+        }
+      },
+      "observation": {
+        "status": "not_authorized",
+        "stage": "authorize",
+        "retryable": false,
+        "message": "report payroll_summary is restricted and maria@acme lacks the reports.restricted grant. Do not retry; tell the user who can grant access."
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 5,
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "r7"
+        }
+      ]
+    },
+    {
+      "note": "range on a read",
+      "call": {
+        "id": "r9",
+        "name": "exports_read_log",
+        "arguments": {
+          "export_id": "exp_0412",
+          "lines": 5000
+        }
+      },
+      "observation": {
+        "status": "input_error",
+        "stage": "shape",
+        "retryable": true,
+        "message": "lines must be <= 200; got 5000. Page with cursor for more.",
+        "violations": [
+          {
+            "path": "lines",
+            "rule": "maximum",
+            "message": "lines must be <= 200; got 5000. Page with cursor for more."
+          }
+        ]
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 5,
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "r7"
+        }
+      ]
+    }
+  ],
+  "executor_records": [
+    {
+      "call_id": "r1",
+      "tool": "reports_search",
+      "arguments": {
+        "query": "daily orders"
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "read_only"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "execute",
+          "result": "ok"
+        }
+      ],
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "matches": [
+            {
+              "report": "daily_orders",
+              "title": "Daily orders",
+              "current_version": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "call_id": "r2",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "daily_orders",
+        "day": "Sept 11",
+        "format": "CSV",
+        "destination": "finance sftp",
+        "expected_report_version": 4,
+        "tenant": "acme"
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "input_error"
+        }
+      ],
+      "observation": {
+        "status": "input_error",
+        "stage": "shape",
+        "retryable": true,
+        "message": "unexpected argument tenant: the tenant is taken from the signed-in session and cannot be chosen per call; day must match YYYY-MM-DD; got 'Sept 11'; format must be one of csv, parquet; got 'CSV'; destination must be one of finance_sftp, analytics_bucket; got 'finance sftp'",
+        "violations": [
+          {
+            "path": "tenant",
+            "rule": "additionalProperties",
+            "message": "unexpected argument tenant: the tenant is taken from the signed-in session and cannot be chosen per call"
+          },
+          {
+            "path": "day",
+            "rule": "pattern",
+            "message": "day must match YYYY-MM-DD; got 'Sept 11'"
+          },
+          {
+            "path": "format",
+            "rule": "enum",
+            "message": "format must be one of csv, parquet; got 'CSV'"
+          },
+          {
+            "path": "destination",
+            "rule": "enum",
+            "message": "destination must be one of finance_sftp, analytics_bucket; got 'finance sftp'"
+          }
+        ]
+      }
+    },
+    {
+      "call_id": "r3",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "daily_orders",
+        "day": "2026-09-11",
+        "format": "parquet",
+        "destination": "finance_sftp",
+        "expected_report_version": 4
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "semantics",
+          "result": "input_error"
+        }
+      ],
+      "observation": {
+        "status": "input_error",
+        "stage": "semantics",
+        "retryable": true,
+        "message": "finance_sftp accepts csv only; got format parquet. Use format csv, or destination analytics_bucket for parquet."
+      }
+    },
+    {
+      "call_id": "r4",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "daily_orders",
+        "day": "2026-09-12",
+        "format": "csv",
+        "destination": "finance_sftp",
+        "expected_report_version": 4
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "semantics",
+          "result": "input_error"
+        }
+      ],
+      "observation": {
+        "status": "input_error",
+        "stage": "semantics",
+        "retryable": true,
+        "message": "day must be before 2026-09-12 (the service's current day); got 2026-09-12"
+      }
+    },
+    {
+      "call_id": "r5",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "daily_orders",
+        "day": "2026-09-11",
+        "format": "csv",
+        "destination": "finance_sftp",
+        "expected_report_version": 4
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "semantics",
+          "result": "ok"
+        },
+        {
+          "stage": "authorize",
+          "result": "ok"
+        },
+        {
+          "stage": "precondition",
+          "result": "precondition_failed"
+        }
+      ],
+      "observation": {
+        "status": "precondition_failed",
+        "stage": "precondition",
+        "retryable": false,
+        "message": "report daily_orders is at version 5 (source 339d3a9f2656), not 4. Confirm the version with the user or re-read it with reports_search before exporting.",
+        "current_version": 5
+      }
+    },
+    {
+      "call_id": "r6",
+      "tool": "reports_search",
+      "arguments": {
+        "query": "daily orders"
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "read_only"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "execute",
+          "result": "ok"
+        }
+      ],
+      "observation": {
+        "status": "ok",
+        "effect": "read_only",
+        "result": {
+          "matches": [
+            {
+              "report": "daily_orders",
+              "title": "Daily orders",
+              "current_version": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "call_id": "r7",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "daily_orders",
+        "day": "2026-09-11",
+        "format": "csv",
+        "destination": "finance_sftp",
+        "expected_report_version": 5
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "semantics",
+          "result": "ok"
+        },
+        {
+          "stage": "authorize",
+          "result": "ok"
+        },
+        {
+          "stage": "precondition",
+          "result": "ok"
+        },
+        {
+          "stage": "execute",
+          "result": "ok"
+        },
+        {
+          "stage": "verify",
+          "result": "ok"
+        }
+      ],
+      "observation": {
+        "status": "ok",
+        "effect": "creates_external_record",
+        "result": {
+          "export_id": "exp_0413",
+          "status": "delivered",
+          "summary": "daily_orders v5 for 2026-09-11 as csv delivered to finance_sftp"
+        },
+        "verification": {
+          "verified": true,
+          "checked": [
+            "day",
+            "destination",
+            "format",
+            "report",
+            "report_version",
+            "status",
+            "tenant"
+          ],
+          "differences": {}
+        }
+      }
+    },
+    {
+      "call_id": "r8",
+      "tool": "exports_create",
+      "arguments": {
+        "report": "payroll_summary",
+        "day": "2026-09-11",
+        "format": "csv",
+        "destination": "finance_sftp",
+        "expected_report_version": 7
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "creates_external_record"
+        },
+        {
+          "stage": "shape",
+          "result": "ok"
+        },
+        {
+          "stage": "semantics",
+          "result": "ok"
+        },
+        {
+          "stage": "authorize",
+          "result": "not_authorized"
+        }
+      ],
+      "observation": {
+        "status": "not_authorized",
+        "stage": "authorize",
+        "retryable": false,
+        "message": "report payroll_summary is restricted and maria@acme lacks the reports.restricted grant. Do not retry; tell the user who can grant access."
+      }
+    },
+    {
+      "call_id": "r9",
+      "tool": "exports_read_log",
+      "arguments": {
+        "export_id": "exp_0412",
+        "lines": 5000
+      },
+      "session": {
+        "tenant": "acme",
+        "user": "maria@acme",
+        "grants": [
+          "exports.create",
+          "exports.read",
+          "reports.read"
+        ]
+      },
+      "stages": [
+        {
+          "stage": "resolve",
+          "result": "ok",
+          "version": 1,
+          "effect": "read_only"
+        },
+        {
+          "stage": "shape",
+          "result": "input_error"
+        }
+      ],
+      "observation": {
+        "status": "input_error",
+        "stage": "shape",
+        "retryable": true,
+        "message": "lines must be <= 200; got 5000. Page with cursor for more.",
+        "violations": [
+          {
+            "path": "lines",
+            "rule": "maximum",
+            "message": "lines must be <= 200; got 5000. Page with cursor for more."
+          }
+        ]
+      }
+    }
+  ]
+}

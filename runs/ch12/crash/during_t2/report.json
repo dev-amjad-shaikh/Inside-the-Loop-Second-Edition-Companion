@@ -1,0 +1,14 @@
+{
+  "rollback_journal_left": true,
+  "c7_state": "dispatched",
+  "c7_observation": null,
+  "report_py_versions_recorded": 1,
+  "events": 36,
+  "report_py_on_disk": "339d3a9f2656",
+  "point": "during_t2",
+  "exit_code": 70,
+  "restart_marked_uncertain": [
+    "c7"
+  ],
+  "c7_state_after_restart": "uncertain"
+}

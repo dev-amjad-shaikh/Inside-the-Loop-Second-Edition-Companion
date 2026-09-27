@@ -1,0 +1,122 @@
+[
+  {
+    "call_id": "k1",
+    "tool": "activate_skill",
+    "arguments": {
+      "name": "report-helper"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:10"
+  },
+  {
+    "call_id": "c1",
+    "tool": "read_file",
+    "arguments": {
+      "path": "settings.json"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:20"
+  },
+  {
+    "call_id": "c2",
+    "tool": "read_file",
+    "arguments": {
+      "path": "report.py"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:23"
+  },
+  {
+    "call_id": "c3",
+    "tool": "read_file",
+    "arguments": {
+      "path": "test_report.py"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:26"
+  },
+  {
+    "call_id": "r1",
+    "tool": "read_skill_resource",
+    "arguments": {
+      "skill": "report-helper",
+      "path": "references/regression-test.md"
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 3,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "ok",
+    "t": "10:00:29"
+  },
+  {
+    "call_id": "q1",
+    "tool": "request_input",
+    "arguments": {
+      "question": "settings.json has no report_timezone. Which timezone defines the report day for acme?",
+      "choices": [
+        "America/Los_Angeles",
+        "UTC",
+        "Another zone"
+      ]
+    },
+    "task_revision": 1,
+    "decision": "allow",
+    "rules": [],
+    "rules_evaluated": 2,
+    "principal": "dev",
+    "session": "sess-acme-dev",
+    "policy_version": "dbd2bc6ff549",
+    "skill_scope": [
+      "report-helper"
+    ],
+    "outcome": "waiting for person",
+    "t": "10:00:36"
+  }
+]

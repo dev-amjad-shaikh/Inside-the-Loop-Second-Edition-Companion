@@ -1,0 +1,83 @@
+Machine: Intel(R) Xeon(R) Processor @ 2.10GHz, 2 logical CPUs, 7.8 GiB, Linux 6.18.44-fc-v37
+Toolchains: Python 3.11.15; rustc 1.95.0 (59807616e 2026-04-14); go version go1.24.7 linux/amd64; node v22.22.2; crates {'tokio': '1.53.1', 'serde': '1.0.229', 'serde_json': '1.0.151', 'rand': '0.8.8', 'rand_distr': '0.4.3'}
+Fixture: transcript 51241 bytes, 74 messages; checkpoint state 1001140 bytes, 1452 messages
+
+Throughput, 1,000 sessions x 5 steps, no model wait, one CPU (median [min-max] over reps)
+  go|delta               steps/s 61398.0 [50889.0-71876.0]  us/step 16.3 [13.9-19.7]  phases {'parse': 5.15, 'dispatch': 3.71, 'append': 1.21, 'checkpoint': 4.15}  ckpt bytes/step 1987
+  go|full                steps/s 5768.0 [5594.0-6241.0]  us/step 173.4 [160.2-178.8]  phases {'parse': 12.5, 'dispatch': 4.56, 'append': 1.97, 'checkpoint': 134.99}  ckpt bytes/step 56440
+  go-2p|full             steps/s 11479.0 [7704.0-12012.0]  us/step 87.1 [83.3-129.8]  phases {'parse': 95.35, 'dispatch': 51.96, 'append': 4.96, 'checkpoint': 252.52}  ckpt bytes/step 56440
+  node|delta             steps/s 35631.0 [35295.0-36266.0]  us/step 28.1 [27.6-28.3]  phases {'parse': 1.19, 'dispatch': 7.33, 'append': 0.37, 'checkpoint': 9.28}  ckpt bytes/step 1987
+  node|full              steps/s 4302.0 [4168.0-4746.0]  us/step 232.5 [210.7-239.9]  phases {'parse': 1.89, 'dispatch': 4.66, 'append': 0.56, 'checkpoint': 212.82}  ckpt bytes/step 56440
+  python|delta           steps/s 32821.0 [30915.0-36838.0]  us/step 30.5 [27.1-32.3]  phases {'parse': 2.57, 'dispatch': 6.58, 'append': 0.33, 'checkpoint': 10.26}  ckpt bytes/step 1987
+  python|full            steps/s 4990.0 [4409.0-5497.0]  us/step 200.4 [181.9-226.8]  phases {'parse': 3.45, 'dispatch': 7.0, 'append': 0.37, 'checkpoint': 180.66}  ckpt bytes/step 56461
+  rust-mimalloc|full     steps/s 18942.0 [17426.0-19004.0]  us/step 52.8 [52.6-57.4]  phases {'parse': 0.87, 'dispatch': 1.92, 'append': 0.08, 'checkpoint': 48.52}  ckpt bytes/step 56440
+  rust-mimalloc-2t|full  steps/s 26072.0 [23662.0-37131.0]  us/step 38.4 [26.9-42.3]  phases {'parse': 0.92, 'dispatch': 2.36, 'append': 0.07, 'checkpoint': 66.66}  ckpt bytes/step 56440
+  rust-typed|delta       steps/s 96245.0 [94079.0-108522.0]  us/step 10.4 [9.2-10.6]  phases {'parse': 0.47, 'dispatch': 2.51, 'append': 0.23, 'checkpoint': 2.62}  ckpt bytes/step 1987
+  rust-typed|full        steps/s 14401.0 [13461.0-15972.0]  us/step 69.4 [62.6-74.3]  phases {'parse': 0.61, 'dispatch': 2.34, 'append': 0.31, 'checkpoint': 62.92}  ckpt bytes/step 56440
+  rust-typed-2t|full     steps/s 13965.0 [13453.0-14812.0]  us/step 71.6 [67.5-74.3]  phases {'parse': 1.5, 'dispatch': 11.2, 'append': 0.44, 'checkpoint': 112.34}  ckpt bytes/step 56440
+  rust-value|delta       steps/s 50287.0 [41350.0-55043.0]  us/step 19.9 [18.2-24.2]  phases {'parse': 0.69, 'dispatch': 3.24, 'append': 0.71, 'checkpoint': 4.73}  ckpt bytes/step 1987
+  rust-value|full        steps/s 9615.0 [8936.0-10300.0]  us/step 104.0 [97.1-111.9]  phases {'parse': 1.02, 'dispatch': 4.22, 'append': 0.53, 'checkpoint': 92.24}  ckpt bytes/step 56440
+
+Concurrent sessions, model wait lognormal median 4 s, one CPU (median [min-max] over reps)
+  go|delta|10000             KiB/session parked 108.9 [99.6-110.4] peak 130.6 [129.7-131.2] | overhead p50 0.6 ms [0.6-0.61] p99 1.24 ms [1.22-11.26] max 21.8 ms [7.4-33.8] | work p50 23.5 us | util 0.025 | gc max 0 ms | base 2.7 MiB
+  go|full|1000               KiB/session parked 102.5 [99.1-107.9] peak 163.1 [161.5-166.1] | overhead p50 0.79 ms [0.78-0.8] p99 1.95 ms [1.76-2.02] max 22.2 ms [19.2-25.5] | work p50 177.2 us | util 0.015 | gc max 0.07 ms | base 2.7 MiB
+  go|full|10000              KiB/session parked 102.1 [99.4-106.4] peak 177.9 [177.0-179.9] | overhead p50 0.72 ms [0.72-0.73] p99 24.68 ms [23.56-26.73] max 37.4 ms [35.9-40.1] | work p50 139.8 us | util 0.112 | gc max 0.49 ms | base 2.7 MiB
+  node|delta|10000           KiB/session parked 58.2 [58.2-58.4] peak 75.9 [75.9-76.1] | overhead p50 0.21 ms [0.2-0.21] p99 4.34 ms [4.05-4.73] max 19.4 ms [13.1-58.6] | work p50 17.2 us | util 0.02 | gc max 61.83 ms | base 46.5 MiB
+  node|full|1000             KiB/session parked 81.5 [81.4-81.6] peak 162.4 [162.4-162.6] | overhead p50 0.46 ms [0.46-0.47] p99 2.74 ms [2.28-2.82] max 18.5 ms [16.8-77.6] | work p50 244.7 us | util 0.024 | gc max 7.35 ms | base 46.6 MiB
+  node|full|10000            KiB/session parked 58.4 [58.4-58.5] peak 77.2 [77.2-77.2] | overhead p50 0.98 ms [0.97-1.0] p99 5.64 ms [5.44-13.65] max 16.0 ms [14.1-87.6] | work p50 203.2 us | util 0.185 | gc max 23.3 ms | base 46.6 MiB
+  python|delta|10000         KiB/session parked 97.4 [97.4-97.4] peak 105.2 [105.1-105.2] | overhead p50 0.7 ms [0.69-0.7] p99 585.28 ms [549.48-645.49] max 765.4 ms [718.7-819.9] | work p50 28.4 us | util 0.051 | gc max 759.71 ms | base 20.7 MiB
+  python|full|1000           KiB/session parked 97.4 [97.4-97.4] peak 124.7 [124.7-125.0] | overhead p50 1.04 ms [1.03-1.05] p99 4.25 ms [3.08-4.27] max 13.0 ms [10.3-16.6] | work p50 270.9 us | util 0.028 | gc max 1.96 ms | base 20.7 MiB
+  python|full|10000          KiB/session parked 97.4 [97.4-97.4] peak 105.3 [105.2-105.3] | overhead p50 1.08 ms [1.07-1.1] p99 638.19 ms [589.75-671.1] max 732.6 ms [686.4-779.8] | work p50 221.6 us | util 0.226 | gc max 724.85 ms | base 20.7 MiB
+  python-freeze|delta|10000  KiB/session parked 97.4 [97.4-97.4] peak 105.2 [105.1-105.2] | overhead p50 0.68 ms [0.68-0.69] p99 1.76 ms [1.67-1.99] max 25.8 ms [24.9-26.4] | work p50 30.4 us | util 0.038 | gc max 25.28 ms | base 20.7 MiB
+  python-freeze|full|10000   KiB/session parked 97.4 [97.4-97.4] peak 105.2 [105.1-105.2] | overhead p50 1.06 ms [1.06-1.08] p99 5.02 ms [4.31-6.26] max 36.3 ms [27.5-39.2] | work p50 228.0 us | util 0.216 | gc max 26.61 ms | base 20.7 MiB
+  python3.13|full|10000      KiB/session parked 96.0 [96.0-96.0] peak 103.8 [103.8-103.8] | overhead p50 1.02 ms [1.0-1.07] p99 583.9 ms [521.33-653.0] max 702.4 ms [639.8-735.1] | work p50 198.5 us | util 0.208 | gc max 695.46 ms | base 21.7 MiB
+  python3.14rc2|full|10000   KiB/session parked 95.7 [95.7-95.7] peak 103.6 [103.6-103.7] | overhead p50 0.97 ms [0.96-0.99] p99 3.61 ms [3.07-3.68] max 27.4 ms [27.2-36.9] | work p50 201.4 us | util 0.193 | gc max 26.84 ms | base 24.0 MiB
+  rust-mimalloc|full|10000   KiB/session parked 100.2 [100.2-100.2] peak 106.8 [106.6-106.8] | overhead p50 1.25 ms [1.24-1.28] p99 2.29 ms [2.22-2.74] max 15.4 ms [9.8-18.4] | work p50 66.4 us | util 0.059 | gc max 0.0 ms | base 6.9 MiB
+  rust-typed|delta|10000     KiB/session parked 96.5 [96.5-96.5] peak 101.9 [101.8-101.9] | overhead p50 1.15 ms [1.15-1.16] p99 2.08 ms [2.08-2.09] max 8.7 ms [7.5-14.8] | work p50 10.9 us | util 0.017 | gc max 0.0 ms | base 2.9 MiB
+  rust-typed|full|1000       KiB/session parked 96.7 [96.7-96.8] peak 104.9 [104.7-105.1] | overhead p50 1.26 ms [1.25-1.26] p99 2.65 ms [2.27-2.88] max 6.9 ms [6.0-7.5] | work p50 97.0 us | util 0.01 | gc max 0.0 ms | base 2.8 MiB
+  rust-typed|full|10000      KiB/session parked 96.5 [96.5-96.5] peak 101.9 [101.9-101.9] | overhead p50 1.27 ms [1.27-1.28] p99 2.29 ms [2.28-2.37] max 11.1 ms [8.8-43.0] | work p50 81.7 us | util 0.071 | gc max 0.0 ms | base 2.8 MiB
+  rust-value|delta|10000     KiB/session parked 157.4 [157.4-157.4] peak 166.3 [166.2-166.4] | overhead p50 1.19 ms [1.18-1.21] p99 2.22 ms [2.18-39.89] max 26.7 ms [14.5-79.6] | work p50 17.9 us | util 0.034 | gc max 0.0 ms | base 2.9 MiB
+  rust-value|full|1000       KiB/session parked 157.8 [157.8-157.9] peak 169.9 [169.4-170.0] | overhead p50 1.31 ms [1.3-1.31] p99 2.99 ms [2.67-3.72] max 19.9 ms [15.5-27.4] | work p50 131.4 us | util 0.015 | gc max 0.0 ms | base 2.9 MiB
+  rust-value|full|10000      KiB/session parked 157.4 [157.4-157.4] peak 166.6 [166.5-166.6] | overhead p50 1.35 ms [1.34-1.36] p99 2.52 ms [2.48-2.58] max 8.9 ms [7.6-14.4] | work p50 110.6 us | util 0.105 | gc max 0.0 ms | base 2.9 MiB
+
+Checkpoint of a 1 MB state (median of 100 runs per rep; [min-max] across reps)
+  go           987643 bytes serialize 1.84 ms [1.61-1.9] deserialize 7.18 ms [6.83-7.46] write+fsync 1.8 ms [1.75-1.94]
+  node         987643 bytes serialize 3.5 ms [3.47-3.76] deserialize 3.43 ms [3.32-3.57] write+fsync 1.8 ms [1.77-1.98]
+  python       988078 bytes serialize 3.43 ms [3.38-3.5] deserialize 3.15 ms [3.06-3.18] write+fsync 2.01 ms [1.83-2.07] | ensure_ascii=False 5.92 ms [5.77-5.93]
+  rust-typed   987643 bytes serialize 1.1 ms [0.92-1.17] deserialize 1.45 ms [1.18-1.5] write+fsync 1.73 ms [1.65-1.84]
+  rust-value   987643 bytes serialize 1.18 ms [1.03-1.28] deserialize 1.69 ms [1.45-1.8] write+fsync 1.82 ms [1.77-1.88]
+
+Cold start to 'ready' (fixture loaded, registry built), wall clock
+  python       median 64.6 ms (p10 57.0, p90 67.4, 30 runs)
+  rust-typed   median 2.3 ms (p10 2.2, p90 2.5, 30 runs)
+  go           median 2.3 ms (p10 2.1, p90 2.5, 30 runs)
+  node         median 42.6 ms (p10 40.6, p90 44.6, 30 runs)
+
+Deployable size: rust binary 868448 B; go binary 2056376 B; python interpreter 6639992 B + stdlib 53849724 B + script 9828 B; node binary 124679552 B + script 8028 B
+
+Context (assumptions in summary.json -> context.assumptions)
+  python       cpu/step 0.2 ms | p50 overhead / model call 2.70e-04 | p99 1.60e-01 | 7-call run overhead 7.56 ms of 28000 ms | 10k active sessions: 0.45 cores, 1.0 GiB, $0.0178+$0.005/h vs model $240000/h (runtime share 9.51e-08)
+  rust-typed   cpu/step 0.069 ms | p50 overhead / model call 3.18e-04 | p99 5.72e-04 | 7-call run overhead 8.89 ms of 28000 ms | 10k active sessions: 0.15 cores, 0.97 GiB, $0.0062+$0.0049/h vs model $240000/h (runtime share 4.59e-08)
+  rust-value   cpu/step 0.104 ms | p50 overhead / model call 3.38e-04 | p99 6.30e-04 | 7-call run overhead 9.45 ms of 28000 ms | 10k active sessions: 0.23 cores, 1.59 GiB, $0.0092+$0.0079/h vs model $240000/h (runtime share 7.16e-08)
+  go           cpu/step 0.173 ms | p50 overhead / model call 1.80e-04 | p99 6.17e-03 | 7-call run overhead 5.04 ms of 28000 ms | 10k active sessions: 0.39 cores, 1.7 GiB, $0.0154+$0.0085/h vs model $240000/h (runtime share 9.96e-08)
+  node         cpu/step 0.233 ms | p50 overhead / model call 2.45e-04 | p99 1.41e-03 | 7-call run overhead 6.86 ms of 28000 ms | 10k active sessions: 0.52 cores, 0.74 GiB, $0.0207+$0.0037/h vs model $240000/h (runtime share 1.01e-07)
+
+Boundary round trips from Python 3.11.15 (median / p99, microseconds)
+  in-process|1KB     3.35 / 8.45  (round medians 3.34-3.36, 3 x 2000 calls)
+  binding|1KB        0.53 / 0.66  (round medians 0.53-0.53, 3 x 2000 calls)
+  stdio|1KB          10.01 / 27.76  (round medians 10.01-10.02, 3 x 2000 calls)
+  http-naive|1KB     43998.37 / 45831.94  (round medians 43994.97-44000.55, 3 x 200 calls)
+  http|1KB           124.3 / 245.16  (round medians 124.03-128.03, 3 x 2000 calls)
+  in-process|50KB    42.11 / 75.56  (round medians 41.97-44.78, 3 x 2000 calls)
+  binding|50KB       7.0 / 18.78  (round medians 6.96-7.38, 3 x 2000 calls)
+  stdio|50KB         68.95 / 148.46  (round medians 66.53-70.78, 3 x 2000 calls)
+  http-naive|50KB    43994.52 / 47881.0  (round medians 43994.45-43995.87, 3 x 200 calls)
+  http|50KB          195.93 / 385.66  (round medians 190.16-200.86, 3 x 2000 calls)
+
+Cold import in a fresh Python 3.11.15 process (median [min-max] of 20; versions {'pydantic-ai-slim': '2.50.0', 'langgraph': '1.2.12', 'openai-agents': '0.22.3', 'pydantic': '2.13.5', 'pydantic-core': '2.46.5'})
+  baseline (python -c pass)    13.7 ms [10.5-15.4]
+  asyncio + json               57.6 ms [54.8-63.5]
+  pydantic_ai                  535.2 ms [464.2-611.5]
+  langgraph                    682.7 ms [606.1-736.3]
+  agents (openai-agents)       1647.3 ms [1528.7-1729.1]
+  concurrent sessions at which switching to rust-typed saves one engineer-year per year: {'python': 24392148, 'go': 22295947, 'node': 21457754}

@@ -1,0 +1,120 @@
+[
+  {
+    "contract_id": "review-tz-r5",
+    "worker": "tz-boundary-reviewer",
+    "input_revision": "r5",
+    "dispatched": "10:01:00",
+    "returned": "10:01:09",
+    "status": "accepted",
+    "verdict": "pass",
+    "findings": [],
+    "contract": {
+      "contract_id": "review-tz-r5",
+      "contract_version": "review-contract/1.1",
+      "worker": "tz-boundary-reviewer",
+      "worker_version": "1.0.0",
+      "objective": "Run every boundary case against belongs_to_report and report each with its evidence id.",
+      "input_revision": "r5",
+      "input_digest": "025e5dc0e98d",
+      "reference_revision": null,
+      "allowed_operations": [
+        "read_file",
+        "run_cases"
+      ],
+      "required_coverage": [
+        "pdt_midday",
+        "pdt_evening",
+        "pdt_after_local_midnight",
+        "pst_evening",
+        "dst_fall_back_evening",
+        "dst_spring_forward_evening"
+      ],
+      "budget": {
+        "max_tokens": 4000,
+        "max_model_calls": 20,
+        "repair_attempts": 1
+      },
+      "deadline_s": 30.0,
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "contract_id",
+          "input_revision",
+          "verdict",
+          "findings",
+          "coverage"
+        ],
+        "properties": {
+          "contract_id": {
+            "type": "string"
+          },
+          "input_revision": {
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "pass",
+              "fail",
+              "incomplete"
+            ]
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "claim",
+                "evidence"
+              ]
+            }
+          },
+          "coverage": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "ledger": {
+      "model_calls": 3,
+      "tokens_in": 1890,
+      "tokens_out": 223,
+      "sim_seconds": 8.333,
+      "steps": [
+        {
+          "kind": "model",
+          "tokens_in": 362,
+          "tokens_out": 50,
+          "seconds": 1.891
+        },
+        {
+          "kind": "tool",
+          "name": "read_file",
+          "seconds": 0.05
+        },
+        {
+          "kind": "tool",
+          "name": "read_file",
+          "seconds": 0.05
+        },
+        {
+          "kind": "model",
+          "tokens_in": 587,
+          "tokens_out": 60,
+          "seconds": 2.147
+        },
+        {
+          "kind": "tool",
+          "name": "run_cases",
+          "seconds": 0.9
+        },
+        {
+          "kind": "model",
+          "tokens_in": 941,
+          "tokens_out": 113,
+          "seconds": 3.295
+        }
+      ],
+      "tokens_total": 2113
+    }
+  }
+]

@@ -1,0 +1,134 @@
+{
+  "correction": {
+    "record_id": "mem-7f255737",
+    "superseded": "mem-fea70381",
+    "rebuilt": [
+      "index",
+      "summary:user-17"
+    ]
+  },
+  "governed_paths": {
+    "records": [
+      {
+        "id": "mem-fea70381",
+        "value": "Europe/Berlin",
+        "status": "superseded",
+        "supersedes": null
+      },
+      {
+        "id": "mem-7f255737",
+        "value": "America/New_York",
+        "status": "active",
+        "supersedes": "mem-fea70381"
+      }
+    ],
+    "summary": {
+      "subject": "user-17",
+      "text": "display_timezone=America/New_York",
+      "built_at": "2026-09-22T16:00:00Z"
+    },
+    "index_lookup_timezone": [
+      {
+        "term": "timezone",
+        "record_id": "mem-7f255737",
+        "snippet": "display_timezone=America/New_York"
+      }
+    ]
+  },
+  "verify_Berlin_after_correction": {
+    "active_records": 0,
+    "summary": 0,
+    "index": 0,
+    "history_records": 1,
+    "audit": 0
+  },
+  "T4_governed": {
+    "answer": "11:00 America/New_York.",
+    "check": "pass"
+  },
+  "erasure": {
+    "request": {
+      "at": "2026-09-25T10:00:00Z",
+      "source_event": "message-140",
+      "statement": "Forget my timezone settings."
+    },
+    "deleted": [
+      "mem-7f255737",
+      "mem-fea70381",
+      "mem-2fa8dba3"
+    ],
+    "rebuilt": [
+      "index",
+      "summary:user-17"
+    ],
+    "raw_file_Berlin_before": 1,
+    "sqlite_version": "3.45.1",
+    "build_default_secure_delete": 1,
+    "plain_delete": {
+      "queries": {
+        "active_records": 0,
+        "summary": 0,
+        "index": 0,
+        "history_records": 0,
+        "audit": 0
+      },
+      "raw_file_Berlin": 1,
+      "raw_file_New_York": 7
+    },
+    "secure_delete": {
+      "queries": {
+        "active_records": 0,
+        "summary": 0,
+        "index": 0,
+        "history_records": 0,
+        "audit": 0
+      },
+      "raw_file_Berlin": 0,
+      "raw_file_New_York": 0
+    },
+    "summary_after": null,
+    "index_timezone_after": [],
+    "audit_tail": [
+      {
+        "seq": 21,
+        "at": "2026-09-25T10:00:00Z",
+        "actor": "memory-service",
+        "action": "deleted",
+        "record_id": "mem-7f255737",
+        "detail": "{\"reason\": \"erasure_request\"}"
+      },
+      {
+        "seq": 22,
+        "at": "2026-09-25T10:00:00Z",
+        "actor": "memory-service",
+        "action": "deleted",
+        "record_id": "mem-fea70381",
+        "detail": "{\"reason\": \"erasure_request\"}"
+      },
+      {
+        "seq": 23,
+        "at": "2026-09-25T10:00:00Z",
+        "actor": "memory-service",
+        "action": "derived_rebuilt",
+        "record_id": null,
+        "detail": "{\"after\": \"erasure\", \"artifacts\": [\"index\", \"summary:user-17\"]}"
+      },
+      {
+        "seq": 24,
+        "at": "2026-09-25T10:00:00Z",
+        "actor": "memory-service",
+        "action": "deleted",
+        "record_id": "mem-2fa8dba3",
+        "detail": "{\"reason\": \"erasure_request\"}"
+      },
+      {
+        "seq": 25,
+        "at": "2026-09-25T10:00:00Z",
+        "actor": "memory-service",
+        "action": "derived_rebuilt",
+        "record_id": null,
+        "detail": "{\"after\": \"erasure\", \"artifacts\": []}"
+      }
+    ]
+  }
+}

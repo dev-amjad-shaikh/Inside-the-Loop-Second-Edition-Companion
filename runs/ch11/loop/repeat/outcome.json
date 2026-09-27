@@ -1,0 +1,13 @@
+{
+  "controller": "loop",
+  "outcome": "limit-reached",
+  "reason": "Model-call limit reached",
+  "model_calls": 12,
+  "tokens": 13487,
+  "sim_seconds": 53.392,
+  "executions": 14,
+  "audit": {
+    "acceptance_passed": false,
+    "deployed": false
+  }
+}

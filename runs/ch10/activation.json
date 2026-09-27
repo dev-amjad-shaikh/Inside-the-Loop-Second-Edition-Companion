@@ -1,0 +1,1953 @@
+{
+  "cases": [
+    {
+      "id": "t1",
+      "request": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it.",
+      "expected": "report-helper"
+    },
+    {
+      "id": "t2",
+      "request": "Orders from late Sunday evening show up in Monday's sales report. Can you fix the date filter?",
+      "expected": "report-helper"
+    },
+    {
+      "id": "t3",
+      "request": "After the daylight-saving switch the weekly report counts some orders twice.",
+      "expected": "report-helper"
+    },
+    {
+      "id": "t4",
+      "request": "belongs_to_report compares UTC dates; make it use the configured report timezone.",
+      "expected": "report-helper"
+    },
+    {
+      "id": "t5",
+      "request": "Write the weekly status report for the platform team from these metrics.",
+      "expected": "status-report-writer"
+    },
+    {
+      "id": "t6",
+      "request": "Draft a monthly summary of support tickets for leadership.",
+      "expected": "status-report-writer"
+    },
+    {
+      "id": "t7",
+      "request": "Turn this sales data into a short daily report for the regional managers.",
+      "expected": "status-report-writer"
+    },
+    {
+      "id": "t8",
+      "request": "Prepare release notes for version 2.4 from the merged pull requests.",
+      "expected": "release-notes"
+    },
+    {
+      "id": "t9",
+      "request": "The exported orders CSV will not load because the header row is duplicated.",
+      "expected": "csv-cleanup"
+    },
+    {
+      "id": "n1",
+      "request": "Report a bug to the payments team about the refund button.",
+      "expected": null
+    },
+    {
+      "id": "n2",
+      "request": "What timezone is the Los Angeles office in?",
+      "expected": null
+    },
+    {
+      "id": "n3",
+      "request": "Schedule the daily report job to run at 6am instead of 5am.",
+      "expected": null
+    },
+    {
+      "id": "n4",
+      "request": "Explain how the report data pipeline is deployed.",
+      "expected": null
+    },
+    {
+      "id": "n5",
+      "request": "Fix the failing login test in auth_test.py.",
+      "expected": null
+    },
+    {
+      "id": "n6",
+      "request": "Deploy the report fix to production.",
+      "expected": null
+    },
+    {
+      "id": "n7",
+      "request": "Summarize yesterday's incident report in three bullet points.",
+      "expected": null
+    }
+  ],
+  "states": {
+    "A_flawed": {
+      "versions": {
+        "report-helper": "0.1.0",
+        "status-report-writer": "1.0.0",
+        "release-notes": "1.0.0",
+        "csv-cleanup": "1.0.0"
+      },
+      "rows": [
+        {
+          "id": "t1",
+          "expected": "report-helper",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 3,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "miss",
+              "report"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t2",
+          "expected": "report-helper",
+          "chosen": null,
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t3",
+          "expected": "report-helper",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report",
+              "weekly"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t4",
+          "expected": "report-helper",
+          "chosen": null,
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t5",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 3,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report",
+              "statu",
+              "weekly"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t6",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 2,
+            "release-notes": 1,
+            "report-helper": 1,
+            "csv-cleanup": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "monthly",
+              "summary"
+            ],
+            "release-notes": [
+              "draft"
+            ],
+            "report-helper": [
+              "summary"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t7",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [
+            "report-helper"
+          ],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 3,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "data",
+              "report"
+            ],
+            "report-helper": [
+              "data",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t8",
+          "expected": "release-notes",
+          "chosen": "release-notes",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "release-notes": 6,
+            "csv-cleanup": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "release-notes": [
+              "merg",
+              "note",
+              "pull",
+              "release",
+              "request",
+              "version"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t9",
+          "expected": "csv-cleanup",
+          "chosen": "csv-cleanup",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 5,
+            "release-notes": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "csv",
+              "duplicat",
+              "export",
+              "header",
+              "load"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n1",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n2",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {},
+          "against": {}
+        },
+        {
+          "id": "n3",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "report"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n4",
+          "expected": null,
+          "chosen": "report-helper",
+          "contested_with": [
+            "status-report-writer"
+          ],
+          "pass": false,
+          "scores": {
+            "report-helper": 2,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "data",
+              "report"
+            ],
+            "status-report-writer": [
+              "data",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n5",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 1,
+            "release-notes": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "fail"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n6",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n7",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        }
+      ],
+      "passed": 9,
+      "total": 16,
+      "wrong_skill": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "n3",
+        "n4"
+      ],
+      "contested": [
+        "t7",
+        "n4"
+      ],
+      "top_overlap": [
+        {
+          "pair": [
+            "report-helper",
+            "status-report-writer"
+          ],
+          "jaccard": 0.267,
+          "shared": [
+            "data",
+            "problem",
+            "report",
+            "summary"
+          ]
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "release-notes"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "report-helper"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        }
+      ],
+      "catalog": {
+        "skills": 4,
+        "chars": 1055,
+        "tokens": 264,
+        "per_skill_tokens": [
+          56,
+          51,
+          46,
+          54
+        ]
+      }
+    },
+    "B_helper_revised": {
+      "versions": {
+        "report-helper": "1.0.0",
+        "status-report-writer": "1.0.0",
+        "release-notes": "1.0.0",
+        "csv-cleanup": "1.0.0"
+      },
+      "rows": [
+        {
+          "id": "t1",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [
+            "status-report-writer"
+          ],
+          "pass": false,
+          "scores": {
+            "report-helper": 4,
+            "status-report-writer": 3,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "fix",
+              "midnight",
+              "miss",
+              "near",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "miss",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 4,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "date",
+              "filter",
+              "fix",
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t3",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 8,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "after",
+              "count",
+              "daylight",
+              "report",
+              "saving",
+              "switch",
+              "twice",
+              "weekly"
+            ],
+            "status-report-writer": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t4",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 5,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "compar",
+              "date",
+              "report",
+              "timezone",
+              "utc"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t5",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [
+            "report-helper"
+          ],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 3,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report",
+              "statu",
+              "weekly"
+            ],
+            "report-helper": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t6",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 2,
+            "release-notes": 1,
+            "csv-cleanup": 0,
+            "report-helper": -2
+          },
+          "matched": {
+            "status-report-writer": [
+              "monthly",
+              "summary"
+            ],
+            "release-notes": [
+              "draft"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "draft"
+            ]
+          }
+        },
+        {
+          "id": "t7",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [
+            "report-helper"
+          ],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 3,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "data",
+              "report"
+            ],
+            "report-helper": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t8",
+          "expected": "release-notes",
+          "chosen": "release-notes",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "release-notes": 6,
+            "csv-cleanup": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "release-notes": [
+              "merg",
+              "note",
+              "pull",
+              "release",
+              "request",
+              "version"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t9",
+          "expected": "csv-cleanup",
+          "chosen": "csv-cleanup",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 5,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "csv",
+              "duplicat",
+              "export",
+              "header",
+              "load"
+            ],
+            "report-helper": [
+              "because"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n1",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n2",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "report-helper": [
+              "timezone"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n3",
+          "expected": null,
+          "chosen": "report-helper",
+          "contested_with": [
+            "status-report-writer"
+          ],
+          "pass": false,
+          "scores": {
+            "report-helper": 2,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n4",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": -1
+          },
+          "matched": {
+            "status-report-writer": [
+              "data",
+              "report"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 1,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "fail"
+            ],
+            "report-helper": [
+              "fix"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n6",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report"
+            ],
+            "report-helper": [
+              "fix",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        }
+      ],
+      "passed": 11,
+      "total": 16,
+      "wrong_skill": [
+        "n3",
+        "n4"
+      ],
+      "contested": [
+        "t1",
+        "t5",
+        "t7",
+        "n3"
+      ],
+      "top_overlap": [
+        {
+          "pair": [
+            "report-helper",
+            "status-report-writer"
+          ],
+          "jaccard": 0.122,
+          "shared": [
+            "daily",
+            "miss",
+            "report",
+            "weekly",
+            "wrong"
+          ]
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "release-notes"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "report-helper"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        }
+      ],
+      "catalog": {
+        "skills": 4,
+        "chars": 1366,
+        "tokens": 342,
+        "per_skill_tokens": [
+          56,
+          51,
+          124,
+          54
+        ]
+      }
+    },
+    "C_both_revised": {
+      "versions": {
+        "report-helper": "1.0.0",
+        "status-report-writer": "1.1.0",
+        "release-notes": "1.0.0",
+        "csv-cleanup": "1.0.0"
+      },
+      "rows": [
+        {
+          "id": "t1",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 4,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "fix",
+              "midnight",
+              "miss",
+              "near",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 4,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "status-report-writer": -1
+          },
+          "matched": {
+            "report-helper": [
+              "date",
+              "filter",
+              "fix",
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {
+            "status-report-writer": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 8,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "after",
+              "count",
+              "daylight",
+              "report",
+              "saving",
+              "switch",
+              "twice",
+              "weekly"
+            ],
+            "status-report-writer": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t4",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 5,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "compar",
+              "date",
+              "report",
+              "timezone",
+              "utc"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t5",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 6,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "metric",
+              "report",
+              "statu",
+              "team",
+              "weekly",
+              "write"
+            ],
+            "report-helper": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t6",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 5,
+            "release-notes": 1,
+            "csv-cleanup": 0,
+            "report-helper": -2
+          },
+          "matched": {
+            "status-report-writer": [
+              "draft",
+              "leadership",
+              "monthly",
+              "summary",
+              "ticket"
+            ],
+            "release-notes": [
+              "draft"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "draft"
+            ]
+          }
+        },
+        {
+          "id": "t7",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 4,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "data",
+              "manager",
+              "report"
+            ],
+            "report-helper": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t8",
+          "expected": "release-notes",
+          "chosen": "release-notes",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "release-notes": 6,
+            "csv-cleanup": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "release-notes": [
+              "merg",
+              "note",
+              "pull",
+              "release",
+              "request",
+              "version"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t9",
+          "expected": "csv-cleanup",
+          "chosen": "csv-cleanup",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 5,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "csv",
+              "duplicat",
+              "export",
+              "header",
+              "load"
+            ],
+            "report-helper": [
+              "because"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n1",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report",
+              "team"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n2",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "report-helper": [
+              "timezone"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n3",
+          "expected": null,
+          "chosen": "report-helper",
+          "contested_with": [
+            "status-report-writer"
+          ],
+          "pass": false,
+          "scores": {
+            "report-helper": 2,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n4",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": -1
+          },
+          "matched": {
+            "status-report-writer": [
+              "data",
+              "report"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 1,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "fail"
+            ],
+            "report-helper": [
+              "fix"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n6",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report"
+            ],
+            "report-helper": [
+              "fix",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        }
+      ],
+      "passed": 13,
+      "total": 16,
+      "wrong_skill": [
+        "n1",
+        "n3",
+        "n4"
+      ],
+      "contested": [
+        "n3"
+      ],
+      "top_overlap": [
+        {
+          "pair": [
+            "report-helper",
+            "status-report-writer"
+          ],
+          "jaccard": 0.055,
+          "shared": [
+            "daily",
+            "report",
+            "weekly"
+          ]
+        },
+        {
+          "pair": [
+            "release-notes",
+            "status-report-writer"
+          ],
+          "jaccard": 0.029,
+          "shared": [
+            "draft"
+          ]
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "release-notes"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        }
+      ],
+      "catalog": {
+        "skills": 4,
+        "chars": 1542,
+        "tokens": 386,
+        "per_skill_tokens": [
+          56,
+          51,
+          124,
+          98
+        ]
+      }
+    },
+    "D_helper_1_1": {
+      "versions": {
+        "report-helper": "1.1.0",
+        "status-report-writer": "1.1.0",
+        "release-notes": "1.0.0",
+        "csv-cleanup": "1.0.0"
+      },
+      "rows": [
+        {
+          "id": "t1",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 4,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "fix",
+              "midnight",
+              "miss",
+              "near",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 4,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "status-report-writer": -1
+          },
+          "matched": {
+            "report-helper": [
+              "date",
+              "filter",
+              "fix",
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {
+            "status-report-writer": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 8,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "after",
+              "count",
+              "daylight",
+              "report",
+              "saving",
+              "switch",
+              "twice",
+              "weekly"
+            ],
+            "status-report-writer": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t4",
+          "expected": "report-helper",
+          "chosen": "report-helper",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 5,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "compar",
+              "date",
+              "report",
+              "timezone",
+              "utc"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t5",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 6,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "metric",
+              "report",
+              "statu",
+              "team",
+              "weekly",
+              "write"
+            ],
+            "report-helper": [
+              "report",
+              "weekly"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t6",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 5,
+            "release-notes": 1,
+            "csv-cleanup": 0,
+            "report-helper": -2
+          },
+          "matched": {
+            "status-report-writer": [
+              "draft",
+              "leadership",
+              "monthly",
+              "summary",
+              "ticket"
+            ],
+            "release-notes": [
+              "draft"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "draft"
+            ]
+          }
+        },
+        {
+          "id": "t7",
+          "expected": "status-report-writer",
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 4,
+            "report-helper": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "daily",
+              "data",
+              "manager",
+              "report"
+            ],
+            "report-helper": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t8",
+          "expected": "release-notes",
+          "chosen": "release-notes",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "release-notes": 6,
+            "csv-cleanup": 0,
+            "report-helper": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "release-notes": [
+              "merg",
+              "note",
+              "pull",
+              "release",
+              "request",
+              "version"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "t9",
+          "expected": "csv-cleanup",
+          "chosen": "csv-cleanup",
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 5,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "csv",
+              "duplicat",
+              "export",
+              "header",
+              "load"
+            ],
+            "report-helper": [
+              "because"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n1",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report",
+              "team"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n2",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "report-helper": [
+              "timezone"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n3",
+          "expected": null,
+          "chosen": "report-helper",
+          "contested_with": [
+            "status-report-writer"
+          ],
+          "pass": false,
+          "scores": {
+            "report-helper": 2,
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "daily",
+              "report"
+            ],
+            "status-report-writer": [
+              "daily",
+              "report"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n4",
+          "expected": null,
+          "chosen": "status-report-writer",
+          "contested_with": [],
+          "pass": false,
+          "scores": {
+            "status-report-writer": 2,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": -1
+          },
+          "matched": {
+            "status-report-writer": [
+              "data",
+              "report"
+            ],
+            "report-helper": [
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n5",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "csv-cleanup": 1,
+            "report-helper": 1,
+            "release-notes": 0,
+            "status-report-writer": 0
+          },
+          "matched": {
+            "csv-cleanup": [
+              "fail"
+            ],
+            "report-helper": [
+              "fix"
+            ]
+          },
+          "against": {}
+        },
+        {
+          "id": "n6",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0,
+            "report-helper": 0
+          },
+          "matched": {
+            "status-report-writer": [
+              "report"
+            ],
+            "report-helper": [
+              "fix",
+              "report"
+            ]
+          },
+          "against": {
+            "report-helper": [
+              "deploy"
+            ]
+          }
+        },
+        {
+          "id": "n7",
+          "expected": null,
+          "chosen": null,
+          "contested_with": [],
+          "pass": true,
+          "scores": {
+            "report-helper": 1,
+            "status-report-writer": 1,
+            "csv-cleanup": 0,
+            "release-notes": 0
+          },
+          "matched": {
+            "report-helper": [
+              "report"
+            ],
+            "status-report-writer": [
+              "report"
+            ]
+          },
+          "against": {}
+        }
+      ],
+      "passed": 13,
+      "total": 16,
+      "wrong_skill": [
+        "n1",
+        "n3",
+        "n4"
+      ],
+      "contested": [
+        "n3"
+      ],
+      "top_overlap": [
+        {
+          "pair": [
+            "report-helper",
+            "status-report-writer"
+          ],
+          "jaccard": 0.055,
+          "shared": [
+            "daily",
+            "report",
+            "weekly"
+          ]
+        },
+        {
+          "pair": [
+            "release-notes",
+            "status-report-writer"
+          ],
+          "jaccard": 0.029,
+          "shared": [
+            "draft"
+          ]
+        },
+        {
+          "pair": [
+            "csv-cleanup",
+            "release-notes"
+          ],
+          "jaccard": 0.0,
+          "shared": []
+        }
+      ],
+      "catalog": {
+        "skills": 4,
+        "chars": 1542,
+        "tokens": 386,
+        "per_skill_tokens": [
+          56,
+          51,
+          124,
+          98
+        ]
+      }
+    }
+  }
+}

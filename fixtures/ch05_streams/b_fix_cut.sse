@@ -1,0 +1,38 @@
+: t=180
+event: response.created
+data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_b7f2a0","object":"response","model":"coder-pro-2026-07-30","status":"in_progress","output":[]}}
+
+event: response.in_progress
+data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_b7f2a0","status":"in_progress"}}
+
+: t=410
+event: response.output_item.added
+data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"reasoning","id":"rs_01","summary":[]}}
+
+: t=1320
+event: response.output_item.done
+data: {"type":"response.output_item.done","sequence_number":3,"output_index":0,"item":{"type":"reasoning","id":"rs_01","summary":[{"type":"summary_text","text":"Convert the timestamp to the report timezone before taking the date."}],"encrypted_content":"gAAAAABo-ZmlrdHVyZS1lbmNyeXB0ZWQtcmVhc29uaW5nLWl0ZW0tMDEtbm90LXJlYWwtY29udGVudC1vbmx5LXNoYXBlLTAwMjM0NTY3ODlhYmNkZWY="}}
+
+: t=1340
+event: response.output_item.added
+data: {"type":"response.output_item.added","sequence_number":4,"output_index":1,"item":{"type":"function_call","id":"fc_01","call_id":"call_fix_1","name":"replace_text","arguments":"","status":"in_progress"}}
+
+: t=1390
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":5,"item_id":"fc_01","output_index":1,"delta":"{\"path\": \"report.py\", "}
+
+: t=1450
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":6,"item_id":"fc_01","output_index":1,"delta":"\"old\": \"    return created_at.date() == requested_day\", "}
+
+: t=1520
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":7,"item_id":"fc_01","output_index":1,"delta":"\"new\": \"    local_time = created_at.astimezone("}
+
+: t=1580
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":8,"item_id":"fc_01","output_index":1,"delta":"ZoneInfo(timezone))\\n    return local_"}
+
+: t=1640
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":9,"item_id":"fc_01","output_index":1,"delta":"time.da

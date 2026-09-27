@@ -1,0 +1,109 @@
+== a: correction arrives while call 4 is generating
+    1 10:00:00 task_revised         {"checks":[],"source":"initial request","task_revision":1,"text":"The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."}
+    2 10:00:01 model_call_started   {"call":1,"task_revision":1}
+    3 10:00:07 model_call_finished  {"call":1,"proposal":["c1 read_file","c2 read_file","c3 read_file"],"task_revision":1}
+    4 10:00:08 dispatched           {"call_id":"c1","task_revision":1,"tool":"read_file"}
+    6 10:00:11 dispatched           {"call_id":"c2","task_revision":1,"tool":"read_file"}
+    8 10:00:14 dispatched           {"call_id":"c3","task_revision":1,"tool":"read_file"}
+   10 10:00:17 model_call_started   {"call":2,"task_revision":1}
+   11 10:00:23 model_call_finished  {"call":2,"proposal":["c4 replace_text"],"task_revision":1}
+   12 10:00:24 dispatched           {"call_id":"c4","task_revision":1,"tool":"replace_text"}
+   14 10:00:27 model_call_started   {"call":3,"task_revision":1}
+   15 10:00:33 model_call_finished  {"call":3,"proposal":["c5 run_tests"],"task_revision":1}
+   16 10:00:34 dispatched           {"call_id":"c5","task_revision":1,"tool":"run_tests"}
+   19 10:00:37 model_call_started   {"call":4,"task_revision":1}
+   20 10:00:40 task_revised         {"checks":["signature:belongs_to_report"],"source":"user message","task_revision":2,"text":"Keep the public function signature unchanged."}
+   21 10:00:46 model_call_finished  {"call":4,"proposal":["c6 replace_text"],"task_revision":1}
+   22 10:00:47 dispatch_refused     {"call_id":"c6","current_task_revision":2,"proposal_task_revision":1,"reason":"stale_task_revision","tool":"replace_text"}
+   23 10:00:48 model_call_started   {"call":5,"task_revision":2}
+   24 10:00:54 model_call_finished  {"call":5,"proposal":["c7 replace_text"],"task_revision":2}
+   25 10:00:55 dispatched           {"call_id":"c7","task_revision":2,"tool":"replace_text"}
+   27 10:00:57 evidence_historical  {"evidence":"E1","now_version":"339d3a9f2656","was_version":"78721bd28acc"}
+   28 10:00:58 model_call_started   {"call":6,"task_revision":2}
+   29 10:01:04 model_call_finished  {"call":6,"proposal":["c8 run_tests"],"task_revision":2}
+   30 10:01:05 dispatched           {"call_id":"c8","task_revision":2,"tool":"run_tests"}
+   33 10:01:08 model_call_started   {"call":7,"task_revision":2}
+   34 10:01:14 model_call_finished  {"call":7,"proposal":["c9 check_signature"],"task_revision":2}
+   35 10:01:15 dispatched           {"call_id":"c9","task_revision":2,"tool":"check_signature"}
+   38 10:01:18 model_call_started   {"call":8,"task_revision":2}
+   39 10:01:24 model_call_finished  {"call":8,"proposal":["final answer"],"task_revision":2}
+   40 10:01:25 run_completed        {"call":8,"supporting":["E2","E3"],"task_revision":2,"version":"339d3a9f2656"}
+  model calls: 8  proposed tool calls: 9  executions: 8
+  final report.py version: 339d3a9f2656  signature: (created_at, requested_day, timezone)
+== b: correction arrives after the signature-changing edit
+    1 10:00:00 task_revised         {"checks":[],"source":"initial request","task_revision":1,"text":"The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."}
+    4 10:00:08 dispatched           {"call_id":"c1","task_revision":1,"tool":"read_file"}
+    6 10:00:11 dispatched           {"call_id":"c2","task_revision":1,"tool":"read_file"}
+    8 10:00:14 dispatched           {"call_id":"c3","task_revision":1,"tool":"read_file"}
+   12 10:00:24 dispatched           {"call_id":"c4","task_revision":1,"tool":"replace_text"}
+   16 10:00:34 dispatched           {"call_id":"c5","task_revision":1,"tool":"run_tests"}
+   21 10:00:44 dispatched           {"call_id":"c6","task_revision":1,"tool":"replace_text"}
+   23 10:00:46 evidence_historical  {"evidence":"E1","now_version":"bbaa2860e44f","was_version":"78721bd28acc"}
+   26 10:00:54 dispatched           {"call_id":"c7","task_revision":1,"tool":"run_tests"}
+   30 10:01:00 task_revised         {"checks":["signature:belongs_to_report"],"source":"user message","task_revision":2,"text":"Keep the public function signature unchanged."}
+   32 10:01:07 completion_refused   {"call":6,"current_task_revision":2,"proposal_task_revision":1,"reason":"stale_task_revision"}
+   35 10:01:15 dispatched           {"call_id":"c8","task_revision":2,"tool":"check_signature"}
+   40 10:01:25 dispatched           {"call_id":"c9","task_revision":2,"tool":"replace_text"}
+   42 10:01:27 evidence_historical  {"evidence":"E2","now_version":"339d3a9f2656","was_version":"bbaa2860e44f"}
+   43 10:01:27 evidence_historical  {"evidence":"E3","now_version":"339d3a9f2656","was_version":"bbaa2860e44f"}
+   46 10:01:35 dispatched           {"call_id":"c10","task_revision":2,"tool":"run_tests"}
+   51 10:01:45 dispatched           {"call_id":"c11","task_revision":2,"tool":"check_signature"}
+   56 10:01:55 run_completed        {"call":11,"supporting":["E4","E5"],"task_revision":2,"version":"339d3a9f2656"}
+  completion at call 6: proposal rev 1, current rev 2; flawed verifier complete=True; revision verifier complete=False missing=['signature match on report.py bbaa2860e44f']
+  completion at call 11: proposal rev 2, current rev 2; flawed verifier complete=True; revision verifier complete=True missing=[]
+  evidence {"id":"E1","kind":"tests","result":"failed","state":"historical","task_revision":1,"version":"78721bd28acc"}
+  evidence {"id":"E2","kind":"tests","result":"passed","state":"historical","task_revision":1,"version":"bbaa2860e44f"}
+  evidence {"id":"E3","kind":"signature","result":"mismatch","state":"historical","task_revision":2,"version":"bbaa2860e44f"}
+  evidence {"id":"E4","kind":"tests","result":"passed","state":"current","task_revision":2,"version":"339d3a9f2656"}
+  evidence {"id":"E5","kind":"signature","result":"match","state":"current","task_revision":2,"version":"339d3a9f2656"}
+  final report.py version: 339d3a9f2656  signature: (created_at, requested_day, timezone)
+== c: approval bound to artifact version
+  model proposes P1: {"request":"RQ1"}
+  maria approves: {"approval_id":"AP1","status":"recorded"}
+  model re-proposes P2 for r6; dispatch check: {"allowed":false,"mismatches":[{"approval_id":"AP1","problems":["arguments differ","artifact version af0093264abc approved, 374fbdb77b0b proposed"]}],"reason":"approval does not cover this operation"}
+  re-request with diff: {"request":"RQ2"}
+  maria approves r6: {"approval_id":"AP2","status":"recorded"}
+  dispatch P2: {"allowed":true,"approval_id":"AP2"}
+  model proposes P2 again: {"allowed":false,"reason":"no active approval"}
+  outbox (bound): {'A': ['daily-2026-09-11.r6.X1.csv']}
+  outbox (loose):  {'A': ['daily-2026-09-11.r6.X1.csv']}  person saw r5
+  sam (analyst) approves export to B: {"reason":"role analyst may not approve export_report","status":"refused"}
+  dev (delegated for A) approves export to B: {"reason":"delegation from maria covers destination A, not B","status":"refused"}
+  dev (delegated for A) approves export to A: {"approval_id":"AP3","status":"recorded"}
+  dispatch 1000 s later: {"allowed":false,"mismatches":[{"approval_id":"AP3","problems":["approval expired"]}],"reason":"approval does not cover this operation"}
+== d: vague vs concrete decision request
+  vague: 0/6 questions answered; next proposal to B -> executed; outbox {'B': ['daily-2026-09-11.r6.X1.csv']}
+  concrete: 6/6 questions answered; next proposal to B -> refused; outbox {}
+== e: prompts per policy (14 proposed operations)
+  ask_every_write/approves_all     prompts= 7 forbidden effects executed=['8 write outside workspace', '12 deploy']
+  ask_every_write/careful          prompts= 7 forbidden effects executed=[]
+  enforce_then_ask/approves_all    prompts= 1 forbidden effects executed=[]
+  enforce_then_ask/careful         prompts= 1 forbidden effects executed=[]
+== f: cancellation
+  tick 0: o1 started (run_tests (subprocess))
+  tick 0: o2 started (export r6 to A)
+  tick 0: o3 started (regenerate report 2026-09-12)
+  tick 2: cancel requested by person
+  tick 2: o4 dropped from queue
+  tick 2: o5 dropped from queue
+  tick 2: o6 dropped from queue
+  tick 2: o1 process terminated (exit -15)
+  tick 2: o2 cancel sent to service
+  tick 2: o3 cancel sent to service
+  tick 4: o2 settled: completed after cancel
+  tick 8: o3 unknown at deadline
+  tick 8: run cancelled; all operations accounted for
+  o1 run_tests (subprocess)         cancelled                process group terminated, exit code -15
+  o2 export r6 to A                 completed after cancel   service receipt; file present
+  o3 regenerate report 2026-09-12   unknown                  cancel sent, no acknowledgment by settle deadline; handed to reconciler
+  o4 export r6 to B                 not started              never scheduled
+  o5 write NOTES.md                 not started              never scheduled
+  o6 notify report channel          not started              never scheduled
+  files in outbox: {'A': ['daily-2026-09-11.r6.o2.csv']}
+== g: idempotent submissions
+  flawed: requests shown 2  approvals 2  exports 2
+  keyed:  requests 1  decisions 1  approvals 1  exports 1
+    {"attempt":"initial page load","created":true,"request":"RQ1"}
+    {"attempt":"reconnect after network drop","created":false,"request":"RQ1"}
+    {"approval_id":"AP1","attempt":"click","choice":"approve","decision_id":"D1","status":"recorded"}
+    {"attempt":"second click 180 ms later","decision_id":"D1","status":"duplicate_submission"}

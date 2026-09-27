@@ -1,0 +1,148 @@
+{
+  "a_tests_done": {
+    "faithful": {
+      "history": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "The fix is in place at revision 339d3a9f2656. Run both tests again to confirm the near-midnight case now passes.",
+              "signature": "EqQBCkYIBRgCKkB0c2lnLWZpeHR1cmUtb25seS1ub3QtYS1yZWFsLXNpZ25hdHVyZQSDGR0ZXN0LXNpZ25hdHVyZS1ieXRlcy0wMDEyMzQ1Njc4OWFiY2RlZg=="
+            },
+            {
+              "type": "text",
+              "text": "Running the tests against the changed file."
+            },
+            {
+              "type": "tool_use",
+              "id": "toolu_tests_2",
+              "name": "run_tests",
+              "input": {
+                "tests": [
+                  "test_report.py"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_tests_2",
+              "content": "{\"status\": \"passed\", \"tests_run\": 2, \"failures\": 0, \"errors\": 0, \"failed_tests\": [], \"exit_code\": 0}"
+            }
+          ]
+        }
+      ],
+      "check": {
+        "reasoning_blocks_in_response": 1,
+        "reasoning_blocks_sent_back": 1,
+        "signatures_match": true,
+        "verdict": "accepted"
+      }
+    },
+    "flawed": {
+      "history": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Running the tests against the changed file."
+            },
+            {
+              "type": "tool_use",
+              "id": "toolu_tests_2",
+              "name": "run_tests",
+              "input": {
+                "tests": [
+                  "test_report.py"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_tests_2",
+              "content": "{\"status\": \"passed\", \"tests_run\": 2, \"failures\": 0, \"errors\": 0, \"failed_tests\": [], \"exit_code\": 0}"
+            }
+          ]
+        }
+      ],
+      "check": {
+        "reasoning_blocks_in_response": 1,
+        "reasoning_blocks_sent_back": 0,
+        "signatures_match": false,
+        "verdict": "would be rejected: reasoning blocks missing or modified"
+      }
+    },
+    "original_signature_sha": [
+      "3775678f4232"
+    ]
+  },
+  "b_fix_done": {
+    "faithful": {
+      "history": [
+        {
+          "type": "reasoning",
+          "id": "rs_01",
+          "summary": [
+            {
+              "type": "summary_text",
+              "text": "Convert the timestamp to the report timezone before taking the date."
+            }
+          ],
+          "encrypted_content": "gAAAAABo-ZmlrdHVyZS1lbmNyeXB0ZWQtcmVhc29uaW5nLWl0ZW0tMDEtbm90LXJlYWwtY29udGVudC1vbmx5LXNoYXBlLTAxMjM0NTY3ODlhYmNkZWY="
+        },
+        {
+          "type": "function_call",
+          "call_id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": "{\"path\": \"report.py\", \"old\": \"    return created_at.date() == requested_day\", \"new\": \"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\"}"
+        },
+        {
+          "type": "function_call_output",
+          "call_id": "call_fix_1",
+          "output": "{\"status\": \"ok\", \"replacements\": 1, \"before_version\": \"78721bd28acc\", \"after_version\": \"339d3a9f2656\"}"
+        }
+      ],
+      "check": {
+        "reasoning_blocks_in_response": 1,
+        "reasoning_blocks_sent_back": 1,
+        "signatures_match": true,
+        "verdict": "accepted"
+      }
+    },
+    "flawed": {
+      "history": [
+        {
+          "type": "function_call",
+          "call_id": "call_fix_1",
+          "name": "replace_text",
+          "arguments": "{\"path\": \"report.py\", \"old\": \"    return created_at.date() == requested_day\", \"new\": \"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\"}"
+        },
+        {
+          "type": "function_call_output",
+          "call_id": "call_fix_1",
+          "output": "{\"status\": \"ok\", \"replacements\": 1, \"before_version\": \"78721bd28acc\", \"after_version\": \"339d3a9f2656\"}"
+        }
+      ],
+      "check": {
+        "reasoning_blocks_in_response": 1,
+        "reasoning_blocks_sent_back": 0,
+        "signatures_match": false,
+        "verdict": "would be rejected: reasoning blocks missing or modified"
+      }
+    },
+    "original_signature_sha": [
+      "766f7c98992b"
+    ]
+  }
+}

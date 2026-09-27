@@ -1,0 +1,10 @@
+[
+  {
+    "score": 1,
+    "flagged": false,
+    "patterns": [
+      "\\b(export|send|forward)\\w*\\b[^.]*@"
+    ],
+    "source": "kb/returns-policy.md"
+  }
+]

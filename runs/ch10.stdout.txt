@@ -1,0 +1,89 @@
+== 1 packages: format errors (skills-ref checks) and lint failures
+  csv-cleanup           1.0.0  dc55bc010138  format_errors=0  lint_failed=2 ['description names a non-trigger', 'verification step']
+  release-notes         1.0.0  d9beb8791acf  format_errors=0  lint_failed=2 ['description names a non-trigger', 'verification step']
+  report-helper         0.1.0  7cc407e6890c  format_errors=0  lint_failed=7 ['description names a trigger', 'description names a non-trigger', 'maintainer declared', 'stepwise procedure', 'verification step', 'scripts pinned by hash', 'network use declared']
+  report-helper         1.0.0  4818324b70eb  format_errors=0  lint_failed=0 []
+  report-helper         1.1.0  2c2d8a21842f  format_errors=0  lint_failed=0 []
+  status-report-writer  1.0.0  f1630f9805cc  format_errors=0  lint_failed=2 ['description names a non-trigger', 'verification step']
+  status-report-writer  1.1.0  ce349d0c9692  format_errors=0  lint_failed=1 ['verification step']
+== 2 catalogs in the model input (approx tokens = chars/4)
+  A_flawed           skills=4 chars=1055 tokens=264 per_skill=[56, 51, 46, 54]
+  B_helper_revised   skills=4 chars=1366 tokens=342 per_skill=[56, 51, 124, 54]
+  C_both_revised     skills=4 chars=1542 tokens=386 per_skill=[56, 51, 124, 98]
+  D_helper_1_1       skills=4 chars=1542 tokens=386 per_skill=[56, 51, 124, 98]
+== 3 activation (lexical stand-in), 16 cases
+  A_flawed           passed 9/16  wrong=['t1', 't2', 't3', 't4', 'n3', 'n4']  contested=['t7', 'n4']
+                     top overlap ['report-helper', 'status-report-writer'] jaccard=0.267 shared=['data', 'problem', 'report', 'summary']
+  B_helper_revised   passed 11/16  wrong=['n3', 'n4']  contested=['t1', 't5', 't7', 'n3']
+                     top overlap ['report-helper', 'status-report-writer'] jaccard=0.122 shared=['daily', 'miss', 'report', 'weekly', 'wrong']
+  C_both_revised     passed 13/16  wrong=['n1', 'n3', 'n4']  contested=['n3']
+                     top overlap ['report-helper', 'status-report-writer'] jaccard=0.055 shared=['daily', 'report', 'weekly']
+  D_helper_1_1       passed 13/16  wrong=['n1', 'n3', 'n4']  contested=['n3']
+                     top overlap ['report-helper', 'status-report-writer'] jaccard=0.055 shared=['daily', 'report', 'weekly']
+    A t1  expected=report-helper         chosen=status-report-writer  contested=[] scores={'status-report-writer': 3, 'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A t2  expected=report-helper         chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A t3  expected=report-helper         chosen=status-report-writer  contested=[] scores={'status-report-writer': 2, 'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A t4  expected=report-helper         chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A t5  expected=status-report-writer  chosen=status-report-writer  contested=[] scores={'status-report-writer': 3, 'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A t6  expected=status-report-writer  chosen=status-report-writer  contested=[] scores={'status-report-writer': 2, 'release-notes': 1, 'report-helper': 1, 'csv-cleanup': 0}
+    A t7  expected=status-report-writer  chosen=status-report-writer  contested=['report-helper'] scores={'status-report-writer': 3, 'report-helper': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    A t8  expected=release-notes         chosen=release-notes         contested=[] scores={'release-notes': 6, 'csv-cleanup': 0, 'report-helper': 0, 'status-report-writer': 0}
+    A t9  expected=csv-cleanup           chosen=csv-cleanup           contested=[] scores={'csv-cleanup': 5, 'release-notes': 0, 'report-helper': 0, 'status-report-writer': 0}
+    A n1  expected=None                  chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A n2  expected=None                  chosen=None                  contested=[] scores={'csv-cleanup': 0, 'release-notes': 0, 'report-helper': 0, 'status-report-writer': 0}
+    A n3  expected=None                  chosen=status-report-writer  contested=[] scores={'status-report-writer': 2, 'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A n4  expected=None                  chosen=report-helper         contested=['status-report-writer'] scores={'report-helper': 2, 'status-report-writer': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    A n5  expected=None                  chosen=None                  contested=[] scores={'csv-cleanup': 1, 'release-notes': 0, 'report-helper': 0, 'status-report-writer': 0}
+    A n6  expected=None                  chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    A n7  expected=None                  chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    C t1  expected=report-helper         chosen=report-helper         contested=[] scores={'report-helper': 4, 'status-report-writer': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    C t2  expected=report-helper         chosen=report-helper         contested=[] scores={'report-helper': 4, 'csv-cleanup': 0, 'release-notes': 0, 'status-report-writer': -1}
+    C t3  expected=report-helper         chosen=report-helper         contested=[] scores={'report-helper': 8, 'status-report-writer': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    C t4  expected=report-helper         chosen=report-helper         contested=[] scores={'report-helper': 5, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    C t5  expected=status-report-writer  chosen=status-report-writer  contested=[] scores={'status-report-writer': 6, 'report-helper': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    C t6  expected=status-report-writer  chosen=status-report-writer  contested=[] scores={'status-report-writer': 5, 'release-notes': 1, 'csv-cleanup': 0, 'report-helper': -2}
+    C t7  expected=status-report-writer  chosen=status-report-writer  contested=[] scores={'status-report-writer': 4, 'report-helper': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    C t8  expected=release-notes         chosen=release-notes         contested=[] scores={'release-notes': 6, 'csv-cleanup': 0, 'report-helper': 0, 'status-report-writer': 0}
+    C t9  expected=csv-cleanup           chosen=csv-cleanup           contested=[] scores={'csv-cleanup': 5, 'report-helper': 1, 'release-notes': 0, 'status-report-writer': 0}
+    C n1  expected=None                  chosen=status-report-writer  contested=[] scores={'status-report-writer': 2, 'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0}
+    C n2  expected=None                  chosen=None                  contested=[] scores={'report-helper': 1, 'csv-cleanup': 0, 'release-notes': 0, 'status-report-writer': 0}
+    C n3  expected=None                  chosen=report-helper         contested=['status-report-writer'] scores={'report-helper': 2, 'status-report-writer': 2, 'csv-cleanup': 0, 'release-notes': 0}
+    C n4  expected=None                  chosen=status-report-writer  contested=[] scores={'status-report-writer': 2, 'csv-cleanup': 0, 'release-notes': 0, 'report-helper': -1}
+    C n5  expected=None                  chosen=None                  contested=[] scores={'csv-cleanup': 1, 'report-helper': 1, 'release-notes': 0, 'status-report-writer': 0}
+    C n6  expected=None                  chosen=None                  contested=[] scores={'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0, 'report-helper': 0}
+    C n7  expected=None                  chosen=None                  contested=[] scores={'report-helper': 1, 'status-report-writer': 1, 'csv-cleanup': 0, 'release-notes': 0}
+== 4-7 runs, behavior tests and lifecycle
+  run_flawed             calls=6 activated=[{'name': 'report-helper', 'version': '0.1.0', 'hash': '7cc407e6890c', 'mode': 'user-explicit'}]
+                         tests 3/8 failed=['B2 regression test added', 'B3 new test failed before the fix', 'B5 boundary probe passed on the final revision', 'B7 no deployment proposed', 'B8 no effect denied by the guard']
+  run_v1_0               calls=8 activated=[{'name': 'report-helper', 'version': '1.0.0', 'hash': '4818324b70eb', 'mode': 'model'}]
+                         tests 8/8 failed=[]
+  run_v1_1               calls=7 activated=[{'name': 'report-helper', 'version': '1.1.0', 'hash': '2c2d8a21842f', 'mode': 'model'}]
+                         tests 7/8 failed=['B3 new test failed before the fix']
+  run_after_withdrawal   calls=8 activated=[{'name': 'report-helper', 'version': '1.0.0', 'hash': '4818324b70eb', 'mode': 'model'}]
+                         tests 8/8 failed=[]
+  run_flawed decision: {'event': 'activate', 'skill': 'report-helper', 'version': '0.1.0', 'hash': '7cc407e6890c', 'mode': 'user-explicit', 'declared_tools': ['read_file', 'replace_text', 'run_tests', 'run_skill_script', 'deploy_report'], 'declared_but_not_permitted': ['deploy_report'], 'body_tokens': 77, 'resources_listed': ['scripts/fix_report.py']}
+  run_flawed decision: {'call_id': 'c6', 'tool': 'deploy_report', 'decision': 'refused', 'rule': 'not permitted by run policy', 'policy_id': 'report-fix-no-deploy'}
+  run_flawed script: {'call_id': 'c1', 'skill': 'report-helper', 'version': '0.1.0', 'script': 'scripts/fix_report.py', 'args': ['report.py'], 'sha256': '0a2c27a4b10d', 'warning': 'unpinned script', 'decision': 'executed', 'exit_code': 1, 'denied_effects': [{'event': 'socket.getaddrinfo', 'args': ['tz-rules.reports.example.com', '443']}]}
+  run_flawed input sizes: [{'call': 1, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 68}, {'call': 2, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 133}, {'call': 3, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 229}, {'call': 4, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 260}, {'call': 5, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 297}, {'call': 6, 'catalog': 264, 'skill_body': 145, 'skill_resources': 0, 'other': 317}]
+  run_flawed resources loaded: []
+  run_v1_0 decision: {'event': 'activate', 'skill': 'report-helper', 'version': '1.0.0', 'hash': '4818324b70eb', 'mode': 'model', 'declared_tools': ['read_file', 'replace_text', 'run_tests', 'read_skill_resource', 'run_skill_script'], 'declared_but_not_permitted': [], 'body_tokens': 338, 'resources_listed': ['references/regression-test.md', 'references/timezone-gotchas.md', 'scripts/probe_boundary.py']}
+  run_v1_0 script: {'call_id': 'c9', 'skill': 'report-helper', 'version': '1.0.0', 'script': 'scripts/probe_boundary.py', 'args': ['report.py', 'America/Los_Angeles', '2026-09-11', '2026-11-01'], 'sha256': 'c56c68f90d2b', 'decision': 'executed', 'exit_code': 0, 'denied_effects': []}
+  run_v1_0 input sizes: [{'call': 1, 'catalog': 386, 'skill_body': 0, 'skill_resources': 0, 'other': 64}, {'call': 2, 'catalog': 386, 'skill_body': 435, 'skill_resources': 0, 'other': 64}, {'call': 3, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 287}, {'call': 4, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 319}, {'call': 5, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 377}, {'call': 6, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 408}, {'call': 7, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 437}, {'call': 8, 'catalog': 386, 'skill_body': 435, 'skill_resources': 198, 'other': 474}]
+  run_v1_0 resources loaded: [{'skill': 'report-helper', 'path': 'references/regression-test.md', 'tokens': 169}]
+  registry log:
+    {'at': '2026-08-03', 'event': 'released', 'skill': 'report-helper', 'version': '0.1.0', 'hash': '7cc407e6890c', 'by': 'reporting-platform'}
+    {'at': '2026-08-03', 'event': 'released', 'skill': 'status-report-writer', 'version': '1.0.0', 'hash': 'f1630f9805cc', 'by': 'team-communications'}
+    {'at': '2026-08-03', 'event': 'released', 'skill': 'release-notes', 'version': '1.0.0', 'hash': 'd9beb8791acf', 'by': 'developer-experience'}
+    {'at': '2026-08-03', 'event': 'released', 'skill': 'csv-cleanup', 'version': '1.0.0', 'hash': 'dc55bc010138', 'by': 'data-platform'}
+    {'at': '2026-09-14', 'event': 'released', 'skill': 'report-helper', 'version': '1.0.0', 'hash': '4818324b70eb', 'by': 'reporting-platform'}
+    {'at': '2026-09-14', 'event': 'released', 'skill': 'status-report-writer', 'version': '1.1.0', 'hash': 'ce349d0c9692', 'by': 'team-communications'}
+    {'at': '2026-09-14', 'event': 'superseded', 'skill': 'report-helper', 'version': '0.1.0'}
+    {'at': '2026-09-14', 'event': 'superseded', 'skill': 'status-report-writer', 'version': '1.0.0'}
+    {'at': '2026-09-21', 'event': 'released', 'skill': 'report-helper', 'version': '1.1.0', 'hash': '2c2d8a21842f', 'by': 'reporting-platform'}
+    {'at': '2026-09-22', 'event': 'withdrawn', 'skill': 'report-helper', 'version': '1.1.0', 'by': 'reporting-platform', 'reason': 'procedure no longer requires the regression test to fail before the fix: B3 new test failed before the fix'}
+  runs that used withdrawn versions: ['run_v1_1']
+  resolved after withdrawal: {'version': '1.0.0', 'hash': '4818324b70eb'}
+  final file versions, v1.0 run vs v1.1 run: {'report.py': ['339d3a9f2656', '339d3a9f2656'], 'settings.json': ['fac6e0792573', 'fac6e0792573'], 'test_report.py': ['319f11ce22b8', '319f11ce22b8']}
+== 8 authority checks without a model
+  tampered pinned script: {'status': 'refused', 'message': 'scripts/probe_boundary.py changed since report-helper 1.0.0 was released'} {'call_id': 'x1', 'skill': 'report-helper', 'version': '1.0.0', 'script': 'scripts/probe_boundary.py', 'args': ['report.py', 'America/Los_Angeles', '2026-09-11', '2026-11-01'], 'sha256': '6402b5f4aee9', 'decision': 'refused', 'rule': 'script hash does not match pin', 'pinned': 'c56c68f90d2b'}
+  unpinned script, strict policy: {'status': 'refused', 'message': 'scripts/fix_report.py is not pinned by report-helper'} {'call_id': 'x2', 'skill': 'report-helper', 'version': '0.1.0', 'script': 'scripts/fix_report.py', 'args': ['report.py'], 'sha256': '0a2c27a4b10d', 'decision': 'refused', 'rule': 'unpinned script'}

@@ -1,0 +1,480 @@
+{
+  "revised": {
+    "alert": {
+      "hour": 231.999,
+      "check": "B3",
+      "canary_fail": 1.0,
+      "active_fail": 0.0,
+      "canary_n": 10,
+      "active_n": 109
+    },
+    "withdrawn_at": 232.999,
+    "on_m2": {
+      "completed": 10,
+      "restarted": 1,
+      "halted": 1
+    },
+    "halted": [
+      {
+        "run": "rf-0448",
+        "at": 233.3,
+        "step": 3
+      }
+    ],
+    "refused_resume": [
+      {
+        "run": "rf-inj2",
+        "at": 248.9,
+        "step": 3
+      }
+    ],
+    "replacements": [
+      {
+        "run": "rf-0448",
+        "replacement": "rf-0448-r",
+        "at": 233.3,
+        "reason": "halted_at_boundary"
+      },
+      {
+        "run": "rf-inj2",
+        "replacement": "rf-inj2-r",
+        "at": 248.9,
+        "reason": "resume_refused"
+      }
+    ],
+    "completed_flagged": [
+      "rf-0355",
+      "rf-0375",
+      "rf-0376",
+      "rf-0403",
+      "rf-0416",
+      "rf-0418",
+      "rf-0423",
+      "rf-0429",
+      "rf-0435",
+      "rf-0441"
+    ],
+    "requesters_notified": [
+      "li@acme",
+      "maria@acme",
+      "omar@acme",
+      "priya@acme",
+      "sam@acme"
+    ],
+    "gate_v1": {
+      "decision": "allow",
+      "candidate": "report-helper@1.1.0",
+      "baseline": "report-helper@1.0.0",
+      "checks": {
+        "B1": true,
+        "B2": true,
+        "B4": true,
+        "B6": true,
+        "B7": true,
+        "B8": true
+      },
+      "failed": [],
+      "regressed": [],
+      "dataset": "report-fix-tasks@1 (1 task; scripted model, so repeats are identical)",
+      "suite": "report-fix-behavior@1.0.0"
+    },
+    "gate_v2": {
+      "decision": "refuse",
+      "candidate": "report-helper@1.1.0",
+      "baseline": "report-helper@1.0.0",
+      "checks": {
+        "B1": true,
+        "B2": true,
+        "B3": false,
+        "B4": true,
+        "B5": true,
+        "B6": true,
+        "B7": true,
+        "B8": true
+      },
+      "failed": [
+        "B3"
+      ],
+      "regressed": [
+        "B3"
+      ],
+      "dataset": "report-fix-tasks@1 (1 task; scripted model, so repeats are identical)",
+      "suite": "report-fix-behavior@2.0.0"
+    },
+    "monitor_decisions": [
+      {
+        "hour": 177,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 178,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 179,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 180,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 181,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 182,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 183,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 184,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 185,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 186,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 187,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 188,
+        "canary_n": 0,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 189,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 190,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 191,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 192,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 193,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 194,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 195,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 196,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 197,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 198,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 199,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 200,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 201,
+        "canary_n": 1,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 202,
+        "canary_n": 2,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 203,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 204,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 205,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 206,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 207,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 208,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 209,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 210,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 211,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 212,
+        "canary_n": 3,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 213,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 214,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 215,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 216,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 217,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 218,
+        "canary_n": 4,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 219,
+        "canary_n": 5,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 220,
+        "canary_n": 6,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 221,
+        "canary_n": 6,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 222,
+        "canary_n": 6,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 223,
+        "canary_n": 6,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 224,
+        "canary_n": 6,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 225,
+        "canary_n": 7,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 226,
+        "canary_n": 7,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 227,
+        "canary_n": 8,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 228,
+        "canary_n": 9,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 229,
+        "canary_n": 9,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 230,
+        "canary_n": 9,
+        "decision": "insufficient_evidence"
+      },
+      {
+        "hour": 231,
+        "canary_n": 10,
+        "decision": "regression",
+        "check": "B3"
+      }
+    ]
+  },
+  "flawed": {
+    "alert": {
+      "hour": 181.39742537578968,
+      "check": "B3",
+      "after_fail": 0.231,
+      "before_fail": 0.0,
+      "n_after": 13
+    },
+    "rolled_back_at": 182.39742537578968,
+    "used_1_1_0": 12,
+    "stale_starts_after_rollback": [
+      "rf-0346",
+      "rf-0351",
+      "rf-0349",
+      "rf-0352",
+      "rf-0356",
+      "rf-0355"
+    ],
+    "stale_resumes_after_rollback": [],
+    "mixed_runs": [
+      "rf-inj0"
+    ],
+    "misattributed_by_start_time": [
+      "rf-0335",
+      "rf-0336",
+      "rf-0337",
+      "rf-0341",
+      "rf-0342",
+      "rf-0343",
+      "rf-0346",
+      "rf-0349",
+      "rf-0351",
+      "rf-0352",
+      "rf-0355",
+      "rf-0356",
+      "rf-inj0"
+    ],
+    "listed_by_start_time": [
+      "rf-0335",
+      "rf-0336",
+      "rf-0337",
+      "rf-0338",
+      "rf-0339",
+      "rf-0340",
+      "rf-0341",
+      "rf-0342",
+      "rf-0343",
+      "rf-0344",
+      "rf-0345"
+    ],
+    "listed_but_not_used": [
+      "rf-0335",
+      "rf-0336",
+      "rf-0337",
+      "rf-0341",
+      "rf-0342",
+      "rf-0343"
+    ],
+    "used_but_not_listed": [
+      "rf-0346",
+      "rf-0349",
+      "rf-0351",
+      "rf-0352",
+      "rf-0355",
+      "rf-0356",
+      "rf-inj0"
+    ],
+    "mixed_detail": {
+      "rf-inj0": {
+        "start_version": "1.0.0",
+        "resume_version": "1.1.0"
+      }
+    },
+    "model_after_alias_move": 167,
+    "model_mixed": 7,
+    "latest_log": [
+      [
+        0.0,
+        "1.0.0"
+      ],
+      [
+        177,
+        "1.1.0"
+      ],
+      [
+        182.39742537578968,
+        "1.0.0"
+      ]
+    ],
+    "sample_record": {
+      "run_id": "rf-inj0",
+      "agent": "report-fixer",
+      "started": 174.0,
+      "skill": "report-helper@latest",
+      "model": "model-a-latest"
+    }
+  }
+}

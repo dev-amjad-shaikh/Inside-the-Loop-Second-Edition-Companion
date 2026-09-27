@@ -1,0 +1,339 @@
+{
+  "policy": {
+    "id": "ctx-freetext-v1",
+    "keep_recent_messages": 4,
+    "result_cap_tokens": 1200,
+    "rule": "head + first-sentence summary of the middle + last K messages"
+  },
+  "call": 9,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+    },
+    {
+      "role": "user",
+      "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+    },
+    {
+      "role": "user",
+      "content": "Summary of earlier conversation:\nassistant called read_file, read_file, read_file\ntool result: ok\ntool result: ok\ntool result: ok\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: input_error\nassistant called run_tests\ntool result: failed\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: passed\nassistant: The filter used the UTC calendar date.\nuser: Please keep the diff small.\nknown configuration (latest observation): report_timezone = Europe/Berlin\nobserved O-r77-5 report_timezone=Europe/Berlin\nobserved O-r41-R04 report_timezone=America/Los_Angeles\nobserved O-r40-2 report_timezone=UTC"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tool_calls": [
+        {
+          "id": "c9",
+          "name": "read_file",
+          "arguments": {
+            "path": "report.py"
+          }
+        },
+        {
+          "id": "c10",
+          "name": "read_file",
+          "arguments": {
+            "path": "test_billing.py"
+          }
+        },
+        {
+          "id": "c11",
+          "name": "run_suite",
+          "arguments": {
+            "tests": [
+              "test_report.py",
+              "test_report_matrix.py",
+              "test_billing.py"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c9",
+      "content": {
+        "status": "ok",
+        "path": "report.py",
+        "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day\n"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c10",
+      "content": {
+        "status": "ok",
+        "path": "test_billing.py",
+        "text": "\"\"\"The billing service calls belongs_to_report positionally, with an explicit timezone.\"\"\"\nimport unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\n\nclass BillingCallerTests(unittest.TestCase):\n    def test_billing_positional_call(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(order_time, date(2026, 9, 11), \"America/Los_Angeles\"))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c11",
+      "content": {
+        "status": "failed",
+        "tests_run": 268,
+        "failures": 0,
+        "errors": 1,
+        "failed_tests": [
+          "test_report_matrix.MatrixTests.test_configured_default"
+        ],
+        "exit_code": 1,
+        "log": "test_order_at_midday (test_report.ReportTests.test_order_at_midday) ... ok\ntest_order_near_midnight (test_report.ReportTests.test_order_near_midnight) ... ok\ntest_america_anchorage_00 (test_report_matrix.MatrixTests.test_america_anchorage_00) ... ok\ntest_america_anchorage_01 (test_report_matrix.MatrixTests.test_america_anchorage_01) ... ok\ntest_america_anchorage_02 (test_report_matrix.MatrixTests.test_america_anchorage_02) ... ok\ntest_america_anchorage_03 (test_report_matrix.MatrixTests.test_america_anchorage_03) ... ok\ntest_america_anchorage_04 (test_report_matrix.MatrixTests.test_america_anchorage_04) ... ok\ntest_america_anchorage_05 (test_report_matrix.MatrixTests.test_america_anchorage_05) ... ok\ntest_america_anchorage_06 (test_report_matrix.MatrixTests.test_america_anchorage_06) ... ok\ntest_america_anchorage_07 (test_report_matrix.MatrixTests.test_america_anchorage_07) ... ok\ntest_america_anchorage_08 (test_report_matrix.MatrixTests.test_america_anchorage_08) ... ok\ntest_america_anchorage_09 (test_report_matrix.MatrixTests.test_america_anchorage_09) ... ok\ntest_america_anchorage_10 (test_report_matrix.MatrixTests.test_america_anchorage_10) ... ok\ntest_america_anchorage_11 (test_report_matrix.MatrixTests.test_america_anchorage_11) ... ok\ntest_america_anchorage_12 (test_report_matrix.MatrixTests.test_america_anchorage_12) ... ok\ntest_america_anchorage_13 (test_report_matrix.MatrixTests.test_america_anchorage_13) ... ok\ntest_america_anchorage_14 (test_report_matrix.MatrixTests.test_america_anchorage_14) ... ok\ntest_america_anchorage_15 (test_report_matrix.MatrixTests.test_america_anchorage_15) ... ok\ntest_america_anchorage_16 (test_report_matrix.MatrixTests.test_america_anchorage_16) ... ok\ntest_america_anchorage_17 (test_report_matrix.MatrixTests.test_america_anchorage_17) ... ok\ntest_america_anchorage_18 (test_report_matrix.MatrixTests.test_america_anchorage_18) ... ok\ntest_america_anchorage_19 (test_report_matrix.MatrixTests.test_america_anchorage_19) ... ok\ntest_america_anchorage_20 (test_report_matrix.MatrixTests.test_america_anchorage_20) ... ok\ntest_america_anchorage_21 (test_report_matrix.MatrixTests.test_america_anchorage_21) ... ok\ntest_america_anchorage_22 (test_report_matrix.MatrixTests.test_america_anchorage_22) ... ok\ntest_america_anchorage_23 (test_report_matrix.MatrixTests.test_america_anchorage_23) ... ok\ntest_america_chicago_00 (test_report_matrix.MatrixTests.test_america_chicago_00) ... ok\ntest_america_chicago_01 (test_report_matrix.MatrixTests.test_america_chicago_01) ... ok\ntest_america_chicago_02 (test_report_matrix.MatrixTests.test_america_chicago_02) ... ok\ntest_america_chicago_03 (test_report_matrix.MatrixTests.test_america_chicago_03) ... ok\ntest_america_chicago_04 (test_report_matrix.MatrixTests.test_america_chicago_04) ... ok\ntest_america_chicago_05 (test_report_matrix.MatrixTests.test_america_chicago_05) ... ok\ntest_america_chicago_06 (test_report_matrix.MatrixTests.test_america_chicago_06) ... ok\ntest_america_chicago_07 (test_report_matrix.MatrixTests.test_america_chicago_07) ... ok\ntest_america_chicago_08 (test_report_matrix.MatrixTests.test_america_chicago_08) ... ok\ntest_america_chicago_09 (test_report_matrix.MatrixTests.test_america_chicago_09) ... ok\ntest_america_chicago_10 (test_report_matrix.MatrixTests.test_america_chicago_10) ... ok\ntest_america_chicago_11 (test_report_matrix.MatrixTests.test_america_chicago_11) ... ok\ntest_america_chicago_12 (test_report_matrix.MatrixTests.test_america_chicago_12) ... ok\ntest_america_chicago_13 (test_report_matrix.MatrixTests.test_america_chicago_13) ... ok\ntest_america_chicago_14 (test_report_matrix.MatrixTests.test_america_chicago_14) ... ok\ntest_america_chicago_15 (test_report_matrix.MatrixTests.test_america_chicago_15) ... ok\ntest_america_chicago_16 (test_report_matrix.MatrixTests.test_america_chicago_16) ... ok\ntest_america_chicago_17 (test_report_matrix.MatrixTests.test_america_chicago_17) ... ok\ntest_america_chicago_18 (test_report_matrix.MatrixTests.test_america_chicago_18) ... ok\ntest_america_chicago_19 (test_report_matrix.MatrixTests.test_america_chicago_19) ... ok\ntest_america_chicago_20 (test_report_matrix.MatrixTests.test_america_chicago_20) ... ok\ntest_america_chicago_21 (test_report_matrix.MatrixTests.test_america_chicago_21) ... ok\ntest_america_chicago_22 (test_report_matrix.MatrixTests.test_america_chicago_22) ... ok\ntest_america_chicago_23 (test_report_matrix.MatrixTests.test_america_chicago_23) ... ok\ntest_america_denver_00 (test_report_matrix.MatrixTests.test_america_denver_00) ... ok\ntest_america_denver_01 (test_report_matrix.MatrixTests.test_america_denver_01) ... ok\ntest_america_denver_02 (test_report_matrix.MatrixTests.test_america_denver_02) ... ok\ntest_america_denver_03 (test_report_matrix.MatrixTests.test_amer [truncated]"
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "records": [
+        "R01"
+      ],
+      "transform": "verbatim (head)",
+      "source": "application",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "runtime",
+      "tokens": 39
+    },
+    {
+      "records": [
+        "R02"
+      ],
+      "transform": "verbatim (head)",
+      "source": "human interface",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "user",
+      "tokens": 39
+    },
+    {
+      "records": [
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18"
+      ],
+      "transform": "free-text summary",
+      "source": "builder",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "derived",
+      "tokens": 178
+    },
+    {
+      "records": [
+        "R19"
+      ],
+      "transform": "verbatim",
+      "source": "model call 8",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "model output",
+      "tokens": 75
+    },
+    {
+      "records": [
+        "R20"
+      ],
+      "transform": "verbatim",
+      "source": "read_file(\"path\":\"report.py\")",
+      "revision": "339d3a9f2656",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 95
+    },
+    {
+      "records": [
+        "R21"
+      ],
+      "transform": "verbatim",
+      "source": "read_file(\"path\":\"test_billing.py\")",
+      "revision": "d60dab7c125f",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 154
+    },
+    {
+      "records": [
+        "R22"
+      ],
+      "transform": "truncated",
+      "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 1267
+    }
+  ],
+  "omissions": [
+    {
+      "record": "R03",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 63,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R04",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 36,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R05",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 80,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R06",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 137,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R07",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 108,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R08",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 42,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R09",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 30,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R10",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 29,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R11",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 30,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R12",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 66,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R13",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 71,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R14",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 40,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R15",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 30,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R16",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 45,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R17",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 80,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R18",
+      "action": "summarized",
+      "reason": "outside head and last 4 messages",
+      "tokens": 55,
+      "carried_by": "summary (first sentence)"
+    },
+    {
+      "record": "R22",
+      "action": "truncated",
+      "reason": "result over 1200 tokens; kept its beginning",
+      "tokens": 4875,
+      "carried_by": null
+    }
+  ],
+  "budget": {
+    "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+    "window": 8192,
+    "output_reserve": 1536,
+    "input_allowance": 6656,
+    "tool_definitions": 318,
+    "sections": [
+      {
+        "name": "head",
+        "items": 2,
+        "tokens": 78
+      },
+      {
+        "name": "summary",
+        "items": 1,
+        "tokens": 178
+      },
+      {
+        "name": "tail",
+        "items": 4,
+        "tokens": 1591
+      }
+    ],
+    "total_input": 2165,
+    "headroom": 4491,
+    "fits": true,
+    "compacted": true
+  },
+  "protocol_problems": [],
+  "request_sha": "939c9d0d85cb"
+}

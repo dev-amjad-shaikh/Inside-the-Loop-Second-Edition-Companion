@@ -1,0 +1,650 @@
+{
+  "items": [
+    {
+      "id": "A01",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "fail",
+      "v2": "fail",
+      "v2_reasons": [
+        "R2"
+      ],
+      "chars": 229
+    },
+    {
+      "id": "A02",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "fail",
+      "v2": "fail",
+      "v2_reasons": [
+        "R2"
+      ],
+      "chars": 229
+    },
+    {
+      "id": "A03",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 265
+    },
+    {
+      "id": "A04",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 267
+    },
+    {
+      "id": "A05",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 246
+    },
+    {
+      "id": "A06",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1"
+      ],
+      "chars": 258
+    },
+    {
+      "id": "A07",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 454
+    },
+    {
+      "id": "A08",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 475
+    },
+    {
+      "id": "A09",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 246
+    },
+    {
+      "id": "A10",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 473
+    },
+    {
+      "id": "A11",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "fail",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 509
+    },
+    {
+      "id": "A12",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "fail",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 260
+    },
+    {
+      "id": "A13",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1"
+      ],
+      "chars": 301
+    },
+    {
+      "id": "A14",
+      "part": "rubric-development",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 530
+    },
+    {
+      "id": "A15",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 246
+    },
+    {
+      "id": "A16",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 247
+    },
+    {
+      "id": "A17",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "fail",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 260
+    },
+    {
+      "id": "A18",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 267
+    },
+    {
+      "id": "A19",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 265
+    },
+    {
+      "id": "A20",
+      "part": "rubric-development",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 342
+    },
+    {
+      "id": "A21",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 495
+    },
+    {
+      "id": "A22",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R3"
+      ],
+      "chars": 359
+    },
+    {
+      "id": "A23",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1",
+        "R5"
+      ],
+      "chars": 528
+    },
+    {
+      "id": "A24",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 495
+    },
+    {
+      "id": "A25",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 349
+    },
+    {
+      "id": "A26",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 266
+    },
+    {
+      "id": "A27",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R3"
+      ],
+      "chars": 297
+    },
+    {
+      "id": "A28",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1",
+        "R3"
+      ],
+      "chars": 330
+    },
+    {
+      "id": "A29",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 287
+    },
+    {
+      "id": "A30",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 327
+    },
+    {
+      "id": "A31",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 473
+    },
+    {
+      "id": "A32",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 287
+    },
+    {
+      "id": "A33",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 265
+    },
+    {
+      "id": "A34",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 495
+    },
+    {
+      "id": "A35",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 557
+    },
+    {
+      "id": "A36",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 495
+    },
+    {
+      "id": "A37",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1",
+        "R5"
+      ],
+      "chars": 528
+    },
+    {
+      "id": "A38",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R5"
+      ],
+      "chars": 495
+    },
+    {
+      "id": "A39",
+      "part": "held-out",
+      "human": "pass",
+      "v1": "pass",
+      "v2": "pass",
+      "v2_reasons": [],
+      "chars": 268
+    },
+    {
+      "id": "A40",
+      "part": "held-out",
+      "human": "fail",
+      "v1": "pass",
+      "v2": "fail",
+      "v2_reasons": [
+        "R1"
+      ],
+      "chars": 306
+    }
+  ],
+  "summary": {
+    "rubric-development": {
+      "v1": {
+        "agreement": 0.6,
+        "kappa": 0.158,
+        "confusion": {
+          "human pass / judge pass": 9,
+          "human pass / judge fail": 2,
+          "human fail / judge pass": 6,
+          "human fail / judge fail": 3
+        }
+      },
+      "v2": {
+        "agreement": 1.0,
+        "kappa": 1.0,
+        "confusion": {
+          "human pass / judge pass": 11,
+          "human pass / judge fail": 0,
+          "human fail / judge pass": 0,
+          "human fail / judge fail": 9
+        }
+      }
+    },
+    "held-out": {
+      "v1": {
+        "agreement": 0.45,
+        "kappa": 0.0,
+        "confusion": {
+          "human pass / judge pass": 9,
+          "human pass / judge fail": 0,
+          "human fail / judge pass": 11,
+          "human fail / judge fail": 0
+        }
+      },
+      "v2": {
+        "agreement": 0.9,
+        "kappa": 0.794,
+        "confusion": {
+          "human pass / judge pass": 7,
+          "human pass / judge fail": 2,
+          "human fail / judge pass": 0,
+          "human fail / judge fail": 11
+        }
+      }
+    },
+    "all": {
+      "v1": {
+        "agreement": 0.525,
+        "kappa": 0.05,
+        "confusion": {
+          "human pass / judge pass": 18,
+          "human pass / judge fail": 2,
+          "human fail / judge pass": 17,
+          "human fail / judge fail": 3
+        }
+      },
+      "v2": {
+        "agreement": 0.95,
+        "kappa": 0.9,
+        "confusion": {
+          "human pass / judge pass": 18,
+          "human pass / judge fail": 2,
+          "human fail / judge pass": 0,
+          "human fail / judge fail": 20
+        }
+      }
+    }
+  },
+  "position_swap": {
+    "pairs": [
+      {
+        "pair": "A01/A02",
+        "human": "tie",
+        "v1_ab": "A01",
+        "v1_ba": "A02",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A03/A04",
+        "human": "tie",
+        "v1_ab": "A03",
+        "v1_ba": "A04",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A05/A06",
+        "human": "A05",
+        "v1_ab": "A05",
+        "v1_ba": "A06",
+        "v2_ab": "A05",
+        "v2_ba": "A05"
+      },
+      {
+        "pair": "A07/A08",
+        "human": "tie",
+        "v1_ab": "A07",
+        "v1_ba": "A08",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A09/A10",
+        "human": "A09",
+        "v1_ab": "A10",
+        "v1_ba": "A10",
+        "v2_ab": "A09",
+        "v2_ba": "A09"
+      },
+      {
+        "pair": "A11/A12",
+        "human": "A12",
+        "v1_ab": "A11",
+        "v1_ba": "A11",
+        "v2_ab": "A12",
+        "v2_ba": "A12"
+      },
+      {
+        "pair": "A13/A14",
+        "human": "tie",
+        "v1_ab": "A14",
+        "v1_ba": "A14",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A15/A16",
+        "human": "tie",
+        "v1_ab": "A15",
+        "v1_ba": "A16",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A17/A18",
+        "human": "tie",
+        "v1_ab": "A17",
+        "v1_ba": "A18",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A19/A20",
+        "human": "tie",
+        "v1_ab": "A20",
+        "v1_ba": "A20",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A21/A22",
+        "human": "A22",
+        "v1_ab": "A21",
+        "v1_ba": "A21",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A23/A24",
+        "human": "tie",
+        "v1_ab": "A23",
+        "v1_ba": "A24",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A25/A26",
+        "human": "tie",
+        "v1_ab": "A25",
+        "v1_ba": "A25",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A27/A28",
+        "human": "A27",
+        "v1_ab": "A27",
+        "v1_ba": "A28",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A29/A30",
+        "human": "tie",
+        "v1_ab": "A29",
+        "v1_ba": "A30",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A31/A32",
+        "human": "A32",
+        "v1_ab": "A31",
+        "v1_ba": "A31",
+        "v2_ab": "A32",
+        "v2_ba": "A32"
+      },
+      {
+        "pair": "A33/A34",
+        "human": "A33",
+        "v1_ab": "A34",
+        "v1_ba": "A34",
+        "v2_ab": "A33",
+        "v2_ba": "A33"
+      },
+      {
+        "pair": "A35/A36",
+        "human": "tie",
+        "v1_ab": "A35",
+        "v1_ba": "A36",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A37/A38",
+        "human": "tie",
+        "v1_ab": "A37",
+        "v1_ba": "A38",
+        "v2_ab": "tie",
+        "v2_ba": "tie"
+      },
+      {
+        "pair": "A39/A40",
+        "human": "A39",
+        "v1_ab": "A39",
+        "v1_ba": "A40",
+        "v2_ab": "A39",
+        "v2_ba": "A39"
+      }
+    ],
+    "v1_verdicts_that_flip": 12,
+    "v1_first_position_wins": 32,
+    "v1_verdicts_total": 40,
+    "v2_verdicts_that_flip": 0,
+    "decisive_human_pairs": 8,
+    "v1_consistent_and_right": 0,
+    "v2_consistent_and_right": 6
+  }
+}

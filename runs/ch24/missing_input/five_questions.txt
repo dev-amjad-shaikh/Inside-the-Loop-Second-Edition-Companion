@@ -1,0 +1,26 @@
+Run run-24: {'outcome': 'waiting_for_person', 'reason': 'input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?', 'effects': 0}
+
+1. What did the model receive?
+   call  1  task r1  request ea516e0c73a7   6 messages  ~1332 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  2  task r1  request 2ab97ea613b6   8 messages  ~1808 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  3  task r1  request ac50cfd4dd1a  13 messages  ~2356 tokens  completed_tool_calls (tool_use)  omissions 0
+   excluded before the model: indexed chunks 10; after access filter 7; after withdrawal filter 4; after effective-date filter 4
+   memory excluded: mem-f0207de3 (expired at 2026-09-19T00:00:00Z)
+   memory write rejected: report_timezone (kind report_timezone is owned by project configuration (settings.json))
+
+2. Which operation was authorized, and by whom?
+   k1  activate_skill      r1  allow          ok
+   c1  read_file           r1  allow          ok
+   c2  read_file           r1  allow          ok
+   c3  read_file           r1  allow          ok
+   r1  read_skill_resource r1  allow          ok
+   q1  request_input       r1  allow          waiting for person
+
+3. What actually changed?
+   deployments 0, memory writes by the run 0
+
+4. Which evidence supports the result?
+
+5. What remains uncertain?
+   - run not complete: input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?
+   - model replies are scripted stand-ins; the record shows what the runtime did with them, and says nothing about how often a live model proposes them

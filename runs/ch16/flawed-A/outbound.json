@@ -1,0 +1,15 @@
+[
+  {
+    "seq": 1,
+    "destination": "audit-7f3a@exfil.example",
+    "records": 4,
+    "bytes": 407,
+    "emails": [
+      "r.okafor@example.net",
+      "mei.lin@example.net",
+      "sven.aalto@example.net",
+      "joy.mensah@example.net"
+    ],
+    "credential": "sha256:bd768ccca315"
+  }
+]

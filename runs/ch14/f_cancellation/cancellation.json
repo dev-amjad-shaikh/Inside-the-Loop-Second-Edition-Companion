@@ -1,0 +1,160 @@
+{
+  "plan": [
+    {
+      "op": "o1",
+      "kind": "local",
+      "what": "run_tests (subprocess)",
+      "duration": 5
+    },
+    {
+      "op": "o2",
+      "kind": "remote",
+      "what": "export r6 to A",
+      "destination": "A",
+      "report": "daily-2026-09-11",
+      "duration": 4,
+      "commit_after": 1
+    },
+    {
+      "op": "o3",
+      "kind": "remote",
+      "what": "regenerate report 2026-09-12",
+      "destination": "A",
+      "report": "daily-2026-09-11",
+      "duration": 6,
+      "commit_after": 5,
+      "silent": true
+    },
+    {
+      "op": "o4",
+      "kind": "remote",
+      "what": "export r6 to B",
+      "destination": "B",
+      "report": "daily-2026-09-11",
+      "duration": 4,
+      "commit_after": 1
+    },
+    {
+      "op": "o5",
+      "kind": "local",
+      "what": "write NOTES.md",
+      "duration": 1
+    },
+    {
+      "op": "o6",
+      "kind": "remote",
+      "what": "notify report channel",
+      "destination": "C",
+      "report": "daily-2026-09-11",
+      "duration": 2,
+      "commit_after": 1
+    }
+  ],
+  "cancel_tick": 2,
+  "settle_deadline": 8,
+  "timeline": [
+    {
+      "tick": 0,
+      "event": "o1 started (run_tests (subprocess))"
+    },
+    {
+      "tick": 0,
+      "event": "o2 started (export r6 to A)"
+    },
+    {
+      "tick": 0,
+      "event": "o3 started (regenerate report 2026-09-12)"
+    },
+    {
+      "tick": 2,
+      "event": "cancel requested by person"
+    },
+    {
+      "tick": 2,
+      "event": "o4 dropped from queue"
+    },
+    {
+      "tick": 2,
+      "event": "o5 dropped from queue"
+    },
+    {
+      "tick": 2,
+      "event": "o6 dropped from queue"
+    },
+    {
+      "tick": 2,
+      "event": "o1 process terminated (exit -15)"
+    },
+    {
+      "tick": 2,
+      "event": "o2 cancel sent to service"
+    },
+    {
+      "tick": 2,
+      "event": "o3 cancel sent to service"
+    },
+    {
+      "tick": 4,
+      "event": "o2 settled: completed after cancel"
+    },
+    {
+      "tick": 8,
+      "event": "o3 unknown at deadline"
+    },
+    {
+      "tick": 8,
+      "event": "run cancelled; all operations accounted for"
+    }
+  ],
+  "report": [
+    {
+      "op": "o1",
+      "what": "run_tests (subprocess)",
+      "outcome": "cancelled",
+      "evidence": "process group terminated, exit code -15"
+    },
+    {
+      "op": "o2",
+      "what": "export r6 to A",
+      "outcome": "completed after cancel",
+      "evidence": "service receipt; file present"
+    },
+    {
+      "op": "o3",
+      "what": "regenerate report 2026-09-12",
+      "outcome": "unknown",
+      "evidence": "cancel sent, no acknowledgment by settle deadline; handed to reconciler"
+    },
+    {
+      "op": "o4",
+      "what": "export r6 to B",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    },
+    {
+      "op": "o5",
+      "what": "write NOTES.md",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    },
+    {
+      "op": "o6",
+      "what": "notify report channel",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    }
+  ],
+  "files_in_outbox": {
+    "A": [
+      "daily-2026-09-11.r6.o2.csv"
+    ]
+  },
+  "flawed_status_report": {
+    "o1": "cancelled",
+    "o2": "cancelled",
+    "o3": "cancelled",
+    "o4": "cancelled",
+    "o5": "cancelled",
+    "o6": "cancelled"
+  }
+}

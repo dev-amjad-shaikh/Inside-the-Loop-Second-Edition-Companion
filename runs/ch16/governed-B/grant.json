@@ -1,0 +1,12 @@
+{
+  "profile": "support.answer",
+  "tools": [
+    "get_order",
+    "search_kb",
+    "read_file"
+  ],
+  "egress": false,
+  "destinations": [],
+  "approval_required": [],
+  "workspace_root": "tenants/acme/workspace"
+}

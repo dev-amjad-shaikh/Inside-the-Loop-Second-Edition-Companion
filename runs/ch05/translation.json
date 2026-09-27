@@ -1,0 +1,117 @@
+{
+  "coder-large": {
+    "model": "coder-large",
+    "format": "block",
+    "sent": true,
+    "body_keys": [
+      "max_tokens",
+      "messages",
+      "model",
+      "stream",
+      "system",
+      "tool_choice",
+      "tools"
+    ],
+    "carried_settings": {
+      "max_tokens": 1024,
+      "tool_choice": {
+        "type": "auto",
+        "disable_parallel_tool_use": true
+      }
+    },
+    "dropped": [
+      {
+        "field": "temperature",
+        "value": 0.2,
+        "reason": "unsupported with reasoning enabled"
+      }
+    ],
+    "rejected": [],
+    "tool_order_in": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "tool_order_out": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "schemas_sha_in": "c0910ef91a13",
+    "schemas_sha_out": "c0910ef91a13"
+  },
+  "coder-pro": {
+    "model": "coder-pro",
+    "format": "item",
+    "sent": true,
+    "body_keys": [
+      "input",
+      "max_output_tokens",
+      "model",
+      "parallel_tool_calls",
+      "stream",
+      "tools"
+    ],
+    "carried_settings": {
+      "max_output_tokens": 1024,
+      "parallel_tool_calls": false
+    },
+    "dropped": [
+      {
+        "field": "temperature",
+        "value": 0.2,
+        "reason": "unsupported with reasoning enabled"
+      }
+    ],
+    "rejected": [],
+    "tool_order_in": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "tool_order_out": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "schemas_sha_in": "c0910ef91a13",
+    "schemas_sha_out": "c0910ef91a13"
+  },
+  "coder-mini": {
+    "model": "coder-mini",
+    "format": "item",
+    "sent": false,
+    "body_keys": [
+      "input",
+      "max_output_tokens",
+      "model",
+      "stream",
+      "temperature",
+      "tools"
+    ],
+    "carried_settings": {
+      "max_output_tokens": 1024,
+      "temperature": 0.2
+    },
+    "dropped": [],
+    "rejected": [
+      {
+        "field": "parallel_tool_calls",
+        "value": false,
+        "reason": "semantic setting has no equivalent for this model"
+      }
+    ],
+    "tool_order_in": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "tool_order_out": [
+      "read_file",
+      "replace_text",
+      "run_tests"
+    ],
+    "schemas_sha_in": "c0910ef91a13",
+    "schemas_sha_out": "c0910ef91a13"
+  }
+}

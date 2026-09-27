@@ -1,0 +1,34 @@
+[
+  {
+    "chunk": null,
+    "steps": 224,
+    "decode_gap_p50_ms": 21.1,
+    "decode_gap_p99_ms": 21.2,
+    "decode_gap_max_ms": 1311.7,
+    "long_prompt_ttft_ms": 1313.4
+  },
+  {
+    "chunk": 8192,
+    "steps": 227,
+    "decode_gap_p50_ms": 21.1,
+    "decode_gap_p99_ms": 328.6,
+    "decode_gap_max_ms": 328.6,
+    "long_prompt_ttft_ms": 1316.2
+  },
+  {
+    "chunk": 2048,
+    "steps": 238,
+    "decode_gap_p50_ms": 21.1,
+    "decode_gap_p99_ms": 82.9,
+    "decode_gap_max_ms": 82.9,
+    "long_prompt_ttft_ms": 1327.8
+  },
+  {
+    "chunk": 512,
+    "steps": 283,
+    "decode_gap_p50_ms": 21.2,
+    "decode_gap_p99_ms": 21.4,
+    "decode_gap_max_ms": 21.4,
+    "long_prompt_ttft_ms": 1373.8
+  }
+]

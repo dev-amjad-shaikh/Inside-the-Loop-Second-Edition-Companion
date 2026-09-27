@@ -1,0 +1,91 @@
+{
+  "runtime_correct": {
+    "cases": [
+      {
+        "case": "P01 own file",
+        "path": "report.txt",
+        "expected": "allow",
+        "got": "allow",
+        "pass": true
+      },
+      {
+        "case": "P02 dot-dot traversal",
+        "path": "../../globex/workspace/customers.csv",
+        "expected": "deny",
+        "got": "deny",
+        "pass": true
+      },
+      {
+        "case": "P03 dot-dot that stays inside",
+        "path": "sub/../report.txt",
+        "expected": "allow",
+        "got": "allow",
+        "pass": true
+      },
+      {
+        "case": "P04 symlink escape",
+        "path": "shared/customers.csv",
+        "expected": "deny",
+        "got": "deny",
+        "pass": true
+      },
+      {
+        "case": "P05 absolute path",
+        "path": "/etc/passwd",
+        "expected": "deny",
+        "got": "deny",
+        "pass": true
+      }
+    ],
+    "passed": 5,
+    "total": 5
+  },
+  "runtime_regressed": {
+    "cases": [
+      {
+        "case": "P01 own file",
+        "path": "report.txt",
+        "expected": "allow",
+        "got": "allow",
+        "pass": true
+      },
+      {
+        "case": "P02 dot-dot traversal",
+        "path": "../../globex/workspace/customers.csv",
+        "expected": "deny",
+        "got": "deny",
+        "pass": true
+      },
+      {
+        "case": "P03 dot-dot that stays inside",
+        "path": "sub/../report.txt",
+        "expected": "allow",
+        "got": "allow",
+        "pass": true
+      },
+      {
+        "case": "P04 symlink escape",
+        "path": "shared/customers.csv",
+        "expected": "deny",
+        "got": "allow",
+        "pass": false
+      },
+      {
+        "case": "P05 absolute path",
+        "path": "/etc/passwd",
+        "expected": "deny",
+        "got": "deny",
+        "pass": true
+      }
+    ],
+    "passed": 4,
+    "total": 5
+  },
+  "release_gate": {
+    "correct_ships": true,
+    "regressed_blocked": true,
+    "regressed_failures": [
+      "P04 symlink escape"
+    ]
+  }
+}

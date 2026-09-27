@@ -1,0 +1,14 @@
+[
+ {"doc_id": "reporting-calendar", "version": 1, "file": "reporting-calendar.v1.md",
+  "title": "Reporting calendar", "owner": "reporting-platform", "audience": "engineering",
+  "status": "withdrawn", "effective_from": "2024-01-01", "effective_to": "2026-03-31",
+  "ingested_at": "2024-01-02"},
+ {"doc_id": "reporting-calendar", "version": 2, "file": "reporting-calendar.v2.md",
+  "title": "Reporting calendar", "owner": "reporting-platform", "audience": "engineering",
+  "status": "active", "effective_from": "2026-04-01", "effective_to": null,
+  "ingested_at": "2026-03-28"},
+ {"doc_id": "finance-export-runbook", "version": 3, "file": "finance-export-runbook.v3.md",
+  "title": "Finance export runbook", "owner": "finance-ops", "audience": "finance",
+  "status": "active", "effective_from": "2026-01-01", "effective_to": null,
+  "ingested_at": "2026-01-05"}
+]

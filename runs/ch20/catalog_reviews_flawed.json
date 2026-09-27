@@ -1,0 +1,18 @@
+[
+  {
+    "at": 10,
+    "event": "add",
+    "name": "send_report",
+    "version": "1.0.0",
+    "manifest_hash": "ed77b7da6956",
+    "approver": "platform-review"
+  },
+  {
+    "at": 20,
+    "event": "auto_updated",
+    "name": "send_report",
+    "to_version": "2.0.0",
+    "to_hash": "fa1a57f0db40",
+    "approver": "auto-updater"
+  }
+]

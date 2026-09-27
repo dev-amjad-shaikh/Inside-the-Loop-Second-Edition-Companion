@@ -1,0 +1,54 @@
+[
+  {
+    "t": 0.2,
+    "decided_by": "program",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 0.4,
+    "decided_by": "program",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 0.6,
+    "decided_by": "program",
+    "op": "read_file:test_report.py:1eb31f02",
+    "status": "ok"
+  },
+  {
+    "t": 2.39,
+    "decided_by": "model",
+    "op": "propose regression test"
+  },
+  {
+    "t": 2.69,
+    "decided_by": "program",
+    "op": "replace_text:test_report.py:29fa54fb",
+    "status": "ok"
+  },
+  {
+    "t": 8.69,
+    "decided_by": "program",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 10.753,
+    "decided_by": "model",
+    "op": "propose patch (attempt 1)"
+  },
+  {
+    "t": 11.053,
+    "decided_by": "program",
+    "op": "replace_text:report.py:6ccfc840",
+    "status": "ok"
+  },
+  {
+    "t": 17.053,
+    "decided_by": "program",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "passed"
+  }
+]

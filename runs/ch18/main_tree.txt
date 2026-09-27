@@ -1,0 +1,35 @@
+   0.00s  276.97s  invoke_agent report-fixer
+   0.00s    0.02s    build_context
+   0.02s    2.20s    chat scripted-report-model  itl.record.model_call=m1
+   2.22s    0.05s    execute_tool read_file  gen_ai.tool.call.id=c1 itl.observation.status=ok
+   2.27s    0.05s    execute_tool read_file  gen_ai.tool.call.id=c2 itl.observation.status=ok
+   2.32s    0.05s    execute_tool read_file  gen_ai.tool.call.id=c3 itl.observation.status=ok
+   2.37s    0.02s    build_context
+   2.39s    3.15s    chat scripted-report-model  itl.record.model_call=m2
+   5.54s    0.05s    execute_tool replace_text  gen_ai.tool.call.id=c4 itl.observation.status=ok
+   5.59s    0.02s    build_context
+   5.61s    1.61s    chat scripted-report-model  itl.record.model_call=m3
+   7.22s    0.00s    execute_tool run_tests  [ERROR]  gen_ai.tool.call.id=c5 itl.observation.status=input_error
+   7.22s    0.02s    build_context
+   7.24s    1.62s    chat scripted-report-model  itl.record.model_call=m4
+   8.86s    4.80s    execute_tool run_tests  gen_ai.tool.call.id=c6 itl.observation.status=failed
+  13.66s    0.02s    build_context
+  13.68s    2.49s    chat scripted-report-model  itl.record.model_call=m5
+  16.17s    0.05s    execute_tool replace_text  gen_ai.tool.call.id=c7 itl.observation.status=ok
+  16.22s    0.02s    build_context
+  16.24s    1.68s    chat scripted-report-model  itl.record.model_call=m6
+  17.91s    4.80s    execute_tool run_tests  gen_ai.tool.call.id=c8 itl.observation.status=passed
+  22.71s    0.02s    build_context
+  22.73s    2.16s    chat scripted-report-model  itl.record.model_call=m7
+  24.89s    0.00s    request_approval export_report  gen_ai.tool.call.id=c9
+ 264.89s    0.00s    revise_task
+ 264.90s    0.02s    build_context
+ 264.92s    3.03s    chat scripted-report-model  itl.record.model_call=m8
+ 267.94s    0.05s    execute_tool replace_text  gen_ai.tool.call.id=c10 itl.observation.status=ok
+ 268.00s    0.00s    verify report-fixer  itl.verify.result=refused
+ 268.00s    0.02s    build_context
+ 268.02s    1.76s    chat scripted-report-model  itl.record.model_call=m9
+ 269.78s    4.80s    execute_tool run_tests  gen_ai.tool.call.id=c11 itl.observation.status=passed
+ 274.58s    0.02s    build_context
+ 274.60s    2.36s    chat scripted-report-model  itl.record.model_call=m10
+ 276.97s    0.00s    verify report-fixer  itl.verify.result=accepted

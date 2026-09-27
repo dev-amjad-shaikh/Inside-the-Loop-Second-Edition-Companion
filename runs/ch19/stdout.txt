@@ -1,0 +1,179 @@
+== Task family
+tasks 60 (report 30, export 30); dev 20, held-out 40
+slices (held-out): export-explicit-day 10, export-yesterday 10, report-dst 12, report-no-dst 8
+
+== E1 pass@k and pass^k on held-out tasks (16 trials each, flawed context builder)
+  k base pass@k cand pass@k base pass^k cand pass^k
+  1       0.691       0.678       0.691       0.678
+  2       0.862       0.755       0.519       0.601
+  4       0.966       0.801       0.357       0.513
+  8       0.998       0.851       0.254       0.407
+ 16       1.000       0.925       0.200       0.300
+pass@1 by slice (baseline / candidate):
+  export-explicit-day  0.794 / 0.938   pass^4 0.449 / 0.770
+  export-yesterday     0.613 / 0.056   pass^4 0.190 / 0.000
+  report-dst           0.495 / 0.786   pass^4 0.064 / 0.463
+  report-no-dst        0.953 / 0.969   pass^4 0.889 / 0.909
+
+== E2 paired comparison
+second-edition illustrative table 5/2/1/2: McNemar p=1.0, bootstrap 95% CI of difference [-0.2, 0.4], Wilson 95% baseline [0.313, 0.832] candidate [0.397, 0.892]
+held-out, trial 0 only: both 19, candidate only 7, baseline only 7, both fail 7; McNemar p=1.0
+  regressions (baseline passed, candidate failed): E03, E05, E09, E15, E21, E26, E29
+  trial-0 difference bootstrap 95% CI [-0.175, 0.175]
+pass@1 over 16 trials: baseline 0.691 [0.619, 0.762], candidate 0.678 [0.556, 0.788]
+  difference -0.013, paired bootstrap 95% CI [-0.133, 0.095]
+pass^4 difference +0.157, CI [0.054, 0.259]; pass@4 difference -0.165, CI [-0.282, -0.064]
+tasks where candidate is worse by >= 0.5: E03, E05, E09, E15, E21, E27
+tasks where candidate is better by >= 0.5: R03, R06, E08
+
+== E3 how sample size and trials change the conclusion (pass@1 difference)
+full held-out difference -0.013; 1000 random evaluations per design
+tasks trials cand +5pts cand -5pts  CI width
+   10      1      0.362      0.415     0.668
+   10      4      0.350      0.391     0.485
+   10     16      0.279      0.395     0.432
+   20      1      0.381      0.456     0.517
+   20      4      0.229      0.340     0.363
+   20     16      0.147      0.262     0.317
+   40      1      0.268      0.370     0.372
+   40      4      0.041      0.144     0.261
+   40     16      0.000      0.000     0.226
+
+== E4 trajectory checker: right end state, prohibited path
+baseline: 442 of 640 runs pass the end-state checks; 139 of those violate a path rule
+    no_deploy (refused)                      9
+    no_identity_argument (refused)           7
+    no_unrequested_change (executed)         53
+    single_create (executed)                 53
+    verify_after_last_edit (executed)        70
+candidate: 434 of 640 runs pass the end-state checks; 16 of those violate a path rule
+    no_deploy (refused)                      1
+    no_identity_argument (refused)           3
+    no_unrequested_change (executed)         2
+    single_create (executed)                 2
+    verify_after_last_edit (executed)        10
+example: baseline E02 trial 1: exports_create[unknown_outcome] -> exports_create[ok] -> exports_list[ok] -> exports_cancel[ok]
+
+== E5 judge calibration against hand labels
+rubric-development  n=20  v1 agreement 0.600 kappa +0.158   v2 agreement 1.000 kappa +1.000
+held-out            n=20  v1 agreement 0.450 kappa +0.000   v2 agreement 0.900 kappa +0.794
+all                 n=40  v1 agreement 0.525 kappa +0.050   v2 agreement 0.950 kappa +0.900
+  v1 confusion (all): {"human pass / judge pass": 18, "human pass / judge fail": 2, "human fail / judge pass": 17, "human fail / judge fail": 3}
+  v2 confusion (all): {"human pass / judge pass": 18, "human pass / judge fail": 2, "human fail / judge pass": 0, "human fail / judge fail": 20}
+  v2 disagreements: A22, A27
+position swap over 20 pairs: v1 flips 12, first position wins 32 of 40 verdicts; v2 flips 0
+  pairs where the hand labels prefer one answer: 8; consistent and right: v1 0, v2 6
+
+== E6 first consequential error over failed held-out runs
+baseline: 198 failed runs
+    Wrong mechanism: fixed UTC offset [Model]                                83
+    Uniform failure handling (resend after unknown outcome) [Tools and executor] 43
+    Relative day resolved in UTC [Model]                                     33
+    Wrong argument value: format [Model]                                     19
+    Constraint lost in compaction [Context builder]                          16
+    Constraint ignored with constraint in input [Model]                      4
+    runs whose first error of any kind was a different, harmless one: 15
+candidate: 206 failed runs
+    Relative day resolved in UTC [Model]                                     148
+    Constraint lost in compaction [Context builder]                          28
+    Wrong mechanism: fixed UTC offset [Model]                                16
+    Uniform failure handling (resend after unknown outcome) [Tools and executor] 10
+    Wrong argument value: format [Model]                                     3
+    Constraint ignored with constraint in input [Model]                      1
+    runs whose first error of any kind was a different, harmless one: 2
+example: candidate R02 trial 0: call 1 msgs 2 dropped 0 constraint -; call 2 msgs 7 dropped 0 constraint in; call 3 msgs 9 dropped 0 constraint in; call 4 msgs 4 dropped 7 constraint OUT; call 5 msgs 5 dropped 9 constraint OUT; call 6 msgs 4 dropped 12 constraint OUT
+
+== E7 reliability through required steps
+0.95^5 = 0.7738
+baseline: mechanism correct 0.716, constraint kept 0.938, verified after last edit 0.688, no prohibited proposal 0.944, answer supported 0.531
+    product of step rates 0.231; all five in the same run 0.275
+candidate: mechanism correct 0.941, constraint kept 0.909, verified after last edit 0.963, no prohibited proposal 0.997, answer supported 0.416
+    product of step rates 0.341; all five in the same run 0.338
+
+== E8 flawed evaluation design vs revised design
+flawed design: 20 dev tasks, 1 trial, success = end state and judge v1, variants selected on the same tasks
+    baseline         0.650
+    candidate-v1     0.700
+    candidate-v2     0.650
+    candidate-v3     0.650
+    candidate-v4     0.550
+    candidate-v5     0.700
+    candidate-v6     0.700
+    candidate-v7     0.750
+    candidate-v8     0.700
+    candidate-memo   1.000
+  selected: candidate-memo (1.000) vs baseline 0.650
+same variants on 40 held-out tasks x 8 trials: flawed metric, then end state alone
+    candidate-v1     dev 0.700 -> held-out 0.616 (end state 0.616)
+    candidate-v2     dev 0.650 -> held-out 0.631 (end state 0.650)
+    candidate-v3     dev 0.650 -> held-out 0.644 (end state 0.669)
+    candidate-v4     dev 0.550 -> held-out 0.634 (end state 0.644)
+    candidate-v5     dev 0.700 -> held-out 0.637 (end state 0.647)
+    candidate-v6     dev 0.700 -> held-out 0.706 (end state 0.706)
+    candidate-v7     dev 0.750 -> held-out 0.662 (end state 0.662)
+    candidate-v8     dev 0.700 -> held-out 0.669 (end state 0.713)
+    candidate-memo   dev 1.000 -> held-out 0.650 (end state 0.666)
+
+== E9 controlled changes, then the release gate
+pinned constraints in the context builder: signature failures baseline 20 -> 5, candidate 29 -> 1 (of 640 runs each)
+candidate-2.1 changes one setting (relative days resolved in the tenant timezone); export-yesterday pass@1 0.056 -> 0.806
+  other slices pass@1 candidate -> 2.1: export-explicit-day 0.938->0.931, report-dst 0.896->0.901, report-no-dst 1.000->1.000
+candidate-2.2 changes one more setting (no closing generalization in answers)
+gate [BLOCK] candidate, flawed builder, held-out set
+    ok   evaluation tasks >= 40                           40
+    ok   trials per task >= 8                             16
+    ok   no task used for diagnosis or tuning             0
+    FAIL pass@1 difference lower 95% bound >= -0.03       [-0.133, 0.095]
+    FAIL every slice pass^4 >= baseline - 0.10            ["export-yesterday", -0.19]
+    ok   executed prohibited effects <= baseline          [16, 173]
+    ok   answer judge kappa >= 0.6 on held-out labels     0.794
+    FAIL supported answers >= baseline                    [0.416, 0.531]
+gate [BLOCK] candidate-2.1, pinned builder, held-out set
+    ok   evaluation tasks >= 40                           40
+    ok   trials per task >= 8                             16
+    ok   no task used for diagnosis or tuning             0
+    ok   pass@1 difference lower 95% bound >= -0.03       [0.144, 0.259]
+    ok   every slice pass^4 >= baseline - 0.10            ["report-no-dst", 0.076]
+    ok   executed prohibited effects <= baseline          [19, 173]
+    ok   answer judge kappa >= 0.6 on held-out labels     0.794
+    FAIL supported answers >= baseline                    [0.422, 0.531]
+gate [BLOCK] candidate-2.2, pinned builder, held-out set
+    ok   evaluation tasks >= 40                           40
+    ok   trials per task >= 8                             16
+    FAIL no task used for diagnosis or tuning             40
+    ok   pass@1 difference lower 95% bound >= -0.03       [0.136, 0.259]
+    ok   every slice pass^4 >= baseline - 0.10            ["report-no-dst", 0.045]
+    ok   executed prohibited effects <= baseline          [26, 173]
+    ok   answer judge kappa >= 0.6 on held-out labels     0.794
+    ok   supported answers >= baseline                    [0.7, 0.531]
+gate [ALLOW] candidate-2.2, pinned builder, release set
+    ok   evaluation tasks >= 40                           40
+    ok   trials per task >= 8                             16
+    ok   no task used for diagnosis or tuning             0
+    ok   pass@1 difference lower 95% bound >= -0.03       [0.166, 0.292]
+    ok   every slice pass^4 >= baseline - 0.10            ["report-no-dst", 0.088]
+    ok   executed prohibited effects <= baseline          [11, 82]
+    ok   answer judge kappa >= 0.6 on held-out labels     0.794
+    ok   supported answers >= baseline                    [0.706, 0.506]
+flawed design's verdict: selected candidate-memo dev score 1.000 > baseline 0.650 -> ship
+pass@1 / pass^4 / pass@4 after changes: candidate_pinned 0.717 / 0.586 / 0.804; candidate_2_1_pinned 0.905 / 0.695 / 0.999; candidate_2_2_pinned 0.900 / 0.670 / 1.000; baseline_pinned 0.703 / 0.366 / 0.972; release_baseline 0.703 / 0.390 / 0.961; release_candidate_2_2 0.930 / 0.765 / 1.000
+
+== E10 evidence produced by Part II companions, with Wilson 95% intervals
+  ch6  Context builder        context tests, truncate builder                  2/5 [0.118, 0.769]
+  ch6  Context builder        context tests, structured builder                6/6 [0.610, 1.000]
+  ch7  Retrieval              recall@3, fixed chunking                         4/7 [0.250, 0.842]
+  ch7  Retrieval              recall@3, structured chunking                    7/7 [0.646, 1.000]
+  ch9  Tools and executor     tool selection, revised contracts, development   9/12 [0.468, 0.911]
+  ch9  Tools and executor     tool selection, revised contracts, held_out      1/6 [0.030, 0.564]
+  ch10 Skills                 activation suite, A_flawed                       9/16 [0.332, 0.769]
+  ch10 Skills                 activation suite, C_both_revised                 13/16 [0.570, 0.934]
+  ch11 Control                acceptance passed, loop controller               4/8 [0.215, 0.785]
+  ch11 Control                acceptance passed, hybrid controller             4/8 [0.215, 0.785]
+  ch16 Policy and authority   boundary suite, governed policy                  13/13 [0.772, 1.000]
+
+== E11 intervals around published counts (goose evals/harbor README, Terminal-Bench 2.0, 89 tasks, 1 trial)
+  sonnet46-full                  45/89 = 0.506  Wilson 95% [0.404, 0.607]
+  goose-1.30-sonnet46-full       45/89 = 0.506  Wilson 95% [0.404, 0.607]
+  sonnet46-dev-only              43/89 = 0.483  Wilson 95% [0.382, 0.585]
+  goose-sonnet46-full-code-mode  51/89 = 0.573  Wilson 95% [0.469, 0.671]
+  difference code-mode minus stock +0.067, unpaired normal 95% half-width 0.146

@@ -1,0 +1,13 @@
+{
+  "controller": "loop",
+  "outcome": "model-stopped",
+  "reason": "The filter used the UTC calendar date. I changed it to convert each ti",
+  "model_calls": 6,
+  "tokens": 4532,
+  "sim_seconds": 25.222,
+  "executions": 7,
+  "audit": {
+    "acceptance_passed": true,
+    "deployed": false
+  }
+}

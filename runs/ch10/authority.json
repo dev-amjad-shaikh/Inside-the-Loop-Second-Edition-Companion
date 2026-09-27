@@ -1,0 +1,38 @@
+{
+  "tampered_pinned_script": {
+    "status": "refused",
+    "message": "scripts/probe_boundary.py changed since report-helper 1.0.0 was released"
+  },
+  "tampered_record": {
+    "call_id": "x1",
+    "skill": "report-helper",
+    "version": "1.0.0",
+    "script": "scripts/probe_boundary.py",
+    "args": [
+      "report.py",
+      "America/Los_Angeles",
+      "2026-09-11",
+      "2026-11-01"
+    ],
+    "sha256": "6402b5f4aee9",
+    "decision": "refused",
+    "rule": "script hash does not match pin",
+    "pinned": "c56c68f90d2b"
+  },
+  "unpinned_under_strict_policy": {
+    "status": "refused",
+    "message": "scripts/fix_report.py is not pinned by report-helper"
+  },
+  "strict_record": {
+    "call_id": "x2",
+    "skill": "report-helper",
+    "version": "0.1.0",
+    "script": "scripts/fix_report.py",
+    "args": [
+      "report.py"
+    ],
+    "sha256": "0a2c27a4b10d",
+    "decision": "refused",
+    "rule": "unpinned script"
+  }
+}

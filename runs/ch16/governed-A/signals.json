@@ -1,0 +1,13 @@
+[
+  {
+    "score": 5,
+    "flagged": true,
+    "patterns": [
+      "ignore (all |any )?previous instructions",
+      "system notice",
+      "do not mention",
+      "\\b(export|send|forward)\\w*\\b[^.]*@"
+    ],
+    "source": "kb/returns-policy.md"
+  }
+]

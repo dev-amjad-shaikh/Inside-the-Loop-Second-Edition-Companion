@@ -1,0 +1,287 @@
+{
+  "run": "run-24",
+  "outcome": {
+    "outcome": "waiting_for_person",
+    "reason": "input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?",
+    "effects": 0
+  },
+  "1_what_did_the_model_receive": {
+    "model_calls": [
+      {
+        "call": 1,
+        "task_revision": 1,
+        "request_sha": "ea516e0c73a7",
+        "messages": 6,
+        "input_tokens_approx": 1332,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 2,
+        "task_revision": 1,
+        "request_sha": "2ab97ea613b6",
+        "messages": 8,
+        "input_tokens_approx": 1808,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 1,
+          "workspace data": 1,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 3,
+        "task_revision": 1,
+        "request_sha": "ac50cfd4dd1a",
+        "messages": 13,
+        "input_tokens_approx": 2356,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 2,
+          "workspace data": 5,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      }
+    ],
+    "last_call_provenance": [
+      {
+        "source": "application",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "source": "human interface",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "transform": "verbatim",
+        "revision": "a09d9944eb9b",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "transform": "verbatim",
+        "revision": "b255022d45e2",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "source": "model call 1",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "source": "model call 2",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "source": "read_file(\"path\":\"settings.json\")",
+        "transform": "verbatim",
+        "revision": "a1f7e04c6d73",
+        "trust": "workspace data",
+        "tokens": 32
+      },
+      {
+        "source": "read_file(\"path\":\"report.py\")",
+        "transform": "verbatim",
+        "revision": "78721bd28acc",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "transform": "verbatim",
+        "revision": "197c0720866d",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "source": "task records",
+        "transform": "pinned (derived)",
+        "revision": "task r1",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "excluded_before_the_model": {
+      "retrieval_filters": [
+        [
+          "indexed chunks",
+          10
+        ],
+        [
+          "after access filter",
+          7
+        ],
+        [
+          "after withdrawal filter",
+          4
+        ],
+        [
+          "after effective-date filter",
+          4
+        ]
+      ],
+      "memory_excluded": [
+        {
+          "id": "mem-f0207de3",
+          "reason": "expired at 2026-09-19T00:00:00Z"
+        }
+      ],
+      "memory_writes_rejected": [
+        {
+          "key": "report_timezone",
+          "reasons": [
+            "kind report_timezone is owned by project configuration (settings.json)"
+          ]
+        }
+      ]
+    }
+  },
+  "2_which_operation_was_authorized_and_by_whom": [
+    {
+      "call_id": "k1",
+      "tool": "activate_skill",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c1",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c2",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c3",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "r1",
+      "tool": "read_skill_resource",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "q1",
+      "tool": "request_input",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "waiting for person"
+    }
+  ],
+  "3_what_actually_changed": {
+    "workspace": {},
+    "exports": [],
+    "outbox": {},
+    "memory_writes_by_run": 0,
+    "deployments": 0,
+    "run_store_operations": {
+      "k1": "completed",
+      "c1": "completed",
+      "c2": "completed",
+      "c3": "completed",
+      "r1": "completed",
+      "q1": "completed"
+    }
+  },
+  "4_which_evidence_supports_the_result": {
+    "evidence": [],
+    "review": null,
+    "probe": null,
+    "verdict": null
+  },
+  "5_what_remains_uncertain": [
+    "run not complete: input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?",
+    "model replies are scripted stand-ins; the record shows what the runtime did with them, and says nothing about how often a live model proposes them"
+  ]
+}

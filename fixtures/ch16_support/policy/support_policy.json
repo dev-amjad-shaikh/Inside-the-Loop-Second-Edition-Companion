@@ -1,0 +1,29 @@
+{
+  "policy": "support-assistant",
+  "owner": "support-platform team",
+  "profiles": {
+    "support.answer": {
+      "tools": ["get_order", "search_kb", "read_file"],
+      "egress": false,
+      "approval_required": []
+    },
+    "support.export": {
+      "tools": ["get_order", "read_file", "export_customer_records"],
+      "egress": true,
+      "approval_required": ["export_customer_records"]
+    }
+  },
+  "roles": {
+    "support_agent": ["support.answer"],
+    "support_lead": ["support.answer", "support.export"]
+  },
+  "tenant_destinations": {
+    "acme": ["reports@acme.example"],
+    "globex": ["exports@globex.example"]
+  },
+  "identity_arguments": ["tenant_id", "tenant", "user_id", "account_id"],
+  "credentials": {
+    "get_order": "orders-api",
+    "export_customer_records": "mail-relay"
+  }
+}

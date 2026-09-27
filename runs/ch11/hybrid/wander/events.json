@@ -1,0 +1,245 @@
+[
+  {
+    "step": 1,
+    "t": 1.903,
+    "stage": "inspect",
+    "ops": [
+      "read_file:billing.py:6a5757fd"
+    ],
+    "new_evidence": [
+      "e1:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 1,
+      "tokens": 305,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 1.903
+  },
+  {
+    "step": 2,
+    "t": 4.222,
+    "stage": "inspect",
+    "ops": [
+      "read_file:customers.py:4cc5bdb4"
+    ],
+    "new_evidence": [
+      "e2:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 2,
+      "tokens": 1234,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 4.222
+  },
+  {
+    "step": 3,
+    "t": 6.966,
+    "stage": "inspect",
+    "ops": [
+      "read_file:exports.py:c38fc0f3"
+    ],
+    "new_evidence": [
+      "e3:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 3,
+      "tokens": 2800,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 6.966
+  },
+  {
+    "step": 4,
+    "t": 10.126,
+    "stage": "inspect",
+    "ops": [
+      "read_file:inventory.py:ec3aff9b"
+    ],
+    "new_evidence": [
+      "e4:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 4,
+      "tokens": 4990,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 10.126
+  },
+  {
+    "step": 5,
+    "t": 13.711,
+    "stage": "inspect",
+    "ops": [
+      "read_file:invoices.py:e803f5fe"
+    ],
+    "new_evidence": [
+      "e5:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 5,
+      "tokens": 7817,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 13.711
+  },
+  {
+    "step": 6,
+    "t": 17.716,
+    "stage": "inspect",
+    "ops": [
+      "read_file:ledger.py:7f62a399"
+    ],
+    "new_evidence": [
+      "e6:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 6,
+      "tokens": 11274,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 17.716
+  },
+  {
+    "step": 7,
+    "t": 22.132,
+    "stage": "inspect",
+    "ops": [
+      "read_file:notifications.py:d9b33def"
+    ],
+    "new_evidence": [
+      "e7:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 7,
+      "tokens": 15348,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 22.132
+  },
+  {
+    "step": 8,
+    "t": 26.991,
+    "stage": "inspect",
+    "ops": [
+      "read_file:payments.py:a0e8db60"
+    ],
+    "new_evidence": [
+      "e8:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 8,
+      "tokens": 20087,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 26.991
+  },
+  {
+    "step": 9,
+    "t": 32.27,
+    "stage": "inspect",
+    "ops": [
+      "read_file:refunds.py:0287a7fa"
+    ],
+    "new_evidence": [
+      "e9:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "pending",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "satisfied"
+    },
+    "budgets": {
+      "model_calls": 9,
+      "tokens": 25456,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 32.27
+  }
+]

@@ -1,0 +1,326 @@
+{
+  "assumptions": {
+    "write_multiplier": 1.25,
+    "read_multiplier": 0.1,
+    "model": "every request written in full; next request reads its longest common prefix, compared unit by unit (tool definitions, then messages); minimum cacheable length and expiry ignored"
+  },
+  "full_calls_1_8": {
+    "rows": [
+      {
+        "request": 1,
+        "input_tokens": 396,
+        "cached_prefix": 0,
+        "cost_units": 495.0,
+        "uncached_cost_units": 396
+      },
+      {
+        "request": 2,
+        "input_tokens": 712,
+        "cached_prefix": 396,
+        "cost_units": 434.6,
+        "uncached_cost_units": 712
+      },
+      {
+        "request": 3,
+        "input_tokens": 862,
+        "cached_prefix": 712,
+        "cost_units": 258.7,
+        "uncached_cost_units": 862
+      },
+      {
+        "request": 4,
+        "input_tokens": 921,
+        "cached_prefix": 862,
+        "cost_units": 159.9,
+        "uncached_cost_units": 921
+      },
+      {
+        "request": 5,
+        "input_tokens": 1017,
+        "cached_prefix": 921,
+        "cost_units": 212.1,
+        "uncached_cost_units": 1017
+      },
+      {
+        "request": 6,
+        "input_tokens": 1128,
+        "cached_prefix": 1017,
+        "cost_units": 240.4,
+        "uncached_cost_units": 1128
+      },
+      {
+        "request": 7,
+        "input_tokens": 1203,
+        "cached_prefix": 1128,
+        "cost_units": 206.6,
+        "uncached_cost_units": 1203
+      },
+      {
+        "request": 8,
+        "input_tokens": 1338,
+        "cached_prefix": 1203,
+        "cost_units": 289.1,
+        "uncached_cost_units": 1338
+      }
+    ],
+    "total_input": 7577,
+    "total_cached": 6239,
+    "cost_units": 2296.4,
+    "uncached_cost_units": 7577
+  },
+  "structured_task_last": {
+    "rows": [
+      {
+        "request": 1,
+        "input_tokens": 483,
+        "cached_prefix": 0,
+        "cost_units": 603.8,
+        "uncached_cost_units": 483
+      },
+      {
+        "request": 2,
+        "input_tokens": 799,
+        "cached_prefix": 396,
+        "cost_units": 543.4,
+        "uncached_cost_units": 799
+      },
+      {
+        "request": 3,
+        "input_tokens": 949,
+        "cached_prefix": 712,
+        "cost_units": 367.4,
+        "uncached_cost_units": 949
+      },
+      {
+        "request": 4,
+        "input_tokens": 1008,
+        "cached_prefix": 862,
+        "cost_units": 268.7,
+        "uncached_cost_units": 1008
+      },
+      {
+        "request": 5,
+        "input_tokens": 1104,
+        "cached_prefix": 921,
+        "cost_units": 320.9,
+        "uncached_cost_units": 1104
+      },
+      {
+        "request": 6,
+        "input_tokens": 1215,
+        "cached_prefix": 1017,
+        "cost_units": 349.2,
+        "uncached_cost_units": 1215
+      },
+      {
+        "request": 7,
+        "input_tokens": 1290,
+        "cached_prefix": 1128,
+        "cost_units": 315.3,
+        "uncached_cost_units": 1290
+      },
+      {
+        "request": 8,
+        "input_tokens": 1511,
+        "cached_prefix": 1203,
+        "cost_units": 505.3,
+        "uncached_cost_units": 1511
+      },
+      {
+        "request": 9,
+        "input_tokens": 1385,
+        "cached_prefix": 357,
+        "cost_units": 1320.7,
+        "uncached_cost_units": 1385
+      },
+      {
+        "request": 10,
+        "input_tokens": 1851,
+        "cached_prefix": 1212,
+        "cost_units": 920.0,
+        "uncached_cost_units": 1851
+      },
+      {
+        "request": 11,
+        "input_tokens": 1960,
+        "cached_prefix": 1678,
+        "cost_units": 520.3,
+        "uncached_cost_units": 1960
+      }
+    ],
+    "total_input": 13555,
+    "total_cached": 9486,
+    "cost_units": 6035.0,
+    "uncached_cost_units": 13555
+  },
+  "structured_resummarize": {
+    "rows": [
+      {
+        "request": 1,
+        "input_tokens": 483,
+        "cached_prefix": 0,
+        "cost_units": 603.8,
+        "uncached_cost_units": 483
+      },
+      {
+        "request": 2,
+        "input_tokens": 799,
+        "cached_prefix": 396,
+        "cost_units": 543.4,
+        "uncached_cost_units": 799
+      },
+      {
+        "request": 3,
+        "input_tokens": 949,
+        "cached_prefix": 712,
+        "cost_units": 367.4,
+        "uncached_cost_units": 949
+      },
+      {
+        "request": 4,
+        "input_tokens": 1008,
+        "cached_prefix": 862,
+        "cost_units": 268.7,
+        "uncached_cost_units": 1008
+      },
+      {
+        "request": 5,
+        "input_tokens": 1104,
+        "cached_prefix": 921,
+        "cost_units": 320.9,
+        "uncached_cost_units": 1104
+      },
+      {
+        "request": 6,
+        "input_tokens": 1215,
+        "cached_prefix": 1017,
+        "cost_units": 349.2,
+        "uncached_cost_units": 1215
+      },
+      {
+        "request": 7,
+        "input_tokens": 1290,
+        "cached_prefix": 1128,
+        "cost_units": 315.3,
+        "uncached_cost_units": 1290
+      },
+      {
+        "request": 8,
+        "input_tokens": 1511,
+        "cached_prefix": 1203,
+        "cost_units": 505.3,
+        "uncached_cost_units": 1511
+      },
+      {
+        "request": 9,
+        "input_tokens": 1385,
+        "cached_prefix": 357,
+        "cost_units": 1320.7,
+        "uncached_cost_units": 1385
+      },
+      {
+        "request": 10,
+        "input_tokens": 1851,
+        "cached_prefix": 357,
+        "cost_units": 1903.2,
+        "uncached_cost_units": 1851
+      },
+      {
+        "request": 11,
+        "input_tokens": 1960,
+        "cached_prefix": 1678,
+        "cost_units": 520.3,
+        "uncached_cost_units": 1960
+      }
+    ],
+    "total_input": 13555,
+    "total_cached": 8631,
+    "cost_units": 7018.2,
+    "uncached_cost_units": 13555
+  },
+  "structured_task_first_status": {
+    "rows": [
+      {
+        "request": 1,
+        "input_tokens": 504,
+        "cached_prefix": 0,
+        "cost_units": 630.0,
+        "uncached_cost_units": 504
+      },
+      {
+        "request": 2,
+        "input_tokens": 819,
+        "cached_prefix": 444,
+        "cost_units": 513.1,
+        "uncached_cost_units": 819
+      },
+      {
+        "request": 3,
+        "input_tokens": 969,
+        "cached_prefix": 444,
+        "cost_units": 700.6,
+        "uncached_cost_units": 969
+      },
+      {
+        "request": 4,
+        "input_tokens": 1031,
+        "cached_prefix": 444,
+        "cost_units": 778.1,
+        "uncached_cost_units": 1031
+      },
+      {
+        "request": 5,
+        "input_tokens": 1126,
+        "cached_prefix": 444,
+        "cost_units": 896.9,
+        "uncached_cost_units": 1126
+      },
+      {
+        "request": 6,
+        "input_tokens": 1236,
+        "cached_prefix": 444,
+        "cost_units": 1034.4,
+        "uncached_cost_units": 1236
+      },
+      {
+        "request": 7,
+        "input_tokens": 1312,
+        "cached_prefix": 444,
+        "cost_units": 1129.4,
+        "uncached_cost_units": 1312
+      },
+      {
+        "request": 8,
+        "input_tokens": 1533,
+        "cached_prefix": 357,
+        "cost_units": 1505.7,
+        "uncached_cost_units": 1533
+      },
+      {
+        "request": 9,
+        "input_tokens": 1407,
+        "cached_prefix": 530,
+        "cost_units": 1149.2,
+        "uncached_cost_units": 1407
+      },
+      {
+        "request": 10,
+        "input_tokens": 1872,
+        "cached_prefix": 530,
+        "cost_units": 1730.5,
+        "uncached_cost_units": 1872
+      },
+      {
+        "request": 11,
+        "input_tokens": 1982,
+        "cached_prefix": 530,
+        "cost_units": 1868.0,
+        "uncached_cost_units": 1982
+      }
+    ],
+    "total_input": 13791,
+    "total_cached": 4611,
+    "cost_units": 11935.9,
+    "uncached_cost_units": 13791
+  }
+}

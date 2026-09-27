@@ -1,0 +1,31 @@
+: t=180
+event: response.created
+data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_b7f3d4","object":"response","model":"coder-pro-2026-07-30","status":"in_progress","output":[]}}
+
+event: response.in_progress
+data: {"type":"response.in_progress","sequence_number":1,"response":{"id":"resp_b7f3d4","status":"in_progress"}}
+
+: t=390
+event: response.output_item.added
+data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"function_call","id":"fc_02","call_id":"call_test_1","name":"replace_text","arguments":"","status":"in_progress"}}
+
+: t=440
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":3,"item_id":"fc_02","output_index":0,"delta":"{\"path\": \"test_report.py\", "}
+
+: t=500
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":4,"item_id":"fc_02","output_index":0,"delta":"\"old\": \"\\n\\nif __name__ == \\\"__main__\\\":\", "}
+
+: t=560
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":5,"item_id":"fc_02","output_index":0,"delta":"\"new\": \"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat("}
+
+: t=620
+event: response.function_call_arguments.delta
+data: {"type":"response.function_call_arguments.delta","sequence_number":6,"item_id":"fc_02","output_index":0,"delta":"\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n"}
+
+: t=633
+event: response.incomplete
+data: {"type":"response.incomplete","sequence_number":7,"response":{"id":"resp_b7f3d4","object":"response","model":"coder-pro-2026-07-30","status":"incomplete","incomplete_details":{"reason":"max_output_tokens"},"output":[{"type":"function_call","id":"fc_02","call_id":"call_test_1","name":"replace_text","arguments":"{\"path\": \"test_report.py\", \"old\": \"\\n\\nif __name__ == \\\"__main__\\\":\", \"new\": \"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n","status":"incomplete"}],"usage":{"input_tokens":1987,"input_tokens_details":{"cached_tokens":1536},"output_tokens":64,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":2051}}}
+

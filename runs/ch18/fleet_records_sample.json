@@ -1,0 +1,492 @@
+[
+  {
+    "run_id": "run-1-00000",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00000-1",
+      "req-run-1-00000-2",
+      "req-run-1-00000-3",
+      "req-run-1-00000-4"
+    ],
+    "cost": 0.053799,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 26.484344348,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00001",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00001-1",
+      "req-run-1-00001-2",
+      "req-run-1-00001-3",
+      "req-run-1-00001-4",
+      "req-run-1-00001-5",
+      "req-run-1-00001-6",
+      "req-run-1-00001-7",
+      "req-run-1-00001-8",
+      "req-run-1-00001-9"
+    ],
+    "cost": 0.127413,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 58.903715654,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00002",
+    "version": "1.4.0",
+    "category": "recovered_error",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00002-1",
+      "req-run-1-00002-20",
+      "req-run-1-00002-2",
+      "req-run-1-00002-3",
+      "req-run-1-00002-4",
+      "req-run-1-00002-5",
+      "req-run-1-00002-6",
+      "req-run-1-00002-7",
+      "req-run-1-00002-8",
+      "req-run-1-00002-9"
+    ],
+    "cost": 0.15219000000000002,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": true,
+    "latency_s": 94.32306167,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": true,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00003",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00003-1",
+      "req-run-1-00003-2",
+      "req-run-1-00003-3",
+      "req-run-1-00003-4",
+      "req-run-1-00003-5",
+      "req-run-1-00003-6",
+      "req-run-1-00003-7"
+    ],
+    "cost": 0.10659300000000001,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 52.05125605,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00004",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00004-1",
+      "req-run-1-00004-2",
+      "req-run-1-00004-3",
+      "req-run-1-00004-4",
+      "req-run-1-00004-5",
+      "req-run-1-00004-6",
+      "req-run-1-00004-7",
+      "req-run-1-00004-8"
+    ],
+    "cost": 0.108882,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 58.968866973,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00005",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00005-1",
+      "req-run-1-00005-2",
+      "req-run-1-00005-3",
+      "req-run-1-00005-4"
+    ],
+    "cost": 0.042123,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 19.33877196,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00006",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00006-1",
+      "req-run-1-00006-2",
+      "req-run-1-00006-3",
+      "req-run-1-00006-4",
+      "req-run-1-00006-5"
+    ],
+    "cost": 0.068772,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 39.741265214,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00007",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00007-1",
+      "req-run-1-00007-2",
+      "req-run-1-00007-3",
+      "req-run-1-00007-4",
+      "req-run-1-00007-5",
+      "req-run-1-00007-6"
+    ],
+    "cost": 0.085368,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 40.094829981,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00008",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00008-1",
+      "req-run-1-00008-2",
+      "req-run-1-00008-3",
+      "req-run-1-00008-4",
+      "req-run-1-00008-5",
+      "req-run-1-00008-6",
+      "req-run-1-00008-7",
+      "req-run-1-00008-8",
+      "req-run-1-00008-9"
+    ],
+    "cost": 0.097302,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 54.910799947,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00009",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00009-1",
+      "req-run-1-00009-2",
+      "req-run-1-00009-3",
+      "req-run-1-00009-4",
+      "req-run-1-00009-5",
+      "req-run-1-00009-6",
+      "req-run-1-00009-7",
+      "req-run-1-00009-8"
+    ],
+    "cost": 0.11962500000000001,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 51.649248235,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00010",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00010-1",
+      "req-run-1-00010-2",
+      "req-run-1-00010-3",
+      "req-run-1-00010-4",
+      "req-run-1-00010-5"
+    ],
+    "cost": 0.056466,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 34.639347183,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00011",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00011-1",
+      "req-run-1-00011-2",
+      "req-run-1-00011-3",
+      "req-run-1-00011-4",
+      "req-run-1-00011-5"
+    ],
+    "cost": 0.057831,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 31.903754459,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00012",
+    "version": "1.3.2",
+    "category": "recovered_error",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00012-1",
+      "req-run-1-00012-20",
+      "req-run-1-00012-2",
+      "req-run-1-00012-3",
+      "req-run-1-00012-4",
+      "req-run-1-00012-5"
+    ],
+    "cost": 0.062655,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": true,
+    "latency_s": 65.480163661,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": true,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00013",
+    "version": "1.4.0",
+    "category": "tool_failure",
+    "outcome": "failed",
+    "request_ids": [
+      "req-run-1-00013-1",
+      "req-run-1-00013-2",
+      "req-run-1-00013-3",
+      "req-run-1-00013-4",
+      "req-run-1-00013-5",
+      "req-run-1-00013-6",
+      "req-run-1-00013-7",
+      "req-run-1-00013-8"
+    ],
+    "cost": 0.095655,
+    "evidence_current": null,
+    "root_error": true,
+    "any_error_span": true,
+    "latency_s": 52.790357948,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": true,
+      "tail_outcome": true
+    }
+  },
+  {
+    "run_id": "run-1-00014",
+    "version": "1.4.0",
+    "category": "recovered_error",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00014-1",
+      "req-run-1-00014-20",
+      "req-run-1-00014-2",
+      "req-run-1-00014-3",
+      "req-run-1-00014-4"
+    ],
+    "cost": 0.064683,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": true,
+    "latency_s": 61.744971769,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": true,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00015",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00015-1",
+      "req-run-1-00015-2",
+      "req-run-1-00015-3",
+      "req-run-1-00015-4",
+      "req-run-1-00015-5",
+      "req-run-1-00015-6",
+      "req-run-1-00015-7",
+      "req-run-1-00015-8"
+    ],
+    "cost": 0.10784700000000001,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 49.881780917,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00016",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00016-1",
+      "req-run-1-00016-2",
+      "req-run-1-00016-3",
+      "req-run-1-00016-4",
+      "req-run-1-00016-5",
+      "req-run-1-00016-6"
+    ],
+    "cost": 0.057027,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 39.723837174,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00017",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00017-1",
+      "req-run-1-00017-2",
+      "req-run-1-00017-3",
+      "req-run-1-00017-4"
+    ],
+    "cost": 0.056829,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 29.095758924,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00018",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00018-1",
+      "req-run-1-00018-2",
+      "req-run-1-00018-3",
+      "req-run-1-00018-4",
+      "req-run-1-00018-5"
+    ],
+    "cost": 0.052632,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 30.001546472,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  },
+  {
+    "run_id": "run-1-00019",
+    "version": "1.4.0",
+    "category": "verified",
+    "outcome": "verified",
+    "request_ids": [
+      "req-run-1-00019-1",
+      "req-run-1-00019-2",
+      "req-run-1-00019-3",
+      "req-run-1-00019-4",
+      "req-run-1-00019-5",
+      "req-run-1-00019-6",
+      "req-run-1-00019-7",
+      "req-run-1-00019-8"
+    ],
+    "cost": 0.090771,
+    "evidence_current": true,
+    "root_error": false,
+    "any_error_span": false,
+    "latency_s": 48.812848147,
+    "kept": {
+      "head_10pct": false,
+      "tail_errors": false,
+      "tail_outcome": false
+    }
+  }
+]

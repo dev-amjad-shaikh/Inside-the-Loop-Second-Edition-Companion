@@ -1,0 +1,157 @@
+{
+  "source_revision": "339d3a9f2656",
+  "op_key": "run-13:export:daily-orders:2026-09-11",
+  "payload_digest": "07c41c5e8976f552",
+  "changed_payload_digest": "a539c24cf080dd2c",
+  "runtime_after_interruption": {
+    "op_id": "op-0002",
+    "tool": "create_export",
+    "recovery_class": "idempotent_key",
+    "op_key": "run-13:export:daily-orders:2026-09-11",
+    "payload_digest": "07c41c5e8976f552",
+    "status": "dispatched",
+    "attempts": 1,
+    "first_dispatched_at": 1.7,
+    "receipt": null
+  },
+  "service_after_interruption": [
+    {
+      "export_id": "export-file-001",
+      "op_key": "run-13:export:daily-orders:2026-09-11",
+      "payload_digest": "07c41c5e8976f552",
+      "report_date": "2026-09-11",
+      "source_revision": "339d3a9f2656",
+      "destination": "reports/daily-orders-2026-09-11.csv",
+      "created_at": 1.7
+    }
+  ],
+  "decisions": [
+    [
+      "op-0001",
+      "continue from receipt"
+    ],
+    [
+      "op-0002",
+      "reuse key"
+    ]
+  ],
+  "recovered_receipt": {
+    "created_at": 1.7,
+    "export_id": "export-file-001",
+    "op_key": "run-13:export:daily-orders:2026-09-11",
+    "payload_digest": "07c41c5e8976f552",
+    "replayed": true
+  },
+  "changed_payload": "rejected (422: operation key reused with a different payload)",
+  "service_final": [
+    {
+      "export_id": "export-file-001",
+      "op_key": "run-13:export:daily-orders:2026-09-11",
+      "payload_digest": "07c41c5e8976f552",
+      "report_date": "2026-09-11",
+      "source_revision": "339d3a9f2656",
+      "destination": "reports/daily-orders-2026-09-11.csv",
+      "created_at": 1.7
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "t": 0.0,
+      "op_id": "op-0001",
+      "kind": "prepared",
+      "detail": {
+        "op_key": null,
+        "payload_digest": "b0cc17f47b323015",
+        "recovery_class": "safe_repeat",
+        "tool": "read_revision"
+      }
+    },
+    {
+      "seq": 2,
+      "t": 0.4,
+      "op_id": "op-0001",
+      "kind": "dispatched",
+      "detail": {}
+    },
+    {
+      "seq": 3,
+      "t": 0.4,
+      "op_id": "op-0001",
+      "kind": "completed",
+      "detail": {
+        "path": "report.py",
+        "version": "339d3a9f2656"
+      }
+    },
+    {
+      "seq": 4,
+      "t": 1.5,
+      "op_id": "op-0002",
+      "kind": "prepared",
+      "detail": {
+        "op_key": "run-13:export:daily-orders:2026-09-11",
+        "payload_digest": "07c41c5e8976f552",
+        "recovery_class": "idempotent_key",
+        "tool": "create_export"
+      }
+    },
+    {
+      "seq": 5,
+      "t": 1.7,
+      "op_id": "op-0002",
+      "kind": "dispatched",
+      "detail": {}
+    },
+    {
+      "seq": 6,
+      "t": 7.7,
+      "op_id": "op-0002",
+      "kind": "recovered_by_key",
+      "detail": {
+        "created_at": 1.7,
+        "export_id": "export-file-001",
+        "op_key": "run-13:export:daily-orders:2026-09-11",
+        "payload_digest": "07c41c5e8976f552",
+        "replayed": true
+      }
+    }
+  ],
+  "observed": [
+    "Runtime after interruption: dispatched, no receipt",
+    "Service after interruption: export-file-001 exists",
+    "Repeated key and same payload: existing receipt returned",
+    "Repeated key and different payload: rejected",
+    "Final number of export records: 1"
+  ],
+  "fresh_key_variant": {
+    "retry_key": "run-13:export:daily-orders:2026-09-11:retry-1",
+    "receipt": {
+      "export_id": "export-file-002",
+      "op_key": "run-13:export:daily-orders:2026-09-11:retry-1",
+      "payload_digest": "07c41c5e8976f552",
+      "created_at": 6.0,
+      "replayed": false
+    },
+    "exports": [
+      {
+        "export_id": "export-file-001",
+        "op_key": "run-13:export:daily-orders:2026-09-11",
+        "payload_digest": "07c41c5e8976f552",
+        "report_date": "2026-09-11",
+        "source_revision": "339d3a9f2656",
+        "destination": "reports/daily-orders-2026-09-11.csv",
+        "created_at": 0.0
+      },
+      {
+        "export_id": "export-file-002",
+        "op_key": "run-13:export:daily-orders:2026-09-11:retry-1",
+        "payload_digest": "07c41c5e8976f552",
+        "report_date": "2026-09-11",
+        "source_revision": "339d3a9f2656",
+        "destination": "reports/daily-orders-2026-09-11.csv",
+        "created_at": 6.0
+      }
+    ]
+  }
+}

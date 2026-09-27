@@ -1,0 +1,161 @@
+{
+  "about": "Hand-authored SSE fixtures for Chapter 5. Shapes are modeled on documented provider formats; they are not byte-exact recordings. Times in ': t=' comments are authored.",
+  "adapters": {
+    "block": {
+      "modeled_on": "Anthropic Messages streaming",
+      "api_version": "2026-06-01",
+      "requested_model": "coder-large"
+    },
+    "item": {
+      "modeled_on": "OpenAI Responses streaming",
+      "api_version": "responses-2026-05",
+      "requested_model": "coder-pro"
+    }
+  },
+  "fixtures": {
+    "b_fix_done": {
+      "format": "item",
+      "transport_end": "closed",
+      "request_id": "req_9d01",
+      "about": "Reasoning item plus the report.py fix as one function call; completed."
+    },
+    "b_fix_cut": {
+      "format": "item",
+      "transport_end": "reset",
+      "request_id": "req_9cff",
+      "about": "Same call; connection reset inside the fifth argument delta."
+    },
+    "b_length_mid_args": {
+      "format": "item",
+      "transport_end": "closed",
+      "request_id": "req_9d02",
+      "about": "Regression-test edit cut by the output token limit mid-argument."
+    },
+    "b_filtered": {
+      "format": "item",
+      "transport_end": "closed",
+      "request_id": "req_9d03",
+      "about": "Response ended by a content filter before any output."
+    },
+    "b_answer_done": {
+      "format": "item",
+      "transport_end": "closed",
+      "request_id": "req_9d04",
+      "about": "Final answer from Chapter 3, streamed as text; completed."
+    },
+    "a_tests_done": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a11",
+      "about": "Signed thinking block, short text, run_tests tool call; completed."
+    },
+    "a_answer_done": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a12",
+      "about": "Final answer from Chapter 3; end_turn."
+    },
+    "a_answer_length": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a13",
+      "about": "Final answer cut by max_tokens."
+    },
+    "a_refusal": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a14",
+      "about": "Provider refusal with stop details and no content."
+    },
+    "a_unknown_block": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a15",
+      "about": "Invented 'plan_update' block type and invented 'rate_limit_hint' event, standing for additions from a newer API version."
+    },
+    "a_two_tools_cut": {
+      "format": "block",
+      "transport_end": "closed",
+      "request_id": "req_7a16",
+      "about": "Complete read_file block, then replace_text cut after two properties; server closes without a terminal event."
+    }
+  },
+  "expected": {
+    "b_fix_done": {
+      "kind": "completed_tool_calls",
+      "executable": 1,
+      "arguments_sha": [
+        "9011849db927"
+      ]
+    },
+    "b_fix_cut": {
+      "kind": "interrupted",
+      "executable": 0
+    },
+    "b_length_mid_args": {
+      "kind": "truncated_max_tokens",
+      "executable": 0
+    },
+    "b_filtered": {
+      "kind": "refused",
+      "executable": 0
+    },
+    "b_answer_done": {
+      "kind": "completed_text",
+      "executable": 0
+    },
+    "a_tests_done": {
+      "kind": "completed_tool_calls",
+      "executable": 1,
+      "arguments_sha": [
+        "fcdf185d2665"
+      ]
+    },
+    "a_answer_done": {
+      "kind": "completed_text",
+      "executable": 0
+    },
+    "a_answer_length": {
+      "kind": "truncated_max_tokens",
+      "executable": 0
+    },
+    "a_refusal": {
+      "kind": "refused",
+      "executable": 0
+    },
+    "a_unknown_block": {
+      "kind": "unsupported",
+      "executable": 0
+    },
+    "a_two_tools_cut": {
+      "kind": "interrupted",
+      "executable": 0
+    }
+  },
+  "capabilities": {
+    "coder-large": {
+      "format": "block",
+      "reasoning": true,
+      "unsupported_with_reasoning": [
+        "temperature",
+        "top_p"
+      ],
+      "parallel_tool_calls": "tool_choice.disable_parallel_tool_use"
+    },
+    "coder-pro": {
+      "format": "item",
+      "reasoning": true,
+      "unsupported_with_reasoning": [
+        "temperature",
+        "top_p"
+      ],
+      "parallel_tool_calls": "parallel_tool_calls"
+    },
+    "coder-mini": {
+      "format": "item",
+      "reasoning": false,
+      "unsupported_with_reasoning": [],
+      "parallel_tool_calls": null
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "manifest_id": "m-e7f21bba38fc",
+  "agent": "report-fixer",
+  "label": "report-helper 1.1.0",
+  "parts": [
+    {
+      "kind": "context",
+      "name": "ctx-default",
+      "version": "2.0.0",
+      "hash": "88e6cb4f2b846752e5e83af6cb7717eb21260d428104c4277a40dbd99a204410"
+    },
+    {
+      "kind": "controller",
+      "name": "fix-loop",
+      "version": "1.0.0",
+      "hash": "c4e7fefcd1c27c1b1822db298e05723172764ad217c72b6b5749fc0dd06fb1ac"
+    },
+    {
+      "kind": "evaluator",
+      "name": "report-fix-behavior",
+      "version": "1.0.0",
+      "hash": "8a64bd86445d019bc6a8e389fe459d91f35b51b2c99a7f9a653ba19b0f311dda"
+    },
+    {
+      "kind": "model",
+      "name": "model-a",
+      "version": "1.0.0",
+      "hash": "c7c686cc4014de623e462705691c35100b8a69aa5564e9881784b41ec5dfda23"
+    },
+    {
+      "kind": "policy",
+      "name": "report-fix-no-deploy",
+      "version": "1.0.0",
+      "hash": "e3bc51709acf1bb5c9914354fe4312175b9227342ddb4710bd348ffec02f6b90"
+    },
+    {
+      "kind": "prompt",
+      "name": "report-fixer-system",
+      "version": "1.0.0",
+      "hash": "ef0e6a4b61563ba4c2daa13aa09cab12edbf0dd763402378111a74710a68801c"
+    },
+    {
+      "kind": "runtime",
+      "name": "itl-runtime",
+      "version": "2026.9.1",
+      "hash": "ff8364966dd67d63b96dd21af476f439f7a825f1e89012227a35b89d223b4b4a"
+    },
+    {
+      "kind": "skill",
+      "name": "report-helper",
+      "version": "1.1.0",
+      "hash": "2c2d8a21842f9e154c31aac262e73c5e7d89958c1ab9374bc01518185859fb6a"
+    },
+    {
+      "kind": "tool",
+      "name": "activate_skill",
+      "version": "1.0.0",
+      "hash": "4333d6bd754de3c8f2a0a31dd50ff580595db605640da7327cb537193258c9a3"
+    },
+    {
+      "kind": "tool",
+      "name": "read_file",
+      "version": "1.0.0",
+      "hash": "a24954e579ea2d4d966543be32f9abaec9c08167c5f7dfbfe22903fc9cc1136b"
+    },
+    {
+      "kind": "tool",
+      "name": "read_skill_resource",
+      "version": "1.0.0",
+      "hash": "66bb6c047903c6666d0686fa2251c8d7feb5a666b2dca27b4762dd78b23a8105"
+    },
+    {
+      "kind": "tool",
+      "name": "replace_text",
+      "version": "1.0.0",
+      "hash": "750fc27c1f235b823bd3fcf038cf734e5963a705f8d53a0e025734cc1c21ec34"
+    },
+    {
+      "kind": "tool",
+      "name": "run_skill_script",
+      "version": "1.0.0",
+      "hash": "815226258d7538a582232ccbff81ff369a86c7bd9e5b9cf88655f88d9e651df0"
+    },
+    {
+      "kind": "tool",
+      "name": "run_tests",
+      "version": "1.0.0",
+      "hash": "dd3704d36344e6f9fe0b8cbfc43ec841ed4c6f0ccd1566e691b5a8f49489f50a"
+    }
+  ],
+  "created_at": 176,
+  "created_by": "reporting-platform"
+}

@@ -1,0 +1,38 @@
+{
+  "export_status": {
+    "candidate": {
+      "completed": 399,
+      "completion": 0.9975,
+      "mean_wall_s": 0.61,
+      "ops": 400,
+      "p95_wall_s": 1.34,
+      "total_wall_s": 242.9
+    },
+    "floor": {
+      "completed": 400,
+      "completion": 1.0,
+      "mean_wall_s": 8.79,
+      "ops": 400,
+      "p95_wall_s": 1.34,
+      "total_wall_s": 3514.6
+    }
+  },
+  "model_endpoint": {
+    "candidate": {
+      "completed": 399,
+      "completion": 0.9975,
+      "mean_wall_s": 14.83,
+      "ops": 400,
+      "p95_wall_s": 44.88,
+      "total_wall_s": 5931.4
+    },
+    "floor": {
+      "completed": 400,
+      "completion": 1.0,
+      "mean_wall_s": 16.63,
+      "ops": 400,
+      "p95_wall_s": 44.88,
+      "total_wall_s": 6651.4
+    }
+  }
+}

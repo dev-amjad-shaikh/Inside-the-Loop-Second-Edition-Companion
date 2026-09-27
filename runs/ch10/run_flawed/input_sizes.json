@@ -1,0 +1,44 @@
+[
+  {
+    "call": 1,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 68
+  },
+  {
+    "call": 2,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 133
+  },
+  {
+    "call": 3,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 229
+  },
+  {
+    "call": 4,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 260
+  },
+  {
+    "call": 5,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 297
+  },
+  {
+    "call": 6,
+    "catalog": 264,
+    "skill_body": 145,
+    "skill_resources": 0,
+    "other": 317
+  }
+]

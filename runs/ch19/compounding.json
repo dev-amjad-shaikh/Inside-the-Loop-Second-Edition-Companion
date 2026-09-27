@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "runs": 320,
+    "step_rates": {
+      "mechanism correct": 0.716,
+      "constraint kept": 0.938,
+      "verified after last edit": 0.688,
+      "no prohibited proposal": 0.944,
+      "answer supported": 0.531
+    },
+    "product_of_rates": 0.231,
+    "joint_rate": 0.275
+  },
+  "candidate": {
+    "runs": 320,
+    "step_rates": {
+      "mechanism correct": 0.941,
+      "constraint kept": 0.909,
+      "verified after last edit": 0.963,
+      "no prohibited proposal": 0.997,
+      "answer supported": 0.416
+    },
+    "product_of_rates": 0.341,
+    "joint_rate": 0.338
+  }
+}

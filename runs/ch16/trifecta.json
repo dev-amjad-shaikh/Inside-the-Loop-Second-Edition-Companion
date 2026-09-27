@@ -1,0 +1,54 @@
+[
+  {
+    "configuration": "flawed runtime",
+    "legs": {
+      "private data": [
+        "get_order",
+        "read_file",
+        "export_customer_records"
+      ],
+      "untrusted content": [
+        "search_kb",
+        "read_file"
+      ],
+      "external communication": [
+        "export_customer_records"
+      ]
+    },
+    "all_three": true,
+    "external_reach": "any address the model names"
+  },
+  {
+    "configuration": "support.answer",
+    "legs": {
+      "private data": [
+        "get_order",
+        "read_file"
+      ],
+      "untrusted content": [
+        "search_kb",
+        "read_file"
+      ]
+    },
+    "all_three": false,
+    "external_reach": "none"
+  },
+  {
+    "configuration": "support.export",
+    "legs": {
+      "private data": [
+        "get_order",
+        "read_file",
+        "export_customer_records"
+      ],
+      "untrusted content": [
+        "read_file"
+      ],
+      "external communication": [
+        "export_customer_records (to registered tenant destinations, after approval)"
+      ]
+    },
+    "all_three": true,
+    "external_reach": "registered tenant destinations, after approval"
+  }
+]

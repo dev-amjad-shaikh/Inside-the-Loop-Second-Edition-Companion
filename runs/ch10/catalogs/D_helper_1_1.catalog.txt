@@ -1,0 +1,7 @@
+The following skills provide specialized instructions for specific tasks. When a task matches a skill's description, call activate_skill with the skill's name to load its full instructions.
+<available_skills>
+<skill><name>csv-cleanup</name><description>Clean exported CSV files that will not load, fixing delimiters, encodings, quoting and duplicated header rows. Use when a CSV export fails to import or parse.</description></skill>
+<skill><name>release-notes</name><description>Draft release notes from merged pull requests and changelog entries. Use when preparing a release announcement or a version changelog.</description></skill>
+<skill><name>report-helper</name><description>Diagnose and fix day-boundary bugs in report filtering code, where records land on the wrong report day because a UTC timestamp is compared with a local report date. Use when a daily or weekly report is missing records or counting them twice near midnight, after a timezone change or around a daylight-saving switch. Do not use for writing, drafting or summarizing report documents, or for scheduling or deploying report jobs.</description></skill>
+<skill><name>status-report-writer</name><description>Write status and summary documents for people to read: weekly team updates, monthly leadership summaries and daily figures for managers, drafted from metrics or ticket data the user supplies. Use when the deliverable is a written report for readers. Do not use for fixing report code, report filters or report jobs.</description></skill>
+</available_skills>

@@ -1,0 +1,2055 @@
+[
+  {
+    "call": 1,
+    "task_revision": 1,
+    "request_sha": "ea516e0c73a7",
+    "messages": 6,
+    "input_tokens": 1332,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 1332,
+        "cache_read_tokens": 0,
+        "output_tokens": 31,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "6cb7577cf1ab"
+    },
+    "calls": [
+      "k1"
+    ],
+    "text": ""
+  },
+  {
+    "call": 2,
+    "task_revision": 1,
+    "request_sha": "2ab97ea613b6",
+    "messages": 8,
+    "input_tokens": 1808,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 1808,
+        "cache_read_tokens": 0,
+        "output_tokens": 92,
+        "complete": true
+      },
+      "sse_events": 23,
+      "fixture_sha": "347bbc70188a"
+    },
+    "calls": [
+      "c1",
+      "c2",
+      "c3",
+      "r1"
+    ],
+    "text": ""
+  },
+  {
+    "call": 3,
+    "task_revision": 1,
+    "request_sha": "26f4373ee66f",
+    "messages": 13,
+    "input_tokens": 2360,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2360,
+        "cache_read_tokens": 0,
+        "output_tokens": 108,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "3108f92f2a0b"
+    },
+    "calls": [
+      "c4"
+    ],
+    "text": ""
+  },
+  {
+    "call": 4,
+    "task_revision": 1,
+    "request_sha": "83eb84b3dc22",
+    "messages": 15,
+    "input_tokens": 2510,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2510,
+        "cache_read_tokens": 0,
+        "output_tokens": 30,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "692544d80492"
+    },
+    "calls": [
+      "c6"
+    ],
+    "text": ""
+  },
+  {
+    "call": 5,
+    "task_revision": 1,
+    "request_sha": "a415e8d9f6e9",
+    "messages": 17,
+    "input_tokens": 2606,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2606,
+        "cache_read_tokens": 0,
+        "output_tokens": 71,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "01655a1dd126"
+    },
+    "calls": [
+      "c8"
+    ],
+    "text": ""
+  },
+  {
+    "call": 6,
+    "task_revision": 1,
+    "request_sha": "d7345ea8a734",
+    "messages": 19,
+    "input_tokens": 2717,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R17"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R18"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2717,
+        "cache_read_tokens": 0,
+        "output_tokens": 58,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "b3b4409c1c9b"
+    },
+    "calls": [
+      "s1"
+    ],
+    "text": ""
+  },
+  {
+    "call": 7,
+    "task_revision": 1,
+    "request_sha": "7dcb9b9f3e14",
+    "messages": 21,
+    "input_tokens": 2814,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R17"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R18"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R19"
+        ],
+        "transform": "verbatim",
+        "source": "model call 6",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 58
+      },
+      {
+        "records": [
+          "R20"
+        ],
+        "transform": "verbatim",
+        "source": "run_skill_script(\"args\":[\"report.py\",\"America/Los_Angeles\",\"2026-09-11\",\"2026-11-01\"],\"script\":\"scripts/probe_boundary.py\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2814,
+        "cache_read_tokens": 0,
+        "output_tokens": 30,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "d6a3ca29bcb0"
+    },
+    "calls": [
+      "c9"
+    ],
+    "text": ""
+  },
+  {
+    "call": 8,
+    "task_revision": 1,
+    "request_sha": "6e08150f1fe9",
+    "messages": 23,
+    "input_tokens": 2889,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R17"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R18"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R19"
+        ],
+        "transform": "verbatim",
+        "source": "model call 6",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 58
+      },
+      {
+        "records": [
+          "R20"
+        ],
+        "transform": "verbatim",
+        "source": "run_skill_script(\"args\":[\"report.py\",\"America/Los_Angeles\",\"2026-09-11\",\"2026-11-01\"],\"script\":\"scripts/probe_boundary.py\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R21"
+        ],
+        "transform": "verbatim",
+        "source": "model call 7",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R22"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 45
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_tool_calls",
+      "raw_stop_reason": "tool_use",
+      "normalized_stop": "tool_use",
+      "usage": {
+        "input_tokens": 2889,
+        "cache_read_tokens": 0,
+        "output_tokens": 40,
+        "complete": true
+      },
+      "sse_events": 8,
+      "fixture_sha": "4dd62725159f"
+    },
+    "calls": [
+      "x1"
+    ],
+    "text": ""
+  },
+  {
+    "call": 9,
+    "task_revision": 1,
+    "request_sha": "f641076e4a07",
+    "messages": 25,
+    "input_tokens": 2971,
+    "policy": "ctx-structured-v1",
+    "policy_hash": "ed44bc8014af",
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "revision": "a09d9944eb9b",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "revision": "b255022d45e2",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R17"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R18"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R19"
+        ],
+        "transform": "verbatim",
+        "source": "model call 6",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 58
+      },
+      {
+        "records": [
+          "R20"
+        ],
+        "transform": "verbatim",
+        "source": "run_skill_script(\"args\":[\"report.py\",\"America/Los_Angeles\",\"2026-09-11\",\"2026-11-01\"],\"script\":\"scripts/probe_boundary.py\",\"skill\":\"report-helper\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R21"
+        ],
+        "transform": "verbatim",
+        "source": "model call 7",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R22"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 45
+      },
+      {
+        "records": [
+          "R23"
+        ],
+        "transform": "verbatim",
+        "source": "model call 8",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "model output",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R24"
+        ],
+        "transform": "verbatim",
+        "source": "export_report(\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\")",
+        "revision": null,
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "pinned (derived)",
+        "source": "task records",
+        "revision": "task r1",
+        "run": "run-24",
+        "scope": "acme/workspace",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "omissions": [],
+    "adapter": {
+      "adapter_version": "ch05-adapter/1.0.0",
+      "requested_model": "coder-large",
+      "reported_model": "coder-large-2026-08-14",
+      "kind": "completed_text",
+      "raw_stop_reason": "end_turn",
+      "normalized_stop": "end",
+      "usage": {
+        "input_tokens": 2971,
+        "cache_read_tokens": 0,
+        "output_tokens": 112,
+        "complete": true
+      },
+      "sse_events": 11,
+      "fixture_sha": "c02bb0412413"
+    },
+    "calls": [],
+    "text": "The filter used the UTC calendar date. report.py now converts each timestamp to the configured report timezone before comparing dates. Changed files: report.py 339d3a9f2656, test_report.py 319f11ce22b8. The near-midnight test failed before the fix and both tests pass on 339d3a9f2656. Report daily-2026-09-11 r5 was exported to destination A as export-file-001 after approval. Nothing was deployed."
+  }
+]

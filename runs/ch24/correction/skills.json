@@ -1,0 +1,194 @@
+{
+  "activation_check": {
+    "chosen": "report-helper",
+    "contested_with": [],
+    "ranking": [
+      {
+        "skill": "report-helper",
+        "score": 4,
+        "matched": [
+          "daily",
+          "fix",
+          "midnight",
+          "miss",
+          "near",
+          "report"
+        ],
+        "against": [
+          "deploy"
+        ]
+      },
+      {
+        "skill": "status-report-writer",
+        "score": 2,
+        "matched": [
+          "daily",
+          "report"
+        ],
+        "against": []
+      },
+      {
+        "skill": "csv-cleanup",
+        "score": 1,
+        "matched": [
+          "export"
+        ],
+        "against": []
+      }
+    ]
+  },
+  "scope": [
+    {
+      "event": "opened",
+      "skill": "report-helper",
+      "version": "1.0.0",
+      "call_id": "k1",
+      "t": "10:00:08"
+    },
+    {
+      "event": "closed",
+      "skill": "report-helper",
+      "version": "1.0.0",
+      "reason": "fix and verify stages satisfied",
+      "t": "10:01:32"
+    }
+  ],
+  "decisions": [
+    {
+      "event": "activate",
+      "skill": "report-helper",
+      "version": "1.0.0",
+      "hash": "4818324b70eb",
+      "mode": "model",
+      "declared_tools": [
+        "read_file",
+        "replace_text",
+        "run_tests",
+        "read_skill_resource",
+        "run_skill_script"
+      ],
+      "declared_but_not_permitted": [],
+      "body_tokens": 338,
+      "resources_listed": [
+        "references/regression-test.md",
+        "references/timezone-gotchas.md",
+        "scripts/probe_boundary.py"
+      ]
+    },
+    {
+      "call_id": "k1",
+      "tool": "activate_skill",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c1",
+      "tool": "read_file",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c2",
+      "tool": "read_file",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c3",
+      "tool": "read_file",
+      "decision": "executed"
+    },
+    {
+      "call_id": "r1",
+      "tool": "read_skill_resource",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c4",
+      "tool": "replace_text",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c6",
+      "tool": "run_tests",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c8",
+      "tool": "replace_text",
+      "decision": "executed"
+    },
+    {
+      "call_id": "s1",
+      "tool": "run_skill_script",
+      "decision": "executed"
+    },
+    {
+      "call_id": "c9",
+      "tool": "run_tests",
+      "decision": "executed"
+    }
+  ],
+  "scripts": [
+    {
+      "call_id": "s1",
+      "skill": "report-helper",
+      "version": "1.0.0",
+      "script": "scripts/probe_boundary.py",
+      "args": [
+        "report.py",
+        "America/Los_Angeles",
+        "2026-09-11",
+        "2026-11-01"
+      ],
+      "sha256": "c56c68f90d2b",
+      "decision": "executed",
+      "exit_code": 0,
+      "denied_effects": []
+    }
+  ],
+  "registry": {
+    "report-helper": {
+      "maintainer": "reporting-platform",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "hash": "4818324b70eba39a99c5ea37b77be06ff4b7b7973f749b8e24877a5adf5607ec",
+          "status": "released",
+          "released_at": "2026-08-03",
+          "evidence": {}
+        },
+        {
+          "version": "1.1.0",
+          "hash": "2c2d8a21842f9e154c31aac262e73c5e7d89958c1ab9374bc01518185859fb6a",
+          "status": "withdrawn",
+          "released_at": "2026-09-14",
+          "evidence": {},
+          "withdrawn_at": "2026-09-22",
+          "withdrawn_reason": "procedure no longer requires the failing test before the fix"
+        }
+      ]
+    },
+    "status-report-writer": {
+      "maintainer": "team-communications",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "hash": "ce349d0c96923499de5313ae272a128816c9942c93c30d2418488419b7dfad65",
+          "status": "released",
+          "released_at": "2026-09-14",
+          "evidence": {}
+        }
+      ]
+    },
+    "csv-cleanup": {
+      "maintainer": "data-platform",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "hash": "dc55bc010138564e67b25e4c9504b312ea0d3f63f336e6165774d0a28f5f74d3",
+          "status": "released",
+          "released_at": "2026-08-03",
+          "evidence": {}
+        }
+      ]
+    }
+  }
+}

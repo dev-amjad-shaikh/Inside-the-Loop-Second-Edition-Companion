@@ -1,0 +1,18 @@
+{
+  "build_reads_up_to": 2,
+  "old_event": {
+    "event_id": "E17",
+    "v": 1,
+    "type": "op.finished",
+    "entity": "op-c10",
+    "payload": {}
+  },
+  "upcast": {
+    "event_id": "E17",
+    "v": 2,
+    "type": "op.completed",
+    "entity": "op-c10",
+    "payload": {}
+  },
+  "newer_event": "refused: event N1 has schema 3; this build reads up to 2"
+}

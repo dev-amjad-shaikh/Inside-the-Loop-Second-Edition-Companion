@@ -1,0 +1,40 @@
+{
+  "tpm": 160061.29085656308,
+  "tokens_per_run": 6665.2398,
+  "results": {
+    "blind, 16 workers": {
+      "arrived": 1356,
+      "completed": 1333,
+      "rejected": 0,
+      "expired": 0,
+      "failed": 23,
+      "p50": 35.5,
+      "p95": 53.7,
+      "p99": 64.5,
+      "429": 944,
+      "failed_runs": 23,
+      "wasted_tokens": 316146,
+      "p95_all_outcomes": 53.8,
+      "retries": 921,
+      "mean_worker_seconds_per_run": 34.73,
+      "mean_admission_wait": 1.82
+    },
+    "limiter, 16 workers": {
+      "arrived": 1356,
+      "completed": 1356,
+      "rejected": 0,
+      "expired": 0,
+      "failed": 0,
+      "p50": 38.9,
+      "p95": 69.9,
+      "p99": 83.9,
+      "429": 0,
+      "failed_runs": 0,
+      "wasted_tokens": 0,
+      "p95_all_outcomes": 69.9,
+      "retries": 0,
+      "mean_worker_seconds_per_run": 36.88,
+      "mean_admission_wait": 4.79
+    }
+  }
+}

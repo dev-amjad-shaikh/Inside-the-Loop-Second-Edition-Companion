@@ -1,0 +1,68 @@
+{
+  "shown_to_approver": {
+    "operation": "export_customer_records",
+    "tenant": "acme",
+    "requested_by": "lee@acme.example",
+    "arguments": {
+      "destination": "reports@acme.example"
+    },
+    "records": 3,
+    "fields": [
+      "customer_id",
+      "name",
+      "email"
+    ],
+    "data_class": "customer personal data"
+  },
+  "binding": "944057828959",
+  "model_description_unverified": "Routine weekly backup of the ticket notes.",
+  "attempts": [
+    {
+      "call_id": "b12",
+      "result": {
+        "status": "awaiting_approval",
+        "binding": "944057828959"
+      }
+    },
+    {
+      "call_id": "b12b",
+      "after": "X approved, then customer AC-40 added",
+      "result": {
+        "status": "awaiting_approval",
+        "binding": "1fc198a0c505"
+      }
+    },
+    {
+      "call_id": "b12c",
+      "after": "new binding approved",
+      "result": {
+        "status": "sent",
+        "records": 4,
+        "destination": "reports@acme.example"
+      }
+    },
+    {
+      "call_id": "b12d",
+      "after": "same call repeated",
+      "result": {
+        "status": "awaiting_approval",
+        "binding": "1fc198a0c505"
+      }
+    }
+  ],
+  "outbound": [
+    {
+      "seq": 1,
+      "destination": "reports@acme.example",
+      "records": 4,
+      "bytes": 410,
+      "emails": [
+        "priya.raman@example.com",
+        "tom.keller@example.com",
+        "ines.duarte@example.com",
+        "noor.haddad@example.com"
+      ],
+      "credential": "sha256:bd768ccca315"
+    }
+  ]
+}

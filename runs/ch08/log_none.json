@@ -1,0 +1,174 @@
+{
+  "design": "none",
+  "proposals": [],
+  "tasks": {
+    "T1": {
+      "at": "2026-09-21T09:40:00Z",
+      "answer": "The filter used the UTC calendar date. I changed report.py to convert each timestamp to the configured report timezone before comparing dates (revision 78721bd28acc to 339d3a9f2656). The new test test_order_near_midnight failed before the fix; both tests now pass. Nothing was deployed.",
+      "operations": [],
+      "executed": [],
+      "check": "miss (41 words, brevity asked)",
+      "retrieval": null
+    },
+    "T2": {
+      "at": "2026-09-21T14:00:00Z",
+      "answer": "The filter used the UTC calendar date. I changed report.py to convert each timestamp to the configured report timezone before comparing dates (revision 78721bd28acc to 339d3a9f2656). The new test test_order_near_midnight failed before the fix; both tests now pass. Nothing was deployed.",
+      "operations": [],
+      "executed": [],
+      "check": "pass",
+      "retrieval": null
+    },
+    "T3": {
+      "at": "2026-09-21T15:00:00Z",
+      "answer": "4 orders on 2026-09-11 (America/Los_Angeles).",
+      "operations": [
+        {
+          "op": "generate_report",
+          "day": "2026-09-11",
+          "timezone": "America/Los_Angeles",
+          "timezone_source": "settings.json",
+          "orders": [
+            "o-1002",
+            "o-1003",
+            "o-1004",
+            "o-1005"
+          ]
+        }
+      ],
+      "executed": [
+        {
+          "op": "generate_report",
+          "result": "executed"
+        }
+      ],
+      "check": "pass",
+      "retrieval": null
+    },
+    "T4": {
+      "at": "2026-09-23T09:00:00Z",
+      "answer": "15:00 UTC.",
+      "operations": [],
+      "executed": [],
+      "check": "miss (unpersonalized)",
+      "retrieval": null
+    },
+    "T5": {
+      "at": "2026-09-24T10:00:00Z",
+      "answer": "Exporting the daily report.",
+      "operations": [
+        {
+          "op": "request_approval",
+          "action": "export daily report 2026-09-11"
+        },
+        {
+          "op": "export_report",
+          "day": "2026-09-11",
+          "destination": "finance-share"
+        }
+      ],
+      "executed": [
+        {
+          "op": "request_approval",
+          "result": "approved by user-17"
+        },
+        {
+          "op": "export_report",
+          "result": "executed"
+        }
+      ],
+      "check": "pass",
+      "retrieval": null
+    }
+  },
+  "probes": {
+    "2026-09-21T09:50:00Z": null
+  },
+  "model_inputs": {
+    "T1": {
+      "at": "2026-09-21T09:40:00Z",
+      "context": {
+        "user": "user-17",
+        "meeting": "meeting-42",
+        "session": "s-48"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Memory for user-17:\n(none)"
+        },
+        {
+          "role": "user",
+          "content": "In the meeting: summarize the reporting fix for the attendees."
+        }
+      ]
+    },
+    "T2": {
+      "at": "2026-09-21T14:00:00Z",
+      "context": {
+        "user": "user-17",
+        "session": "s-51"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Memory for user-17:\n(none)"
+        },
+        {
+          "role": "user",
+          "content": "Write the explanation of the reporting fix for the incident review document."
+        }
+      ]
+    },
+    "T3": {
+      "at": "2026-09-21T15:00:00Z",
+      "context": {
+        "user": "user-17",
+        "session": "s-51"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Memory for user-17:\n(none)"
+        },
+        {
+          "role": "user",
+          "content": "Produce the daily report for 2026-09-11 and give the order count."
+        }
+      ]
+    },
+    "T4": {
+      "at": "2026-09-23T09:00:00Z",
+      "context": {
+        "user": "user-17",
+        "session": "s-55"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Memory for user-17:\n(none)"
+        },
+        {
+          "role": "user",
+          "content": "When is the 15:00 UTC review call on 2026-09-28 in my time?"
+        }
+      ]
+    },
+    "T5": {
+      "at": "2026-09-24T10:00:00Z",
+      "context": {
+        "user": "user-17",
+        "session": "s-60"
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "Memory for user-17:\n(none)"
+        },
+        {
+          "role": "user",
+          "content": "Export the daily report for 2026-09-11 to the finance share."
+        }
+      ]
+    }
+  }
+}

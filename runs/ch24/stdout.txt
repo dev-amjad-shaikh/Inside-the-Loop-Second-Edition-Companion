@@ -1,0 +1,237 @@
+[capstone] wiring=revised outcome={'outcome': 'completed', 'call': 12, 'verified_by': 'completion predicate'}
+  model calls 12, operations 14, not executed ['c5:input_error', 'c7:not dispatched: stale task revision', 'x1:refused at dispatch']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001']; outbox {'A': ['daily-2026-09-11.r6.export-file-001.csv']}
+  completion at call 12: complete=True missing=[]
+  restart after after_commit: before={'run_store_op': 'dispatched', 'observation': 0, 'export_rows': 1} decisions=[('x2', 'reuse key')] new holder=['worker-2', 2] rebuilt={'assistant_turns_equal': True, 'fold_equals_tables': True}
+
+Run run-24: {'outcome': 'completed', 'call': 12, 'verified_by': 'completion predicate'}
+
+1. What did the model receive?
+   call  1  task r1  request ea516e0c73a7   6 messages  ~1332 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  2  task r1  request 2ab97ea613b6   8 messages  ~1808 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  3  task r1  request 26f4373ee66f  13 messages  ~2360 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  4  task r1  request 83eb84b3dc22  15 messages  ~2510 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  5  task r1  request 324dd14e7fb7  17 messages  ~2577 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  6  task r1  request 9a3882f123ee  19 messages  ~2673 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  7  task r2  request e69a4ff0815d  22 messages  ~2931 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  8  task r2  request b4f543126a56  24 messages  ~3042 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  9  task r2  request 52424545dd97  26 messages  ~3139 tokens  completed_tool_calls (tool_use)  omissions 0
+   call 10  task r2  request 9af88a95206d  28 messages  ~3214 tokens  completed_tool_calls (tool_use)  omissions 0
+   call 11  task r2  request 5e615341dc4b  30 messages  ~3308 tokens  completed_tool_calls (tool_use)  omissions 0
+   call 12  task r2  request d35b333cfc27  32 messages  ~3397 tokens  completed_text (end_turn)  omissions 0
+   excluded before the model: indexed chunks 10; after access filter 7; after withdrawal filter 4; after effective-date filter 4
+   memory excluded: mem-f0207de3 (expired at 2026-09-19T00:00:00Z)
+   memory write rejected: report_timezone (kind report_timezone is owned by project configuration (settings.json))
+
+2. Which operation was authorized, and by whom?
+   k1  activate_skill      r1  allow          ok
+   c1  read_file           r1  allow          ok
+   c2  read_file           r1  allow          ok
+   c3  read_file           r1  allow          ok
+   r1  read_skill_resource r1  allow          ok
+   c4  replace_text        r1  allow          ok
+   c5  run_tests           r1  allow          input_error
+   c6  run_tests           r1  allow          failed
+   c7  replace_text        r1  allow          not dispatched: stale task revision
+   c8  replace_text        r2  allow          ok
+   s1  run_skill_script    r2  allow          ok
+   c9  run_tests           r2  allow          passed
+   x1  export_report       r2  deny           refused at dispatch  rules: approval.required:approval, freshness.latest_revision:deny
+   x2  export_report       r2  needs_approval completed  approval AP2 by maria for 374fbdb77b0b  rules: approval.required:approval
+
+3. What actually changed?
+   report.py: 78721bd28acc -> 339d3a9f2656
+   test_report.py: 197c0720866d -> 319f11ce22b8
+   export export-file-001 key run-24:export:daily-2026-09-11:r6:A destination A
+   outbox/A/daily-2026-09-11.r6.export-file-001.csv version 374fbdb77b0b
+   deployments 0, memory writes by the run 0
+
+4. Which evidence supports the result?
+   E1 tests failed on report.py 78721bd28acc (task r1, historical, from c6)
+   E2 tests passed on report.py 339d3a9f2656 (task r2, current, from c9)
+   E3 signature match on report.py 339d3a9f2656 (task r2, current, from review-iface-r5)
+   review at r5: verified; admitted ['tz-boundary-reviewer', 'interface-reviewer']; stale ['tz-boundary-reviewer@r4']
+   verifier: complete=True missing=[]
+
+5. What remains uncertain?
+   - tz-boundary-reviewer result for r4 (fail) kept as evidence about r4 only
+   - daily-2026-09-11 r6 was published by finance-review (removed refunded order A-1003); this run did not verify that change
+   - boundary evidence covers 6 named cases in America/Los_Angeles only
+   - the export receipt was recovered after a lost worker by [('x2', 'reuse key')]; delivery to readers of destination A is not observed by this run
+   - model replies are scripted stand-ins; the record shows what the runtime did with them, and says nothing about how often a live model proposes them
+
+  {"t": "10:00:00", "kind": "intake", "user": "dev", "tenant": "acme", "session": "sess-acme-dev", "profile": "report.fix_and_export", "identity_fields_ignored": {"tenant": "globex"}}
+  {"t": "10:00:00", "kind": "task_revised", "task_revision": 1, "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it. When the fix is verified, export the corrected daily report for 2026-09-11 to destination A.", "checks": [], "source": "initial request"}
+  {"t": "10:00:01", "kind": "model_call_started", "call": 1, "task_revision": 1, "request_sha": "ea516e0c73a7", "input_tokens": 1332}
+  {"t": "10:00:07", "kind": "model_call_finished", "call": 1, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["k1 activate_skill"]}
+  {"t": "10:00:08", "kind": "dispatched", "call_id": "k1", "tool": "activate_skill", "task_revision": 1}
+  {"t": "10:00:10", "kind": "observed", "call_id": "k1", "status": "ok"}
+  {"t": "10:00:11", "kind": "model_call_started", "call": 2, "task_revision": 1, "request_sha": "2ab97ea613b6", "input_tokens": 1808}
+  {"t": "10:00:17", "kind": "model_call_finished", "call": 2, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["c1 read_file", "c2 read_file", "c3 read_file", "r1 read_skill_resource"]}
+  {"t": "10:00:18", "kind": "dispatched", "call_id": "c1", "tool": "read_file", "task_revision": 1}
+  {"t": "10:00:20", "kind": "observed", "call_id": "c1", "status": "ok"}
+  {"t": "10:00:21", "kind": "dispatched", "call_id": "c2", "tool": "read_file", "task_revision": 1}
+  {"t": "10:00:23", "kind": "observed", "call_id": "c2", "status": "ok"}
+  {"t": "10:00:24", "kind": "dispatched", "call_id": "c3", "tool": "read_file", "task_revision": 1}
+  {"t": "10:00:26", "kind": "observed", "call_id": "c3", "status": "ok"}
+  {"t": "10:00:27", "kind": "dispatched", "call_id": "r1", "tool": "read_skill_resource", "task_revision": 1}
+  {"t": "10:00:29", "kind": "observed", "call_id": "r1", "status": "ok"}
+  {"t": "10:00:30", "kind": "model_call_started", "call": 3, "task_revision": 1, "request_sha": "26f4373ee66f", "input_tokens": 2360}
+  {"t": "10:00:36", "kind": "model_call_finished", "call": 3, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["c4 replace_text"]}
+  {"t": "10:00:37", "kind": "dispatched", "call_id": "c4", "tool": "replace_text", "task_revision": 1}
+  {"t": "10:00:39", "kind": "observed", "call_id": "c4", "status": "ok", "path": "test_report.py", "before_version": "197c0720866d", "after_version": "319f11ce22b8"}
+  {"t": "10:00:40", "kind": "model_call_started", "call": 4, "task_revision": 1, "request_sha": "83eb84b3dc22", "input_tokens": 2510}
+  {"t": "10:00:46", "kind": "model_call_finished", "call": 4, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["c5 run_tests"]}
+  {"t": "10:00:47", "kind": "input_error", "call_id": "c5", "message": "tests must be a list of strings"}
+  {"t": "10:00:48", "kind": "model_call_started", "call": 5, "task_revision": 1, "request_sha": "324dd14e7fb7", "input_tokens": 2577}
+  {"t": "10:00:54", "kind": "model_call_finished", "call": 5, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["c6 run_tests"]}
+  {"t": "10:00:55", "kind": "dispatched", "call_id": "c6", "tool": "run_tests", "task_revision": 1}
+  {"t": "10:00:57", "kind": "observed", "call_id": "c6", "status": "failed"}
+  {"t": "10:00:57", "kind": "evidence_recorded", "evidence": "E1", "evidence_kind": "tests", "result": "failed", "version": "78721bd28acc", "task_revision": 1}
+  {"t": "10:00:58", "kind": "worker_dispatched", "contract_id": "review-tz-r4", "worker": "tz-boundary-reviewer", "input_revision": "r4", "input_digest": "8caa6dfca483"}
+  {"t": "10:00:59", "kind": "model_call_started", "call": 6, "task_revision": 1, "request_sha": "9a3882f123ee", "input_tokens": 2673}
+  {"t": "10:01:02", "kind": "task_revised", "task_revision": 2, "text": "Keep the public function signature unchanged.", "checks": ["signature:belongs_to_report"], "source": "user message"}
+  {"t": "10:01:08", "kind": "model_call_finished", "call": 6, "task_revision": 1, "outcome": "completed_tool_calls", "proposal": ["c7 replace_text"]}
+  {"t": "10:01:09", "kind": "dispatch_refused", "call_id": "c7", "tool": "replace_text", "reason": "stale_task_revision", "proposal_task_revision": 1, "current_task_revision": 2}
+  {"t": "10:01:10", "kind": "model_call_started", "call": 7, "task_revision": 2, "request_sha": "e69a4ff0815d", "input_tokens": 2931}
+  {"t": "10:01:16", "kind": "model_call_finished", "call": 7, "task_revision": 2, "outcome": "completed_tool_calls", "proposal": ["c8 replace_text"]}
+  {"t": "10:01:17", "kind": "dispatched", "call_id": "c8", "tool": "replace_text", "task_revision": 2}
+  {"t": "10:01:17", "kind": "evidence_historical", "evidence": "E1", "was_version": "78721bd28acc", "now_version": "339d3a9f2656"}
+  {"t": "10:01:19", "kind": "observed", "call_id": "c8", "status": "ok", "path": "report.py", "before_version": "78721bd28acc", "after_version": "339d3a9f2656"}
+  {"t": "10:01:20", "kind": "worker_dispatched", "contract_id": "review-tz-r5", "worker": "tz-boundary-reviewer", "input_revision": "r5", "input_digest": "025e5dc0e98d"}
+  {"t": "10:01:21", "kind": "worker_dispatched", "contract_id": "review-iface-r5", "worker": "interface-reviewer", "input_revision": "r5", "input_digest": "025e5dc0e98d"}
+  {"t": "10:01:21", "kind": "worker_returned", "contract_id": "review-tz-r4", "finished": "10:01:10", "status": "accepted", "verdict": "fail", "input_revision": "r4", "current_revision": "r5"}
+  {"t": "10:01:22", "kind": "model_call_started", "call": 8, "task_revision": 2, "request_sha": "b4f543126a56", "input_tokens": 3042}
+  {"t": "10:01:28", "kind": "model_call_finished", "call": 8, "task_revision": 2, "outcome": "completed_tool_calls", "proposal": ["s1 run_skill_script"]}
+  {"t": "10:01:29", "kind": "dispatched", "call_id": "s1", "tool": "run_skill_script", "task_revision": 2}
+  {"t": "10:01:31", "kind": "observed", "call_id": "s1", "status": "ok"}
+  {"t": "10:01:31", "kind": "worker_returned", "contract_id": "review-tz-r5", "finished": "10:01:29", "status": "accepted", "verdict": "pass", "input_revision": "r5", "current_revision": "r5"}
+  {"t": "10:01:31", "kind": "worker_returned", "contract_id": "review-iface-r5", "finished": "10:01:28", "status": "accepted", "verdict": "pass", "input_revision": "r5", "current_revision": "r5"}
+  {"t": "10:01:32", "kind": "model_call_started", "call": 9, "task_revision": 2, "request_sha": "52424545dd97", "input_tokens": 3139}
+  {"t": "10:01:38", "kind": "model_call_finished", "call": 9, "task_revision": 2, "outcome": "completed_tool_calls", "proposal": ["c9 run_tests"]}
+  {"t": "10:01:39", "kind": "dispatched", "call_id": "c9", "tool": "run_tests", "task_revision": 2}
+  {"t": "10:01:41", "kind": "observed", "call_id": "c9", "status": "passed"}
+  {"t": "10:01:41", "kind": "evidence_recorded", "evidence": "E2", "evidence_kind": "tests", "result": "passed", "version": "339d3a9f2656", "task_revision": 2}
+  {"t": "10:01:42", "kind": "skill_scope_closed", "skill": "report-helper", "version": "1.0.0"}
+  {"t": "10:01:43", "kind": "reviews_integrated", "current_revision": "r5", "verdict": "verified", "stale": ["tz-boundary-reviewer@r4"]}
+  {"t": "10:01:43", "kind": "evidence_recorded", "evidence": "E3", "evidence_kind": "signature", "result": "match", "version": "339d3a9f2656", "task_revision": 2}
+  {"t": "10:01:44", "kind": "model_call_started", "call": 10, "task_revision": 2, "request_sha": "9af88a95206d", "input_tokens": 3214}
+  {"t": "10:01:50", "kind": "model_call_finished", "call": 10, "task_revision": 2, "outcome": "completed_tool_calls", "proposal": ["x1 export_report"]}
+  {"t": "10:01:52", "kind": "approval_check", "call_id": "x1", "allowed": false, "mismatches": [], "reason": "no active approval"}
+  {"t": "10:01:54", "kind": "approval_requested", "request_id": "RQ1", "call_id": "x1", "revision": "r5", "artifact_version": "af0093264abc"}
+  {"t": "10:01:56", "kind": "decision", "request_id": "RQ1", "actor": "dev", "choice": "approve", "status": "refused", "approval_id": null, "reason": "role engineer may not approve export_report"}
+  {"t": "10:01:58", "kind": "decision", "request_id": "RQ1", "actor": "maria", "choice": "approve", "status": "recorded", "approval_id": "AP1", "reason": null}
+  {"t": "10:01:59", "kind": "artifact_published", "report": "daily-2026-09-11", "revision": "r6", "by": "finance-review", "version": "374fbdb77b0b"}
+  {"t": "10:02:00", "kind": "dispatch_refused", "call_id": "x1", "tool": "export_report", "stage": "policy at dispatch", "rules": ["freshness.latest_revision"]}
+  {"t": "10:02:01", "kind": "model_call_started", "call": 11, "task_revision": 2, "request_sha": "5e615341dc4b", "input_tokens": 3308}
+  {"t": "10:02:07", "kind": "model_call_finished", "call": 11, "task_revision": 2, "outcome": "completed_tool_calls", "proposal": ["x2 export_report"]}
+  {"t": "10:02:09", "kind": "approval_check", "call_id": "x2", "allowed": false, "mismatches": [{"approval_id": "AP1", "problems": ["arguments differ", "artifact version af0093264abc approved, 374fbdb77b0b proposed"]}], "reason": "approval does not cover this operation"}
+  {"t": "10:02:11", "kind": "approval_requested", "request_id": "RQ2", "call_id": "x2", "revision": "r6", "artifact_version": "374fbdb77b0b"}
+  {"t": "10:02:13", "kind": "decision", "request_id": "RQ2", "actor": "maria", "choice": "approve", "status": "recorded", "approval_id": "AP2", "reason": null}
+  {"t": "10:02:15", "kind": "approval_consumed", "call_id": "x2", "approval_id": "AP2", "actor": "maria", "artifact_version": "374fbdb77b0b"}
+  {"t": "10:02:16", "kind": "worker_lost", "call_id": "x2", "point": "after_commit", "worker": "worker-1", "fence": 1}
+  {"t": "10:02:21", "kind": "worker_restarted", "worker": "worker-2", "fence": 2}
+  {"t": "10:02:22", "kind": "reconciled", "call_id": "x2", "decisions": [["x2", "reuse key"]], "export_id": "export-file-001", "replayed": true}
+  {"t": "10:02:24", "kind": "observed", "call_id": "x2", "status": "completed", "export_id": "export-file-001", "replayed": true}
+  {"t": "10:02:25", "kind": "model_call_started", "call": 12, "task_revision": 2, "request_sha": "d35b333cfc27", "input_tokens": 3397}
+  {"t": "10:02:31", "kind": "model_call_finished", "call": 12, "task_revision": 2, "outcome": "completed_text", "proposal": ["final answer"]}
+  {"t": "10:02:32", "kind": "run_completed", "call": 12, "task_revision": 2}
+
+  activation check (lexical stand-in): report-helper [('report-helper', 4), ('status-report-writer', 2), ('csv-cleanup', 1)]
+  retrieval stages: [('indexed chunks', 10), ('after access filter', 7), ('after withdrawal filter', 4), ('after effective-date filter', 4), ('keyword candidates (BM25 > 0, top 8)', 4), ('vector candidates (top 8)', 4), ('fused candidates (union, RRF)', 4), ('evidence after rerank (top 2)', 2)]
+  retrieval top: ['reporting-calendar@v2#1 Reporting calendar > Report day a09d9944eb9b', 'reporting-calendar@v2#2 Reporting calendar > Changes to this definition b255022d45e2']
+  memory included: [('mem-a5ed1c8c', 'display_timezone', 'user:dev'), ('mem-9e047763', 'final_summary', 'user:dev')]
+  memory excluded: [('mem-f0207de3', 'expired at 2026-09-19T00:00:00Z')]
+  memory writes: [('final_summary', 'active', None), ('display_timezone', 'active', None), ('tests', 'active', None), ('report_timezone', 'rejected', ['kind report_timezone is owned by project configuration (settings.json)'])]
+  skill scope: [{'event': 'opened', 'skill': 'report-helper', 'version': '1.0.0', 'call_id': 'k1', 't': '10:00:08'}, {'event': 'closed', 'skill': 'report-helper', 'version': '1.0.0', 'reason': 'fix and verify stages satisfied', 't': '10:01:41'}]
+  manifest: {"model_adapter": "ch05-adapter/1.0.0", "requested_model": "coder-large", "reported_model": "coder-large-2026-08-14", "context_policy": {"id": "ctx-structured-v1", "hash": "ed44bc8014af"}, "retrieval": {"chunker": "structured", "embedder": "hashvec-4gram-1024/v1"}, "memory_write_policy": "wp-3", "skill": {"name": "report-helper", "version": "1.0.0", "hash": "4818324b70eb", "withdrawn_versions_excluded": ["1.1.0"]}, "policy": {"name": "reporting-agent", "version": "dbd2bc6ff549"}, "recovery_catalog": "catalog-2026-09-25.1", "review_contract": "review-contract/1.1", "run_store_schema": 2, "controller": "ch11 Plan P1-P5 + capstone P6-P7"}
+  worker review-tz-r4 at r4: accepted fail dispatched 10:00:58 returned 10:01:10 tokens 2260 sim_s 11.826
+  worker review-tz-r5 at r5: accepted pass dispatched 10:01:20 returned 10:01:29 tokens 2113 sim_s 8.333
+  worker review-iface-r5 at r5: accepted pass dispatched 10:01:21 returned 10:01:28 tokens 1567 sim_s 6.321
+  review integration: {"current_revision": "r5", "verdict": "verified", "admitted": ["tz-boundary-reviewer", "interface-reviewer"], "stale": [{"worker": "tz-boundary-reviewer", "reviewed": "r4", "current": "r5", "verdict": "fail", "reclassified_as": "evidence about r4"}], "missing_coverage": []}
+  approval: {"approval_id": "AP1", "request_id": "RQ1", "actor": "maria", "role": "report_owner", "args_digest": "c66ff54422eb9ffa", "artifact_version": "af0093264abc", "status": "invalidated", "consumed_by": null}
+  approval: {"approval_id": "AP2", "request_id": "RQ2", "actor": "maria", "role": "report_owner", "args_digest": "3f61b586ec4646c6", "artifact_version": "374fbdb77b0b", "status": "consumed", "consumed_by": "x2"}
+  human: {"event": "correction", "actor": "dev", "task_revision": 2, "text": "Keep the public function signature unchanged.", "t": "10:01:02"}
+  human: {"request_id": "RQ1", "actor": "dev", "session": "sess-acme-dev", "choice": "approve", "result": {"status": "refused", "reason": "role engineer may not approve export_report"}}
+  human: {"request_id": "RQ1", "actor": "maria", "session": "sess-acme-maria", "choice": "approve", "result": {"status": "recorded", "decision_id": "D1", "choice": "approve", "approval_id": "AP1"}}
+  human: {"request_id": "RQ2", "actor": "maria", "session": "sess-acme-maria", "choice": "approve", "result": {"status": "recorded", "decision_id": "D2", "choice": "approve", "approval_id": "AP2"}}
+  last call provenance (d35b333cfc27):
+    verbatim           application                                                            rev=None trust=runtime ~376
+    verbatim           human interface                                                        rev=None trust=user ~63
+    verbatim           retrieval: reporting-calendar v2 | Reporting calendar > Report day | c rev=a09d9944eb9b trust=document (untrusted) ~98
+    verbatim           retrieval: reporting-calendar v2 | Reporting calendar > Changes to thi rev=b255022d45e2 trust=document (untrusted) ~71
+    verbatim           memory: mem-a5ed1c8c, mem-9e047763                                     rev=None trust=user statement (stored) ~62
+    verbatim           model call 1                                                           rev=None trust=model output ~31
+    verbatim           activate_skill("name":"report-helper")                                 rev=None trust=workspace data ~445
+    verbatim           model call 2                                                           rev=None trust=model output ~92
+    verbatim           read_file("path":"settings.json")                                      rev=fac6e0792573 trust=workspace data ~36
+    verbatim           read_file("path":"report.py")                                          rev=78721bd28acc trust=workspace data ~80
+    verbatim           read_file("path":"test_report.py")                                     rev=197c0720866d trust=workspace data ~137
+    verbatim           read_skill_resource("path":"references/regression-test.md","skill":"re rev=None trust=workspace data ~207
+    verbatim           model call 3                                                           rev=None trust=model output ~108
+    verbatim           replace_text("new":"\n    def test_order_near_midnight(self):\n        rev=319f11ce22b8 trust=workspace data ~42
+    verbatim           model call 4                                                           rev=None trust=model output ~30
+    verbatim           run_tests("tests":"test_report.py")                                    rev=None trust=workspace data ~37
+    verbatim           model call 5                                                           rev=None trust=model output ~30
+    verbatim           run_tests("tests":["test_report.py"])                                  rev=None trust=workspace data ~66
+    verbatim           human interface                                                        rev=None trust=user ~19
+    verbatim           model call 6                                                           rev=None trust=model output ~150
+    verbatim           replace_text("new":"def belongs_to_report(created_at, requested_day, t rev=None trust=workspace data ~62
+    verbatim           model call 7                                                           rev=None trust=model output ~71
+    verbatim           replace_text("new":"    local_time = created_at.astimezone(ZoneInfo(ti rev=339d3a9f2656 trust=workspace data ~40
+    verbatim           model call 8                                                           rev=None trust=model output ~58
+    verbatim           run_skill_script("args":["report.py","America/Los_Angeles","2026-09-11 rev=None trust=workspace data ~39
+    verbatim           model call 9                                                           rev=None trust=model output ~30
+    verbatim           run_tests("tests":["test_report.py"])                                  rev=None trust=workspace data ~45
+    verbatim           model call 10                                                          rev=None trust=model output ~40
+    verbatim           export_report("destination":"A","report":"daily-2026-09-11","revision" rev=None trust=workspace data ~54
+    verbatim           model call 11                                                          rev=None trust=model output ~40
+    verbatim           export_report("destination":"A","report":"daily-2026-09-11","revision" rev=None trust=workspace data ~49
+    pinned (derived)   task records                                                           rev=task r2 trust=user (via human interface) ~124
+
+[normal] wiring=revised outcome={'outcome': 'completed', 'call': 9, 'verified_by': 'completion predicate'}
+  model calls 9, operations 11, not executed []
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001']; outbox {'A': ['daily-2026-09-11.r5.export-file-001.csv']}
+  completion at call 9: complete=True missing=[]
+
+[missing_input] wiring=revised outcome={'outcome': 'waiting_for_person', 'reason': 'input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?', 'effects': 0}
+  model calls 3, operations 6, not executed ['q1:waiting for person']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file']
+  report.py None; exports []; outbox {}
+
+[malformed] wiring=revised outcome={'outcome': 'completed', 'call': 10, 'verified_by': 'completion predicate'}
+  model calls 10, operations 12, not executed ['c5:input_error']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001']; outbox {'A': ['daily-2026-09-11.r5.export-file-001.csv']}
+  completion at call 10: complete=True missing=[]
+
+[interruption] wiring=revised outcome={'outcome': 'completed', 'call': 9, 'verified_by': 'completion predicate'}
+  model calls 9, operations 11, not executed []
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001']; outbox {'A': ['daily-2026-09-11.r5.export-file-001.csv']}
+  completion at call 9: complete=True missing=[]
+  restart after after_commit: before={'run_store_op': 'dispatched', 'observation': 0, 'export_rows': 1} decisions=[('x1', 'reuse key')] new holder=['worker-2', 2] rebuilt={'assistant_turns_equal': True, 'fold_equals_tables': True}
+
+[correction] wiring=revised outcome={'outcome': 'completed', 'call': 10, 'verified_by': 'completion predicate'}
+  model calls 10, operations 12, not executed ['c7:not dispatched: stale task revision']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001']; outbox {'A': ['daily-2026-09-11.r5.export-file-001.csv']}
+  completion at call 10: complete=True missing=[]
+
+[capstone_naive] wiring=naive outcome={'outcome': 'completed', 'call': 12, 'verified_by': 'glue check: tests passed after the last edit and the export tool returned completed'}
+  model calls 12, operations 14, not executed ['c5:input_error', 'c7:not dispatched: stale task revision', 'x1:refused at dispatch']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports ['export-file-001', 'export-file-002']; outbox {'A': ['daily-2026-09-11.r5.export-file-002.csv', 'daily-2026-09-11.r6.export-file-001.csv']}
+  completion at call 12: complete=True missing=[]
+    revised verifier on the same records: complete=False missing=['P7 destination A holds 2 files', 'P7 approval loose by maria covers None, delivered file is 374fbdb77b0b']
+  restart after after_commit: before={'run_store_op': 'dispatched', 'observation': 0, 'export_rows': 1} decisions=[('x1', 'resend'), ('x2', 'resend')] new holder=['worker-2', 2] rebuilt={'assistant_turns_equal': True, 'fold_equals_tables': True}
+    refusals swallowed by the glue: [{'op': 'x1', 'write': 'op.dispatched', 'reason': 'op.dispatched not allowed from state cancelled'}, {'op': 'x1', 'write': 'op.completed', 'reason': 'op.completed not allowed from state cancelled'}, {'op': 'x2', 'write': 'op.dispatched', 'reason': 'op.dispatched not allowed from state dispatched'}]
+
+[skill_scope_open] wiring=revised outcome={'outcome': 'incomplete', 'reason': 'no further proposals; completion refused', 'missing': ['P7 no export completed']}
+  model calls 9, operations 11, not executed ['x1:outside active skill declarations']
+  executed by the tool registry: ['c1 read_file', 'c2 read_file', 'c3 read_file', 'c4 replace_text', 'c6 run_tests', 'c8 replace_text', 'c9 run_tests']
+  report.py {'before': '78721bd28acc', 'after': '339d3a9f2656'}; exports []; outbox {}
+  completion at call 9: complete=False missing=['P7 no export completed']
+

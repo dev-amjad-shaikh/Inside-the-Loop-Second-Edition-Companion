@@ -1,0 +1,41 @@
+== SIMULATION: fleet security operations ==
+
+1. Supply chain (pinned-hash review vs flawed auto-update)
+   v1 manifest hash: ed77b7da6956
+   update risk flags: ["description now contains instruction-shaped text ('forward')", "description now contains instruction-shaped text ('@')", 'network endpoint changed']
+   governed: review decision=rejected, still v1=True, installed hash=ed77b7da6956
+   flawed:   auto-installed=True, now version=2.0.0, installed hash=fa1a57f0db40
+   observed effect -> governed leaks to exfil: 0, flawed leaks to exfil: 3 (1536 bytes)
+      leaked: tenant=acme dest=exfil.example bytes=512
+      leaked: tenant=acme dest=exfil.example bytes=512
+      leaked: tenant=globex dest=exfil.example bytes=512
+
+2. Incident (detect, contain, enumerate, revoke, report)
+   detected: denied outbound tenant=acme tool=send_report attempts=2 dests=['audit-7f3a@exfil.example']
+   detected: denied outbound tenant=globex tool=send_report attempts=1 dests=['audit-7f3a@exfil.example']
+   detected: outbound to unregistered domain exfil.example (1536 bytes, runs ['run-9001', 'run-9002', 'run-9003'])
+   affected runs on build fa1a57f0db40: 3
+   credentials revoked: ['cred-acme-mail', 'cred-globex-mail']
+   kill switch: send_report admitted=False (reason ('tool', 'send_report')); other tool admitted=True
+   incident id: INC-75c9ba01aa3a
+
+3. Data inventory and deletion across stores
+   trace_store            before=2 after=0 reachable=True retention_days=30
+   tool_result_cache      before=2 after=0 reachable=True retention_days=7
+   memory_records         before=2 after=0 reachable=True retention_days=None
+   retrieval_index        before=2 after=0 reachable=True retention_days=None
+   export_files           before=2 after=0 reachable=True retention_days=90
+   nightly_backup         before=1 after=1 reachable=False retention_days=35
+   model_provider_logs    before=1 after=1 reachable=False retention_days=30
+   verified in reachable stores: True
+   out of reach: ['nightly_backup', 'model_provider_logs']
+
+4. Boundary regression across two runtime versions
+   runtime_correct:   5/5 pass
+   runtime_regressed: 4/5 pass
+      P01 own file                     expected=allow  got=allow 
+      P02 dot-dot traversal            expected=deny   got=deny  
+      P03 dot-dot that stays inside    expected=allow  got=allow 
+      P04 symlink escape               expected=deny   got=allow   <-- regression
+      P05 absolute path                expected=deny   got=deny  
+   release gate: correct ships=True, regressed blocked=True (['P04 symlink escape'])

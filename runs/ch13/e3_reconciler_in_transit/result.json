@@ -1,0 +1,151 @@
+{
+  "runtime_row_after_interruption": {
+    "op_id": "op-0003",
+    "tool": "notify_oncall",
+    "recovery_class": "non_repeatable",
+    "op_key": null,
+    "payload_digest": "d147382f1dad2799",
+    "status": "dispatched",
+    "attempts": 1,
+    "first_dispatched_at": 2.5,
+    "receipt": null
+  },
+  "decisions": [
+    [
+      "op-0001",
+      "continue from receipt"
+    ],
+    [
+      "op-0002",
+      "continue from receipt"
+    ],
+    [
+      "op-0003",
+      "escalate to a person"
+    ]
+  ],
+  "messages": [],
+  "message_count": 0,
+  "repair_items": [
+    {
+      "item_id": "R-1",
+      "op_id": "op-0003",
+      "opened_at": 8.5,
+      "reason": "dispatched; no receipt; service offers no idempotency and no query",
+      "evidence": {
+        "attempts": 1,
+        "first_dispatched_at": 2.5,
+        "payload_digest": "d147382f1dad2799",
+        "recipient": "reports-oncall@example.com",
+        "subject": "Daily orders export for 2026-09-11 is ready",
+        "tool": "notify_oncall"
+      },
+      "status": "open",
+      "resolved_by": null,
+      "resolution": null,
+      "resolved_at": null
+    }
+  ],
+  "op_final": {
+    "op_id": "op-0003",
+    "tool": "notify_oncall",
+    "recovery_class": "non_repeatable",
+    "op_key": null,
+    "payload_digest": "d147382f1dad2799",
+    "status": "uncertain",
+    "attempts": 1,
+    "first_dispatched_at": 2.5,
+    "receipt": null
+  },
+  "resolution_refused": {
+    "accepted": false,
+    "reason": "agent:run-13 lacks role reports-oncall-lead"
+  },
+  "resolution_accepted": {
+    "accepted": true,
+    "status": "completed",
+    "receipt": {
+      "source": "resend authorized by user:dana",
+      "message_id": "msg-001"
+    }
+  },
+  "repair_items_after": [
+    {
+      "item_id": "R-1",
+      "op_id": "op-0003",
+      "opened_at": 8.5,
+      "reason": "dispatched; no receipt; service offers no idempotency and no query",
+      "evidence": {
+        "attempts": 1,
+        "first_dispatched_at": 2.5,
+        "payload_digest": "d147382f1dad2799",
+        "recipient": "reports-oncall@example.com",
+        "subject": "Daily orders export for 2026-09-11 is ready",
+        "tool": "notify_oncall"
+      },
+      "status": "resolved",
+      "resolved_by": "user:dana",
+      "resolution": {
+        "evidence": {
+          "checked": "provider delivery log",
+          "matching_messages": 0
+        },
+        "finding": "not_delivered_resend"
+      },
+      "resolved_at": 308.5
+    }
+  ],
+  "message_count_after_resolution": 1,
+  "op_after_resolution": {
+    "op_id": "op-0003",
+    "tool": "notify_oncall",
+    "recovery_class": "non_repeatable",
+    "op_key": null,
+    "payload_digest": "d147382f1dad2799",
+    "status": "completed",
+    "attempts": 1,
+    "first_dispatched_at": 2.5,
+    "receipt": {
+      "message_id": "msg-001",
+      "source": "resend authorized by user:dana"
+    }
+  },
+  "audit": [
+    {
+      "seq": 9,
+      "t": 8.5,
+      "op_id": "op-0003",
+      "kind": "uncertain",
+      "detail": {
+        "reason": "dispatched; no receipt; service offers no idempotency and no query",
+        "repair_item": "R-1"
+      }
+    },
+    {
+      "seq": 10,
+      "t": 248.5,
+      "op_id": "op-0003",
+      "kind": "resolution_refused",
+      "detail": {
+        "item": "R-1",
+        "principal": "agent:run-13",
+        "required_role": "reports-oncall-lead"
+      }
+    },
+    {
+      "seq": 11,
+      "t": 308.5,
+      "op_id": "op-0003",
+      "kind": "manual_resolution",
+      "detail": {
+        "evidence": {
+          "checked": "provider delivery log",
+          "matching_messages": 0
+        },
+        "finding": "not_delivered_resend",
+        "item": "R-1",
+        "principal": "user:dana"
+      }
+    }
+  ]
+}

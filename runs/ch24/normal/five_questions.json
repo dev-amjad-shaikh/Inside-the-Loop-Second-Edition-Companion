@@ -1,0 +1,753 @@
+{
+  "run": "run-24",
+  "outcome": {
+    "outcome": "completed",
+    "call": 9,
+    "verified_by": "completion predicate"
+  },
+  "1_what_did_the_model_receive": {
+    "model_calls": [
+      {
+        "call": 1,
+        "task_revision": 1,
+        "request_sha": "ea516e0c73a7",
+        "messages": 6,
+        "input_tokens_approx": 1332,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 2,
+        "task_revision": 1,
+        "request_sha": "2ab97ea613b6",
+        "messages": 8,
+        "input_tokens_approx": 1808,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 1,
+          "workspace data": 1,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 3,
+        "task_revision": 1,
+        "request_sha": "26f4373ee66f",
+        "messages": 13,
+        "input_tokens_approx": 2360,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 2,
+          "workspace data": 5,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 4,
+        "task_revision": 1,
+        "request_sha": "83eb84b3dc22",
+        "messages": 15,
+        "input_tokens_approx": 2510,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 3,
+          "workspace data": 6,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 5,
+        "task_revision": 1,
+        "request_sha": "a415e8d9f6e9",
+        "messages": 17,
+        "input_tokens_approx": 2606,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 4,
+          "workspace data": 7,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 6,
+        "task_revision": 1,
+        "request_sha": "d7345ea8a734",
+        "messages": 19,
+        "input_tokens_approx": 2717,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 5,
+          "workspace data": 8,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 7,
+        "task_revision": 1,
+        "request_sha": "7dcb9b9f3e14",
+        "messages": 21,
+        "input_tokens_approx": 2814,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 6,
+          "workspace data": 9,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 8,
+        "task_revision": 1,
+        "request_sha": "6e08150f1fe9",
+        "messages": 23,
+        "input_tokens_approx": 2889,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 7,
+          "workspace data": 10,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_tool_calls",
+        "raw_stop_reason": "tool_use",
+        "reported_model": "coder-large-2026-08-14"
+      },
+      {
+        "call": 9,
+        "task_revision": 1,
+        "request_sha": "d127bd7d1bce",
+        "messages": 25,
+        "input_tokens_approx": 2978,
+        "context_policy": "ctx-structured-v1 ed44bc8014af",
+        "items_by_trust": {
+          "runtime": 1,
+          "user": 1,
+          "document (untrusted)": 2,
+          "user statement (stored)": 1,
+          "model output": 8,
+          "workspace data": 11,
+          "user (via human interface)": 1
+        },
+        "omissions": 0,
+        "adapter_outcome": "completed_text",
+        "raw_stop_reason": "end_turn",
+        "reported_model": "coder-large-2026-08-14"
+      }
+    ],
+    "last_call_provenance": [
+      {
+        "source": "application",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "runtime",
+        "tokens": 376
+      },
+      {
+        "source": "human interface",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "user",
+        "tokens": 63
+      },
+      {
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Report day | chars 22-339 | sha a09d9944eb9b",
+        "transform": "verbatim",
+        "revision": "a09d9944eb9b",
+        "trust": "document (untrusted)",
+        "tokens": 98
+      },
+      {
+        "source": "retrieval: reporting-calendar v2 | Reporting calendar > Changes to this definition | chars 339-564 | sha b255022d45e2",
+        "transform": "verbatim",
+        "revision": "b255022d45e2",
+        "trust": "document (untrusted)",
+        "tokens": 71
+      },
+      {
+        "source": "memory: mem-a5ed1c8c, mem-9e047763",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "user statement (stored)",
+        "tokens": 62
+      },
+      {
+        "source": "model call 1",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 31
+      },
+      {
+        "source": "activate_skill(\"name\":\"report-helper\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 445
+      },
+      {
+        "source": "model call 2",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 92
+      },
+      {
+        "source": "read_file(\"path\":\"settings.json\")",
+        "transform": "verbatim",
+        "revision": "fac6e0792573",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "source": "read_file(\"path\":\"report.py\")",
+        "transform": "verbatim",
+        "revision": "78721bd28acc",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "transform": "verbatim",
+        "revision": "197c0720866d",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "source": "read_skill_resource(\"path\":\"references/regression-test.md\",\"skill\":\"report-helper\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 207
+      },
+      {
+        "source": "model call 3",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "transform": "verbatim",
+        "revision": "319f11ce22b8",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "source": "model call 4",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "source": "model call 5",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "transform": "verbatim",
+        "revision": "339d3a9f2656",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "source": "model call 6",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 58
+      },
+      {
+        "source": "run_skill_script(\"args\":[\"report.py\",\"America/Los_Angeles\",\"2026-09-11\",\"2026-11-01\"],\"script\":\"scripts/probe_boundary.py\",\"skill\":\"report-helper\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 39
+      },
+      {
+        "source": "model call 7",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 45
+      },
+      {
+        "source": "model call 8",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "model output",
+        "tokens": 40
+      },
+      {
+        "source": "export_report(\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\")",
+        "transform": "verbatim",
+        "revision": null,
+        "trust": "workspace data",
+        "tokens": 49
+      },
+      {
+        "source": "task records",
+        "transform": "pinned (derived)",
+        "revision": "task r1",
+        "trust": "user (via human interface)",
+        "tokens": 97
+      }
+    ],
+    "excluded_before_the_model": {
+      "retrieval_filters": [
+        [
+          "indexed chunks",
+          10
+        ],
+        [
+          "after access filter",
+          7
+        ],
+        [
+          "after withdrawal filter",
+          4
+        ],
+        [
+          "after effective-date filter",
+          4
+        ]
+      ],
+      "memory_excluded": [
+        {
+          "id": "mem-f0207de3",
+          "reason": "expired at 2026-09-19T00:00:00Z"
+        }
+      ],
+      "memory_writes_rejected": [
+        {
+          "key": "report_timezone",
+          "reasons": [
+            "kind report_timezone is owned by project configuration (settings.json)"
+          ]
+        }
+      ]
+    }
+  },
+  "2_which_operation_was_authorized_and_by_whom": [
+    {
+      "call_id": "k1",
+      "tool": "activate_skill",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c1",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c2",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c3",
+      "tool": "read_file",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "r1",
+      "tool": "read_skill_resource",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c4",
+      "tool": "replace_text",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c6",
+      "tool": "run_tests",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "failed"
+    },
+    {
+      "call_id": "c8",
+      "tool": "replace_text",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "s1",
+      "tool": "run_skill_script",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "ok"
+    },
+    {
+      "call_id": "c9",
+      "tool": "run_tests",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "allow",
+      "rules_not_passed": [],
+      "approval": null,
+      "outcome": "passed"
+    },
+    {
+      "call_id": "x1",
+      "tool": "export_report",
+      "task_revision": 1,
+      "principal": "dev via sess-acme-dev",
+      "decision": "needs_approval",
+      "rules_not_passed": [
+        "approval.required:approval"
+      ],
+      "approval": {
+        "approval_id": "AP1",
+        "actor": "maria",
+        "role": "report_owner",
+        "artifact_version": "af0093264abc",
+        "scope": "run-24; destination A; one use"
+      },
+      "outcome": "completed"
+    }
+  ],
+  "3_what_actually_changed": {
+    "workspace": {
+      "report.py": {
+        "before": "78721bd28acc",
+        "after": "339d3a9f2656"
+      },
+      "test_report.py": {
+        "before": "197c0720866d",
+        "after": "319f11ce22b8"
+      }
+    },
+    "exports": [
+      {
+        "export_id": "export-file-001",
+        "op_key": "run-24:export:daily-2026-09-11:r5:A",
+        "payload_digest": "3e5c6d59ef3dae3b",
+        "destination": "A",
+        "source_revision": "339d3a9f2656"
+      }
+    ],
+    "outbox": {
+      "A": [
+        {
+          "file": "daily-2026-09-11.r5.export-file-001.csv",
+          "version": "af0093264abc"
+        }
+      ]
+    },
+    "memory_writes_by_run": 0,
+    "deployments": 0,
+    "run_store_operations": {
+      "k1": "completed",
+      "c1": "completed",
+      "c2": "completed",
+      "c3": "completed",
+      "r1": "completed",
+      "c4": "completed",
+      "c6": "completed",
+      "c8": "completed",
+      "s1": "completed",
+      "c9": "completed",
+      "x1": "completed"
+    }
+  },
+  "4_which_evidence_supports_the_result": {
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "tests",
+        "result": "failed",
+        "version": "78721bd28acc",
+        "task_revision": 1,
+        "state": "historical",
+        "call_id": "c6"
+      },
+      {
+        "id": "E2",
+        "kind": "tests",
+        "result": "passed",
+        "version": "339d3a9f2656",
+        "task_revision": 1,
+        "state": "current",
+        "call_id": "c9"
+      }
+    ],
+    "review": {
+      "current_revision": "r5",
+      "verdict": "verified",
+      "admitted": [
+        "tz-boundary-reviewer"
+      ],
+      "stale": [],
+      "missing_coverage": []
+    },
+    "probe": {
+      "call_id": "s1",
+      "status": "ok",
+      "version": "339d3a9f2656",
+      "stdout": "{\"ok\": true, \"rows_checked\": 12, \"wrong\": []}"
+    },
+    "verdict": {
+      "complete": true,
+      "missing": [],
+      "checks": {
+        "plan": [
+          {
+            "id": "P1",
+            "claim": "Reporting timezone established",
+            "status": "satisfied",
+            "evidence": "e1"
+          },
+          {
+            "id": "P2",
+            "claim": "Failure reproduced",
+            "status": "satisfied",
+            "evidence": "e5"
+          },
+          {
+            "id": "P3",
+            "claim": "Source changed after reproduction",
+            "status": "satisfied",
+            "evidence": "e6"
+          },
+          {
+            "id": "P4",
+            "claim": "Fix verified",
+            "status": "satisfied",
+            "evidence": "e7"
+          },
+          {
+            "id": "P5",
+            "claim": "No deployment executed",
+            "status": "satisfied",
+            "evidence": "absence checked"
+          }
+        ],
+        "revision_verifier": {
+          "complete": true,
+          "task_revision": 1,
+          "version": "339d3a9f2656",
+          "missing": [],
+          "supporting": [
+            "E2"
+          ]
+        },
+        "P6": {
+          "claim": "Independent review verified at the current revision",
+          "status": "satisfied",
+          "evidence": {
+            "current_revision": "r5",
+            "verdict": "verified",
+            "admitted": [
+              "tz-boundary-reviewer"
+            ],
+            "stale": [],
+            "rejected": [],
+            "missing_coverage": [],
+            "defects": [],
+            "coverage": {
+              "pdt_midday": [
+                "ev-da5e16e4f6a7"
+              ],
+              "pdt_evening": [
+                "ev-b71d614e7e9a"
+              ],
+              "pdt_after_local_midnight": [
+                "ev-2ef41dbee529"
+              ],
+              "pst_evening": [
+                "ev-47aee4ef65b3"
+              ],
+              "dst_fall_back_evening": [
+                "ev-6609238cf8d3"
+              ],
+              "dst_spring_forward_evening": [
+                "ev-103a48345f62"
+              ]
+            }
+          }
+        },
+        "P7": {
+          "claim": "Export delivered exactly once, as approved, consistent with the source",
+          "status": "satisfied",
+          "problems": [],
+          "export_rows": [
+            {
+              "export_id": "export-file-001",
+              "op_key": "run-24:export:daily-2026-09-11:r5:A",
+              "payload_digest": "3e5c6d59ef3dae3b",
+              "destination": "A",
+              "source_revision": "339d3a9f2656"
+            }
+          ],
+          "outbox": {
+            "A": [
+              {
+                "file": "daily-2026-09-11.r5.export-file-001.csv",
+                "version": "af0093264abc"
+              }
+            ]
+          },
+          "approval": {
+            "approval_id": "AP1",
+            "request_id": "RQ1",
+            "actor": "maria",
+            "role": "report_owner",
+            "delegated_by": null,
+            "operation": "export_report",
+            "args_digest": "c66ff54422eb9ffa",
+            "artifact": "daily-2026-09-11",
+            "artifact_version": "af0093264abc",
+            "scope": "run-24; destination A; one use",
+            "status": "consumed",
+            "consumed_by": "x1",
+            "expires": "10:16:33"
+          },
+          "content": {
+            "file": "daily-2026-09-11.r5.export-file-001.csv",
+            "rows": 4,
+            "belong_under_current_source": 4,
+            "belong_under_original_source": 3,
+            "current_source": "339d3a9f2656",
+            "original_source": "78721bd28acc"
+          }
+        },
+        "claims": {
+          "named": [
+            "319f11ce22b8",
+            "339d3a9f2656",
+            "export-file-001",
+            "r5"
+          ],
+          "unsupported": []
+        }
+      },
+      "task_revision": 1,
+      "call": 9
+    }
+  },
+  "5_what_remains_uncertain": [
+    "boundary evidence covers 6 named cases in America/Los_Angeles only",
+    "model replies are scripted stand-ins; the record shows what the runtime did with them, and says nothing about how often a live model proposes them"
+  ]
+}

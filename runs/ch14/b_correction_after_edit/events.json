@@ -1,0 +1,480 @@
+[
+  {
+    "seq": 1,
+    "t": "10:00:00",
+    "kind": "task_revised",
+    "task_revision": 1,
+    "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it.",
+    "checks": [],
+    "source": "initial request"
+  },
+  {
+    "seq": 2,
+    "t": "10:00:01",
+    "kind": "model_call_started",
+    "call": 1,
+    "task_revision": 1
+  },
+  {
+    "seq": 3,
+    "t": "10:00:07",
+    "kind": "model_call_finished",
+    "call": 1,
+    "task_revision": 1,
+    "proposal": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file"
+    ]
+  },
+  {
+    "seq": 4,
+    "t": "10:00:08",
+    "kind": "dispatched",
+    "call_id": "c1",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 5,
+    "t": "10:00:10",
+    "kind": "observed",
+    "call_id": "c1",
+    "status": "ok"
+  },
+  {
+    "seq": 6,
+    "t": "10:00:11",
+    "kind": "dispatched",
+    "call_id": "c2",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 7,
+    "t": "10:00:13",
+    "kind": "observed",
+    "call_id": "c2",
+    "status": "ok"
+  },
+  {
+    "seq": 8,
+    "t": "10:00:14",
+    "kind": "dispatched",
+    "call_id": "c3",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 9,
+    "t": "10:00:16",
+    "kind": "observed",
+    "call_id": "c3",
+    "status": "ok"
+  },
+  {
+    "seq": 10,
+    "t": "10:00:17",
+    "kind": "model_call_started",
+    "call": 2,
+    "task_revision": 1
+  },
+  {
+    "seq": 11,
+    "t": "10:00:23",
+    "kind": "model_call_finished",
+    "call": 2,
+    "task_revision": 1,
+    "proposal": [
+      "c4 replace_text"
+    ]
+  },
+  {
+    "seq": 12,
+    "t": "10:00:24",
+    "kind": "dispatched",
+    "call_id": "c4",
+    "tool": "replace_text",
+    "task_revision": 1
+  },
+  {
+    "seq": 13,
+    "t": "10:00:26",
+    "kind": "observed",
+    "call_id": "c4",
+    "status": "ok",
+    "path": "test_report.py",
+    "before_version": "197c0720866d",
+    "after_version": "319f11ce22b8"
+  },
+  {
+    "seq": 14,
+    "t": "10:00:27",
+    "kind": "model_call_started",
+    "call": 3,
+    "task_revision": 1
+  },
+  {
+    "seq": 15,
+    "t": "10:00:33",
+    "kind": "model_call_finished",
+    "call": 3,
+    "task_revision": 1,
+    "proposal": [
+      "c5 run_tests"
+    ]
+  },
+  {
+    "seq": 16,
+    "t": "10:00:34",
+    "kind": "dispatched",
+    "call_id": "c5",
+    "tool": "run_tests",
+    "task_revision": 1
+  },
+  {
+    "seq": 17,
+    "t": "10:00:36",
+    "kind": "observed",
+    "call_id": "c5",
+    "status": "failed"
+  },
+  {
+    "seq": 18,
+    "t": "10:00:36",
+    "kind": "evidence_recorded",
+    "evidence": "E1",
+    "evidence_kind": "tests",
+    "result": "failed",
+    "version": "78721bd28acc",
+    "task_revision": 1
+  },
+  {
+    "seq": 19,
+    "t": "10:00:37",
+    "kind": "model_call_started",
+    "call": 4,
+    "task_revision": 1
+  },
+  {
+    "seq": 20,
+    "t": "10:00:43",
+    "kind": "model_call_finished",
+    "call": 4,
+    "task_revision": 1,
+    "proposal": [
+      "c6 replace_text"
+    ]
+  },
+  {
+    "seq": 21,
+    "t": "10:00:44",
+    "kind": "dispatched",
+    "call_id": "c6",
+    "tool": "replace_text",
+    "task_revision": 1
+  },
+  {
+    "seq": 22,
+    "t": "10:00:46",
+    "kind": "observed",
+    "call_id": "c6",
+    "status": "ok",
+    "path": "report.py",
+    "before_version": "78721bd28acc",
+    "after_version": "bbaa2860e44f"
+  },
+  {
+    "seq": 23,
+    "t": "10:00:46",
+    "kind": "evidence_historical",
+    "evidence": "E1",
+    "was_version": "78721bd28acc",
+    "now_version": "bbaa2860e44f"
+  },
+  {
+    "seq": 24,
+    "t": "10:00:47",
+    "kind": "model_call_started",
+    "call": 5,
+    "task_revision": 1
+  },
+  {
+    "seq": 25,
+    "t": "10:00:53",
+    "kind": "model_call_finished",
+    "call": 5,
+    "task_revision": 1,
+    "proposal": [
+      "c7 run_tests"
+    ]
+  },
+  {
+    "seq": 26,
+    "t": "10:00:54",
+    "kind": "dispatched",
+    "call_id": "c7",
+    "tool": "run_tests",
+    "task_revision": 1
+  },
+  {
+    "seq": 27,
+    "t": "10:00:56",
+    "kind": "observed",
+    "call_id": "c7",
+    "status": "passed"
+  },
+  {
+    "seq": 28,
+    "t": "10:00:56",
+    "kind": "evidence_recorded",
+    "evidence": "E2",
+    "evidence_kind": "tests",
+    "result": "passed",
+    "version": "bbaa2860e44f",
+    "task_revision": 1
+  },
+  {
+    "seq": 29,
+    "t": "10:00:57",
+    "kind": "model_call_started",
+    "call": 6,
+    "task_revision": 1
+  },
+  {
+    "seq": 30,
+    "t": "10:01:00",
+    "kind": "task_revised",
+    "task_revision": 2,
+    "text": "Keep the public function signature unchanged.",
+    "checks": [
+      "signature:belongs_to_report"
+    ],
+    "source": "user message"
+  },
+  {
+    "seq": 31,
+    "t": "10:01:06",
+    "kind": "model_call_finished",
+    "call": 6,
+    "task_revision": 1,
+    "proposal": [
+      "final answer"
+    ]
+  },
+  {
+    "seq": 32,
+    "t": "10:01:07",
+    "kind": "completion_refused",
+    "call": 6,
+    "reason": "stale_task_revision",
+    "proposal_task_revision": 1,
+    "current_task_revision": 2
+  },
+  {
+    "seq": 33,
+    "t": "10:01:08",
+    "kind": "model_call_started",
+    "call": 7,
+    "task_revision": 2
+  },
+  {
+    "seq": 34,
+    "t": "10:01:14",
+    "kind": "model_call_finished",
+    "call": 7,
+    "task_revision": 2,
+    "proposal": [
+      "c8 check_signature"
+    ]
+  },
+  {
+    "seq": 35,
+    "t": "10:01:15",
+    "kind": "dispatched",
+    "call_id": "c8",
+    "tool": "check_signature",
+    "task_revision": 2
+  },
+  {
+    "seq": 36,
+    "t": "10:01:17",
+    "kind": "observed",
+    "call_id": "c8",
+    "status": "ok"
+  },
+  {
+    "seq": 37,
+    "t": "10:01:17",
+    "kind": "evidence_recorded",
+    "evidence": "E3",
+    "evidence_kind": "signature",
+    "result": "mismatch",
+    "version": "bbaa2860e44f",
+    "task_revision": 2
+  },
+  {
+    "seq": 38,
+    "t": "10:01:18",
+    "kind": "model_call_started",
+    "call": 8,
+    "task_revision": 2
+  },
+  {
+    "seq": 39,
+    "t": "10:01:24",
+    "kind": "model_call_finished",
+    "call": 8,
+    "task_revision": 2,
+    "proposal": [
+      "c9 replace_text"
+    ]
+  },
+  {
+    "seq": 40,
+    "t": "10:01:25",
+    "kind": "dispatched",
+    "call_id": "c9",
+    "tool": "replace_text",
+    "task_revision": 2
+  },
+  {
+    "seq": 41,
+    "t": "10:01:27",
+    "kind": "observed",
+    "call_id": "c9",
+    "status": "ok",
+    "path": "report.py",
+    "before_version": "bbaa2860e44f",
+    "after_version": "339d3a9f2656"
+  },
+  {
+    "seq": 42,
+    "t": "10:01:27",
+    "kind": "evidence_historical",
+    "evidence": "E2",
+    "was_version": "bbaa2860e44f",
+    "now_version": "339d3a9f2656"
+  },
+  {
+    "seq": 43,
+    "t": "10:01:27",
+    "kind": "evidence_historical",
+    "evidence": "E3",
+    "was_version": "bbaa2860e44f",
+    "now_version": "339d3a9f2656"
+  },
+  {
+    "seq": 44,
+    "t": "10:01:28",
+    "kind": "model_call_started",
+    "call": 9,
+    "task_revision": 2
+  },
+  {
+    "seq": 45,
+    "t": "10:01:34",
+    "kind": "model_call_finished",
+    "call": 9,
+    "task_revision": 2,
+    "proposal": [
+      "c10 run_tests"
+    ]
+  },
+  {
+    "seq": 46,
+    "t": "10:01:35",
+    "kind": "dispatched",
+    "call_id": "c10",
+    "tool": "run_tests",
+    "task_revision": 2
+  },
+  {
+    "seq": 47,
+    "t": "10:01:37",
+    "kind": "observed",
+    "call_id": "c10",
+    "status": "passed"
+  },
+  {
+    "seq": 48,
+    "t": "10:01:37",
+    "kind": "evidence_recorded",
+    "evidence": "E4",
+    "evidence_kind": "tests",
+    "result": "passed",
+    "version": "339d3a9f2656",
+    "task_revision": 2
+  },
+  {
+    "seq": 49,
+    "t": "10:01:38",
+    "kind": "model_call_started",
+    "call": 10,
+    "task_revision": 2
+  },
+  {
+    "seq": 50,
+    "t": "10:01:44",
+    "kind": "model_call_finished",
+    "call": 10,
+    "task_revision": 2,
+    "proposal": [
+      "c11 check_signature"
+    ]
+  },
+  {
+    "seq": 51,
+    "t": "10:01:45",
+    "kind": "dispatched",
+    "call_id": "c11",
+    "tool": "check_signature",
+    "task_revision": 2
+  },
+  {
+    "seq": 52,
+    "t": "10:01:47",
+    "kind": "observed",
+    "call_id": "c11",
+    "status": "ok"
+  },
+  {
+    "seq": 53,
+    "t": "10:01:47",
+    "kind": "evidence_recorded",
+    "evidence": "E5",
+    "evidence_kind": "signature",
+    "result": "match",
+    "version": "339d3a9f2656",
+    "task_revision": 2
+  },
+  {
+    "seq": 54,
+    "t": "10:01:48",
+    "kind": "model_call_started",
+    "call": 11,
+    "task_revision": 2
+  },
+  {
+    "seq": 55,
+    "t": "10:01:54",
+    "kind": "model_call_finished",
+    "call": 11,
+    "task_revision": 2,
+    "proposal": [
+      "final answer"
+    ]
+  },
+  {
+    "seq": 56,
+    "t": "10:01:55",
+    "kind": "run_completed",
+    "call": 11,
+    "task_revision": 2,
+    "version": "339d3a9f2656",
+    "supporting": [
+      "E4",
+      "E5"
+    ]
+  }
+]

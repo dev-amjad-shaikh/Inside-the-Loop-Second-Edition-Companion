@@ -1,0 +1,18 @@
+{
+  "admitted": true,
+  "margin": 0.005,
+  "per_callee": {
+    "export_status": {
+      "completion_drop": 0.0025,
+      "pass": true,
+      "pass_if_margin_zero": false,
+      "wall_saved_s": 3271.7
+    },
+    "model_endpoint": {
+      "completion_drop": 0.0025,
+      "pass": true,
+      "pass_if_margin_zero": false,
+      "wall_saved_s": 720.0
+    }
+  }
+}

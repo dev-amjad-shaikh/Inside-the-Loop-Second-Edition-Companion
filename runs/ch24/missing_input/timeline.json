@@ -1,0 +1,168 @@
+[
+  {
+    "seq": 1,
+    "t": "10:00:00",
+    "kind": "intake",
+    "user": "dev",
+    "tenant": "acme",
+    "session": "sess-acme-dev",
+    "profile": "report.fix_and_export",
+    "identity_fields_ignored": {
+      "tenant": "globex"
+    }
+  },
+  {
+    "seq": 2,
+    "t": "10:00:00",
+    "kind": "task_revised",
+    "task_revision": 1,
+    "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it. When the fix is verified, export the corrected daily report for 2026-09-11 to destination A.",
+    "checks": [],
+    "source": "initial request"
+  },
+  {
+    "seq": 3,
+    "t": "10:00:01",
+    "kind": "model_call_started",
+    "call": 1,
+    "task_revision": 1,
+    "request_sha": "ea516e0c73a7",
+    "input_tokens": 1332
+  },
+  {
+    "seq": 4,
+    "t": "10:00:07",
+    "kind": "model_call_finished",
+    "call": 1,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "k1 activate_skill"
+    ]
+  },
+  {
+    "seq": 5,
+    "t": "10:00:08",
+    "kind": "dispatched",
+    "call_id": "k1",
+    "tool": "activate_skill",
+    "task_revision": 1
+  },
+  {
+    "seq": 6,
+    "t": "10:00:10",
+    "kind": "observed",
+    "call_id": "k1",
+    "status": "ok"
+  },
+  {
+    "seq": 7,
+    "t": "10:00:11",
+    "kind": "model_call_started",
+    "call": 2,
+    "task_revision": 1,
+    "request_sha": "2ab97ea613b6",
+    "input_tokens": 1808
+  },
+  {
+    "seq": 8,
+    "t": "10:00:17",
+    "kind": "model_call_finished",
+    "call": 2,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "r1 read_skill_resource"
+    ]
+  },
+  {
+    "seq": 9,
+    "t": "10:00:18",
+    "kind": "dispatched",
+    "call_id": "c1",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 10,
+    "t": "10:00:20",
+    "kind": "observed",
+    "call_id": "c1",
+    "status": "ok"
+  },
+  {
+    "seq": 11,
+    "t": "10:00:21",
+    "kind": "dispatched",
+    "call_id": "c2",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 12,
+    "t": "10:00:23",
+    "kind": "observed",
+    "call_id": "c2",
+    "status": "ok"
+  },
+  {
+    "seq": 13,
+    "t": "10:00:24",
+    "kind": "dispatched",
+    "call_id": "c3",
+    "tool": "read_file",
+    "task_revision": 1
+  },
+  {
+    "seq": 14,
+    "t": "10:00:26",
+    "kind": "observed",
+    "call_id": "c3",
+    "status": "ok"
+  },
+  {
+    "seq": 15,
+    "t": "10:00:27",
+    "kind": "dispatched",
+    "call_id": "r1",
+    "tool": "read_skill_resource",
+    "task_revision": 1
+  },
+  {
+    "seq": 16,
+    "t": "10:00:29",
+    "kind": "observed",
+    "call_id": "r1",
+    "status": "ok"
+  },
+  {
+    "seq": 17,
+    "t": "10:00:30",
+    "kind": "model_call_started",
+    "call": 3,
+    "task_revision": 1,
+    "request_sha": "ac50cfd4dd1a",
+    "input_tokens": 2356
+  },
+  {
+    "seq": 18,
+    "t": "10:00:36",
+    "kind": "model_call_finished",
+    "call": 3,
+    "task_revision": 1,
+    "outcome": "completed_tool_calls",
+    "proposal": [
+      "q1 request_input"
+    ]
+  },
+  {
+    "seq": 19,
+    "t": "10:00:37",
+    "kind": "input_requested",
+    "call_id": "q1",
+    "question": "settings.json has no report_timezone. Which timezone defines the report day for acme?"
+  }
+]

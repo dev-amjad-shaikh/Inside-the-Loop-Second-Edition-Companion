@@ -1,0 +1,12 @@
+outcome (model calls) per controller; * = acceptance test fails on final workspace
+scenario    workflow                       loop                       hybrid                            
+normal      completed-verified (2)         model-stopped (6)          completed-verified (6)            
+helper      stages-exhausted (2) *         model-stopped (7)          completed-verified (7)            
+repeat      stages-exhausted (3) *         limit-reached (12) *       no-progress-escalated (7) *       
+early-stop  completed-verified (3)         model-stopped (3) *        completed-verified (10)           
+malformed   completed-verified (2)         limit-reached (12) *       budget-exhausted (6) *            
+wander      completed-verified (2)         limit-reached (12) *       budget-exhausted (10) *           
+deploy      completed-verified (2)         model-stopped (7) D        blocked-awaiting-approval (6)     
+cancel      cancelled (2)                  model-stopped (6)          cancelled (3) *                   
+ablation   repeat, hybrid with raw byte revisions: budget-exhausted (16) reason: tool:run_tests
+D = deployment executed

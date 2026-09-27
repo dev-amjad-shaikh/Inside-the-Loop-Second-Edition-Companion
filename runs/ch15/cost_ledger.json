@@ -1,0 +1,90 @@
+[
+  {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_id": "review-tz-r5",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5",
+    "status": "accepted",
+    "tokens": 3315,
+    "model_calls": 4,
+    "sim_seconds": 11.467
+  },
+  {
+    "worker": "interface-reviewer",
+    "worker_version": "1.0.3",
+    "contract_id": "review-iface-r5",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5",
+    "status": "accepted",
+    "tokens": 2323,
+    "model_calls": 4,
+    "sim_seconds": 8.101
+  },
+  {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_id": "review-tz-r4",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r4",
+    "status": "accepted",
+    "tokens": 2269,
+    "model_calls": 3,
+    "sim_seconds": 11.828
+  },
+  {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_id": "review-tz-r5-redispatch",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5",
+    "status": "accepted",
+    "tokens": 2133,
+    "model_calls": 3,
+    "sim_seconds": 8.396
+  },
+  {
+    "worker": "brief-reviewer-A",
+    "worker_version": "1.2.0",
+    "contract_id": "brief-A",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5-alt",
+    "status": "accepted",
+    "tokens": 1789,
+    "model_calls": 3,
+    "sim_seconds": 6.79
+  },
+  {
+    "worker": "brief-reviewer-B",
+    "worker_version": "1.2.0",
+    "contract_id": "brief-B",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5-alt",
+    "status": "accepted",
+    "tokens": 1789,
+    "model_calls": 3,
+    "sim_seconds": 6.79
+  },
+  {
+    "worker": "interface-reviewer",
+    "worker_version": "1.0.3",
+    "contract_id": "review-iface-r5-alt",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5-alt",
+    "status": "accepted",
+    "tokens": 1621,
+    "model_calls": 3,
+    "sim_seconds": 6.374
+  },
+  {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_id": "review-tz-r5-alt",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5-alt",
+    "status": "accepted",
+    "tokens": 2284,
+    "model_calls": 3,
+    "sim_seconds": 11.041
+  }
+]

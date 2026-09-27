@@ -1,0 +1,60 @@
+[
+  {
+    "id": "E1",
+    "kind": "tests",
+    "call_id": "c5",
+    "artifact": "report.py",
+    "version": "78721bd28acc",
+    "task_revision": 1,
+    "state": "historical",
+    "result": "failed",
+    "tests_run": 2,
+    "superseded_by_version": "bbaa2860e44f"
+  },
+  {
+    "id": "E2",
+    "kind": "tests",
+    "call_id": "c7",
+    "artifact": "report.py",
+    "version": "bbaa2860e44f",
+    "task_revision": 1,
+    "state": "historical",
+    "result": "passed",
+    "tests_run": 2,
+    "superseded_by_version": "339d3a9f2656"
+  },
+  {
+    "id": "E3",
+    "kind": "signature",
+    "call_id": "c8",
+    "artifact": "report.py",
+    "version": "bbaa2860e44f",
+    "task_revision": 2,
+    "state": "historical",
+    "result": "mismatch",
+    "signature": "(created_at, requested_day, timezone='America/Los_Angeles')",
+    "superseded_by_version": "339d3a9f2656"
+  },
+  {
+    "id": "E4",
+    "kind": "tests",
+    "call_id": "c10",
+    "artifact": "report.py",
+    "version": "339d3a9f2656",
+    "task_revision": 2,
+    "state": "current",
+    "result": "passed",
+    "tests_run": 2
+  },
+  {
+    "id": "E5",
+    "kind": "signature",
+    "call_id": "c11",
+    "artifact": "report.py",
+    "version": "339d3a9f2656",
+    "task_revision": 2,
+    "state": "current",
+    "result": "match",
+    "signature": "(created_at, requested_day, timezone)"
+  }
+]

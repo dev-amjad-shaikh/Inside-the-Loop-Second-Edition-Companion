@@ -1,0 +1,21 @@
+[
+  {
+    "approved_by": "user:owner-ops",
+    "event": "promoted",
+    "evidence": "evaluation_heldout.json, gate.json",
+    "version": "p-cf3a51cb4edf"
+  },
+  {
+    "event": "reverted",
+    "reason": "completion drop beyond threshold",
+    "version": "static-v0"
+  },
+  {
+    "event": "candidate distilled from shifted floor traffic",
+    "status": "awaiting evaluation",
+    "timeout_s": {
+      "export_status": 2
+    },
+    "version": "p-de59111c6ffc"
+  }
+]

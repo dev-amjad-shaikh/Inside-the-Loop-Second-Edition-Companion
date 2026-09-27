@@ -1,0 +1,130 @@
+
+== 1. Tokenization (byte-level BPE, 200 merges)
+corpus characters: 2486  merges learned: 200  vocabulary size: 456
+first ten merges: [' t', 'he', 're', 'or', ' the', 'es', ' re', 'de', 'por', 'est']
+"report.py"                                    chars= 9 tokens= 3  report | . | py
+" report.py"                                   chars=10 tokens= 3   report | . | py
+"test_report.py"                               chars=14 tokens= 4  test | _report | . | py
+"report_utils.py"                              chars=15 tokens= 8  report | _ | u | t | il | s | . | py
+"2026-09-12T00:30:00+00:00"                    chars=25 tokens=21  202 | 6 | - | 09 | - | 12 | T | 0 | 0 | : | 3 | 0 | : | 0 | 0 | + | 0 | 0 | : | 0 | 0
+"America/Los_Angeles"                          chars=19 tokens=16  A | me | r | i | c | a | / | L | o | s | _ | A | n | ge | l | es
+"UTC"                                          chars= 3 tokens= 1  UTC
+"Do not deploy it."                            chars=17 tokens=12  D | o |  n | o | t |  de | pl | o | y |  i | t | .
+"{\"report_timezone\": \"America/Los_Angeles\"}" chars=42 tokens=23  {" | report | _time | zone | ": |  " | A | me | r | i | c | a | / | L | o | s | _ | A | n | ge | l | es | "}
+
+== 2. Embedding lookup and one causal attention head
+tokens: ['R', 'un', ' the', ' tests', ' on', ' report', '.', 'py']
+  text                               Run the tests on report.py
+  token ids                          8 ids
+  embedding table E                  [456, 8]
+  token embeddings E[ids]            [8, 8]
+  position vectors P                 [8, 8]
+  X = E[ids] + P                     [8, 8]
+  W_q, W_k, W_v                      [8, 4]
+  Q = X W_q                          [8, 4]
+  K = X W_k                          [8, 4]
+  V = X W_v                          [8, 4]
+  scores = Q K^T / sqrt(d_k)         [8, 8]
+  mask                               [8, 8]
+  weights = softmax(scores + mask)   [8, 8]
+  head output = weights V            [8, 4]
+  W_o                                [4, 8]
+  projected = output W_o             [8, 8]
+  last position                      [1, 8]
+  logits = last E^T                  [1, 456]
+untrained next-token candidates (meaningless by design): ['�', '_t', 'gs', '_', 'path']
+causal weights, row by row (row i may see columns 0..i):
+  "R"       1.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+  "un"      0.593 0.407 0.000 0.000 0.000 0.000 0.000 0.000
+  " the"    0.357 0.284 0.359 0.000 0.000 0.000 0.000 0.000
+  " tests"  0.233 0.213 0.254 0.300 0.000 0.000 0.000 0.000
+  " on"     0.232 0.206 0.186 0.179 0.197 0.000 0.000 0.000
+  " report" 0.169 0.134 0.144 0.170 0.191 0.191 0.000 0.000
+  "."       0.141 0.109 0.119 0.150 0.166 0.165 0.150 0.000
+  "py"      0.144 0.084 0.116 0.120 0.154 0.148 0.123 0.111
+
+== 3. The mask: change the last token and compare earlier rows
+original tokens: ['R', 'un', ' the', ' tests', ' on', ' report', '.', 'py']
+changed tokens:  ['R', 'un', ' the', ' tests', ' on', ' report', '.', 'j', 's', 'on']
+positions shared by both texts: 7
+max change in earlier rows, masked:   ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+max change in earlier rows, unmasked: ['0.1213', '0.1477', '0.1524', '0.1625', '0.1544', '0.1500', '0.1464']
+
+== 4. Worked attention: query [1, 0], keys A, B, C
+scaled scores: ['0.7071', '0.0000', '0.7071']
+weights A, B, C: ['0.4011', '0.1978', '0.4011']
+output: ['6.4178', '4.3844']
+C masked, weights A, B: ['0.6698', '0.3302']
+C masked, output: ['6.6976', '3.3024']
+A and C masked, weight B: ['1.0000'] output: ['0.0000', '10.0000']
+
+== 5. Decoding the fifth action (authored logits)
+  tool-step probabilities greedy            replace_text=0.548 read_file=0.246 run_tests=0.165 run_shell=0.041
+  tool-step probabilities T=0.5             replace_text=0.770 read_file=0.156 run_tests=0.070 run_shell=0.004
+  tool-step probabilities T=1.0             replace_text=0.548 read_file=0.246 run_tests=0.165 run_shell=0.041
+  tool-step probabilities T=1.0, top-k=2    replace_text=0.690 read_file=0.310 run_tests=0.000 run_shell=0.000
+  tool-step probabilities T=1.0, top-p=0.9  replace_text=0.571 read_file=0.257 run_tests=0.172 run_shell=0.000
+scenario: normal
+  greedy            seeds 1-5: replace_text report.py; replace_text report.py; replace_text report.py; replace_text report.py; replace_text report.py
+                    of 1000: intended fix 1000, other valid call 0, nonexistent path 0, forbidden action 0
+  T=0.5             seeds 1-5: replace_text report.py; run_tests test_report.py; replace_text report.py; replace_text report.py; replace_text report.py
+                    of 1000: intended fix 690, other valid call 293, nonexistent path 15, forbidden action 2
+  T=1.0             seeds 1-5: replace_text test_report.py; run_tests report.py; replace_text report.py; replace_text report.py; read_file test_report.py
+                    of 1000: intended fix 366, other valid call 524, nonexistent path 76, forbidden action 34
+  T=1.0, top-k=2    seeds 1-5: replace_text test_report.py; read_file report.py; replace_text report.py; replace_text report.py; replace_text test_report.py
+                    of 1000: intended fix 514, other valid call 453, nonexistent path 33, forbidden action 0
+  T=1.0, top-p=0.9  seeds 1-5: replace_text test_report.py; run_tests test_report.py; replace_text report.py; replace_text report.py; read_file report.py
+                    of 1000: intended fix 399, other valid call 538, nonexistent path 63, forbidden action 0
+scenario: planted
+  greedy            seeds 1-5: run_shell deploy.sh; run_shell deploy.sh; run_shell deploy.sh; run_shell deploy.sh; run_shell deploy.sh
+                    of 1000: intended fix 0, other valid call 0, nonexistent path 0, forbidden action 1000
+  T=0.5             seeds 1-5: replace_text report.py; run_shell deploy.sh; replace_text report.py; replace_text report.py; run_shell deploy.sh
+                    of 1000: intended fix 251, other valid call 144, nonexistent path 8, forbidden action 597
+  T=1.0             seeds 1-5: replace_text test_report.py; run_shell test_report.py; replace_text report.py; replace_text report.py; run_shell deploy.sh
+                    of 1000: intended fix 210, other valid call 326, nonexistent path 49, forbidden action 415
+  T=1.0, top-k=2    seeds 1-5: replace_text test_report.py; run_shell test_report.py; replace_text report.py; replace_text report.py; run_shell deploy.sh
+                    of 1000: intended fix 314, other valid call 99, nonexistent path 6, forbidden action 581
+  T=1.0, top-p=0.9  seeds 1-5: replace_text test_report.py; run_shell test_report.py; replace_text report.py; replace_text report.py; run_shell deploy.sh
+                    of 1000: intended fix 222, other valid call 323, nonexistent path 40, forbidden action 415
+
+== 6. A tool call is generated tokens; reasoning spends the same budget
+tool-call characters: 232  tokens: 95  first prefix that parses as JSON: token 95
+reasoning characters: 305  tokens: 144
+  max_output_tokens=115 reasoning=115 call=  0/95 stop=max_tokens executable=False
+  max_output_tokens=214 reasoning=144 call= 70/95 stop=max_tokens executable=False
+  max_output_tokens=249 reasoning=144 call= 95/95 stop=end_turn   executable=True
+
+== 7. Prefill and decode with a KV cache
+  prefill positions= 8 cache rows= 8 |cached - recomputed| = 0.0e+00
+  decode  positions= 9 cache rows= 9 |cached - recomputed| = 0.0e+00
+  decode  positions=10 cache rows=10 |cached - recomputed| = 0.0e+00
+  decode  positions=11 cache rows=11 |cached - recomputed| = 0.0e+00
+  decode  positions=12 cache rows=12 |cached - recomputed| = 0.0e+00
+  prompt tokens: 8  decoded tokens: 4
+  K/V rows projected   with cache: 12   recomputing each step: 50
+  score entries        with cache: 106   recomputing each step: 510
+
+== 7b. KV-cache memory arithmetic
+  illustrative GQA model, 8,192 tokens       1,073,741,824 bytes = 1.0000 GiB
+  same model, 32 KV heads (no grouping)      4,294,967,296 bytes = 4.0000 GiB
+  same GQA model, one token                        131,072 bytes = 0.0001 GiB
+  same GQA model, 128,000 tokens            16,777,216,000 bytes = 15.6250 GiB
+
+== 8. Prefix reuse across the seven calls of Chapter 3
+  stable prefix                input tokens over 7 calls=10927  prefilled=2162  reused=8765
+  timestamp in system prompt   input tokens over 7 calls=11116  prefilled=8144  reused=2972
+  tool order changes           input tokens over 7 calls=10927  prefilled=10849  reused=78
+  timestamp after the history  input tokens over 7 calls=11214  prefilled=2437  reused=8777
+  per call (stable prefix): chars, tokens, reusable, prefill
+    call 1   1047 chars    621 tokens      0 reusable    621 prefill  (1.69 chars/token)
+    call 2   2227 chars   1195 tokens    621 reusable    574 prefill  (1.86 chars/token)
+    call 3   2786 chars   1514 tokens   1195 reusable    319 prefill  (1.84 chars/token)
+    call 4   2972 chars   1612 tokens   1514 reusable     98 prefill  (1.84 chars/token)
+    call 5   3320 chars   1808 tokens   1612 reusable    196 prefill  (1.84 chars/token)
+    call 6   3727 chars   2015 tokens   1808 reusable    207 prefill  (1.85 chars/token)
+    call 7   3990 chars   2162 tokens   2015 reusable    147 prefill  (1.85 chars/token)
+  per call reusable prefix, timestamp variant: [0, 496, 495, 495, 496, 495, 495]
+  per call reusable prefix, tool-order variant: [0, 13, 13, 13, 13, 13, 13]
+  per call reusable prefix, timestamp after the history: [0, 623, 1197, 1516, 1614, 1810, 2017]
+
+wrote ['attention.json', 'decoding.json', 'figure_data.json', 'generated_tokens.json', 'kv_cache.json', 'mask_check.json', 'prefix_reuse.json', 'tokenizer.json', 'tokens.json', 'worked_attention.json']

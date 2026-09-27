@@ -1,0 +1,13 @@
+{
+  "controller": "workflow",
+  "outcome": "stages-exhausted",
+  "reason": "verification failed after 2 patch attempts",
+  "model_calls": 3,
+  "tokens": 2399,
+  "sim_seconds": 25.599,
+  "executions": 9,
+  "audit": {
+    "acceptance_passed": false,
+    "deployed": false
+  }
+}

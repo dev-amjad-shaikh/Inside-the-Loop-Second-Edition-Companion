@@ -1,0 +1,58 @@
+[
+  {
+    "call": 1,
+    "catalog": 386,
+    "skill_body": 0,
+    "skill_resources": 0,
+    "other": 64
+  },
+  {
+    "call": 2,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 0,
+    "other": 64
+  },
+  {
+    "call": 3,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 287
+  },
+  {
+    "call": 4,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 319
+  },
+  {
+    "call": 5,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 377
+  },
+  {
+    "call": 6,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 408
+  },
+  {
+    "call": 7,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 437
+  },
+  {
+    "call": 8,
+    "catalog": 386,
+    "skill_body": 435,
+    "skill_resources": 198,
+    "other": 474
+  }
+]

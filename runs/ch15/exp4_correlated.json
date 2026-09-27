@@ -1,0 +1,182 @@
+{
+  "patch": "0c9387fd05ab",
+  "flawed_team_votes": {
+    "votes": {
+      "pass": 3,
+      "fail": 0
+    },
+    "verdict": "approved"
+  },
+  "coverage_matrix": {
+    "classes": [
+      "pdt_midday",
+      "pdt_evening",
+      "pdt_after_local_midnight",
+      "pst_evening",
+      "dst_fall_back_evening",
+      "dst_spring_forward_evening",
+      "public_interface"
+    ],
+    "rows": {
+      "brief-reviewer-A": {
+        "cells": {
+          "pdt_midday": "ok",
+          "pdt_evening": "ok",
+          "pdt_after_local_midnight": "absent",
+          "pst_evening": "absent",
+          "dst_fall_back_evening": "absent",
+          "dst_spring_forward_evening": "absent",
+          "public_interface": "absent"
+        },
+        "verdict": "pass"
+      },
+      "brief-reviewer-B": {
+        "cells": {
+          "pdt_midday": "ok",
+          "pdt_evening": "ok",
+          "pdt_after_local_midnight": "absent",
+          "pst_evening": "absent",
+          "dst_fall_back_evening": "absent",
+          "dst_spring_forward_evening": "absent",
+          "public_interface": "absent"
+        },
+        "verdict": "pass"
+      },
+      "interface-reviewer": {
+        "cells": {
+          "pdt_midday": "absent",
+          "pdt_evening": "absent",
+          "pdt_after_local_midnight": "absent",
+          "pst_evening": "absent",
+          "dst_fall_back_evening": "absent",
+          "dst_spring_forward_evening": "absent",
+          "public_interface": "ok"
+        },
+        "verdict": "pass"
+      },
+      "tz-boundary-reviewer": {
+        "cells": {
+          "pdt_midday": "ok",
+          "pdt_evening": "ok",
+          "pdt_after_local_midnight": "ok",
+          "pst_evening": "fail",
+          "dst_fall_back_evening": "fail",
+          "dst_spring_forward_evening": "fail",
+          "public_interface": "absent"
+        },
+        "verdict": "fail"
+      }
+    }
+  },
+  "distinct_case_evidence_sets": [
+    {
+      "cases": [
+        [
+          "pdt_evening",
+          true
+        ],
+        [
+          "pdt_midday",
+          true
+        ]
+      ],
+      "workers": [
+        "brief-reviewer-A",
+        "brief-reviewer-B"
+      ]
+    }
+  ],
+  "coverage_check_on_flawed_team": {
+    "current_revision": "r5-alt",
+    "verdict": "not verified: missing pdt_after_local_midnight, pst_evening, dst_fall_back_evening, dst_spring_forward_evening",
+    "admitted": [
+      "brief-reviewer-A",
+      "brief-reviewer-B",
+      "interface-reviewer"
+    ],
+    "stale": [],
+    "rejected": [],
+    "missing_coverage": [
+      "pdt_after_local_midnight",
+      "pst_evening",
+      "dst_fall_back_evening",
+      "dst_spring_forward_evening"
+    ],
+    "defects": [],
+    "coverage": {
+      "pdt_midday": [
+        "ev-70e3016f15d6",
+        "ev-b4557d9cfce6"
+      ],
+      "pdt_evening": [
+        "ev-00ef4121dc36",
+        "ev-2052c784c659"
+      ],
+      "public_interface": [
+        "ev-c9625252f9cf"
+      ]
+    }
+  },
+  "boundary_reviewer": {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5-alt",
+    "status": "accepted",
+    "verdict": "fail",
+    "attempts": [
+      {
+        "attempt": 1,
+        "raw_excerpt": "{\"contract_id\": \"review-tz-r5-alt\", \"input_revision\": \"r5-alt\", \"verdict\": \"fail\", \"findings\": [{\"claim\": \"pst_evening: order at 2026-01-12T07:30:00+00:00 expec",
+        "violations": []
+      }
+    ],
+    "tokens": 2284,
+    "model_calls": 3,
+    "sim_seconds": 11.041,
+    "operations": [
+      "read_file",
+      "read_file",
+      "run_cases"
+    ]
+  },
+  "revised_integration": {
+    "current_revision": "r5-alt",
+    "verdict": "defects found",
+    "admitted": [
+      "tz-boundary-reviewer",
+      "interface-reviewer"
+    ],
+    "stale": [],
+    "rejected": [],
+    "missing_coverage": [],
+    "defects": [
+      "pst_evening: order at 2026-01-12T07:30:00+00:00 expected True for 2026-01-11, got False",
+      "dst_fall_back_evening: order at 2026-11-02T07:30:00+00:00 expected True for 2026-11-01, got False",
+      "dst_spring_forward_evening: order at 2026-03-08T07:30:00+00:00 expected True for 2026-03-07, got False"
+    ],
+    "coverage": {
+      "pdt_midday": [
+        "ev-ba3b162c4c57"
+      ],
+      "pdt_evening": [
+        "ev-3237c86e7038"
+      ],
+      "pdt_after_local_midnight": [
+        "ev-c3a3ba08adf3"
+      ],
+      "pst_evening": [
+        "ev-2fe87b81792c"
+      ],
+      "dst_fall_back_evening": [
+        "ev-155fbfb8ce13"
+      ],
+      "dst_spring_forward_evening": [
+        "ev-bdbd6878e532"
+      ],
+      "public_interface": [
+        "ev-c9625252f9cf"
+      ]
+    }
+  }
+}

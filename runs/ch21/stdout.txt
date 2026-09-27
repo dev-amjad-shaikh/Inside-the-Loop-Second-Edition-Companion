@@ -1,0 +1,139 @@
+Chapter 11 recordings loaded: 25 runs; token totals match summary.json for every run
+
+== 1. Chapter 3's run as a usage ledger (tokens approximate: JSON characters / 4)
+  call  input  reusable  output  tools
+     1    266         0      68  read_file, read_file, read_file
+     2    596       266     111  replace_text
+     3    753       596      32  run_tests (rejected)
+     4    816       753      32  run_tests
+     5    921       816      74  replace_text
+     6   1040       921      32  run_tests
+     7   1123      1040      80  -
+  totals: input 5515, reusable 4392 (79.6%), output 429
+
+== 2. Where the time goes: critical path of Chapter 3's run (simulated seconds)
+  variant                                                            queue sandbox    ttft     gen   tools commits  verify   total   model$  sandbox$
+  idle, sequential tools, cache on                                    0.00    2.00    3.89    8.58   13.20    0.06    6.10   33.83    3.988    0.068
+  idle, parallel reads, cache on                                      0.00    2.00    3.89    8.58   12.80    0.06    6.10   33.43    3.988    0.067
+  idle, sequential tools, cache off                                   0.00    2.00    4.88    8.58   13.20    0.06    6.10   34.82    7.660    0.070
+  queued 5.3 s (p50 wait at 90% load), sequential, cache on           5.26    2.00    3.89    8.58   13.20    0.06    6.10   39.09    3.988    0.068
+  idle run: model time 12.47 s, tool and verification time 19.30 s, share of run in tools 57.0%
+  idle run, cache on: input 1.843 units, output 2.145 units (53.8% of model cost from 7.2% of tokens)
+
+== 3. Cost per run over Chapter 11's recorded runs (price table pt-illustrative-2026-09, digest b829d89d7338)
+  units: 1 unit = 1,000 uncached input tokens on the large model; cache on, full hit rate
+  controller scenario     outcome                    calls  tokens  cost(machine)  person  verified
+  loop       normal      model-stopped                  6    4532          3.664       0  True
+  loop       helper      model-stopped                  7    5787          3.986       0  True
+  loop       early-stop  model-stopped                  3    1576          1.848       0  False
+  loop       malformed   limit-reached                 12   11346          5.369       1  False
+  loop       repeat      limit-reached                 12   13487          6.550       1  False
+  loop       wander      limit-reached                 12   43737         13.470       1  False
+  loop       deploy      model-stopped                  7    6083          4.132       0  False
+  loop       cancel      model-stopped                  6    4532          3.664       0  False
+  hybrid     normal      completed-verified             6    4532          3.664       0  True
+  hybrid     helper      completed-verified             7    5787          3.986       0  True
+  hybrid     early-stop  completed-verified            10   10002          5.798       0  True
+  hybrid     malformed   budget-exhausted               6    3511          2.955       1  False
+  hybrid     repeat      no-progress-escalated          7    4751          3.662       1  False
+  hybrid     wander      budget-exhausted              10   25702         10.445       1  False
+  hybrid     deploy      blocked-awaiting-approval      6    4898          3.607       1  True
+  hybrid     cancel      cancelled                      3    1622          2.128       0  False
+
+== 4. Four ways to report cost, under the scenario mix normal 0.50, helper 0.15, early-stop 0.10, malformed 0.08, repeat 0.05, wander 0.05, deploy 0.05, cancel 0.02
+  metric                                   loop      hybrid    workflow
+  cost per model call                        0.620     0.619     0.997
+  cost per attempt                           4.325     4.175     2.143
+  claimed completion rate                    0.820     0.750     0.780
+  cost per claimed completion                5.275     5.566     2.748
+  verified success rate                      0.650     0.800     0.780
+  cost per verified success                  6.654     5.218     2.748
+    ... with people (100 per decision)      34.347    33.968    28.389
+    ... and silent failures found later     60.501    33.968    28.389
+
+== 5. Cost per verified success in 1000 seeded batches of 40 tasks
+  machine cost                     loop    p10    5.41  p50    6.59  p90    8.18  range 4.32 to 11.46
+  machine cost                     hybrid  p10    4.56  p50    5.16  p90    6.01  range 4.07 to 7.64
+  machine cost: batches in which hybrid costs more per verified success than loop: 0 of 1000
+  with people and later discovery  loop    p10   38.92  p50   60.31  p90   89.24  range 22.20 to 133.68
+  with people and later discovery  hybrid  p10   21.60  p50   33.37  p90   48.35  range 9.37 to 82.23
+  with people and later discovery: batches in which hybrid costs more per verified success than loop: 0 of 1000
+
+== 6. Sensitivity to cache hit rate (machine cost per verified success)
+  controller   cache off  hit 0.00  hit 0.25  hit 0.50  hit 0.75  hit 1.00
+  loop           14.559    17.426    14.733    12.040     9.347     6.654
+  hybrid         10.251    12.193    10.449     8.706     6.962     5.218
+  loop: reusable share of input 0.817; caching pays for itself above hit rate 0.266
+  hybrid: reusable share of input 0.781; caching pays for itself above hit rate 0.278
+  loop: adding 300 reasoning tokens per call raises cost per verified success to 22.762
+  hybrid: adding 300 reasoning tokens per call raises cost per verified success to 17.856
+
+== 7. Routing on the hybrid: small model first, large model when the verifier reports failure
+  20,000 sampled tasks per row; q = chance the small model succeeds where the large one did
+  (q is not observed in any recording; it is swept)
+  policy           q     success   machine/success   with people/success   mean seconds to outcome
+  large only      1.00     0.796            5.249                34.190                   27.88
+  small only      0.90     0.717            1.229                43.887                   27.88
+  small only      0.70     0.556            1.584                83.744                   27.88
+  small only      0.50     0.399            2.210               153.822                   27.88
+  cascade         0.90     0.796            2.716                31.657                   35.68
+  cascade         0.70     0.796            3.524                32.465                   40.15
+  cascade         0.50     0.796            4.312                33.253                   44.51
+
+== 8. Budgets checked before dispatch versus after the fact
+  loop/wander, budget 5.0 units, reserve 0.5, max_tokens 400
+  cost of each call: [0.5363, 0.9705, 1.0441, 1.0966, 1.1703, 1.2252, 1.282, 1.3937, 1.4164, 1.4719, 0.9031, 0.8608]
+  after-the-fact check : stopped after call 6, spent 6.043, over budget by 1.043
+  before-dispatch check: refused call 4 (projected 2.937), spent 2.551, 2.449 left for the reserve
+  30 concurrent runs, tenant budget 60.0: check shared meter before each call -> billed 63.891, over by 3.891, 30 runs cut off, 0 completed
+  reserve 4.0 per run at admission -> admitted 15, refused 15, billed 53.831, over by 0.0, 1 stopped at its own cap, 14 completed
+
+== 9. Agent service simulation: 16 workers, runs drawn from the hybrid recordings by the mix
+  service time: mean 33.3 s, p50 33.5, p90 43.6, p99 53.2; capacity 28.82 runs/min
+  admission control: queue bound 32, deadline 150 s end to end, start refused when wait + p90 service (43.6 s) would pass it
+  load   policy      arrived  completed  refused  p50      p95      p99      in-deadline  util
+  0.50  unbounded      2572       2572        0     33.3     46.5     52.6         2572  0.492
+  0.50  admission      2572       2572        0     33.3     46.5     52.6         2572  0.492
+  0.60  unbounded      3166       3166        0     33.8     48.0     54.2         3166  0.608
+  0.60  admission      3166       3166        0     33.8     48.0     54.2         3166  0.608
+  0.70  unbounded      3648       3648        0     34.0     49.8     59.3         3648  0.702
+  0.70  admission      3648       3648        0     34.0     49.8     59.3         3648  0.702
+  0.80  unbounded      4278       4278        0     34.7     50.6     57.1         4278  0.821
+  0.80  admission      4278       4278        0     34.7     50.6     57.1         4278  0.821
+  0.85  unbounded      4446       4446        0     35.3     52.0     60.5         4446  0.854
+  0.85  admission      4446       4446        0     35.3     52.0     60.5         4446  0.854
+  0.90  unbounded      4799       4799        0     40.5     79.2    108.7         4799  0.922
+  0.90  admission      4799       4788       11     39.6     71.8     96.1         4788  0.920
+  0.95  unbounded      4920       4920        0     41.7     92.6    111.7         4920  0.937
+  0.95  admission      4920       4905       15     40.8     77.0     96.4         4905  0.934
+  1.00  unbounded      5165       5165        0     74.4    179.2    195.6         4148  0.977
+  1.00  admission      5165       5114       51     54.8     96.1    106.6         5114  0.975
+  1.05  unbounded      5417       5417        0    299.7    563.0    586.3         1307  0.992
+  1.05  admission      5417       5166      251     82.1    104.5    113.4         5166  0.991
+  1.10  unbounded      5785       5785        0    536.2   1220.8   1275.0          627  0.997
+  1.10  admission      5785       5206      579     89.8    107.2    115.5         5206  0.997
+  Little's law at load 0.90 (unbounded, the path starts and ends empty): L = 19.8572, lambda x W = 0.44248 x 44.877 = 19.8572
+
+== 10. A noisy tenant: three quiet tenants at 0.18 of capacity each; tenant N at 0.10, bursting to 1.00 from minute 20 to 50
+  policy                    group   arrived  completed  refused  p50     p95     in-deadline
+  one FIFO, unbounded       quiet      1347       1347        0   338.9   929.2          469
+  one FIFO, unbounded       N          1039       1039        0   461.9   948.5          194
+  global bound + deadline   quiet      1347       1194      153    36.3   102.1         1194
+  global bound + deadline   N          1039        756      283    92.5   111.3          756
+  per-tenant limits + fair  quiet      1347       1347        0    34.0    49.1         1347
+  per-tenant limits + fair  N          1039        496      543    69.5    90.4          496
+
+== 11. Provider token limit: blind retry after 429 versus a runtime-side limiter
+  load 0.75 of workers; mean tokens per run 6665; demand 144055 tokens/min; limit 160061 tokens/min (demand at 90% of the limit), burst 5 s
+  capacity: workers 28.82 runs/min, provider 24.01 runs/min
+  mode                completed  failed  429s   p50     p95     p99     wasted tokens  held s/run  queue s/run
+  (latency percentiles over completed runs; held = seconds a run occupies a worker and its sandbox)
+  blind, 16 workers         1333      23   944    35.5    53.7    64.5        316146       34.73        1.82
+  limiter, 16 workers       1356       0     0    38.9    69.9    83.9             0       36.88        4.79
+
+== 12. Chapter 15's one worker versus two workers, as capacity
+  clean                        one_worker  latency  12.74 s  slot-seconds  12.74  tokens  3693  saturates at 75.4 reviews/min on 16 slots
+  clean                        two_workers latency   9.62 s  slot-seconds  15.95  tokens  4023  saturates at 60.2 reviews/min on 16 slots
+  with_malformed_first_answer  one_worker  latency  14.23 s  slot-seconds  14.23  tokens  4873  saturates at 67.5 reviews/min on 16 slots
+  with_malformed_first_answer  two_workers latency   9.62 s  slot-seconds  17.32  tokens  4709  saturates at 55.4 reviews/min on 16 slots
+

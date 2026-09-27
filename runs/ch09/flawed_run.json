@@ -1,0 +1,202 @@
+{
+  "selected_by_stand_in": "process_data",
+  "tie": [
+    "process_data",
+    "export_report"
+  ],
+  "steps": [
+    {
+      "call": {
+        "id": "f1",
+        "name": "process_data",
+        "arguments": {
+          "data": "daily orders",
+          "action": "export 2026-09-11 as csv to finance sftp"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "content": "{\"status\": \"ok\", \"result\": \"15864a4f-0f9e-6c98-8c26-f42c770ed305\"}"
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 0,
+          "day": null,
+          "format": "json",
+          "destination": "shared_drive",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f1"
+        }
+      ]
+    },
+    {
+      "call": {
+        "id": "f2",
+        "name": "get_export",
+        "arguments": {
+          "id": "15864a4f-0f9e-6c98-8c26-f42c770ed305"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "content": "[]"
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 0,
+          "day": null,
+          "format": "json",
+          "destination": "shared_drive",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f1"
+        }
+      ]
+    },
+    {
+      "call": {
+        "id": "f3",
+        "name": "get_data",
+        "arguments": {
+          "query": "daily orders"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "content": "{\"status\": \"ok\", \"rows\": [[\"acme\", \"daily_orders\", \"Daily orders\", \"orders placed per local calendar day\", 5, \"339d3a9f2656\", 0], [\"acme\", \"weekly_revenue\", \"Weekly revenue\", \"revenue by week and channel\", 3, \"5b1e07c2d9aa\", 0], [\"acme\", \"refunds_by_region\", \"Refunds by region\", \"refund counts and amounts per region\", 2, \"a0c4e6f19b37\", 0], [\"acme\", \"payroll_summary\", \"Payroll summary\", \"salary totals per department\", 7, \"e93d11a0c5f2\", 1], [\"globex\", \"daily_orders\", \"Daily orders\", \"orders placed per local calendar day\", 2, \"0d7f3b8a6e21\", 0]]}"
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 0,
+          "day": null,
+          "format": "json",
+          "destination": "shared_drive",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f1"
+        }
+      ]
+    },
+    {
+      "call": {
+        "id": "f4",
+        "name": "create_export",
+        "arguments": {
+          "report_id": "daily_orders",
+          "tenant": "acme",
+          "day": "Sept 11",
+          "format": "csv",
+          "destination": "finance_sftp"
+        }
+      },
+      "observation": {
+        "status": "error",
+        "message": "An error occurred while running the tool. Please try again."
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 0,
+          "day": null,
+          "format": "json",
+          "destination": "shared_drive",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f1"
+        }
+      ]
+    },
+    {
+      "call": {
+        "id": "f5",
+        "name": "create_export",
+        "arguments": {
+          "report_id": "daily_orders",
+          "tenant": "globex",
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp"
+        }
+      },
+      "observation": {
+        "status": "ok",
+        "content": "{\"status\": \"ok\", \"id\": \"7b0be426-40c3-62d2-fd76-7f0a20eec8a9\"}"
+      },
+      "exports_after": [
+        {
+          "export_id": "exp_0413",
+          "tenant": "acme",
+          "report": "daily_orders",
+          "report_version": 0,
+          "day": null,
+          "format": "json",
+          "destination": "shared_drive",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f1"
+        },
+        {
+          "export_id": "exp_0414",
+          "tenant": "globex",
+          "report": "daily_orders",
+          "report_version": 2,
+          "day": "2026-09-11",
+          "format": "csv",
+          "destination": "finance_sftp",
+          "status": "delivered",
+          "requested_by": "maria@acme",
+          "call_id": "f5"
+        }
+      ]
+    }
+  ],
+  "task_intent": {
+    "tenant": "acme",
+    "report": "daily_orders",
+    "day": "2026-09-11",
+    "format": "csv",
+    "destination": "finance_sftp"
+  },
+  "intent_check": [
+    {
+      "export_id": "exp_0413",
+      "created_by_call": "f1",
+      "differs_from_task": {
+        "day": {
+          "task": "2026-09-11",
+          "found": null
+        },
+        "format": {
+          "task": "csv",
+          "found": "json"
+        },
+        "destination": {
+          "task": "finance_sftp",
+          "found": "shared_drive"
+        }
+      }
+    },
+    {
+      "export_id": "exp_0414",
+      "created_by_call": "f5",
+      "differs_from_task": {
+        "tenant": {
+          "task": "acme",
+          "found": "globex"
+        }
+      }
+    }
+  ]
+}

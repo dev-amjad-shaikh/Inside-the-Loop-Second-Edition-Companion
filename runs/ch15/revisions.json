@@ -1,0 +1,34 @@
+{
+  "r3": {
+    "versions": {
+      "report.py": "78721bd28acc",
+      "settings.json": "fac6e0792573",
+      "test_report.py": "197c0720866d"
+    },
+    "digest": "d7efa9be3e43"
+  },
+  "r4": {
+    "versions": {
+      "report.py": "78721bd28acc",
+      "settings.json": "fac6e0792573",
+      "test_report.py": "319f11ce22b8"
+    },
+    "digest": "8caa6dfca483"
+  },
+  "r5": {
+    "versions": {
+      "report.py": "339d3a9f2656",
+      "settings.json": "fac6e0792573",
+      "test_report.py": "319f11ce22b8"
+    },
+    "digest": "025e5dc0e98d"
+  },
+  "r5-alt": {
+    "versions": {
+      "report.py": "0c9387fd05ab",
+      "settings.json": "fac6e0792573",
+      "test_report.py": "319f11ce22b8"
+    },
+    "digest": "a9f776d7cb47"
+  }
+}

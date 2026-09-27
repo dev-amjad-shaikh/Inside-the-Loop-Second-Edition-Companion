@@ -1,0 +1,51 @@
+{
+  "batch": [
+    [
+      "b1",
+      "exports_get_status",
+      "read_only"
+    ],
+    [
+      "b2",
+      "exports_get_status",
+      "read_only"
+    ],
+    [
+      "b3",
+      "exports_read_log",
+      "read_only"
+    ],
+    [
+      "b4",
+      "exports_create",
+      "creates_external_record"
+    ],
+    [
+      "b5",
+      "exports_list",
+      "read_only"
+    ]
+  ],
+  "groups": [
+    {
+      "mode": "parallel",
+      "calls": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    {
+      "mode": "exclusive",
+      "calls": [
+        "b4"
+      ]
+    },
+    {
+      "mode": "parallel",
+      "calls": [
+        "b5"
+      ]
+    }
+  ]
+}

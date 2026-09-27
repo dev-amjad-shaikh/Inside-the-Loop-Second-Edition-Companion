@@ -1,0 +1,20 @@
+{
+  "can i retrun an opend blender thats defectve": {
+    "shared_4grams": [
+      "#def",
+      "#ope",
+      "#ret",
+      "defe",
+      "efec",
+      "fect",
+      "open"
+    ],
+    "cos_256": 0.2546,
+    "cos_1024": 0.1517
+  },
+  "Can I get my money back for a kettle I unboxed last week?": {
+    "shared_4grams": [],
+    "cos_256": 0.27,
+    "cos_1024": 0.0379
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "parent_budget": 16000,
+  "reserve": 4000,
+  "pool": 12000,
+  "estimates": {
+    "tz-boundary-reviewer": 2122,
+    "interface-reviewer": 1596,
+    "extra-reviewer": 2122
+  },
+  "allocation": {
+    "tz-boundary-reviewer": 4360,
+    "interface-reviewer": 3279,
+    "extra-reviewer": 4360
+  },
+  "runs": {
+    "naive": {
+      "caps": {
+        "tz-boundary-reviewer": 16000,
+        "interface-reviewer": 16000,
+        "extra-reviewer": 16000
+      },
+      "per_worker": {
+        "tz-boundary-reviewer": {
+          "tokens": 2123,
+          "model_calls": 3,
+          "status": "accepted"
+        },
+        "interface-reviewer": {
+          "tokens": 1596,
+          "model_calls": 3,
+          "status": "accepted"
+        },
+        "extra-reviewer": {
+          "tokens": 14100,
+          "model_calls": 8,
+          "status": "stopped: token budget"
+        }
+      },
+      "workers_total": 17819,
+      "left_for_integration": -1819,
+      "integration_needs": 305,
+      "integration_fits": false,
+      "integration_verdict": "verified"
+    },
+    "allocated": {
+      "caps": {
+        "tz-boundary-reviewer": 4360,
+        "interface-reviewer": 3279,
+        "extra-reviewer": 4360
+      },
+      "per_worker": {
+        "tz-boundary-reviewer": {
+          "tokens": 2122,
+          "model_calls": 3,
+          "status": "accepted"
+        },
+        "interface-reviewer": {
+          "tokens": 1596,
+          "model_calls": 3,
+          "status": "accepted"
+        },
+        "extra-reviewer": {
+          "tokens": 3970,
+          "model_calls": 4,
+          "status": "stopped: token budget"
+        }
+      },
+      "workers_total": 7688,
+      "left_for_integration": 8312,
+      "integration_needs": 305,
+      "integration_fits": true,
+      "integration_verdict": "verified"
+    }
+  }
+}

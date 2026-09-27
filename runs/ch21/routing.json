@@ -1,0 +1,44 @@
+{
+  "large only/1.0": {
+    "success_rate": 0.7964,
+    "machine_per_success": 5.249,
+    "with_people_per_success": 34.19,
+    "mean_seconds": 27.88
+  },
+  "small only/0.9": {
+    "success_rate": 0.7167,
+    "machine_per_success": 1.229,
+    "with_people_per_success": 43.887,
+    "mean_seconds": 27.88
+  },
+  "small only/0.7": {
+    "success_rate": 0.5561,
+    "machine_per_success": 1.584,
+    "with_people_per_success": 83.744,
+    "mean_seconds": 27.88
+  },
+  "small only/0.5": {
+    "success_rate": 0.3986,
+    "machine_per_success": 2.21,
+    "with_people_per_success": 153.822,
+    "mean_seconds": 27.88
+  },
+  "cascade/0.9": {
+    "success_rate": 0.7964,
+    "machine_per_success": 2.716,
+    "with_people_per_success": 31.657,
+    "mean_seconds": 35.68
+  },
+  "cascade/0.7": {
+    "success_rate": 0.7964,
+    "machine_per_success": 3.524,
+    "with_people_per_success": 32.465,
+    "mean_seconds": 40.15
+  },
+  "cascade/0.5": {
+    "success_rate": 0.7964,
+    "machine_per_success": 4.312,
+    "with_people_per_success": 33.253,
+    "mean_seconds": 44.51
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "reports_search",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "read_only"
+  },
+  {
+    "name": "exports_create",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "creates_external_record"
+  },
+  {
+    "name": "exports_get_status",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "read_only"
+  },
+  {
+    "name": "exports_list",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "read_only"
+  },
+  {
+    "name": "exports_read_log",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "read_only"
+  },
+  {
+    "name": "exports_cancel",
+    "version": 1,
+    "owner": "reporting-platform",
+    "effect": "changes_external_state"
+  }
+]

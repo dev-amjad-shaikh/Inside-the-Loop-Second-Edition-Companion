@@ -1,0 +1,220 @@
+{
+  "stages": [
+    [
+      "indexed chunks",
+      18
+    ],
+    [
+      "after access filter",
+      16
+    ],
+    [
+      "after withdrawal filter",
+      16
+    ],
+    [
+      "after effective-date filter",
+      10
+    ],
+    [
+      "keyword candidates (BM25 > 0, top 8)",
+      6
+    ],
+    [
+      "vector candidates (top 8)",
+      8
+    ],
+    [
+      "fused candidates (union, RRF)",
+      8
+    ],
+    [
+      "evidence after rerank (top 3)",
+      3
+    ]
+  ],
+  "ranking": [
+    {
+      "chunk_id": "returns-policy@v2#2",
+      "section": "Return policy > Opened products",
+      "bm25": 2.63,
+      "bm25_rank": 1,
+      "cosine": 0.3354,
+      "cosine_rank": 2,
+      "rrf": 0.03252,
+      "fused_rank": 1,
+      "rerank": 0.4488,
+      "final_rank": 1
+    },
+    {
+      "chunk_id": "returns-policy@v2#1",
+      "section": "Return policy > Return window",
+      "bm25": 1.3373,
+      "bm25_rank": 4,
+      "cosine": 0.3601,
+      "cosine_rank": 1,
+      "rrf": 0.03202,
+      "fused_rank": 2,
+      "rerank": 0.15,
+      "final_rank": 2
+    },
+    {
+      "chunk_id": "returns-policy@v2#3",
+      "section": "Return policy > Refunds",
+      "bm25": 0.9464,
+      "bm25_rank": 6,
+      "cosine": 0.2475,
+      "cosine_rank": 3,
+      "rrf": 0.03102,
+      "fused_rank": 5,
+      "rerank": 0.15,
+      "final_rank": 3
+    },
+    {
+      "chunk_id": "returns-policy@v2#0",
+      "section": "Return policy",
+      "bm25": 1.0289,
+      "bm25_rank": 5,
+      "cosine": 0.1304,
+      "cosine_rank": 6,
+      "rrf": 0.03054,
+      "fused_rank": 6,
+      "rerank": 0.15,
+      "final_rank": 4
+    },
+    {
+      "chunk_id": "shipping@v4#2",
+      "section": "Shipping and delivery > Damaged packages",
+      "bm25": 1.5279,
+      "bm25_rank": 2,
+      "cosine": 0.2343,
+      "cosine_rank": 4,
+      "rrf": 0.03175,
+      "fused_rank": 3,
+      "rerank": 0.12,
+      "final_rank": 5
+    },
+    {
+      "chunk_id": "warranty@v1#1",
+      "section": "Manufacturer warranty > Coverage",
+      "bm25": 1.4523,
+      "bm25_rank": 3,
+      "cosine": 0.1826,
+      "cosine_rank": 5,
+      "rrf": 0.03126,
+      "fused_rank": 4,
+      "rerank": 0.12,
+      "final_rank": 6
+    },
+    {
+      "chunk_id": "warranty@v1#0",
+      "section": "Manufacturer warranty",
+      "bm25": 0.0,
+      "bm25_rank": null,
+      "cosine": 0.0861,
+      "cosine_rank": 7,
+      "rrf": 0.01493,
+      "fused_rank": 7,
+      "rerank": 0.0,
+      "final_rank": 7
+    },
+    {
+      "chunk_id": "warranty@v1#2",
+      "section": "Manufacturer warranty > Making a claim",
+      "bm25": 0.0,
+      "bm25_rank": null,
+      "cosine": 0.0513,
+      "cosine_rank": 8,
+      "rrf": 0.01471,
+      "fused_rank": 8,
+      "rerank": 0.0,
+      "final_rank": 8
+    }
+  ],
+  "evidence": [
+    {
+      "cite": "E1",
+      "chunk_id": "returns-policy@v2#2",
+      "citation": "returns-policy v2 | Return policy > Opened products | chars 257-728 | sha 44dde78d3672",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "Opened products cannot be returned.",
+          "raw": "Opened products cannot be returned."
+        },
+        {
+          "kind": "sentence",
+          "text": "This includes items whose seal, box or protective film has been removed, and items that have been assembled, installed or used.",
+          "raw": "This includes items whose seal, box or protective film has been removed, and items that have been assembled, installed or used."
+        },
+        {
+          "kind": "sentence",
+          "text": "The following conditions are exempt from this rule:",
+          "raw": "The following conditions are exempt from this rule:"
+        },
+        {
+          "kind": "row",
+          "text": "Condition: Defective or damaged on arrival; Returnable: Yes; Window: 90 days from delivery",
+          "raw": "| Defective or damaged on arrival | Yes | 90 days from delivery |"
+        },
+        {
+          "kind": "row",
+          "text": "Condition: Missing parts or accessories; Returnable: Yes; Window: 30 days from delivery",
+          "raw": "| Missing parts or accessories | Yes | 30 days from delivery |"
+        },
+        {
+          "kind": "row",
+          "text": "Condition: Wrong item shipped; Returnable: Yes; Window: 30 days from delivery",
+          "raw": "| Wrong item shipped | Yes | 30 days from delivery |"
+        }
+      ],
+      "unreadable_fragments": []
+    },
+    {
+      "cite": "E2",
+      "chunk_id": "returns-policy@v2#1",
+      "citation": "returns-policy v2 | Return policy > Return window | chars 81-257 | sha e509c59ac4e8",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "Unopened products may be returned within 30 days of delivery for a full refund.",
+          "raw": "Unopened products may be returned within 30 days of delivery for a full refund."
+        },
+        {
+          "kind": "sentence",
+          "text": "Start a return from the order page or contact support with the order number.",
+          "raw": "Start a return from the order page or contact support with the order number."
+        }
+      ],
+      "unreadable_fragments": []
+    },
+    {
+      "cite": "E3",
+      "chunk_id": "returns-policy@v2#3",
+      "citation": "returns-policy v2 | Return policy > Refunds | chars 728-852 | sha 2802a5f78bab",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "Approved refunds are issued to the original payment method within 5 business days of the return being received.",
+          "raw": "Approved refunds are issued to the original payment method within 5 business days of the return being received."
+        }
+      ],
+      "unreadable_fragments": []
+    }
+  ],
+  "answer": {
+    "verdict": "yes",
+    "text": "Yes. Condition: Defective or damaged on arrival; Returnable: Yes; Window: 90 days from delivery [E1]",
+    "cites": [
+      "E1"
+    ],
+    "unit": "Condition: Defective or damaged on arrival; Returnable: Yes; Window: 90 days from delivery"
+  },
+  "support": {
+    "outcome": "supported",
+    "reason": "verdict and cited unit agree with gold"
+  }
+}

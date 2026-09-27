@@ -1,0 +1,39 @@
+{
+  "responses": [
+    {
+      "response": "flawed get_export(exp_0412)",
+      "chars": 413,
+      "approx_tokens": 103,
+      "text": "[{\"export_uuid\": \"42f40837-929b-a8e6-869e-03e3e694997f\", \"tenant_uuid\": \"e69e8bba-e832-0b6d-3fc1-40af6e4209d7\", \"report_uuid\": \"45100505-9e56-42ce-6bc5-6f82ec8b95dd\", \"job_uuid\": \"01b6d3cf-3553-1d7a-2207-4b9ad2650ada\", \"destination_uuid\": \"961ed3ec-dd38-4cb9-c798-357f1aa07ff5\", \"requested_by_uuid\": \"27478be0-9e7a-7d13-7f32-d0376005461d\", \"state_code\": 4, \"report_version\": 4, \"day\": \"2026-09-10\", \"fmt\": \"csv\"}]"
+    },
+    {
+      "response": "revised exports_get_status concise",
+      "chars": 114,
+      "approx_tokens": 28,
+      "text": "{\"export_id\": \"exp_0412\", \"status\": \"failed\", \"summary\": \"daily_orders v4 2026-09-10 csv to finance_sftp: failed\"}"
+    },
+    {
+      "response": "revised exports_get_status detailed",
+      "chars": 246,
+      "approx_tokens": 62,
+      "text": "{\"export_id\": \"exp_0412\", \"tenant\": \"acme\", \"report\": \"daily_orders\", \"report_version\": 4, \"day\": \"2026-09-10\", \"format\": \"csv\", \"destination\": \"finance_sftp\", \"status\": \"failed\", \"requested_by\": \"maria@acme\", \"call_id\": \"seed\", \"log_lines\": 597}"
+    },
+    {
+      "response": "flawed get_export(all)",
+      "chars": 826,
+      "approx_tokens": 206,
+      "text": "[{\"export_uuid\": \"108064bf-131f-3ed5-831e-ce19f65b54de\", \"tenant_uuid\": \"e69e8bba-e832-0b6d-3fc1-40af6e4209d7\", \"report_uuid\": \"45100505-9e56-42ce-6bc5-6f82ec8b95dd\", \"job_uuid\": \"f7044936-50a7-587a-f88b-4afdb79fefed\", \"destination_uuid\": \"961ed3ec-dd38-4cb9-c798-357f1aa07ff5\", \"requested_by_uuid\": \"27478be0-9e7a-7d13-7f32-d0376005461d\", \"state_code\": 3, \"report_version\": 4, \"day\": \"2026-09-09\", \"fmt\": \"csv\"}, {\"export_uuid\": \"42f40837-929b-a8e6-869e-03e3e694997f\", \"tenant_uuid\": \"e69e8bba-e832-0b6d-3fc1-40af6e4209d7\", \"report_uuid\": \"45100505-9e56-42ce-6bc5-6f82ec8b95dd\", \"job_uuid\": \"01b6d3cf-3553-1d7a-2207-4b9ad2650ada\", \"destination_uuid\": \"961ed3ec-dd38-4cb9-c798-357f1aa07ff5\", \"requested_by_uuid\": \"27478be0-9e7a-7d13-7f32-d0376005461d\", \"state_code\": 4, \"report_version\": 4, \"day\": \"2026-09-10\", \"fmt\": \"csv\"}]"
+    },
+    {
+      "response": "revised exports_list limit 10",
+      "chars": 252,
+      "approx_tokens": 63,
+      "text": "{\"exports\": [{\"export_id\": \"exp_0412\", \"report\": \"daily_orders\", \"day\": \"2026-09-10\", \"status\": \"failed\"}, {\"export_id\": \"exp_0411\", \"report\": \"daily_orders\", \"day\": \"2026-09-09\", \"status\": \"delivered\"}], \"returned\": 2, \"total\": 2, \"next_cursor\": null}"
+    }
+  ],
+  "definition_chars": {
+    "flawed": 1536,
+    "revised": 3759
+  },
+  "note": "approx_tokens = chars / 4, an approximation"
+}

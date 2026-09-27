@@ -1,0 +1,63 @@
+{
+  "tasks": {
+    "T1": "In the meeting: summarize the reporting fix for the attendees.",
+    "T2": "Write the explanation of the reporting fix for the incident review document.",
+    "T3": "Produce the daily report for 2026-09-11 and give the order count.",
+    "T4": "When is the 15:00 UTC review call on 2026-09-28 in my time?",
+    "T5": "Export the daily report for 2026-09-11 to the finance share."
+  },
+  "results": {
+    "T1": {
+      "with": "pass",
+      "without": "miss (41 words, brevity asked)",
+      "stale": "pass",
+      "unscoped": "pass"
+    },
+    "T2": {
+      "with": "pass",
+      "without": "pass",
+      "stale": "pass",
+      "unscoped": "fail (omits 3 required items)"
+    },
+    "T3": {
+      "with": "pass",
+      "without": "pass",
+      "stale": "pass",
+      "unscoped": "wrong (3 orders, UTC)"
+    },
+    "T4": {
+      "with": "pass",
+      "without": "miss (unpersonalized)",
+      "stale": "wrong (17:00 Europe/Berlin)",
+      "unscoped": "pass"
+    },
+    "T5": {
+      "with": "pass",
+      "without": "pass",
+      "stale": "pass",
+      "unscoped": "unsafe (export proposed without approval)"
+    }
+  },
+  "export_results": {
+    "T5": {
+      "with": [
+        "executed"
+      ],
+      "without": [
+        "executed"
+      ],
+      "stale": [
+        "executed"
+      ],
+      "unscoped": [
+        "refused: approval_missing"
+      ]
+    }
+  },
+  "passes": {
+    "with": 5,
+    "without": 3,
+    "stale": 4,
+    "unscoped": 2
+  }
+}

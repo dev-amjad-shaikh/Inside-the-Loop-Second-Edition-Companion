@@ -1,0 +1,215 @@
+{
+  "stages": [
+    [
+      "indexed chunks",
+      15
+    ],
+    [
+      "after access filter",
+      13
+    ],
+    [
+      "after withdrawal filter",
+      13
+    ],
+    [
+      "after effective-date filter",
+      9
+    ],
+    [
+      "keyword candidates (BM25 > 0, top 8)",
+      7
+    ],
+    [
+      "vector candidates (top 8)",
+      8
+    ],
+    [
+      "fused candidates (union, RRF)",
+      8
+    ],
+    [
+      "evidence after rerank (top 3)",
+      3
+    ]
+  ],
+  "ranking": [
+    {
+      "chunk_id": "returns-policy@v2#1",
+      "section": "(none)",
+      "bm25": 3.1972,
+      "bm25_rank": 1,
+      "cosine": 0.3885,
+      "cosine_rank": 1,
+      "rrf": 0.03279,
+      "fused_rank": 1,
+      "rerank": 0.365,
+      "final_rank": 1
+    },
+    {
+      "chunk_id": "returns-policy@v2#0",
+      "section": "(none)",
+      "bm25": 1.6828,
+      "bm25_rank": 2,
+      "cosine": 0.3558,
+      "cosine_rank": 2,
+      "rrf": 0.03226,
+      "fused_rank": 2,
+      "rerank": 0.12,
+      "final_rank": 2
+    },
+    {
+      "chunk_id": "shipping@v4#1",
+      "section": "(none)",
+      "bm25": 1.6095,
+      "bm25_rank": 3,
+      "cosine": 0.2697,
+      "cosine_rank": 3,
+      "rrf": 0.03175,
+      "fused_rank": 3,
+      "rerank": 0.12,
+      "final_rank": 3
+    },
+    {
+      "chunk_id": "returns-policy@v2#4",
+      "section": "(none)",
+      "bm25": 1.1627,
+      "bm25_rank": 4,
+      "cosine": 0.2435,
+      "cosine_rank": 4,
+      "rrf": 0.03125,
+      "fused_rank": 4,
+      "rerank": 0.12,
+      "final_rank": 4
+    },
+    {
+      "chunk_id": "returns-policy@v2#2",
+      "section": "(none)",
+      "bm25": 1.1115,
+      "bm25_rank": 5,
+      "cosine": 0.2333,
+      "cosine_rank": 5,
+      "rrf": 0.03077,
+      "fused_rank": 5,
+      "rerank": 0.12,
+      "final_rank": 5
+    },
+    {
+      "chunk_id": "returns-policy@v2#3",
+      "section": "(none)",
+      "bm25": 1.0012,
+      "bm25_rank": 7,
+      "cosine": 0.1799,
+      "cosine_rank": 6,
+      "rrf": 0.03008,
+      "fused_rank": 6,
+      "rerank": 0.12,
+      "final_rank": 6
+    },
+    {
+      "chunk_id": "warranty@v1#0",
+      "section": "(none)",
+      "bm25": 1.0646,
+      "bm25_rank": 6,
+      "cosine": 0.176,
+      "cosine_rank": 7,
+      "rrf": 0.03008,
+      "fused_rank": 7,
+      "rerank": 0.12,
+      "final_rank": 7
+    },
+    {
+      "chunk_id": "shipping@v4#0",
+      "section": "(none)",
+      "bm25": 0.0,
+      "bm25_rank": null,
+      "cosine": 0.1,
+      "cosine_rank": 8,
+      "rrf": 0.01471,
+      "fused_rank": 8,
+      "rerank": 0.0,
+      "final_rank": 8
+    }
+  ],
+  "evidence": [
+    {
+      "cite": "E1",
+      "chunk_id": "returns-policy@v2#1",
+      "citation": "returns-policy v2 | (none) | chars 180-380 | sha 5a2ec6da1409",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "tart a return from the order page or contact support with the order number.",
+          "raw": "tart a return from the order page or contact support with the order number."
+        },
+        {
+          "kind": "sentence",
+          "text": "Opened products cannot be returned.",
+          "raw": "Opened products cannot be returned."
+        },
+        {
+          "kind": "sentence",
+          "text": "This includes items whose seal, box or protective film has been rem",
+          "raw": "This includes items whose seal, box or protective film has been rem"
+        }
+      ],
+      "unreadable_fragments": []
+    },
+    {
+      "cite": "E2",
+      "chunk_id": "returns-policy@v2#0",
+      "citation": "returns-policy v2 | (none) | chars 0-200 | sha 09ab4f8abf93",
+      "effective": "2026-04-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "Version 2.",
+          "raw": "Version 2."
+        },
+        {
+          "kind": "sentence",
+          "text": "Applies to orders placed on or after April 1, 2026.",
+          "raw": "Applies to orders placed on or after April 1, 2026."
+        },
+        {
+          "kind": "sentence",
+          "text": "Unopened products may be returned within 30 days of delivery for a full refund.",
+          "raw": "Unopened products may be returned within 30 days of delivery for a full refund."
+        },
+        {
+          "kind": "sentence",
+          "text": "Start a return from t",
+          "raw": "Start a return from t"
+        }
+      ],
+      "unreadable_fragments": []
+    },
+    {
+      "cite": "E3",
+      "chunk_id": "shipping@v4#1",
+      "citation": "shipping v4 | (none) | chars 180-291 | sha de2d3a3eb938",
+      "effective": "2025-06-01 to open",
+      "units": [
+        {
+          "kind": "sentence",
+          "text": "ckage arrives damaged, keep the packaging and report it within 48 hours so that a carrier claim can be opened.",
+          "raw": "ckage arrives damaged, keep the packaging and report it within 48 hours so that a carrier claim can be opened."
+        }
+      ],
+      "unreadable_fragments": []
+    }
+  ],
+  "answer": {
+    "verdict": "no",
+    "text": "No. Opened products cannot be returned. [E1]",
+    "cites": [
+      "E1"
+    ],
+    "unit": "Opened products cannot be returned."
+  },
+  "support": {
+    "outcome": "wrong",
+    "reason": "verdict no but gold is yes"
+  }
+}

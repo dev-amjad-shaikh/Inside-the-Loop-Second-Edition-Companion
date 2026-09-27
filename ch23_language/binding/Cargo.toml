@@ -1,0 +1,15 @@
+[package]
+name = "ch23_binding"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "ch23_binding"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.25", features = ["extension-module"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = 3

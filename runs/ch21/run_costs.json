@@ -1,0 +1,434 @@
+[
+  {
+    "controller": "loop",
+    "scenario": "normal",
+    "outcome": "model-stopped",
+    "model_calls": 6,
+    "tokens": 4532,
+    "machine_units": 3.6645,
+    "parts": {
+      "input": 1.6791,
+      "output": 1.935,
+      "tool_fees": 0.0,
+      "sandbox": 0.0504,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "loop",
+    "scenario": "helper",
+    "outcome": "model-stopped",
+    "model_calls": 7,
+    "tokens": 5787,
+    "machine_units": 3.9862,
+    "parts": {
+      "input": 1.9357,
+      "output": 1.995,
+      "tool_fees": 0.0,
+      "sandbox": 0.0555,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "loop",
+    "scenario": "early-stop",
+    "outcome": "model-stopped",
+    "model_calls": 3,
+    "tokens": 1576,
+    "machine_units": 1.8481,
+    "parts": {
+      "input": 0.9752,
+      "output": 0.86,
+      "tool_fees": 0.0,
+      "sandbox": 0.0129,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": false,
+    "claimed": true
+  },
+  {
+    "controller": "loop",
+    "scenario": "malformed",
+    "outcome": "limit-reached",
+    "model_calls": 12,
+    "tokens": 11346,
+    "machine_units": 5.3685,
+    "parts": {
+      "input": 2.6756,
+      "output": 2.52,
+      "tool_fees": 0.0,
+      "sandbox": 0.1729,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "loop",
+    "scenario": "repeat",
+    "outcome": "limit-reached",
+    "model_calls": 12,
+    "tokens": 13487,
+    "machine_units": 6.5498,
+    "parts": {
+      "input": 3.398,
+      "output": 3.045,
+      "tool_fees": 0.0,
+      "sandbox": 0.1068,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "loop",
+    "scenario": "wander",
+    "outcome": "limit-reached",
+    "model_calls": 12,
+    "tokens": 43737,
+    "machine_units": 13.4698,
+    "parts": {
+      "input": 11.4807,
+      "output": 1.89,
+      "tool_fees": 0.0,
+      "sandbox": 0.0991,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "loop",
+    "scenario": "deploy",
+    "outcome": "model-stopped",
+    "model_calls": 7,
+    "tokens": 6083,
+    "machine_units": 4.1316,
+    "parts": {
+      "input": 1.971,
+      "output": 2.095,
+      "tool_fees": 0.0,
+      "sandbox": 0.0655,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": false,
+    "claimed": true
+  },
+  {
+    "controller": "loop",
+    "scenario": "cancel",
+    "outcome": "model-stopped",
+    "model_calls": 6,
+    "tokens": 4532,
+    "machine_units": 3.6645,
+    "parts": {
+      "input": 1.6791,
+      "output": 1.935,
+      "tool_fees": 0.0,
+      "sandbox": 0.0504,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": false,
+    "claimed": true
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "normal",
+    "outcome": "completed-verified",
+    "model_calls": 6,
+    "tokens": 4532,
+    "machine_units": 3.6645,
+    "parts": {
+      "input": 1.6791,
+      "output": 1.935,
+      "tool_fees": 0.0,
+      "sandbox": 0.0504,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "helper",
+    "outcome": "completed-verified",
+    "model_calls": 7,
+    "tokens": 5787,
+    "machine_units": 3.9862,
+    "parts": {
+      "input": 1.9357,
+      "output": 1.995,
+      "tool_fees": 0.0,
+      "sandbox": 0.0555,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "early-stop",
+    "outcome": "completed-verified",
+    "model_calls": 10,
+    "tokens": 10002,
+    "machine_units": 5.7979,
+    "parts": {
+      "input": 2.7356,
+      "output": 2.98,
+      "tool_fees": 0.0,
+      "sandbox": 0.0823,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "malformed",
+    "outcome": "budget-exhausted",
+    "model_calls": 6,
+    "tokens": 3511,
+    "machine_units": 2.9548,
+    "parts": {
+      "input": 1.5793,
+      "output": 1.315,
+      "tool_fees": 0.0,
+      "sandbox": 0.0605,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "repeat",
+    "outcome": "no-progress-escalated",
+    "model_calls": 7,
+    "tokens": 4751,
+    "machine_units": 3.6616,
+    "parts": {
+      "input": 1.9575,
+      "output": 1.65,
+      "tool_fees": 0.0,
+      "sandbox": 0.0541,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "wander",
+    "outcome": "budget-exhausted",
+    "model_calls": 10,
+    "tokens": 25702,
+    "machine_units": 10.4453,
+    "parts": {
+      "input": 9.0274,
+      "output": 1.35,
+      "tool_fees": 0.0,
+      "sandbox": 0.0679,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "deploy",
+    "outcome": "blocked-awaiting-approval",
+    "model_calls": 6,
+    "tokens": 4898,
+    "machine_units": 3.6068,
+    "parts": {
+      "input": 1.7858,
+      "output": 1.77,
+      "tool_fees": 0.0,
+      "sandbox": 0.0509,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": true,
+    "claimed": false
+  },
+  {
+    "controller": "hybrid",
+    "scenario": "cancel",
+    "outcome": "cancelled",
+    "model_calls": 3,
+    "tokens": 1622,
+    "machine_units": 2.1277,
+    "parts": {
+      "input": 1.0328,
+      "output": 1.07,
+      "tool_fees": 0.0,
+      "sandbox": 0.025,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "workflow",
+    "scenario": "normal",
+    "outcome": "completed-verified",
+    "model_calls": 2,
+    "tokens": 1202,
+    "machine_units": 2.0111,
+    "parts": {
+      "input": 1.0471,
+      "output": 0.93,
+      "tool_fees": 0.0,
+      "sandbox": 0.034,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "workflow",
+    "scenario": "helper",
+    "outcome": "stages-exhausted",
+    "model_calls": 2,
+    "tokens": 1288,
+    "machine_units": 1.9416,
+    "parts": {
+      "input": 1.1201,
+      "output": 0.8,
+      "tool_fees": 0.0,
+      "sandbox": 0.0215,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "workflow",
+    "scenario": "early-stop",
+    "outcome": "completed-verified",
+    "model_calls": 3,
+    "tokens": 2398,
+    "machine_units": 2.9664,
+    "parts": {
+      "input": 1.6152,
+      "output": 1.3,
+      "tool_fees": 0.0,
+      "sandbox": 0.0512,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "workflow",
+    "scenario": "malformed",
+    "outcome": "completed-verified",
+    "model_calls": 2,
+    "tokens": 1202,
+    "machine_units": 2.0111,
+    "parts": {
+      "input": 1.0471,
+      "output": 0.93,
+      "tool_fees": 0.0,
+      "sandbox": 0.034,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "workflow",
+    "scenario": "repeat",
+    "outcome": "stages-exhausted",
+    "model_calls": 3,
+    "tokens": 2399,
+    "machine_units": 2.8926,
+    "parts": {
+      "input": 1.6164,
+      "output": 1.225,
+      "tool_fees": 0.0,
+      "sandbox": 0.0512,
+      "human": 0.0
+    },
+    "person": 1,
+    "verified_success": false,
+    "claimed": false
+  },
+  {
+    "controller": "workflow",
+    "scenario": "wander",
+    "outcome": "completed-verified",
+    "model_calls": 2,
+    "tokens": 1280,
+    "machine_units": 2.0639,
+    "parts": {
+      "input": 1.0998,
+      "output": 0.93,
+      "tool_fees": 0.0,
+      "sandbox": 0.0341,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "workflow",
+    "scenario": "deploy",
+    "outcome": "completed-verified",
+    "model_calls": 2,
+    "tokens": 1214,
+    "machine_units": 2.0192,
+    "parts": {
+      "input": 1.0552,
+      "output": 0.93,
+      "tool_fees": 0.0,
+      "sandbox": 0.034,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": true,
+    "claimed": true
+  },
+  {
+    "controller": "workflow",
+    "scenario": "cancel",
+    "outcome": "cancelled",
+    "model_calls": 2,
+    "tokens": 1202,
+    "machine_units": 1.9991,
+    "parts": {
+      "input": 1.0471,
+      "output": 0.93,
+      "tool_fees": 0.0,
+      "sandbox": 0.022,
+      "human": 0.0
+    },
+    "person": 0,
+    "verified_success": false,
+    "claimed": false
+  }
+]

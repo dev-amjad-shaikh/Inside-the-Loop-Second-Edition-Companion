@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "cite": "E1",
+      "chunk_id": "returns-policy@v2#2",
+      "verified": true,
+      "source_hash_now": "3f7824dbed5b",
+      "source_hash_indexed": "3f7824dbed5b"
+    },
+    {
+      "cite": "E2",
+      "chunk_id": "returns-policy@v2#1",
+      "verified": true,
+      "source_hash_now": "3f7824dbed5b",
+      "source_hash_indexed": "3f7824dbed5b"
+    },
+    {
+      "cite": "E3",
+      "chunk_id": "returns-policy@v2#3",
+      "verified": true,
+      "source_hash_now": "3f7824dbed5b",
+      "source_hash_indexed": "3f7824dbed5b"
+    }
+  ],
+  "in_place_edit_matches": false
+}

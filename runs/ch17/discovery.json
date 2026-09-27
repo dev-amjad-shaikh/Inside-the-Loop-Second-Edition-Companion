@@ -1,0 +1,119 @@
+{
+  "name_collision": "skill name report-helper is owned by reporting-platform; data-platform cannot publish under it. Depend on the existing entry or choose a distinct name.",
+  "overlap_review": {
+    "skill": "report-timezone-fixer",
+    "owner": "data-platform",
+    "held_for_review": true,
+    "threshold": 0.25,
+    "closest": {
+      "with": "report-helper",
+      "jaccard": 0.611,
+      "shared": [
+        "after",
+        "bugs",
+        "code",
+        "compar",
+        "count",
+        "daily",
+        "day",
+        "daylight",
+        "filter",
+        "fix",
+        "local",
+        "midnight",
+        "miss",
+        "near",
+        "report",
+        "saving",
+        "switch",
+        "timestamp",
+        "timezone",
+        "twice",
+        "utc",
+        "weekly"
+      ]
+    },
+    "suite_without": "13/16",
+    "suite_with": "8/16",
+    "newly_failing": [
+      "n6",
+      "t1",
+      "t2",
+      "t3",
+      "t4"
+    ],
+    "notified": [
+      "reporting-platform",
+      "data-platform"
+    ]
+  },
+  "rows_with_fork": [
+    {
+      "id": "t1",
+      "expected": "report-helper",
+      "chosen": "report-timezone-fixer",
+      "contested_with": [],
+      "pass": false
+    },
+    {
+      "id": "t2",
+      "expected": "report-helper",
+      "chosen": "report-helper",
+      "contested_with": [
+        "report-timezone-fixer"
+      ],
+      "pass": false
+    },
+    {
+      "id": "t3",
+      "expected": "report-helper",
+      "chosen": "report-timezone-fixer",
+      "contested_with": [
+        "report-helper"
+      ],
+      "pass": false
+    },
+    {
+      "id": "t4",
+      "expected": "report-helper",
+      "chosen": "report-helper",
+      "contested_with": [
+        "report-timezone-fixer"
+      ],
+      "pass": false
+    },
+    {
+      "id": "n1",
+      "expected": null,
+      "chosen": "status-report-writer",
+      "contested_with": [],
+      "pass": false
+    },
+    {
+      "id": "n3",
+      "expected": null,
+      "chosen": "report-helper",
+      "contested_with": [
+        "report-timezone-fixer",
+        "status-report-writer"
+      ],
+      "pass": false
+    },
+    {
+      "id": "n4",
+      "expected": null,
+      "chosen": "status-report-writer",
+      "contested_with": [],
+      "pass": false
+    },
+    {
+      "id": "n6",
+      "expected": null,
+      "chosen": "report-timezone-fixer",
+      "contested_with": [],
+      "pass": false
+    }
+  ],
+  "resolution": "data-platform depends on report-helper@1.0.0; fork not released",
+  "suite_after_resolution": "13/16"
+}

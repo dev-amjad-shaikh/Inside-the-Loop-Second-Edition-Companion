@@ -1,0 +1,234 @@
+{
+  "stable prefix": [
+    {
+      "call": 1,
+      "messages": 2,
+      "characters": 1047,
+      "tokens": 621,
+      "reusable_prefix": 0,
+      "prefill": 621
+    },
+    {
+      "call": 2,
+      "messages": 6,
+      "characters": 2227,
+      "tokens": 1195,
+      "reusable_prefix": 621,
+      "prefill": 574
+    },
+    {
+      "call": 3,
+      "messages": 8,
+      "characters": 2786,
+      "tokens": 1514,
+      "reusable_prefix": 1195,
+      "prefill": 319
+    },
+    {
+      "call": 4,
+      "messages": 10,
+      "characters": 2972,
+      "tokens": 1612,
+      "reusable_prefix": 1514,
+      "prefill": 98
+    },
+    {
+      "call": 5,
+      "messages": 12,
+      "characters": 3320,
+      "tokens": 1808,
+      "reusable_prefix": 1612,
+      "prefill": 196
+    },
+    {
+      "call": 6,
+      "messages": 14,
+      "characters": 3727,
+      "tokens": 2015,
+      "reusable_prefix": 1808,
+      "prefill": 207
+    },
+    {
+      "call": 7,
+      "messages": 16,
+      "characters": 3990,
+      "tokens": 2162,
+      "reusable_prefix": 2015,
+      "prefill": 147
+    }
+  ],
+  "timestamp in system prompt": [
+    {
+      "call": 1,
+      "messages": 2,
+      "characters": 1083,
+      "tokens": 648,
+      "reusable_prefix": 0,
+      "prefill": 648
+    },
+    {
+      "call": 2,
+      "messages": 6,
+      "characters": 2263,
+      "tokens": 1222,
+      "reusable_prefix": 496,
+      "prefill": 726
+    },
+    {
+      "call": 3,
+      "messages": 8,
+      "characters": 2822,
+      "tokens": 1541,
+      "reusable_prefix": 495,
+      "prefill": 1046
+    },
+    {
+      "call": 4,
+      "messages": 10,
+      "characters": 3008,
+      "tokens": 1639,
+      "reusable_prefix": 495,
+      "prefill": 1144
+    },
+    {
+      "call": 5,
+      "messages": 12,
+      "characters": 3356,
+      "tokens": 1835,
+      "reusable_prefix": 496,
+      "prefill": 1339
+    },
+    {
+      "call": 6,
+      "messages": 14,
+      "characters": 3763,
+      "tokens": 2042,
+      "reusable_prefix": 495,
+      "prefill": 1547
+    },
+    {
+      "call": 7,
+      "messages": 16,
+      "characters": 4026,
+      "tokens": 2189,
+      "reusable_prefix": 495,
+      "prefill": 1694
+    }
+  ],
+  "tool order changes": [
+    {
+      "call": 1,
+      "messages": 2,
+      "characters": 1047,
+      "tokens": 621,
+      "reusable_prefix": 0,
+      "prefill": 621
+    },
+    {
+      "call": 2,
+      "messages": 6,
+      "characters": 2227,
+      "tokens": 1195,
+      "reusable_prefix": 13,
+      "prefill": 1182
+    },
+    {
+      "call": 3,
+      "messages": 8,
+      "characters": 2786,
+      "tokens": 1514,
+      "reusable_prefix": 13,
+      "prefill": 1501
+    },
+    {
+      "call": 4,
+      "messages": 10,
+      "characters": 2972,
+      "tokens": 1612,
+      "reusable_prefix": 13,
+      "prefill": 1599
+    },
+    {
+      "call": 5,
+      "messages": 12,
+      "characters": 3320,
+      "tokens": 1808,
+      "reusable_prefix": 13,
+      "prefill": 1795
+    },
+    {
+      "call": 6,
+      "messages": 14,
+      "characters": 3727,
+      "tokens": 2015,
+      "reusable_prefix": 13,
+      "prefill": 2002
+    },
+    {
+      "call": 7,
+      "messages": 16,
+      "characters": 3990,
+      "tokens": 2162,
+      "reusable_prefix": 13,
+      "prefill": 2149
+    }
+  ],
+  "timestamp after the history": [
+    {
+      "call": 1,
+      "messages": 2,
+      "characters": 1099,
+      "tokens": 662,
+      "reusable_prefix": 0,
+      "prefill": 662
+    },
+    {
+      "call": 2,
+      "messages": 6,
+      "characters": 2279,
+      "tokens": 1236,
+      "reusable_prefix": 623,
+      "prefill": 613
+    },
+    {
+      "call": 3,
+      "messages": 8,
+      "characters": 2838,
+      "tokens": 1555,
+      "reusable_prefix": 1197,
+      "prefill": 358
+    },
+    {
+      "call": 4,
+      "messages": 10,
+      "characters": 3024,
+      "tokens": 1653,
+      "reusable_prefix": 1516,
+      "prefill": 137
+    },
+    {
+      "call": 5,
+      "messages": 12,
+      "characters": 3372,
+      "tokens": 1849,
+      "reusable_prefix": 1614,
+      "prefill": 235
+    },
+    {
+      "call": 6,
+      "messages": 14,
+      "characters": 3779,
+      "tokens": 2056,
+      "reusable_prefix": 1810,
+      "prefill": 246
+    },
+    {
+      "call": 7,
+      "messages": 16,
+      "characters": 4042,
+      "tokens": 2203,
+      "reusable_prefix": 2017,
+      "prefill": 186
+    }
+  ]
+}

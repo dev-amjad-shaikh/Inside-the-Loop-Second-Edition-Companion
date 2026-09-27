@@ -1,0 +1,282 @@
+[
+  {
+    "run_id": "rf-0001",
+    "agent": "report-fixer",
+    "started": 2.81,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0002",
+    "agent": "report-fixer",
+    "started": 4.19,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0004",
+    "agent": "report-fixer",
+    "started": 4.8,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0006",
+    "agent": "report-fixer",
+    "started": 5.1,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0007",
+    "agent": "report-fixer",
+    "started": 5.4,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0005",
+    "agent": "report-fixer",
+    "started": 4.8,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0003",
+    "agent": "report-fixer",
+    "started": 4.59,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0009",
+    "agent": "report-fixer",
+    "started": 6.19,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0010",
+    "agent": "report-fixer",
+    "started": 6.54,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0012",
+    "agent": "report-fixer",
+    "started": 7.96,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0014",
+    "agent": "report-fixer",
+    "started": 9.37,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0013",
+    "agent": "report-fixer",
+    "started": 8.61,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0011",
+    "agent": "report-fixer",
+    "started": 7.33,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0015",
+    "agent": "report-fixer",
+    "started": 9.41,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0016",
+    "agent": "report-fixer",
+    "started": 9.82,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0019",
+    "agent": "report-fixer",
+    "started": 11.86,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0017",
+    "agent": "report-fixer",
+    "started": 11.14,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0018",
+    "agent": "report-fixer",
+    "started": 11.38,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0021",
+    "agent": "report-fixer",
+    "started": 13.38,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0020",
+    "agent": "report-fixer",
+    "started": 13.05,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0022",
+    "agent": "report-fixer",
+    "started": 13.8,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0023",
+    "agent": "report-fixer",
+    "started": 15.41,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0024",
+    "agent": "report-fixer",
+    "started": 15.86,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0026",
+    "agent": "report-fixer",
+    "started": 17.05,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0025",
+    "agent": "report-fixer",
+    "started": 16.99,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0029",
+    "agent": "report-fixer",
+    "started": 18.17,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0028",
+    "agent": "report-fixer",
+    "started": 17.79,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0027",
+    "agent": "report-fixer",
+    "started": 17.21,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0030",
+    "agent": "report-fixer",
+    "started": 20.57,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0031",
+    "agent": "report-fixer",
+    "started": 22.94,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0032",
+    "agent": "report-fixer",
+    "started": 23.24,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0033",
+    "agent": "report-fixer",
+    "started": 24.53,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0034",
+    "agent": "report-fixer",
+    "started": 25.2,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0038",
+    "agent": "report-fixer",
+    "started": 27.12,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0035",
+    "agent": "report-fixer",
+    "started": 25.94,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0037",
+    "agent": "report-fixer",
+    "started": 26.99,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0036",
+    "agent": "report-fixer",
+    "started": 26.69,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0039",
+    "agent": "report-fixer",
+    "started": 27.69,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0040",
+    "agent": "report-fixer",
+    "started": 28.7,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  },
+  {
+    "run_id": "rf-0042",
+    "agent": "report-fixer",
+    "started": 29.71,
+    "skill": "report-helper@latest",
+    "model": "model-a-latest"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "controller": "workflow",
+  "outcome": "stages-exhausted",
+  "reason": "no patch proposed: The defect is not visible in the files provided. report.py a",
+  "model_calls": 2,
+  "tokens": 1288,
+  "sim_seconds": 10.759,
+  "executions": 5,
+  "audit": {
+    "acceptance_passed": false,
+    "deployed": false
+  }
+}

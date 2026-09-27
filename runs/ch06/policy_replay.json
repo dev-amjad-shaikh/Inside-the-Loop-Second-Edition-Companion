@@ -1,0 +1,59 @@
+{
+  "records_prefix_sha": "f3a1a3865ec0",
+  "v1": {
+    "policy": {
+      "id": "ctx-structured-v1",
+      "trigger_fraction": 0.75,
+      "recent_budget_tokens": 500,
+      "result_cap_tokens": 1200,
+      "pinned_cap_tokens": 450,
+      "summary_cap_tokens": 900,
+      "layout": "task_last",
+      "status_line": false,
+      "allowance": 6656,
+      "pin_task": true,
+      "freeze_summary": true,
+      "hash": "ed44bc8014af"
+    },
+    "request_sha": "84c13486b31b",
+    "tokens": 1385,
+    "tests": {
+      "constraint C2 survives": true,
+      "constraint C1 survives": true,
+      "call ids paired": true,
+      "other-workspace data excluded": true,
+      "newer config preferred": true,
+      "within input allowance": true
+    }
+  },
+  "v1_rebuilt_request_sha": "84c13486b31b",
+  "v2": {
+    "policy": {
+      "id": "ctx-structured-v2-candidate",
+      "trigger_fraction": 0.75,
+      "recent_budget_tokens": 500,
+      "result_cap_tokens": 1200,
+      "pinned_cap_tokens": 450,
+      "summary_cap_tokens": 900,
+      "layout": "task_last",
+      "status_line": false,
+      "allowance": 6656,
+      "pin_task": false,
+      "freeze_summary": true,
+      "hash": "7afe08b05bc5"
+    },
+    "request_sha": "9adb014edb08",
+    "tokens": 1216,
+    "tests": {
+      "constraint C2 survives": false,
+      "constraint C1 survives": false,
+      "call ids paired": true,
+      "other-workspace data excluded": true,
+      "newer config preferred": true,
+      "within input allowance": true
+    }
+  },
+  "newly_summarized_in_v2": [],
+  "no_longer_summarized_in_v2": [],
+  "v1_minus_v2_tokens": 169
+}

@@ -1,0 +1,34 @@
+{
+  "policy": "reporting-agent",
+  "owner": "reporting-platform team",
+  "profiles": {
+    "report.fix": {
+      "tools": ["activate_skill", "read_skill_resource", "run_skill_script",
+                "read_file", "replace_text", "run_tests", "request_input"],
+      "egress": false,
+      "approval_required": []
+    },
+    "report.fix_and_export": {
+      "tools": ["activate_skill", "read_skill_resource", "run_skill_script",
+                "read_file", "replace_text", "run_tests", "request_input",
+                "export_report"],
+      "egress": true,
+      "approval_required": ["export_report"]
+    }
+  },
+  "roles": {
+    "engineer": ["report.fix", "report.fix_and_export"],
+    "analyst": ["report.fix"]
+  },
+  "tenant_destinations": {
+    "acme": ["A"],
+    "globex": ["G1"]
+  },
+  "identity_arguments": ["tenant_id", "tenant", "user_id", "account_id"],
+  "credentials": {
+    "export_report": "export-service"
+  },
+  "freshness": {
+    "export_report": "the report revision must be the latest published revision"
+  }
+}

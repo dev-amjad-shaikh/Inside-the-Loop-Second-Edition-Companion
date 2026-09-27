@@ -1,0 +1,52 @@
+{
+  "declared_counts_not_tokenized": true,
+  "window": 8192,
+  "output_reserve": 1536,
+  "input_allowance": 6656,
+  "required": [
+    [
+      "Instructions",
+      720
+    ],
+    [
+      "Tool definitions",
+      980
+    ],
+    [
+      "Current task",
+      180
+    ],
+    [
+      "Recent exchange",
+      1640
+    ]
+  ],
+  "required_total": 3520,
+  "left_after_required": 3136,
+  "evidence": [
+    [
+      "settings.json",
+      140
+    ],
+    [
+      "report.py (relevant source)",
+      980
+    ],
+    [
+      "test_report.py",
+      420
+    ]
+  ],
+  "evidence_total": 1540,
+  "input_used": 5060,
+  "left_after_evidence": 1596,
+  "old_log": 2600,
+  "old_log_fits": false,
+  "omissions": [
+    {
+      "item": "old test log",
+      "tokens": 2600,
+      "reason": "needs 2600, 1596 left"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "query": "Can I return an opened blender that arrived defective? Order placed 2026-05-10.",
+  "stages": [
+    [
+      "indexed chunks",
+      18
+    ],
+    [
+      "after access filter",
+      16
+    ],
+    [
+      "after withdrawal filter",
+      14
+    ],
+    [
+      "after effective-date filter",
+      10
+    ],
+    [
+      "keyword candidates (BM25 > 0, top 8)",
+      7
+    ],
+    [
+      "vector candidates (top 8)",
+      8
+    ],
+    [
+      "fused candidates (union, RRF)",
+      8
+    ],
+    [
+      "evidence after rerank (top 3)",
+      3
+    ]
+  ],
+  "messages": [
+    {
+      "role": "system",
+      "content": "Answer from cited policy evidence only.\n\nEvidence:\n[E1] returns-policy v2 | Return policy > Return window | chars 81-257 | sha e509c59ac4e8\n## Return window\n\nUnopened products may be returned within 30 days of delivery for a full refund. Start a return from the order page or contact support with the order number.\n\n\n\n[E2] returns-policy v2 | Return policy | chars 0-81 | sha 16a2fe862e32\n# Return policy\n\nVersion 2. Applies to orders placed on or after April 1, 2026.\n\n\n\n[E3] returns-policy v2 | Return policy > Opened products | chars 257-728 | sha 44dde78d3672\n## Opened products\n\nOpened products cannot be returned. This includes items whose seal, box or protective film has been removed, and items that have been assembled, installed or used.\n\nThe following conditions are exempt from this rule:\n\n| Condition | Returnable | Window |\n|---|---|---|\n| Defective or damaged on arrival | Yes | 90 days from delivery |\n| Missing parts or accessories | Yes | 30 days from delivery |\n| Wrong item shipped | Yes | 30 days from delivery |\n\n"
+    },
+    {
+      "role": "user",
+      "content": "Can I return an opened blender that arrived defective? Order placed 2026-05-10."
+    },
+    {
+      "role": "assistant",
+      "content": "Yes. A product that is defective or damaged on arrival can be returned within 90 days of delivery [E3].",
+      "tool_calls": []
+    }
+  ],
+  "model_calls": 1
+}

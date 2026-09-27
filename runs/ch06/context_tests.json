@@ -1,0 +1,50 @@
+{
+  "full": {
+    "constraint C2 survives": true,
+    "constraint C1 survives": true,
+    "call ids paired": true,
+    "other-workspace data excluded": true,
+    "newer config preferred": "n/a",
+    "within input allowance": false
+  },
+  "truncate": {
+    "constraint C2 survives": false,
+    "constraint C1 survives": false,
+    "call ids paired": false,
+    "other-workspace data excluded": true,
+    "newer config preferred": "n/a",
+    "within input allowance": true
+  },
+  "freetext": {
+    "constraint C2 survives": false,
+    "constraint C1 survives": true,
+    "call ids paired": true,
+    "other-workspace data excluded": false,
+    "newer config preferred": false,
+    "within input allowance": true
+  },
+  "structured": {
+    "constraint C2 survives": true,
+    "constraint C1 survives": true,
+    "call ids paired": true,
+    "other-workspace data excluded": true,
+    "newer config preferred": true,
+    "within input allowance": true
+  },
+  "structured-resummarize": {
+    "constraint C2 survives": true,
+    "constraint C1 survives": true,
+    "call ids paired": true,
+    "other-workspace data excluded": true,
+    "newer config preferred": true,
+    "within input allowance": true
+  },
+  "structured-task-first": {
+    "constraint C2 survives": true,
+    "constraint C1 survives": true,
+    "call ids paired": true,
+    "other-workspace data excluded": true,
+    "newer config preferred": true,
+    "within input allowance": true
+  }
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "complete": true,
+    "missing": [],
+    "checks": {
+      "plan": [
+        {
+          "id": "P1",
+          "claim": "Reporting timezone established",
+          "status": "satisfied",
+          "evidence": "e1"
+        },
+        {
+          "id": "P2",
+          "claim": "Failure reproduced",
+          "status": "satisfied",
+          "evidence": "e5"
+        },
+        {
+          "id": "P3",
+          "claim": "Source changed after reproduction",
+          "status": "satisfied",
+          "evidence": "e6"
+        },
+        {
+          "id": "P4",
+          "claim": "Fix verified",
+          "status": "satisfied",
+          "evidence": "e7"
+        },
+        {
+          "id": "P5",
+          "claim": "No deployment executed",
+          "status": "satisfied",
+          "evidence": "absence checked"
+        }
+      ],
+      "revision_verifier": {
+        "complete": true,
+        "task_revision": 1,
+        "version": "339d3a9f2656",
+        "missing": [],
+        "supporting": [
+          "E2"
+        ]
+      },
+      "P6": {
+        "claim": "Independent review verified at the current revision",
+        "status": "satisfied",
+        "evidence": {
+          "current_revision": "r5",
+          "verdict": "verified",
+          "admitted": [
+            "tz-boundary-reviewer"
+          ],
+          "stale": [],
+          "rejected": [],
+          "missing_coverage": [],
+          "defects": [],
+          "coverage": {
+            "pdt_midday": [
+              "ev-da5e16e4f6a7"
+            ],
+            "pdt_evening": [
+              "ev-b71d614e7e9a"
+            ],
+            "pdt_after_local_midnight": [
+              "ev-2ef41dbee529"
+            ],
+            "pst_evening": [
+              "ev-47aee4ef65b3"
+            ],
+            "dst_fall_back_evening": [
+              "ev-6609238cf8d3"
+            ],
+            "dst_spring_forward_evening": [
+              "ev-103a48345f62"
+            ]
+          }
+        }
+      },
+      "P7": {
+        "claim": "Export delivered exactly once, as approved, consistent with the source",
+        "status": "satisfied",
+        "problems": [],
+        "export_rows": [
+          {
+            "export_id": "export-file-001",
+            "op_key": "run-24:export:daily-2026-09-11:r5:A",
+            "payload_digest": "3e5c6d59ef3dae3b",
+            "destination": "A",
+            "source_revision": "339d3a9f2656"
+          }
+        ],
+        "outbox": {
+          "A": [
+            {
+              "file": "daily-2026-09-11.r5.export-file-001.csv",
+              "version": "af0093264abc"
+            }
+          ]
+        },
+        "approval": {
+          "approval_id": "AP1",
+          "request_id": "RQ1",
+          "actor": "maria",
+          "role": "report_owner",
+          "delegated_by": null,
+          "operation": "export_report",
+          "args_digest": "c66ff54422eb9ffa",
+          "artifact": "daily-2026-09-11",
+          "artifact_version": "af0093264abc",
+          "scope": "run-24; destination A; one use",
+          "status": "consumed",
+          "consumed_by": "x1",
+          "expires": "10:16:41"
+        },
+        "content": {
+          "file": "daily-2026-09-11.r5.export-file-001.csv",
+          "rows": 4,
+          "belong_under_current_source": 4,
+          "belong_under_original_source": 3,
+          "current_source": "339d3a9f2656",
+          "original_source": "78721bd28acc"
+        }
+      },
+      "claims": {
+        "named": [
+          "319f11ce22b8",
+          "339d3a9f2656",
+          "export-file-001",
+          "r5"
+        ],
+        "unsupported": []
+      }
+    },
+    "task_revision": 1,
+    "call": 10
+  }
+]

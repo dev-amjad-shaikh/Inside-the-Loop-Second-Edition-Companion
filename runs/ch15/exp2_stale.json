@@ -1,0 +1,158 @@
+{
+  "timeline": [
+    {
+      "t": 0.0,
+      "event": "coordinator at r4 dispatches tz-boundary-reviewer with input_revision r4"
+    },
+    {
+      "t": 3.0,
+      "event": "coordinator applies fix: report.py 78721bd28acc -> 339d3a9f2656; current revision r5"
+    },
+    {
+      "t": 11.828,
+      "event": "tz-boundary-reviewer returns result for r4: fail"
+    },
+    {
+      "t": 11.828,
+      "event": "coordinator marks r4 result stale; re-dispatches tz-boundary-reviewer at r5"
+    },
+    {
+      "t": 20.224,
+      "event": "tz-boundary-reviewer returns result for r5: pass"
+    }
+  ],
+  "stale_result": {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r4",
+    "status": "accepted",
+    "verdict": "fail",
+    "attempts": [
+      {
+        "attempt": 1,
+        "raw_excerpt": "{\"contract_id\": \"review-tz-r4\", \"input_revision\": \"r4\", \"verdict\": \"fail\", \"findings\": [{\"claim\": \"pdt_evening: order at 2026-09-12T00:30:00+00:00 expected True",
+        "violations": []
+      }
+    ],
+    "tokens": 2269,
+    "model_calls": 3,
+    "sim_seconds": 11.828,
+    "operations": [
+      "read_file",
+      "read_file",
+      "run_cases"
+    ]
+  },
+  "stale_findings": [
+    "pdt_evening: order at 2026-09-12T00:30:00+00:00 expected True for 2026-09-11, got False",
+    "pst_evening: order at 2026-01-12T07:30:00+00:00 expected True for 2026-01-11, got False",
+    "dst_fall_back_evening: order at 2026-11-02T07:30:00+00:00 expected True for 2026-11-01, got False",
+    "dst_spring_forward_evening: order at 2026-03-08T07:30:00+00:00 expected True for 2026-03-07, got False"
+  ],
+  "integration_with_stale_only": {
+    "current_revision": "r5",
+    "verdict": "not verified: missing pdt_evening, pdt_after_local_midnight, pst_evening, dst_fall_back_evening, dst_spring_forward_evening",
+    "admitted": [
+      "interface-reviewer"
+    ],
+    "stale": [
+      {
+        "worker": "tz-boundary-reviewer",
+        "reviewed": "r4",
+        "current": "r5",
+        "verdict": "fail",
+        "reclassified_as": "evidence about r4"
+      }
+    ],
+    "rejected": [],
+    "missing_coverage": [
+      "pdt_evening",
+      "pdt_after_local_midnight",
+      "pst_evening",
+      "dst_fall_back_evening",
+      "dst_spring_forward_evening"
+    ],
+    "defects": [],
+    "coverage": {
+      "public_interface": [
+        "ev-bccf23adcb92"
+      ]
+    }
+  },
+  "naive_coordinator": {
+    "votes": {
+      "pass": 1,
+      "fail": 1
+    },
+    "verdict": "rejected",
+    "claim": "r5 has defects: pdt_evening: order at 2026-09-12T00:30:00+00:00 expected True for 2026-09-11, got False; pst_evening: order at 2026-01-12T07:30:00+00:00 expected True for 2026-01-11, got False; dst_fall_back_evening: order at 2026-11-02T07:30:00+00:00 expected True for 2026-11-01, got False; dst_spring_forward_evening: order at 2026-03-08T07:30:00+00:00 expected True for 2026-03-07, got False"
+  },
+  "redispatch": {
+    "worker": "tz-boundary-reviewer",
+    "worker_version": "1.2.0",
+    "contract_version": "review-contract/1.1",
+    "input_revision": "r5",
+    "status": "accepted",
+    "verdict": "pass",
+    "attempts": [
+      {
+        "attempt": 1,
+        "raw_excerpt": "{\"contract_id\": \"review-tz-r5-redispatch\", \"input_revision\": \"r5\", \"verdict\": \"pass\", \"findings\": [], \"coverage\": {\"pdt_midday\": [\"ev-da5e16e4f6a7\"], \"pdt_eveni",
+        "violations": []
+      }
+    ],
+    "tokens": 2133,
+    "model_calls": 3,
+    "sim_seconds": 8.396,
+    "operations": [
+      "read_file",
+      "read_file",
+      "run_cases"
+    ]
+  },
+  "final_integration": {
+    "current_revision": "r5",
+    "verdict": "verified",
+    "admitted": [
+      "tz-boundary-reviewer",
+      "interface-reviewer"
+    ],
+    "stale": [
+      {
+        "worker": "tz-boundary-reviewer",
+        "reviewed": "r4",
+        "current": "r5",
+        "verdict": "fail",
+        "reclassified_as": "evidence about r4"
+      }
+    ],
+    "rejected": [],
+    "missing_coverage": [],
+    "defects": [],
+    "coverage": {
+      "pdt_midday": [
+        "ev-da5e16e4f6a7"
+      ],
+      "pdt_evening": [
+        "ev-b71d614e7e9a"
+      ],
+      "pdt_after_local_midnight": [
+        "ev-2ef41dbee529"
+      ],
+      "pst_evening": [
+        "ev-47aee4ef65b3"
+      ],
+      "dst_fall_back_evening": [
+        "ev-6609238cf8d3"
+      ],
+      "dst_spring_forward_evening": [
+        "ev-103a48345f62"
+      ],
+      "public_interface": [
+        "ev-bccf23adcb92"
+      ]
+    }
+  },
+  "extra_tokens_for_redispatch": 2133
+}

@@ -1,0 +1,535 @@
+{
+  "main_run": {
+    "after_call_7": {
+      "run": "waiting_for_person",
+      "ops": {
+        "awaiting_approval": 1,
+        "completed": 7,
+        "failed_before_effect": 1
+      }
+    },
+    "after_revision": {
+      "task_revision": 2,
+      "c9": "cancelled"
+    },
+    "projection": {
+      "ui_from_stream": {
+        "status": "tests passed",
+        "source_text": "The public signature is unchanged. All tests passed."
+      },
+      "ui_from_records": {
+        "run_status": "running",
+        "task_revision": 2,
+        "latest_test": {
+          "op": "c8",
+          "status": "passed",
+          "covers": {
+            "report.py": "339d3a9f2656",
+            "test_report.py": "319f11ce22b8"
+          }
+        },
+        "current_versions": {
+          "report.py": "8e8137d1687e",
+          "test_report.py": "319f11ce22b8"
+        },
+        "verification": "required",
+        "because": "latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e"
+      },
+      "ui_from_records_final": {
+        "run_status": "completed",
+        "task_revision": 2,
+        "latest_test": {
+          "op": "c11",
+          "status": "passed",
+          "covers": {
+            "report.py": "8e8137d1687e",
+            "test_report.py": "319f11ce22b8"
+          }
+        },
+        "current_versions": {
+          "report.py": "8e8137d1687e",
+          "test_report.py": "319f11ce22b8"
+        },
+        "verification": "satisfied",
+        "because": "latest passing run c11 covers the current versions"
+      }
+    },
+    "ownership_attempts": [
+      {
+        "attempt": "browser marks run complete",
+        "writer": "human_interface",
+        "type": "run.completed",
+        "result": "refused",
+        "reason": "human_interface may not write run.completed (owner: control)"
+      },
+      {
+        "attempt": "model text becomes a test result",
+        "writer": "model",
+        "type": "observation.recorded",
+        "result": "refused",
+        "reason": "model may not write observation.recorded (owner: executor)"
+      },
+      {
+        "attempt": "control writes an operation outcome",
+        "writer": "control",
+        "type": "op.completed",
+        "result": "refused",
+        "reason": "control may not write op.completed (owner: executor)"
+      },
+      {
+        "attempt": "executor marks run complete",
+        "writer": "executor",
+        "type": "run.completed",
+        "result": "refused",
+        "reason": "executor may not write run.completed (owner: control)"
+      },
+      {
+        "attempt": "control completes before verification",
+        "writer": "control",
+        "type": "run.completed",
+        "result": "refused",
+        "reason": "verification: latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e"
+      },
+      {
+        "attempt": "control completes after verification",
+        "writer": "control",
+        "type": "run.completed",
+        "result": "accepted",
+        "reason": "latest passing run c11 covers the current versions"
+      }
+    ],
+    "model_inputs_rebuilt": [
+      {
+        "call": "m1",
+        "messages": 2,
+        "recorded_sha": "61b7aa27d834",
+        "rebuilt_sha": "61b7aa27d834",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m2",
+        "messages": 6,
+        "recorded_sha": "391f478f61ce",
+        "rebuilt_sha": "391f478f61ce",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m3",
+        "messages": 8,
+        "recorded_sha": "a71c6f24c66e",
+        "rebuilt_sha": "a71c6f24c66e",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m4",
+        "messages": 10,
+        "recorded_sha": "68c4ffb86cc4",
+        "rebuilt_sha": "68c4ffb86cc4",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m5",
+        "messages": 12,
+        "recorded_sha": "580738e20eb4",
+        "rebuilt_sha": "580738e20eb4",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m6",
+        "messages": 14,
+        "recorded_sha": "3c9f94e29b7f",
+        "rebuilt_sha": "3c9f94e29b7f",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m7",
+        "messages": 16,
+        "recorded_sha": "20c36588fde6",
+        "rebuilt_sha": "20c36588fde6",
+        "task_revision_seen": 1
+      },
+      {
+        "call": "m8",
+        "messages": 19,
+        "recorded_sha": "744e682fbfec",
+        "rebuilt_sha": "744e682fbfec",
+        "task_revision_seen": 2
+      },
+      {
+        "call": "m9",
+        "messages": 21,
+        "recorded_sha": "dd6b3450f72e",
+        "rebuilt_sha": "dd6b3450f72e",
+        "task_revision_seen": 2
+      },
+      {
+        "call": "m10",
+        "messages": 23,
+        "recorded_sha": "a2dc1e6f156e",
+        "rebuilt_sha": "a2dc1e6f156e",
+        "task_revision_seen": 2
+      }
+    ],
+    "audit_by_writer": [
+      {
+        "writer": "control",
+        "events": 18
+      },
+      {
+        "writer": "executor",
+        "events": 35
+      },
+      {
+        "writer": "model_adapter",
+        "events": 10
+      },
+      {
+        "writer": "policy",
+        "events": 1
+      }
+    ],
+    "refusals": [
+      {
+        "writer": "human_interface",
+        "type": "run.completed",
+        "reason": "human_interface may not write run.completed (owner: control)"
+      },
+      {
+        "writer": "model",
+        "type": "observation.recorded",
+        "reason": "model may not write observation.recorded (owner: executor)"
+      },
+      {
+        "writer": "control",
+        "type": "op.completed",
+        "reason": "control may not write op.completed (owner: executor)"
+      },
+      {
+        "writer": "executor",
+        "type": "run.completed",
+        "reason": "executor may not write run.completed (owner: control)"
+      },
+      {
+        "writer": "control",
+        "type": "run.completed",
+        "reason": "verification: latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e"
+      }
+    ],
+    "counts": {
+      "runs": 1,
+      "task_revisions": 2,
+      "model_calls": 10,
+      "operations": 11,
+      "observations": 10,
+      "artifact_versions": 6,
+      "events": 64,
+      "snapshots": 0,
+      "refusals": 5
+    },
+    "op_states": {
+      "cancelled": 1,
+      "completed": 9,
+      "failed_before_effect": 1
+    },
+    "executions": 9,
+    "artifact_versions": [
+      {
+        "path": "report.py",
+        "version_no": 1,
+        "version": "78721bd28acc",
+        "produced_by": null
+      },
+      {
+        "path": "report.py",
+        "version_no": 2,
+        "version": "339d3a9f2656",
+        "produced_by": "c7"
+      },
+      {
+        "path": "report.py",
+        "version_no": 3,
+        "version": "8e8137d1687e",
+        "produced_by": "c10"
+      },
+      {
+        "path": "settings.json",
+        "version_no": 1,
+        "version": "fac6e0792573",
+        "produced_by": null
+      },
+      {
+        "path": "test_report.py",
+        "version_no": 1,
+        "version": "197c0720866d",
+        "produced_by": null
+      },
+      {
+        "path": "test_report.py",
+        "version_no": 2,
+        "version": "319f11ce22b8",
+        "produced_by": "c4"
+      }
+    ],
+    "snapshot_seq": 44
+  },
+  "reconstruction": {
+    "rebuild": {
+      "events": 64,
+      "snapshot_seq": 44,
+      "tail_events": 20,
+      "fold_all_sha": "210e228cc37d",
+      "snapshot_plus_tail_sha": "210e228cc37d",
+      "tables_sha": "210e228cc37d",
+      "all_equal": true,
+      "tool_invocations_during_rebuild": 0,
+      "workspace_unchanged": {
+        "report.py": "8e8137d1687e",
+        "test_report.py": "319f11ce22b8"
+      }
+    },
+    "duplicate_event": {
+      "applied": false,
+      "events_before": 64,
+      "events_after": 64,
+      "state_sha_after": "210e228cc37d"
+    },
+    "reexecution_replay": {
+      "tool_invocations": 9,
+      "outcomes": [
+        {
+          "op": "c1",
+          "tool": "read_file",
+          "status": "ok"
+        },
+        {
+          "op": "c2",
+          "tool": "read_file",
+          "status": "ok"
+        },
+        {
+          "op": "c3",
+          "tool": "read_file",
+          "status": "ok"
+        },
+        {
+          "op": "c4",
+          "tool": "replace_text",
+          "status": "ok"
+        },
+        {
+          "op": "c6",
+          "tool": "run_tests",
+          "status": "passed",
+          "tests_run": 2
+        },
+        {
+          "op": "c7",
+          "tool": "replace_text",
+          "status": "input_error",
+          "message": "old text occurs 0 times; expected exactly once"
+        },
+        {
+          "op": "c8",
+          "tool": "run_tests",
+          "status": "passed",
+          "tests_run": 2
+        },
+        {
+          "op": "c10",
+          "tool": "replace_text",
+          "status": "input_error",
+          "message": "old text occurs 0 times; expected exactly once"
+        },
+        {
+          "op": "c11",
+          "tool": "run_tests",
+          "status": "passed",
+          "tests_run": 2
+        }
+      ],
+      "versions_before": {
+        "report.py": "8e8137d1687e",
+        "test_report.py": "319f11ce22b8"
+      },
+      "versions_after": {
+        "report.py": "8e8137d1687e",
+        "test_report.py": "b1639509a185"
+      },
+      "near_midnight_tests_in_file": 2
+    },
+    "schema_versions": {
+      "legacy_v1_events": 5,
+      "c1_state_after_upcast": "completed",
+      "newer_event": "refused: event N1 has schema 3; this build reads up to 2"
+    }
+  },
+  "crash": [
+    {
+      "rollback_journal_left": true,
+      "c7_state": "prepared",
+      "c7_observation": null,
+      "report_py_versions_recorded": 1,
+      "events": 35,
+      "report_py_on_disk": "78721bd28acc",
+      "point": "during_t1",
+      "exit_code": 70,
+      "restart_marked_uncertain": [],
+      "c7_state_after_restart": "prepared"
+    },
+    {
+      "rollback_journal_left": false,
+      "c7_state": "dispatched",
+      "c7_observation": null,
+      "report_py_versions_recorded": 1,
+      "events": 36,
+      "report_py_on_disk": "78721bd28acc",
+      "point": "after_t1",
+      "exit_code": 70,
+      "restart_marked_uncertain": [
+        "c7"
+      ],
+      "c7_state_after_restart": "uncertain"
+    },
+    {
+      "rollback_journal_left": false,
+      "c7_state": "dispatched",
+      "c7_observation": null,
+      "report_py_versions_recorded": 1,
+      "events": 36,
+      "report_py_on_disk": "339d3a9f2656",
+      "point": "after_effect",
+      "exit_code": 70,
+      "restart_marked_uncertain": [
+        "c7"
+      ],
+      "c7_state_after_restart": "uncertain"
+    },
+    {
+      "rollback_journal_left": true,
+      "c7_state": "dispatched",
+      "c7_observation": null,
+      "report_py_versions_recorded": 1,
+      "events": 36,
+      "report_py_on_disk": "339d3a9f2656",
+      "point": "during_t2",
+      "exit_code": 70,
+      "restart_marked_uncertain": [
+        "c7"
+      ],
+      "c7_state_after_restart": "uncertain"
+    },
+    {
+      "rollback_journal_left": false,
+      "c7_state": "completed",
+      "c7_observation": "ok",
+      "report_py_versions_recorded": 2,
+      "events": 39,
+      "report_py_on_disk": "339d3a9f2656",
+      "point": "after_t2",
+      "exit_code": 70,
+      "restart_marked_uncertain": [],
+      "c7_state_after_restart": "completed"
+    }
+  ],
+  "crash_without_intent": {
+    "rollback_journal_left": false,
+    "c7_state": "prepared",
+    "c7_observation": null,
+    "report_py_versions_recorded": 1,
+    "events": 35,
+    "report_py_on_disk": "339d3a9f2656",
+    "point": "after_effect (no intent record)",
+    "exit_code": 70,
+    "restart_marked_uncertain": [],
+    "redispatch_status": "input_error",
+    "c7_state_after_redispatch": "failed_before_effect",
+    "redispatch_message": "old text occurs 0 times; expected exactly once",
+    "report_py_on_disk_after": "339d3a9f2656"
+  },
+  "lost_update": {
+    "unconditional": {
+      "trace": [
+        "worker read  step=0 task_revision=1 version=2",
+        "api    read  step=0 task_revision=1 version=2",
+        "api    write task_revision=2 rows=1",
+        "worker write step=1 (from its copy) rows=1"
+      ],
+      "final": {
+        "run_id": "run-12",
+        "task_revision": 1,
+        "status": "running",
+        "step": 1,
+        "version": 3
+      },
+      "task_revision_rows": 2
+    },
+    "conditional": {
+      "trace": [
+        "worker read  step=0 task_revision=1 version=2",
+        "api    read  step=0 task_revision=1 version=2",
+        "api    write task_revision=2 if version=2 rows=1",
+        "worker write step=1 if version=2 rows=0",
+        "worker reread step=0 task_revision=2 version=3",
+        "worker write step=1 if version=3 rows=1"
+      ],
+      "final": {
+        "run_id": "run-12",
+        "task_revision": 2,
+        "status": "running",
+        "step": 1,
+        "version": 4
+      },
+      "task_revision_rows": 2
+    }
+  },
+  "stale_worker": {
+    "naive": {
+      "lease": {
+        "owner": "worker-B",
+        "fence": 2
+      },
+      "worker_A_holder": [
+        "worker-A",
+        1
+      ],
+      "worker_A_expected_version": 2,
+      "worker_A_late_write": "accepted",
+      "c11_state": "completed",
+      "ui_latest_test_before": "c12 passed",
+      "ui_latest_test_after": "c11 failed",
+      "refusals": 0
+    },
+    "version": {
+      "lease": {
+        "owner": "worker-B",
+        "fence": 2
+      },
+      "worker_A_holder": [
+        "worker-A",
+        1
+      ],
+      "worker_A_expected_version": 2,
+      "worker_A_late_write": "accepted",
+      "c11_state": "completed",
+      "ui_latest_test_before": "c12 passed",
+      "ui_latest_test_after": "c11 failed",
+      "refusals": 0
+    },
+    "fenced": {
+      "lease": {
+        "owner": "worker-B",
+        "fence": 2
+      },
+      "worker_A_holder": [
+        "worker-A",
+        1
+      ],
+      "worker_A_expected_version": 2,
+      "worker_A_late_write": "refused: stale holder ('worker-A', 1); current lease ('worker-B', 2)",
+      "c11_state": "dispatched",
+      "ui_latest_test_before": "c12 passed",
+      "ui_latest_test_after": "c12 passed",
+      "refusals": 1
+    }
+  }
+}

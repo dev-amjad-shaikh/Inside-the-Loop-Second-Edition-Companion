@@ -1,0 +1,148 @@
+{
+  "task": "R02",
+  "config": "candidate",
+  "trial": 0,
+  "requests": [
+    {
+      "call": 1,
+      "messages": 2,
+      "dropped": 0,
+      "chars": 317,
+      "constraints_recorded": [],
+      "constraints_in_request": []
+    },
+    {
+      "call": 2,
+      "messages": 7,
+      "dropped": 0,
+      "chars": 1927,
+      "constraints_recorded": [
+        "Keep the public function signature unchanged."
+      ],
+      "constraints_in_request": [
+        "Keep the public function signature unchanged."
+      ]
+    },
+    {
+      "call": 3,
+      "messages": 9,
+      "dropped": 0,
+      "chars": 2551,
+      "constraints_recorded": [
+        "Keep the public function signature unchanged."
+      ],
+      "constraints_in_request": [
+        "Keep the public function signature unchanged."
+      ]
+    },
+    {
+      "call": 4,
+      "messages": 4,
+      "dropped": 7,
+      "chars": 22958,
+      "constraints_recorded": [
+        "Keep the public function signature unchanged."
+      ],
+      "constraints_in_request": []
+    },
+    {
+      "call": 5,
+      "messages": 5,
+      "dropped": 9,
+      "chars": 1175,
+      "constraints_recorded": [
+        "Keep the public function signature unchanged."
+      ],
+      "constraints_in_request": []
+    },
+    {
+      "call": 6,
+      "messages": 4,
+      "dropped": 12,
+      "chars": 22524,
+      "constraints_recorded": [
+        "Keep the public function signature unchanged."
+      ],
+      "constraints_in_request": []
+    }
+  ],
+  "trajectory": [
+    {
+      "id": "c1",
+      "name": "read_file",
+      "arguments": {
+        "path": "settings.json"
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "name": "read_file",
+      "arguments": {
+        "path": "report.py"
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "name": "read_file",
+      "arguments": {
+        "path": "test_report.py"
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "name": "replace_text",
+      "arguments": {
+        "path": "test_report.py",
+        "old": "\n\nif __name__ == \"__main__\":",
+        "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2..."
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "name": "run_tests",
+      "arguments": {
+        "tests": [
+          "test_report.py"
+        ]
+      },
+      "status": "failed"
+    },
+    {
+      "id": "c6",
+      "name": "replace_text",
+      "arguments": {
+        "path": "report.py",
+        "old": "def belongs_to_report(created_at, requested_day, timezone):",
+        "new": "def belongs_to_report(created_at, requested_day, tz_name):"
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "name": "replace_text",
+      "arguments": {
+        "path": "report.py",
+        "old": "    return created_at.date() == requested_day",
+        "new": "    local_time = created_at.astimezone(ZoneInfo(tz_name))\n    return local_time.date() ..."
+      },
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "name": "run_tests",
+      "arguments": {
+        "tests": [
+          "test_report.py"
+        ]
+      },
+      "status": "passed"
+    }
+  ],
+  "failed_checks": [
+    "signature_unchanged"
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "subject": "amara.osei@acme.example",
+  "inventory_before": [
+    {
+      "store": "trace_store",
+      "occurrences": 2,
+      "reachable_by_deletion": true,
+      "retention_days": 30
+    },
+    {
+      "store": "tool_result_cache",
+      "occurrences": 2,
+      "reachable_by_deletion": true,
+      "retention_days": 7
+    },
+    {
+      "store": "memory_records",
+      "occurrences": 2,
+      "reachable_by_deletion": true,
+      "retention_days": null
+    },
+    {
+      "store": "retrieval_index",
+      "occurrences": 2,
+      "reachable_by_deletion": true,
+      "retention_days": null
+    },
+    {
+      "store": "export_files",
+      "occurrences": 2,
+      "reachable_by_deletion": true,
+      "retention_days": 90
+    },
+    {
+      "store": "nightly_backup",
+      "occurrences": 1,
+      "reachable_by_deletion": false,
+      "retention_days": 35
+    },
+    {
+      "store": "model_provider_logs",
+      "occurrences": 1,
+      "reachable_by_deletion": false,
+      "retention_days": 30
+    }
+  ],
+  "deletion": {
+    "results": [
+      {
+        "store": "trace_store",
+        "reachable": true,
+        "retention_days": 30,
+        "removed": 2,
+        "remaining": 0
+      },
+      {
+        "store": "tool_result_cache",
+        "reachable": true,
+        "retention_days": 7,
+        "removed": 2,
+        "remaining": 0
+      },
+      {
+        "store": "memory_records",
+        "reachable": true,
+        "retention_days": null,
+        "removed": 2,
+        "remaining": 0
+      },
+      {
+        "store": "retrieval_index",
+        "reachable": true,
+        "retention_days": null,
+        "removed": 2,
+        "remaining": 0
+      },
+      {
+        "store": "export_files",
+        "reachable": true,
+        "retention_days": 90,
+        "removed": 2,
+        "remaining": 0
+      },
+      {
+        "store": "nightly_backup",
+        "reachable": false,
+        "retention_days": 35,
+        "removed": 0,
+        "remaining": 1
+      },
+      {
+        "store": "model_provider_logs",
+        "reachable": false,
+        "retention_days": 30,
+        "removed": 0,
+        "remaining": 1
+      }
+    ],
+    "verified_in_reachable_stores": true,
+    "out_of_reach": [
+      "nightly_backup",
+      "model_provider_logs"
+    ]
+  },
+  "inventory_after": [
+    {
+      "store": "trace_store",
+      "occurrences": 0,
+      "reachable_by_deletion": true,
+      "retention_days": 30
+    },
+    {
+      "store": "tool_result_cache",
+      "occurrences": 0,
+      "reachable_by_deletion": true,
+      "retention_days": 7
+    },
+    {
+      "store": "memory_records",
+      "occurrences": 0,
+      "reachable_by_deletion": true,
+      "retention_days": null
+    },
+    {
+      "store": "retrieval_index",
+      "occurrences": 0,
+      "reachable_by_deletion": true,
+      "retention_days": null
+    },
+    {
+      "store": "export_files",
+      "occurrences": 0,
+      "reachable_by_deletion": true,
+      "retention_days": 90
+    },
+    {
+      "store": "nightly_backup",
+      "occurrences": 1,
+      "reachable_by_deletion": false,
+      "retention_days": 35
+    },
+    {
+      "store": "model_provider_logs",
+      "occurrences": 1,
+      "reachable_by_deletion": false,
+      "retention_days": 30
+    }
+  ],
+  "verified_in_reachable_stores": true,
+  "out_of_reach": [
+    {
+      "store": "nightly_backup",
+      "remaining": 1,
+      "retention_days": 35
+    },
+    {
+      "store": "model_provider_logs",
+      "remaining": 1,
+      "retention_days": 30
+    }
+  ]
+}

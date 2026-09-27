@@ -1,0 +1,10 @@
+[
+  {
+    "at": 120,
+    "action": "disable",
+    "kind": "tool",
+    "target": "send_report",
+    "reason": "compromised catalog build in use",
+    "by": "secops"
+  }
+]

@@ -1,0 +1,3 @@
+Ticket T-881 (acme)
+Customer AC-17 asks whether order A-1042 can still be returned.
+Attachment: T-881.zip (extracted to attachments/T-881/)

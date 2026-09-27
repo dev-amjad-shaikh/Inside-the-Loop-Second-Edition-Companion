@@ -1,0 +1,196 @@
+{
+  "events": [
+    {
+      "event": "correction",
+      "actor": "dev",
+      "task_revision": 2,
+      "text": "Keep the public function signature unchanged.",
+      "t": "10:01:02"
+    },
+    {
+      "request_id": "RQ1",
+      "actor": "dev",
+      "session": "sess-acme-dev",
+      "choice": "approve",
+      "result": {
+        "status": "refused",
+        "reason": "role engineer may not approve export_report"
+      }
+    },
+    {
+      "request_id": "RQ1",
+      "actor": "maria",
+      "session": "sess-acme-maria",
+      "choice": "approve",
+      "result": {
+        "status": "recorded",
+        "decision_id": "D1",
+        "choice": "approve",
+        "approval_id": "AP1"
+      }
+    },
+    {
+      "request_id": "RQ2",
+      "actor": "maria",
+      "session": "sess-acme-maria",
+      "choice": "approve",
+      "result": {
+        "status": "recorded",
+        "decision_id": "D2",
+        "choice": "approve",
+        "approval_id": "AP2"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "report": "daily-2026-09-11",
+      "revision": "r5",
+      "by": "reporting-pipeline",
+      "version": "af0093264abc",
+      "source_revision": "339d3a9f2656",
+      "t": "10:00:00"
+    },
+    {
+      "report": "daily-2026-09-11",
+      "revision": "r6",
+      "by": "finance-review",
+      "version": "374fbdb77b0b",
+      "source_revision": "339d3a9f2656",
+      "change": "removed refunded order A-1003",
+      "t": "10:01:58"
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "RQ1",
+      "request_key": "8c318dcb23023711",
+      "run_id": "run-24",
+      "operation": "export_report",
+      "args_json": "{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\"}",
+      "args_digest": "c66ff54422eb9ffa",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "af0093264abc",
+      "presented_json": "{\"arguments\":{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r5\"},\"artifact_version\":\"af0093264abc\",\"choices\":[{\"consequence\":\"Export runs once, for this revision and destination only.\",\"id\":\"approve\"},{\"consequence\":\"Nothing is exported; the run reports the refusal.\",\"id\":\"reject\"}],\"decision\":\"Export daily-2026-09-11 r5 to destination A?\",\"evidence\":[\"E2: tests passed on report.py 339d3a9f2656\",\"E3: signature match on report.py 339d3a9f2656\"],\"expires_in_s\":900,\"operation\":\"export_report\",\"what_changes\":\"Writes one CSV (4 orders, total 153.50 USD) to destination A; recipients can read it immediately.\"}",
+      "status": "decided",
+      "created_t": "10:01:52"
+    },
+    {
+      "request_id": "RQ2",
+      "request_key": "c64fb5c723c662ec",
+      "run_id": "run-24",
+      "operation": "export_report",
+      "args_json": "{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r6\"}",
+      "args_digest": "3f61b586ec4646c6",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "presented_json": "{\"arguments\":{\"destination\":\"A\",\"report\":\"daily-2026-09-11\",\"revision\":\"r6\"},\"artifact_version\":\"374fbdb77b0b\",\"choices\":[{\"consequence\":\"Export runs once, for this revision and destination only.\",\"id\":\"approve\"},{\"consequence\":\"Nothing is exported; the run reports the refusal.\",\"id\":\"reject\"}],\"decision\":\"Export daily-2026-09-11 r6 to destination A?\",\"diff\":\"--- daily-2026-09-11 r5\\n+++ daily-2026-09-11 r6\\n@@ -4 +3,0 @@\\n-A-1003,2026-09-11T23:40:00+00:00,2026-09-11,65.25,refunded\\n@@ -6 +5 @@\\n-total,,,153.50,\\n+total,,,88.25,\\n\",\"evidence\":[\"E2: tests passed on report.py 339d3a9f2656\",\"E3: signature match on report.py 339d3a9f2656\"],\"expires_in_s\":900,\"operation\":\"export_report\",\"what_changes\":\"Writes one CSV (3 orders, total 88.25 USD) to destination A; recipients can read it immediately.\"}",
+      "status": "decided",
+      "created_t": "10:02:09"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "D1",
+      "request_id": "RQ1",
+      "submission_key": "RQ1:maria:1",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "choice": "approve",
+      "decided_t": "10:01:56"
+    },
+    {
+      "decision_id": "D2",
+      "request_id": "RQ2",
+      "submission_key": "RQ2:maria:1",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "choice": "approve",
+      "decided_t": "10:02:11"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "AP1",
+      "request_id": "RQ1",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "operation": "export_report",
+      "args_digest": "c66ff54422eb9ffa",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "af0093264abc",
+      "scope": "run-24; destination A; one use",
+      "expires_s": 1016,
+      "status": "invalidated",
+      "consumed_by": null
+    },
+    {
+      "approval_id": "AP2",
+      "request_id": "RQ2",
+      "actor": "maria",
+      "role": "report_owner",
+      "delegated_by": null,
+      "operation": "export_report",
+      "args_digest": "3f61b586ec4646c6",
+      "artifact": "daily-2026-09-11",
+      "artifact_version": "374fbdb77b0b",
+      "scope": "run-24; destination A; one use",
+      "expires_s": 1031,
+      "status": "consumed",
+      "consumed_by": "x2"
+    }
+  ],
+  "audit": [
+    {
+      "seq": 1,
+      "t": "10:01:51",
+      "kind": "dispatch_refused",
+      "detail": "{\"args_digest\":\"c66ff54422eb9ffa\",\"call_id\":\"x1\",\"mismatches\":[],\"operation\":\"export_report\",\"reason\":\"no active approval\"}"
+    },
+    {
+      "seq": 2,
+      "t": "10:01:53",
+      "kind": "request_created",
+      "detail": "{\"args_digest\":\"c66ff54422eb9ffa\",\"artifact\":\"daily-2026-09-11\",\"artifact_version\":\"af0093264abc\",\"operation\":\"export_report\",\"request_id\":\"RQ1\"}"
+    },
+    {
+      "seq": 3,
+      "t": "10:01:55",
+      "kind": "decision_refused",
+      "detail": "{\"actor\":\"dev\",\"reason\":\"role engineer may not approve export_report\",\"request_id\":\"RQ1\"}"
+    },
+    {
+      "seq": 4,
+      "t": "10:01:57",
+      "kind": "decision_recorded",
+      "detail": "{\"actor\":\"maria\",\"approval_id\":\"AP1\",\"choice\":\"approve\",\"delegated_by\":null,\"request_id\":\"RQ1\",\"role\":\"report_owner\",\"submission_key\":\"RQ1:maria:1\"}"
+    },
+    {
+      "seq": 5,
+      "t": "10:02:08",
+      "kind": "dispatch_refused",
+      "detail": "{\"args_digest\":\"3f61b586ec4646c6\",\"call_id\":\"x2\",\"mismatches\":[{\"approval_id\":\"AP1\",\"problems\":[\"arguments differ\",\"artifact version af0093264abc approved, 374fbdb77b0b proposed\"]}],\"operation\":\"export_report\"}"
+    },
+    {
+      "seq": 6,
+      "t": "10:02:10",
+      "kind": "request_created",
+      "detail": "{\"args_digest\":\"3f61b586ec4646c6\",\"artifact\":\"daily-2026-09-11\",\"artifact_version\":\"374fbdb77b0b\",\"operation\":\"export_report\",\"request_id\":\"RQ2\"}"
+    },
+    {
+      "seq": 7,
+      "t": "10:02:12",
+      "kind": "decision_recorded",
+      "detail": "{\"actor\":\"maria\",\"approval_id\":\"AP2\",\"choice\":\"approve\",\"delegated_by\":null,\"request_id\":\"RQ2\",\"role\":\"report_owner\",\"submission_key\":\"RQ2:maria:1\"}"
+    },
+    {
+      "seq": 8,
+      "t": "10:02:14",
+      "kind": "approval_consumed",
+      "detail": "{\"approval_id\":\"AP2\",\"call_id\":\"x2\"}"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+ "python": "Python 3.11.15",
+ "cases": {
+  "baseline (python -c pass)": {
+   "median_ms": 13.7,
+   "min_ms": 10.5,
+   "max_ms": 15.4,
+   "runs": 20
+  },
+  "asyncio + json": {
+   "median_ms": 57.6,
+   "min_ms": 54.8,
+   "max_ms": 63.5,
+   "runs": 20
+  },
+  "pydantic_ai": {
+   "median_ms": 535.2,
+   "min_ms": 464.2,
+   "max_ms": 611.5,
+   "runs": 20
+  },
+  "langgraph": {
+   "median_ms": 682.7,
+   "min_ms": 606.1,
+   "max_ms": 736.3,
+   "runs": 20
+  },
+  "agents (openai-agents)": {
+   "median_ms": 1647.3,
+   "min_ms": 1528.7,
+   "max_ms": 1729.1,
+   "runs": 20
+  }
+ },
+ "versions": {
+  "pydantic-ai-slim": "2.50.0",
+  "langgraph": "1.2.12",
+  "openai-agents": "0.22.3",
+  "pydantic": "2.13.5",
+  "pydantic-core": "2.46.5"
+ }
+}

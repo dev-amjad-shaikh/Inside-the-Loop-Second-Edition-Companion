@@ -1,0 +1,361 @@
+{
+  "capstone": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 12,
+      "verified_by": "completion predicate"
+    },
+    "model_calls": 12,
+    "operations": 14,
+    "not_executed": [
+      "c5:input_error",
+      "c7:not dispatched: stale task revision",
+      "x1:refused at dispatch"
+    ],
+    "exports": [
+      "export-file-001"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r6.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 12,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": [
+      {
+        "decisions": [
+          [
+            "x2",
+            "reuse key"
+          ]
+        ],
+        "swallowed": []
+      }
+    ]
+  },
+  "normal": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 9,
+      "verified_by": "completion predicate"
+    },
+    "model_calls": 9,
+    "operations": 11,
+    "not_executed": [],
+    "exports": [
+      "export-file-001"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r5.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 9,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": []
+  },
+  "missing_input": {
+    "outcome": {
+      "outcome": "waiting_for_person",
+      "reason": "input needed: settings.json has no report_timezone. Which timezone defines the report day for acme?",
+      "effects": 0
+    },
+    "model_calls": 3,
+    "operations": 6,
+    "not_executed": [
+      "q1:waiting for person"
+    ],
+    "exports": [],
+    "outbox": {},
+    "report_py": null,
+    "completion_verdicts": [],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file"
+    ],
+    "restarts": []
+  },
+  "malformed": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 10,
+      "verified_by": "completion predicate"
+    },
+    "model_calls": 10,
+    "operations": 12,
+    "not_executed": [
+      "c5:input_error"
+    ],
+    "exports": [
+      "export-file-001"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r5.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 10,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": []
+  },
+  "interruption": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 9,
+      "verified_by": "completion predicate"
+    },
+    "model_calls": 9,
+    "operations": 11,
+    "not_executed": [],
+    "exports": [
+      "export-file-001"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r5.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 9,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": [
+      {
+        "decisions": [
+          [
+            "x1",
+            "reuse key"
+          ]
+        ],
+        "swallowed": []
+      }
+    ]
+  },
+  "correction": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 10,
+      "verified_by": "completion predicate"
+    },
+    "model_calls": 10,
+    "operations": 12,
+    "not_executed": [
+      "c7:not dispatched: stale task revision"
+    ],
+    "exports": [
+      "export-file-001"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r5.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 10,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": []
+  },
+  "capstone_naive": {
+    "outcome": {
+      "outcome": "completed",
+      "call": 12,
+      "verified_by": "glue check: tests passed after the last edit and the export tool returned completed"
+    },
+    "model_calls": 12,
+    "operations": 14,
+    "not_executed": [
+      "c5:input_error",
+      "c7:not dispatched: stale task revision",
+      "x1:refused at dispatch"
+    ],
+    "exports": [
+      "export-file-001",
+      "export-file-002"
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r5.export-file-002.csv",
+        "daily-2026-09-11.r6.export-file-001.csv"
+      ]
+    },
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 12,
+        "complete": true,
+        "missing": []
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": [
+      {
+        "decisions": [
+          [
+            "x1",
+            "resend"
+          ],
+          [
+            "x2",
+            "resend"
+          ]
+        ],
+        "swallowed": [
+          {
+            "op": "x1",
+            "write": "op.dispatched",
+            "reason": "op.dispatched not allowed from state cancelled"
+          },
+          {
+            "op": "x1",
+            "write": "op.completed",
+            "reason": "op.completed not allowed from state cancelled"
+          },
+          {
+            "op": "x2",
+            "write": "op.dispatched",
+            "reason": "op.dispatched not allowed from state dispatched"
+          }
+        ]
+      }
+    ]
+  },
+  "skill_scope_open": {
+    "outcome": {
+      "outcome": "incomplete",
+      "reason": "no further proposals; completion refused",
+      "missing": [
+        "P7 no export completed"
+      ]
+    },
+    "model_calls": 9,
+    "operations": 11,
+    "not_executed": [
+      "x1:outside active skill declarations"
+    ],
+    "exports": [],
+    "outbox": {},
+    "report_py": {
+      "before": "78721bd28acc",
+      "after": "339d3a9f2656"
+    },
+    "completion_verdicts": [
+      {
+        "call": 9,
+        "complete": false,
+        "missing": [
+          "P7 no export completed"
+        ]
+      }
+    ],
+    "executions": [
+      "c1 read_file",
+      "c2 read_file",
+      "c3 read_file",
+      "c4 replace_text",
+      "c6 run_tests",
+      "c8 replace_text",
+      "c9 run_tests"
+    ],
+    "restarts": []
+  }
+}

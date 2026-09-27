@@ -1,0 +1,170 @@
+[
+  {
+    "name": "reports_search",
+    "description": "Find which report covers a topic, such as orders, refunds or revenue, in the report catalog of the signed-in tenant. Returns report names, titles and current version. Read-only. Use it to find a report name before exporting.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "query"
+      ],
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      }
+    }
+  },
+  {
+    "name": "exports_create",
+    "description": "Create one export file of one report for one calendar day and deliver it to a destination. Changes external state: every successful call creates a new export and a delivery; to re-run a failed export, call it again, which creates a new export. Formats csv or parquet; finance_sftp accepts csv only. Pass the report version the user saw as expected_report_version. The tenant comes from the signed-in session.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "report",
+        "day",
+        "format",
+        "destination",
+        "expected_report_version"
+      ],
+      "properties": {
+        "report": {
+          "type": "string",
+          "description": "Report name from reports_search, e.g. daily_orders."
+        },
+        "day": {
+          "type": "string",
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "description": "Calendar day of the report in the report's own timezone, YYYY-MM-DD."
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "csv",
+            "parquet"
+          ]
+        },
+        "destination": {
+          "type": "string",
+          "enum": [
+            "finance_sftp",
+            "analytics_bucket"
+          ],
+          "description": "finance_sftp accepts csv only."
+        },
+        "expected_report_version": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The report version the user saw. The call fails if the report has changed since."
+        }
+      }
+    }
+  },
+  {
+    "name": "exports_get_status",
+    "description": "Check whether one known export has finished: returns its status (queued, running, delivered or failed) with report, day, format and destination. Needs the export_id; use exports_list when you do not have it. Read-only. response_format concise (default) or detailed.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "export_id"
+      ],
+      "properties": {
+        "export_id": {
+          "type": "string",
+          "pattern": "exp_\\d{4}"
+        },
+        "response_format": {
+          "type": "string",
+          "enum": [
+            "concise",
+            "detailed"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "exports_list",
+    "description": "List recent exports of the signed-in tenant, newest first, optionally only those with one status or since a day. Use it to find an export_id. Read-only. Returns at most limit items and a next_cursor when more exist.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "queued",
+            "running",
+            "delivered",
+            "failed"
+          ]
+        },
+        "since": {
+          "type": "string",
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "description": "Calendar day of the report in the report's own timezone, YYYY-MM-DD."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "cursor": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "exports_read_log",
+    "description": "Read lines from the job log of one export. Read-only. Defaults to the last 40 lines, where failures are reported. The result gives total_lines, the range returned and a cursor for the lines omitted.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "export_id"
+      ],
+      "properties": {
+        "export_id": {
+          "type": "string",
+          "pattern": "exp_\\d{4}"
+        },
+        "from_end": {
+          "type": "boolean"
+        },
+        "lines": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200
+        },
+        "cursor": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "exports_cancel",
+    "description": "Cancel a queued or running export by export_id. Changes external state. A delivered export cannot be cancelled.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "export_id"
+      ],
+      "properties": {
+        "export_id": {
+          "type": "string",
+          "pattern": "exp_\\d{4}"
+        }
+      }
+    }
+  }
+]

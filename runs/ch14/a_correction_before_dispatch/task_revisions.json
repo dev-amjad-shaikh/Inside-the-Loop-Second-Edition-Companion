@@ -1,0 +1,16 @@
+[
+  {
+    "revision": 1,
+    "text": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it.",
+    "checks": [],
+    "seq": 1
+  },
+  {
+    "revision": 2,
+    "text": "Keep the public function signature unchanged.",
+    "checks": [
+      "signature:belongs_to_report"
+    ],
+    "seq": 20
+  }
+]

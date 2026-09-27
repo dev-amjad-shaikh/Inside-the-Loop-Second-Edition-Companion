@@ -1,0 +1,387 @@
+{
+  "policy": {
+    "id": "ctx-structured-v1",
+    "trigger_fraction": 0.75,
+    "recent_budget_tokens": 500,
+    "result_cap_tokens": 1200,
+    "pinned_cap_tokens": 450,
+    "summary_cap_tokens": 900,
+    "layout": "task_last",
+    "status_line": false,
+    "allowance": 6656,
+    "pin_task": true,
+    "freeze_summary": false,
+    "hash": "32055b2910a1"
+  },
+  "call": 9,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+    },
+    {
+      "role": "user",
+      "content": "Derived summary of records R02-R18, written by the context builder at call 9 (policy ctx-structured-v1). Not model-written. Each line names its source record; read_record(record_id) returns the original.\n- Task revision 1 recorded [R02]; carried in the pinned task note.\n- Read settings.json@fac6e0792573 (still current) [R04]: {\"report_timezone\": \"America/Los_Angeles\"}\n- Read report.py@78721bd28acc (superseded, now 339d3a9f2656) [R05]\n- Read test_report.py@197c0720866d (superseded, now 319f11ce22b8) [R06]\n- Edited test_report.py 197c0720866d -> 319f11ce22b8 by c4 [R08]\n- Call c5 rejected before execution: tests must be a list of strings [R10]\n- Tests failed: 2 run, 1 failures, 0 errors ['test_report.ReportTests.test_order_near_midnight'] against report.py@78721bd28acc [R12]\n- Edited report.py 78721bd28acc -> 339d3a9f2656 by c7 [R14]\n- Tests passed: 2 run, 0 failures, 0 errors [] against report.py@339d3a9f2656 [R16]\n- Model claim (unverified text) [R17]: The filter used the UTC calendar date.\n- Task revision 2 recorded [R18]; carried in the pinned task note.\n- Configuration current: report_timezone=America/Los_Angeles (O-r41-R04, fac6e0792573)\n- Configuration superseded: report_timezone=UTC (O-r40-2, 5ce6ce17a200)"
+    },
+    {
+      "role": "assistant",
+      "content": "",
+      "tool_calls": [
+        {
+          "id": "c9",
+          "name": "read_file",
+          "arguments": {
+            "path": "report.py"
+          }
+        },
+        {
+          "id": "c10",
+          "name": "read_file",
+          "arguments": {
+            "path": "test_billing.py"
+          }
+        },
+        {
+          "id": "c11",
+          "name": "run_suite",
+          "arguments": {
+            "tests": [
+              "test_report.py",
+              "test_report_matrix.py",
+              "test_billing.py"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c9",
+      "content": {
+        "status": "ok",
+        "path": "report.py",
+        "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day\n"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c10",
+      "content": {
+        "status": "ok",
+        "path": "test_billing.py",
+        "text": "\"\"\"The billing service calls belongs_to_report positionally, with an explicit timezone.\"\"\"\nimport unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\n\nclass BillingCallerTests(unittest.TestCase):\n    def test_billing_positional_call(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(order_time, date(2026, 9, 11), \"America/Los_Angeles\"))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c11",
+      "content": {
+        "status": "failed",
+        "tests_run": 268,
+        "failures": 0,
+        "errors": 1,
+        "failed_tests": [
+          "test_report_matrix.MatrixTests.test_configured_default"
+        ],
+        "exit_code": 1,
+        "log_digest": {
+          "lines_total": 282,
+          "ok_lines_omitted": 267,
+          "kept_lines": [
+            "test_configured_default (test_report_matrix.MatrixTests.test_configured_default) ... ERROR",
+            "ERROR: test_configured_default (test_report_matrix.MatrixTests.test_configured_default)",
+            "Traceback (most recent call last):",
+            "  File \"test_report_matrix.py\", line 28, in test_configured_default",
+            "    self.assertTrue(belongs_to_report(order_time, local_day))",
+            "                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "TypeError: belongs_to_report() missing 1 required positional argument: 'timezone'",
+            "Ran 268 tests",
+            "FAILED (errors=1)"
+          ]
+        },
+        "full_log": "read_record(record_id='R22')"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Runtime note from the context builder (derived from task records, not written by the user).\nCurrent task revision 2.\nGoal [R02, revision 1]: The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests.\nGoal [R18, revision 2]: Make the new timezone matrix in test_report_matrix.py pass.\nConstraints in force:\n- C1 Do not deploy it. [R02, revision 1]\n- C2 Keep the public function signature unchanged; the billing service calls belongs_to_report directly. Contract: belongs_to_report(created_at, requested_day, timezone) at report.py@339d3a9f2656. [R18, revision 2]\n- C3 Keep the diff small. [R18, revision 2]"
+    }
+  ],
+  "provenance": [
+    {
+      "records": [
+        "R01"
+      ],
+      "transform": "verbatim",
+      "source": "application",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "runtime",
+      "tokens": 39
+    },
+    {
+      "records": [
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18"
+      ],
+      "transform": "structured summary (derived)",
+      "source": "context builder",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "derived",
+      "tokens": 319
+    },
+    {
+      "records": [
+        "R19"
+      ],
+      "transform": "verbatim",
+      "source": "model call 8",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "model output",
+      "tokens": 75
+    },
+    {
+      "records": [
+        "R20"
+      ],
+      "transform": "verbatim",
+      "source": "read_file(\"path\":\"report.py\")",
+      "revision": "339d3a9f2656",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 95
+    },
+    {
+      "records": [
+        "R21"
+      ],
+      "transform": "verbatim",
+      "source": "read_file(\"path\":\"test_billing.py\")",
+      "revision": "d60dab7c125f",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 154
+    },
+    {
+      "records": [
+        "R22"
+      ],
+      "transform": "digest",
+      "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+      "revision": null,
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "workspace data",
+      "tokens": 212
+    },
+    {
+      "records": [
+        "R02",
+        "R18"
+      ],
+      "transform": "pinned (derived)",
+      "source": "task records",
+      "revision": "task r2",
+      "run": "run-41",
+      "scope": "workspace-42",
+      "trust": "user (via human interface)",
+      "tokens": 173
+    }
+  ],
+  "omissions": [
+    {
+      "record": "R02",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 39,
+      "carried_by": "summary line [R02]"
+    },
+    {
+      "record": "R03",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 63,
+      "carried_by": "summary line [R03]"
+    },
+    {
+      "record": "R04",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 36,
+      "carried_by": "summary line [R04]"
+    },
+    {
+      "record": "R05",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 80,
+      "carried_by": "summary line [R05]"
+    },
+    {
+      "record": "R06",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 137,
+      "carried_by": "summary line [R06]"
+    },
+    {
+      "record": "R07",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 108,
+      "carried_by": "summary line [R07]"
+    },
+    {
+      "record": "R08",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 42,
+      "carried_by": "summary line [R08]"
+    },
+    {
+      "record": "R09",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 30,
+      "carried_by": "summary line [R09]"
+    },
+    {
+      "record": "R10",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 29,
+      "carried_by": "summary line [R10]"
+    },
+    {
+      "record": "R11",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 30,
+      "carried_by": "summary line [R11]"
+    },
+    {
+      "record": "R12",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 66,
+      "carried_by": "summary line [R12]"
+    },
+    {
+      "record": "R13",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 71,
+      "carried_by": "summary line [R13]"
+    },
+    {
+      "record": "R14",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 40,
+      "carried_by": "summary line [R14]"
+    },
+    {
+      "record": "R15",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 30,
+      "carried_by": "summary line [R15]"
+    },
+    {
+      "record": "R16",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 45,
+      "carried_by": "summary line [R16]"
+    },
+    {
+      "record": "R17",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 80,
+      "carried_by": "summary line [R17]"
+    },
+    {
+      "record": "R18",
+      "action": "summarized",
+      "reason": "older than the verbatim tail chosen at call 9",
+      "tokens": 55,
+      "carried_by": "summary line [R18]"
+    },
+    {
+      "record": "R22",
+      "action": "digested",
+      "reason": "result over 1200 tokens; counts and non-ok lines kept",
+      "tokens": 5930,
+      "carried_by": "digest; full text via read_record('R22')"
+    },
+    {
+      "record": "O-r77-5",
+      "action": "excluded",
+      "reason": "observation from another scope",
+      "tokens": 0,
+      "carried_by": null
+    }
+  ],
+  "budget": {
+    "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+    "window": 8192,
+    "output_reserve": 1536,
+    "input_allowance": 6656,
+    "tool_definitions": 318,
+    "sections": [
+      {
+        "name": "instructions",
+        "items": 1,
+        "tokens": 39
+      },
+      {
+        "name": "pinned task",
+        "items": 1,
+        "tokens": 173,
+        "cap": 450
+      },
+      {
+        "name": "derived summary",
+        "items": 1,
+        "tokens": 319,
+        "cap": 900
+      },
+      {
+        "name": "history (whole groups)",
+        "items": 4,
+        "tokens": 536
+      }
+    ],
+    "total_input": 1385,
+    "headroom": 5271,
+    "fits": true,
+    "compacted": true,
+    "compaction_fired": true,
+    "trigger_tokens": 4992
+  },
+  "protocol_problems": [],
+  "request_sha": "84c13486b31b"
+}

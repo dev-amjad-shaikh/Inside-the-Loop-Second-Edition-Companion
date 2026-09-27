@@ -1,0 +1,76 @@
+{
+  "detection": [
+    {
+      "signal": "denied_outbound_attempt",
+      "tenant": "acme",
+      "tool": "send_report",
+      "attempts": 2,
+      "distinct_destinations": [
+        "audit-7f3a@exfil.example"
+      ],
+      "runs": [
+        "run-9001",
+        "run-9002"
+      ]
+    },
+    {
+      "signal": "denied_outbound_attempt",
+      "tenant": "globex",
+      "tool": "send_report",
+      "attempts": 1,
+      "distinct_destinations": [
+        "audit-7f3a@exfil.example"
+      ],
+      "runs": [
+        "run-9003"
+      ]
+    },
+    {
+      "signal": "outbound_to_unregistered_domain",
+      "domain": "exfil.example",
+      "bytes": 1536,
+      "runs": [
+        "run-9001",
+        "run-9002",
+        "run-9003"
+      ]
+    }
+  ],
+  "affected_count": 3,
+  "data_left_foreign": [
+    {
+      "run_id": "run-9001",
+      "tenant": "acme",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1000
+    },
+    {
+      "run_id": "run-9002",
+      "tenant": "acme",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1100
+    },
+    {
+      "run_id": "run-9003",
+      "tenant": "globex",
+      "destination": "exfil.example",
+      "bytes": 512,
+      "at": 1200
+    }
+  ],
+  "revoked": [
+    "cred-acme-mail",
+    "cred-globex-mail"
+  ],
+  "kill_switch_blocks_send_report": [
+    true,
+    [
+      "tool",
+      "send_report"
+    ]
+  ],
+  "kill_switch_allows_other_tool": true,
+  "incident_id": "INC-75c9ba01aa3a"
+}

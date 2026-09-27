@@ -1,0 +1,71 @@
+[
+  {
+    "policy": "unbounded",
+    "arrivals": {
+      "quiet": 1277,
+      "noisy": 482
+    },
+    "quiet": {
+      "served": 1277,
+      "rejected_at_submit": 0,
+      "missed_deadline": 444,
+      "wait_p50_s": 636.6,
+      "wait_p95_s": 1376.8,
+      "wait_max_s": 1438.5
+    },
+    "noisy": {
+      "served": 482,
+      "rejected_at_submit": 0,
+      "missed_deadline": 150,
+      "wait_p50_s": 598.9,
+      "wait_p95_s": 1328.5,
+      "wait_max_s": 1433.4
+    }
+  },
+  {
+    "policy": "global_cap",
+    "arrivals": {
+      "quiet": 1277,
+      "noisy": 482
+    },
+    "quiet": {
+      "served": 1191,
+      "rejected_at_submit": 86,
+      "missed_deadline": 0,
+      "wait_p50_s": 47.6,
+      "wait_p95_s": 657.4,
+      "wait_max_s": 705.6
+    },
+    "noisy": {
+      "served": 385,
+      "rejected_at_submit": 97,
+      "missed_deadline": 0,
+      "wait_p50_s": 514.5,
+      "wait_p95_s": 687.3,
+      "wait_max_s": 703.6
+    }
+  },
+  {
+    "policy": "tenant_cap",
+    "arrivals": {
+      "quiet": 1277,
+      "noisy": 482
+    },
+    "quiet": {
+      "served": 1277,
+      "rejected_at_submit": 0,
+      "missed_deadline": 0,
+      "wait_p50_s": 0.2,
+      "wait_p95_s": 276.7,
+      "wait_max_s": 324.9
+    },
+    "noisy": {
+      "served": 214,
+      "rejected_at_submit": 268,
+      "missed_deadline": 0,
+      "wait_p50_s": 141.1,
+      "wait_p95_s": 281.6,
+      "wait_max_s": 317.7
+    }
+  }
+]

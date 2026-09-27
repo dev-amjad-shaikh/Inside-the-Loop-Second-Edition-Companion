@@ -1,0 +1,72 @@
+{
+  "writes": [
+    {
+      "record_id": "mem-9e047763",
+      "status": "active",
+      "decision": "activate",
+      "scope_type": "user",
+      "notes": [],
+      "expires_at": null,
+      "key": "final_summary",
+      "kind": "response_preference"
+    },
+    {
+      "record_id": "mem-a5ed1c8c",
+      "status": "active",
+      "decision": "activate",
+      "scope_type": "user",
+      "notes": [],
+      "expires_at": null,
+      "key": "display_timezone",
+      "kind": "display_timezone"
+    },
+    {
+      "record_id": "mem-f0207de3",
+      "status": "active",
+      "decision": "activate",
+      "scope_type": "session",
+      "notes": [],
+      "expires_at": "2026-09-19T00:00:00Z",
+      "key": "tests",
+      "kind": "response_preference"
+    },
+    {
+      "record_id": "mem-05157a3e",
+      "status": "rejected",
+      "decision": "reject",
+      "reasons": [
+        "kind report_timezone is owned by project configuration (settings.json)"
+      ],
+      "key": "report_timezone",
+      "kind": "report_timezone"
+    }
+  ],
+  "retrieved": {
+    "included": [
+      {
+        "id": "mem-a5ed1c8c",
+        "key": "display_timezone",
+        "value": "America/Los_Angeles",
+        "scope": "user:dev",
+        "assertion": "stated"
+      },
+      {
+        "id": "mem-9e047763",
+        "key": "final_summary",
+        "value": "list each changed file with its content version",
+        "scope": "user:dev",
+        "assertion": "stated"
+      }
+    ],
+    "excluded": [
+      {
+        "id": "mem-f0207de3",
+        "key": "tests",
+        "value": "skip the slow integration tests this session",
+        "scope": "session:s-19",
+        "assertion": "stated",
+        "reason": "expired at 2026-09-19T00:00:00Z"
+      }
+    ]
+  }
+}

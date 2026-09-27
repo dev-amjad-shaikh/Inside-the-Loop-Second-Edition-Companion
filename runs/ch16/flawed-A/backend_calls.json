@@ -1,0 +1,14 @@
+[
+  {
+    "service": "orders-api",
+    "credential": "sha256:ddd609981f90",
+    "tenant_header": null,
+    "order_id": "A-1042"
+  },
+  {
+    "service": "orders-api",
+    "credential": "sha256:ddd609981f90",
+    "tenant_header": null,
+    "order_id": "G-2001"
+  }
+]

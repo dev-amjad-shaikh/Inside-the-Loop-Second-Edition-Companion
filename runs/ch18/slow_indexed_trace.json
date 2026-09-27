@@ -1,0 +1,602 @@
+[
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "932bc41f56c1a28b",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330400000000000,
+    "endTimeUnixNano": 1790330400020000000,
+    "attributes": {
+      "itl.context.messages": 2
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "2fc70d83bdffd78d",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330400020000000,
+    "endTimeUnixNano": 1790330401898000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [],
+      "gen_ai.usage.input_tokens": 73,
+      "gen_ai.usage.output_tokens": 53
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "1e5058960744a6dd",
+    "parentSpanId": "173be9f725f575fa",
+    "name": "retrieval workspace-index",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330401898000000,
+    "endTimeUnixNano": 1790330402048000000,
+    "attributes": {
+      "gen_ai.operation.name": "retrieval",
+      "gen_ai.data_source.id": "workspace-index",
+      "gen_ai.retrieval.top_k": 20
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "173be9f725f575fa",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool search_code",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330401898000000,
+    "endTimeUnixNano": 1790330402048000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "search_code",
+      "gen_ai.tool.call.id": "s1",
+      "itl.search.files_scanned": 0,
+      "itl.search.matches": 1,
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "db85203adae9f27b",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330401898000000,
+    "endTimeUnixNano": 1790330401948000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file",
+      "gen_ai.tool.call.id": "s2",
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "f30328c6c91e36a0",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330402048000000,
+    "endTimeUnixNano": 1790330402068000000,
+    "attributes": {
+      "itl.context.messages": 5
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "36e9a671a8cbd24c",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330402068000000,
+    "endTimeUnixNano": 1790330403921000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2"
+      ],
+      "gen_ai.usage.input_tokens": 212,
+      "gen_ai.usage.output_tokens": 50
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "28f013b26b0af3a8",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330403921000000,
+    "endTimeUnixNano": 1790330403971000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file",
+      "gen_ai.tool.call.id": "s3",
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "6c1cf7f874366455",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330403921000000,
+    "endTimeUnixNano": 1790330403971000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file",
+      "gen_ai.tool.call.id": "s4",
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "945fa0ce988f3429",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330403971000000,
+    "endTimeUnixNano": 1790330403991000000,
+    "attributes": {
+      "itl.context.messages": 8
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "7a412612ab769427",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330403991000000,
+    "endTimeUnixNano": 1790330407152000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "gen_ai.usage.input_tokens": 485,
+      "gen_ai.usage.output_tokens": 112
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "48dd69fc3d94ac7d",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool replace_text",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330407152000000,
+    "endTimeUnixNano": 1790330407202000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "replace_text",
+      "gen_ai.tool.call.id": "s5",
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "ee36cef452a69e29",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330407202000000,
+    "endTimeUnixNano": 1790330407222000000,
+    "attributes": {
+      "itl.context.messages": 10
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "7c919fff38949a61",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330407222000000,
+    "endTimeUnixNano": 1790330408843000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "gen_ai.usage.input_tokens": 642,
+      "gen_ai.usage.output_tokens": 33
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "784786bf104ac243",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool run_tests",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330408843000000,
+    "endTimeUnixNano": 1790330413643000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "run_tests",
+      "gen_ai.tool.call.id": "s6",
+      "itl.observation.status": "failed"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "7b7e84f58e3cee69",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330413643000000,
+    "endTimeUnixNano": 1790330413663000000,
+    "attributes": {
+      "itl.context.messages": 12
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "fb9459bda215d1e9",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330413663000000,
+    "endTimeUnixNano": 1790330416149000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "gen_ai.usage.input_tokens": 746,
+      "gen_ai.usage.output_tokens": 75
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "039c5cce507b9a98",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool replace_text",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330416149000000,
+    "endTimeUnixNano": 1790330416199000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "replace_text",
+      "gen_ai.tool.call.id": "s7",
+      "itl.observation.status": "ok"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "19400cfcab80eca1",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330416199000000,
+    "endTimeUnixNano": 1790330416219000000,
+    "attributes": {
+      "itl.context.messages": 14
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "ab2c451f10422df2",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330416219000000,
+    "endTimeUnixNano": 1790330417895000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
+      ],
+      "gen_ai.usage.input_tokens": 865,
+      "gen_ai.usage.output_tokens": 33
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "92bba06c4ac94d08",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "execute_tool run_tests",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330417895000000,
+    "endTimeUnixNano": 1790330422695000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "run_tests",
+      "gen_ai.tool.call.id": "s8",
+      "itl.observation.status": "passed"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "dff615b47b6e7dd2",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "build_context",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330422695000000,
+    "endTimeUnixNano": 1790330422715000000,
+    "attributes": {
+      "itl.context.messages": 16
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "9789cfbc0d56c001",
+    "parentSpanId": "954b6bb46eeef6b8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330422715000000,
+    "endTimeUnixNano": 1790330424692000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "scripted-report-model",
+      "itl.input.tool_call_ids": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8"
+      ],
+      "gen_ai.usage.input_tokens": 948,
+      "gen_ai.usage.output_tokens": 47
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "36956952a3d12c627a429e1eabb7e56a",
+    "spanId": "954b6bb46eeef6b8",
+    "parentSpanId": null,
+    "name": "invoke_agent report-fixer",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330400000000000,
+    "endTimeUnixNano": 1790330424692000000,
+    "attributes": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.agent.name": "report-fixer",
+      "itl.search.mode": "indexed"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  }
+]

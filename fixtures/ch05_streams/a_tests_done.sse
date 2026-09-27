@@ -1,0 +1,57 @@
+: t=0
+: t=150
+event: message_start
+data: {"type":"message_start","message":{"id":"msg_a41c","type":"message","role":"assistant","model":"coder-large-2026-08-14","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":2398,"cache_read_input_tokens":1800,"output_tokens":1}}}
+
+: t=160
+event: content_block_start
+data: {"type":"content_block_start","index":0,"content_block":{"type":"thinking","thinking":"","signature":""}}
+
+: t=420
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"thinking_delta","thinking":"The fix is in place at revision 339d3a9f2656. "}}
+
+: t=610
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"thinking_delta","thinking":"Run both tests again to confirm the near-midnight case now passes."}}
+
+: t=640
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"signature_delta","signature":"EqQBCkYIBRgCKkB0c2lnLWZpeHR1cmUtb25seS1ub3QtYS1yZWFsLXNpZ25hdHVyZQSDGR0ZXN0LXNpZ25hdHVyZS1ieXRlcy0wMDEyMzQ1Njc4OWFiY2RlZg=="}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":0}
+
+: t=650
+event: ping
+data: {"type":"ping"}
+
+: t=700
+event: content_block_start
+data: {"type":"content_block_start","index":1,"content_block":{"type":"text","text":""}}
+
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"text_delta","text":"Running the tests against the changed file."}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":1}
+
+: t=760
+event: content_block_start
+data: {"type":"content_block_start","index":2,"content_block":{"type":"tool_use","id":"toolu_tests_2","name":"run_tests","input":{}}}
+
+: t=830
+event: content_block_delta
+data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"{\"tests\": [\"test_report.py\"]}"}}
+
+: t=835
+event: content_block_stop
+data: {"type":"content_block_stop","index":2}
+
+: t=850
+event: message_delta
+data: {"type":"message_delta","delta":{"stop_reason":"tool_use","stop_sequence":null},"usage":{"output_tokens":141}}
+
+event: message_stop
+data: {"type":"message_stop"}
+

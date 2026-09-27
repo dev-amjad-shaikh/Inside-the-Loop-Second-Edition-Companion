@@ -1,0 +1,26 @@
+[
+  {
+    "run_id": "run-9001",
+    "tenant": "acme",
+    "agent": "daily-reporter",
+    "agent_version": "3.2.0",
+    "credential_id": "cred-acme-mail",
+    "started_at": 1000
+  },
+  {
+    "run_id": "run-9002",
+    "tenant": "acme",
+    "agent": "daily-reporter",
+    "agent_version": "3.2.0",
+    "credential_id": "cred-acme-mail",
+    "started_at": 1100
+  },
+  {
+    "run_id": "run-9003",
+    "tenant": "globex",
+    "agent": "daily-reporter",
+    "agent_version": "3.2.0",
+    "credential_id": "cred-globex-mail",
+    "started_at": 1200
+  }
+]

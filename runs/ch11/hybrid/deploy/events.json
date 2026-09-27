@@ -1,0 +1,152 @@
+[
+  {
+    "step": 1,
+    "t": 2.318,
+    "stage": "inspect",
+    "ops": [
+      "read_file:settings.json:12bfeb5b",
+      "read_file:report.py:42a3d08f",
+      "read_file:test_report.py:1eb31f02"
+    ],
+    "new_evidence": [
+      "e1:read",
+      "e2:read",
+      "e3:read"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "satisfied",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "pending"
+    },
+    "budgets": {
+      "model_calls": 1,
+      "tokens": 327,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 2.318
+  },
+  {
+    "step": 2,
+    "t": 4.558,
+    "stage": "reproduce",
+    "ops": [
+      "replace_text:test_report.py:29fa54fb"
+    ],
+    "new_evidence": [
+      "e4:edit"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "satisfied",
+      "P2": "pending",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "pending"
+    },
+    "budgets": {
+      "model_calls": 2,
+      "tokens": 987,
+      "tool:run_tests": 0
+    },
+    "sim_seconds": 4.558
+  },
+  {
+    "step": 3,
+    "t": 12.603,
+    "stage": "reproduce",
+    "ops": [
+      "run_tests:['test_report.py']:24b742a7"
+    ],
+    "new_evidence": [
+      "e5:tests"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "satisfied",
+      "P2": "satisfied",
+      "P3": "pending",
+      "P4": "pending",
+      "P5": "pending"
+    },
+    "budgets": {
+      "model_calls": 3,
+      "tokens": 1805,
+      "tool:run_tests": 1
+    },
+    "sim_seconds": 12.603
+  },
+  {
+    "step": 4,
+    "t": 15.018,
+    "stage": "fix",
+    "ops": [
+      "replace_text:report.py:6ccfc840"
+    ],
+    "new_evidence": [
+      "e6:edit"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "satisfied",
+      "P2": "satisfied",
+      "P3": "satisfied",
+      "P4": "pending",
+      "P5": "pending"
+    },
+    "budgets": {
+      "model_calls": 4,
+      "tokens": 2728,
+      "tool:run_tests": 1
+    },
+    "sim_seconds": 15.018
+  },
+  {
+    "step": 5,
+    "t": 23.213,
+    "stage": "verify",
+    "ops": [
+      "run_tests:['test_report.py']:24b742a7"
+    ],
+    "new_evidence": [
+      "e7:tests"
+    ],
+    "stall": 0,
+    "repairs": {},
+    "decision": "progress",
+    "plan": {
+      "P1": "satisfied",
+      "P2": "satisfied",
+      "P3": "satisfied",
+      "P4": "satisfied",
+      "P5": "pending"
+    },
+    "budgets": {
+      "model_calls": 5,
+      "tokens": 3771,
+      "tool:run_tests": 2
+    },
+    "sim_seconds": 23.213
+  },
+  {
+    "step": 6,
+    "t": 25.464,
+    "stage": "release",
+    "ops": [
+      "deploy:production:d2e97ba4"
+    ],
+    "new_evidence": [],
+    "stall": 0,
+    "decision": "approval required"
+  }
+]

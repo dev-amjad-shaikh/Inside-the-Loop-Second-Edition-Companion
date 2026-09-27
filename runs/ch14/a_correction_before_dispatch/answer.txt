@@ -1,0 +1,1 @@
+The filter used the UTC calendar date. It now converts each timestamp to the report timezone before comparing dates. The public signature of belongs_to_report is unchanged. The near-midnight test failed before the fix; both tests pass on the final revision. Nothing was deployed.

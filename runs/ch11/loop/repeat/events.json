@@ -1,0 +1,86 @@
+[
+  {
+    "t": 1.877,
+    "decided_by": "model",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 2.077,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 2.277,
+    "decided_by": "model",
+    "op": "read_file:test_report.py:1eb31f02",
+    "status": "ok"
+  },
+  {
+    "t": 4.476,
+    "decided_by": "model",
+    "op": "replace_text:test_report.py:29fa54fb",
+    "status": "ok"
+  },
+  {
+    "t": 12.481,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 14.756,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 17.208,
+    "decided_by": "model",
+    "op": "replace_text:report.py:34bcb00f",
+    "status": "ok"
+  },
+  {
+    "t": 25.435,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 27.932,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 30.611,
+    "decided_by": "model",
+    "op": "replace_text:report.py:34bcb00f",
+    "status": "ok"
+  },
+  {
+    "t": 39.066,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 41.791,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 44.704,
+    "decided_by": "model",
+    "op": "replace_text:report.py:34bcb00f",
+    "status": "ok"
+  },
+  {
+    "t": 53.392,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  }
+]

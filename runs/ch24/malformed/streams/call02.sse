@@ -1,0 +1,88 @@
+: t=0
+: t=140
+event: message_start
+data: {"type":"message_start","message":{"id":"msg_run-24_02","type":"message","role":"assistant","model":"coder-large-2026-08-14","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":1808,"cache_read_input_tokens":0,"output_tokens":1}}}
+
+: t=190
+event: content_block_start
+data: {"type":"content_block_start","index":0,"content_block":{"type":"tool_use","id":"c1","name":"read_file","input":{}}}
+
+: t=215
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"input_json_delta","partial_json":"{\"path\": "}}
+
+: t=240
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"input_json_delta","partial_json":"\"settings"}}
+
+: t=265
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"input_json_delta","partial_json":".json\"}"}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":0}
+
+: t=295
+event: content_block_start
+data: {"type":"content_block_start","index":1,"content_block":{"type":"tool_use","id":"c2","name":"read_file","input":{}}}
+
+: t=320
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"{\"path\""}}
+
+: t=345
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":": \"repo"}}
+
+: t=370
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"rt.py\"}"}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":1}
+
+: t=400
+event: content_block_start
+data: {"type":"content_block_start","index":2,"content_block":{"type":"tool_use","id":"c3","name":"read_file","input":{}}}
+
+: t=425
+event: content_block_delta
+data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"{\"path\": "}}
+
+: t=450
+event: content_block_delta
+data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"\"test_rep"}}
+
+: t=475
+event: content_block_delta
+data: {"type":"content_block_delta","index":2,"delta":{"type":"input_json_delta","partial_json":"ort.py\"}"}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":2}
+
+: t=505
+event: content_block_start
+data: {"type":"content_block_start","index":3,"content_block":{"type":"tool_use","id":"r1","name":"read_skill_resource","input":{}}}
+
+: t=530
+event: content_block_delta
+data: {"type":"content_block_delta","index":3,"delta":{"type":"input_json_delta","partial_json":"{\"skill\": \"report-helpe"}}
+
+: t=555
+event: content_block_delta
+data: {"type":"content_block_delta","index":3,"delta":{"type":"input_json_delta","partial_json":"r\", \"path\": \"references"}}
+
+: t=580
+event: content_block_delta
+data: {"type":"content_block_delta","index":3,"delta":{"type":"input_json_delta","partial_json":"/regression-test.md\"}"}}
+
+event: content_block_stop
+data: {"type":"content_block_stop","index":3}
+
+: t=600
+event: message_delta
+data: {"type":"message_delta","delta":{"stop_reason":"tool_use","stop_sequence":null},"usage":{"output_tokens":92}}
+
+event: message_stop
+data: {"type":"message_stop"}
+

@@ -1,0 +1,14 @@
+/home/claude/src/skills/skills: 19/19 parsed, catalog ~2727 tokens, format errors in 1
+   claude-api: ['Description exceeds 1024 character limit']
+   overlap ['algorithmic-art', 'canvas-design'] jaccard=0.268 shared=['art', 'artist', 'avoid', 'copy', 'copyright', 'create', 'exist', 'original', 'user', 'violation', 'work']
+   overlap ['docx', 'pdf'] jaccard=0.171 shared=['asks', 'extract', 'file', 'imag', 'mention', 'page', 'pdfs', 'produce', 'read', 'skill', 'tabl', 'user', 'want', 'whenever']
+   overlap ['docx', 'xlsx'] jaccard=0.162 shared=['also', 'convert', 'create', 'deliverable', 'document', 'edit', 'file', 'formatt', 'google', 'like', 'read', 'report', 'skill', 'spreadsheet', 'task', 'trigger', 'user', 'want', 'word']
+/home/claude/src/rusty/catalog/skills: 5/5 parsed, catalog ~220 tokens, format errors in 5
+   form-filling: ['Unexpected fields in frontmatter: eval-gate']
+   kb-answer-with-citations: ['Unexpected fields in frontmatter: eval-gate']
+   research-and-summarize: ['Unexpected fields in frontmatter: eval-gate']
+   scheduled-digest: ['Unexpected fields in frontmatter: eval-gate']
+   triage-and-route: ['Unexpected fields in frontmatter: eval-gate']
+   overlap ['form-filling', 'kb-answer-with-citations'] jaccard=0.0 shared=[]
+   overlap ['form-filling', 'research-and-summarize'] jaccard=0.0 shared=[]
+   overlap ['form-filling', 'scheduled-digest'] jaccard=0.0 shared=[]

@@ -1,0 +1,808 @@
+{
+  "main": {
+    "spans": 35,
+    "span_kinds": {
+      "build_context": 10,
+      "chat": 10,
+      "execute_tool": 10,
+      "request_approval": 1,
+      "revise_task": 1,
+      "verify": 2,
+      "invoke_agent": 1
+    },
+    "traces": 1,
+    "root_seconds": 276.97,
+    "five_questions": {
+      "Q1 what the model received": {
+        "span": "chat scripted-report-model",
+        "call": "m10",
+        "trace_sha": "a2dc1e6f156e",
+        "records_sha": "a2dc1e6f156e",
+        "answered": true
+      },
+      "Q2 what was authorized": {
+        "policy_version": "report-policy/3",
+        "decisions": {
+          "c1": "allow",
+          "c2": "allow",
+          "c3": "allow",
+          "c4": "allow",
+          "c5": "allow",
+          "c6": "allow",
+          "c7": "allow",
+          "c8": "allow",
+          "c10": "allow",
+          "c11": "allow",
+          "c9": "require_approval"
+        },
+        "record_states": {
+          "c1": "completed",
+          "c2": "completed",
+          "c3": "completed",
+          "c4": "completed",
+          "c5": "failed_before_effect",
+          "c6": "completed",
+          "c7": "completed",
+          "c8": "completed",
+          "c9": "cancelled",
+          "c10": "completed",
+          "c11": "completed"
+        },
+        "answered": true
+      },
+      "Q3 what changed": {
+        "trace": {
+          "test_report.py": [
+            "319f11ce22b8"
+          ],
+          "report.py": [
+            "339d3a9f2656",
+            "8e8137d1687e"
+          ]
+        },
+        "records": {
+          "report.py": [
+            "339d3a9f2656",
+            "8e8137d1687e"
+          ],
+          "test_report.py": [
+            "319f11ce22b8"
+          ]
+        },
+        "answered": true
+      },
+      "Q4 which evidence": {
+        "verify": "accepted",
+        "evidence_call": "c11",
+        "finding": "evidence current",
+        "records_reason": "latest passing run c11 covers the current versions",
+        "answered": true
+      },
+      "Q5 what is uncertain": {
+        "trace": 0,
+        "records": 0,
+        "answered": true
+      }
+    },
+    "five_questions_answered": 5,
+    "flawed_answered": 0,
+    "flawed": {
+      "spans": 1,
+      "log_lines": 36,
+      "log_lines_naming_a_version": 0,
+      "log_lines_with_canary": 10,
+      "trace_spans_with_canary": 0
+    },
+    "verdicts": [
+      [
+        false,
+        "latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e"
+      ],
+      [
+        true,
+        "latest passing run c11 covers the current versions"
+      ]
+    ],
+    "orphans": [],
+    "critical_path": {
+      "own time of invoke_agent report-fixer": 240.0,
+      "model calls (chat)": 22.058,
+      "execute_tool run_tests": 14.4,
+      "context building": 0.2,
+      "execute_tool read_file": 0.15,
+      "execute_tool replace_text": 0.15,
+      "verify report-fixer": 0.008,
+      "revise_task": 0.004
+    }
+  },
+  "slow": {
+    "scan": {
+      "agent_latency_s": 52.614,
+      "segments": [
+        [
+          "build_context",
+          0.02,
+          "5a8f18cd9342963e"
+        ],
+        [
+          "chat scripted-report-model",
+          1.878,
+          "83042b0c139b6fab"
+        ],
+        [
+          "execute_tool search_code",
+          28.0,
+          "a05b83bd6ff84454"
+        ],
+        [
+          "build_context",
+          0.02,
+          "2bd73aba69a44a40"
+        ],
+        [
+          "chat scripted-report-model",
+          1.865,
+          "bb6f2789bc671b7f"
+        ],
+        [
+          "execute_tool read_file",
+          0.05,
+          "d020d7961ad335e5"
+        ],
+        [
+          "build_context",
+          0.02,
+          "11cb73153ff1bc5a"
+        ],
+        [
+          "chat scripted-report-model",
+          3.173,
+          "051417dda5a768d4"
+        ],
+        [
+          "execute_tool replace_text",
+          0.05,
+          "d9b73bc46e2bbd62"
+        ],
+        [
+          "build_context",
+          0.02,
+          "603f92c1f80f9368"
+        ],
+        [
+          "chat scripted-report-model",
+          1.633,
+          "af298d83e257997c"
+        ],
+        [
+          "execute_tool run_tests",
+          4.8,
+          "bc5656466a51f806"
+        ],
+        [
+          "build_context",
+          0.02,
+          "0f71a1445e5bdffb"
+        ],
+        [
+          "chat scripted-report-model",
+          2.498,
+          "0864a133e029fd3a"
+        ],
+        [
+          "execute_tool replace_text",
+          0.05,
+          "8e61e10fa0e194a4"
+        ],
+        [
+          "build_context",
+          0.02,
+          "9f50aa3fa7b0fb9f"
+        ],
+        [
+          "chat scripted-report-model",
+          1.688,
+          "caa0261a7b663e1f"
+        ],
+        [
+          "execute_tool run_tests",
+          4.8,
+          "ff2c8a26ff0435d8"
+        ],
+        [
+          "build_context",
+          0.02,
+          "d1c67f27bcbd1a59"
+        ],
+        [
+          "chat scripted-report-model",
+          1.989,
+          "7a1d755cc1bc8411"
+        ]
+      ],
+      "by_kind": {
+        "execute_tool search_code": 28.0,
+        "model calls (chat)": 14.724,
+        "execute_tool run_tests": 9.6,
+        "context building": 0.14,
+        "execute_tool replace_text": 0.1,
+        "execute_tool read_file": 0.05
+      },
+      "span_seconds_sum": 52.714,
+      "tree": [
+        "   0.00s   52.61s  invoke_agent report-fixer",
+        "   0.00s    0.02s    build_context",
+        "   0.02s    1.88s    chat scripted-report-model",
+        "   1.90s    0.05s    execute_tool read_file",
+        "   1.90s   28.00s    execute_tool search_code  itl.search.files_scanned=14",
+        "  29.90s    0.02s    build_context",
+        "  29.92s    1.86s    chat scripted-report-model",
+        "  31.78s    0.05s    execute_tool read_file",
+        "  31.78s    0.05s    execute_tool read_file",
+        "  31.83s    0.02s    build_context",
+        "  31.85s    3.17s    chat scripted-report-model",
+        "  35.03s    0.05s    execute_tool replace_text",
+        "  35.08s    0.02s    build_context",
+        "  35.10s    1.63s    chat scripted-report-model",
+        "  36.73s    4.80s    execute_tool run_tests",
+        "  41.53s    0.02s    build_context",
+        "  41.55s    2.50s    chat scripted-report-model",
+        "  44.05s    0.05s    execute_tool replace_text",
+        "  44.10s    0.02s    build_context",
+        "  44.12s    1.69s    chat scripted-report-model",
+        "  45.80s    4.80s    execute_tool run_tests",
+        "  50.60s    0.02s    build_context",
+        "  50.62s    1.99s    chat scripted-report-model"
+      ]
+    },
+    "indexed": {
+      "agent_latency_s": 24.692,
+      "segments": [
+        [
+          "build_context",
+          0.02,
+          "932bc41f56c1a28b"
+        ],
+        [
+          "chat scripted-report-model",
+          1.878,
+          "2fc70d83bdffd78d"
+        ],
+        [
+          "retrieval workspace-index",
+          0.15,
+          "1e5058960744a6dd"
+        ],
+        [
+          "build_context",
+          0.02,
+          "f30328c6c91e36a0"
+        ],
+        [
+          "chat scripted-report-model",
+          1.853,
+          "36e9a671a8cbd24c"
+        ],
+        [
+          "execute_tool read_file",
+          0.05,
+          "28f013b26b0af3a8"
+        ],
+        [
+          "build_context",
+          0.02,
+          "945fa0ce988f3429"
+        ],
+        [
+          "chat scripted-report-model",
+          3.161,
+          "7a412612ab769427"
+        ],
+        [
+          "execute_tool replace_text",
+          0.05,
+          "48dd69fc3d94ac7d"
+        ],
+        [
+          "build_context",
+          0.02,
+          "ee36cef452a69e29"
+        ],
+        [
+          "chat scripted-report-model",
+          1.621,
+          "7c919fff38949a61"
+        ],
+        [
+          "execute_tool run_tests",
+          4.8,
+          "784786bf104ac243"
+        ],
+        [
+          "build_context",
+          0.02,
+          "7b7e84f58e3cee69"
+        ],
+        [
+          "chat scripted-report-model",
+          2.486,
+          "fb9459bda215d1e9"
+        ],
+        [
+          "execute_tool replace_text",
+          0.05,
+          "039c5cce507b9a98"
+        ],
+        [
+          "build_context",
+          0.02,
+          "19400cfcab80eca1"
+        ],
+        [
+          "chat scripted-report-model",
+          1.676,
+          "ab2c451f10422df2"
+        ],
+        [
+          "execute_tool run_tests",
+          4.8,
+          "92bba06c4ac94d08"
+        ],
+        [
+          "build_context",
+          0.02,
+          "dff615b47b6e7dd2"
+        ],
+        [
+          "chat scripted-report-model",
+          1.977,
+          "9789cfbc0d56c001"
+        ]
+      ],
+      "by_kind": {
+        "model calls (chat)": 14.652,
+        "execute_tool run_tests": 9.6,
+        "retrieval workspace-index": 0.15,
+        "context building": 0.14,
+        "execute_tool replace_text": 0.1,
+        "execute_tool read_file": 0.05
+      },
+      "span_seconds_sum": 24.792,
+      "tree": [
+        "   0.00s   24.69s  invoke_agent report-fixer",
+        "   0.00s    0.02s    build_context",
+        "   0.02s    1.88s    chat scripted-report-model",
+        "   1.90s    0.05s    execute_tool read_file",
+        "   1.90s    0.15s    execute_tool search_code  itl.search.files_scanned=0",
+        "   1.90s    0.15s      retrieval workspace-index",
+        "   2.05s    0.02s    build_context",
+        "   2.07s    1.85s    chat scripted-report-model",
+        "   3.92s    0.05s    execute_tool read_file",
+        "   3.92s    0.05s    execute_tool read_file",
+        "   3.97s    0.02s    build_context",
+        "   3.99s    3.16s    chat scripted-report-model",
+        "   7.15s    0.05s    execute_tool replace_text",
+        "   7.20s    0.02s    build_context",
+        "   7.22s    1.62s    chat scripted-report-model",
+        "   8.84s    4.80s    execute_tool run_tests",
+        "  13.64s    0.02s    build_context",
+        "  13.66s    2.49s    chat scripted-report-model",
+        "  16.15s    0.05s    execute_tool replace_text",
+        "  16.20s    0.02s    build_context",
+        "  16.22s    1.68s    chat scripted-report-model",
+        "  17.89s    4.80s    execute_tool run_tests",
+        "  22.70s    0.02s    build_context",
+        "  22.71s    1.98s    chat scripted-report-model"
+      ]
+    }
+  },
+  "stale": {
+    "log_levels": {
+      "INFO": 32
+    },
+    "error_spans": 1,
+    "error_span_names": [
+      "execute_tool run_tests"
+    ],
+    "root_outcome": "completed_unverified",
+    "trace_rule": {
+      "finding": "stale evidence",
+      "evidence_call": "c8",
+      "stale": {
+        "report.py": {
+          "covered": "339d3a9f2656",
+          "current": "8e8137d1687e",
+          "changed_by": "c10"
+        }
+      }
+    },
+    "records_check": {
+      "ok": false,
+      "reason": "latest passing run c8 covers report.py 339d3a9f2656; current is report.py 8e8137d1687e"
+    },
+    "logs_mentioning_passed": [
+      "   22.715 INFO agent: tool run_tests passed",
+      "  267.945 INFO agent: model replied: The public signature is unchanged. All tests passed."
+    ],
+    "final_answer": "{\"content\":\"The filter used the UTC calendar date; it now converts to the report timezone first. The signature is unchanged, both tests pass on the current revision, and nothing was exported or deploy"
+  },
+  "capture": {
+    "off": {
+      "chat_spans": 10,
+      "content_bytes": 0,
+      "source_text_in_telemetry": false,
+      "json_parsable": 0,
+      "exact_input_recovered": 0,
+      "structure_recovered": 0,
+      "sizes": [
+        314,
+        1574,
+        2171,
+        2405,
+        2789,
+        3234,
+        3533,
+        3972,
+        4509,
+        4810
+      ]
+    },
+    "structure": {
+      "chat_spans": 10,
+      "content_bytes": 26955,
+      "source_text_in_telemetry": false,
+      "json_parsable": 10,
+      "exact_input_recovered": 0,
+      "structure_recovered": 10,
+      "sizes": [
+        314,
+        1574,
+        2171,
+        2405,
+        2789,
+        3234,
+        3533,
+        3972,
+        4509,
+        4810
+      ]
+    },
+    "full_truncated": {
+      "chat_spans": 10,
+      "content_bytes": 28184,
+      "source_text_in_telemetry": true,
+      "json_parsable": 8,
+      "exact_input_recovered": 8,
+      "structure_recovered": 8,
+      "sizes": [
+        314,
+        1574,
+        2171,
+        2405,
+        2789,
+        3234,
+        3533,
+        3972,
+        4509,
+        4810
+      ]
+    },
+    "full": {
+      "chat_spans": 10,
+      "content_bytes": 29311,
+      "source_text_in_telemetry": true,
+      "json_parsable": 10,
+      "exact_input_recovered": 10,
+      "structure_recovered": 10,
+      "sizes": [
+        314,
+        1574,
+        2171,
+        2405,
+        2789,
+        3234,
+        3533,
+        3972,
+        4509,
+        4810
+      ]
+    },
+    "records": {
+      "model_calls": 10,
+      "exact_input_recovered": 10
+    }
+  },
+  "crash": {
+    "process_A_exported_spans": [],
+    "process_A_lost": {
+      "open_spans_lost": [
+        "execute_tool create_export",
+        "invoke_agent report-exporter"
+      ],
+      "buffered_spans_lost": [
+        "execute_tool read_revision"
+      ]
+    },
+    "record_events": [
+      [
+        "op-0001",
+        "prepared"
+      ],
+      [
+        "op-0001",
+        "dispatched"
+      ],
+      [
+        "op-0001",
+        "completed"
+      ],
+      [
+        "op-0002",
+        "prepared"
+      ],
+      [
+        "op-0002",
+        "trace_context"
+      ],
+      [
+        "op-0002",
+        "dispatched"
+      ]
+    ],
+    "op_0002_state_at_restart": "dispatched",
+    "decisions": [
+      [
+        "op-0001",
+        "continue from receipt"
+      ],
+      [
+        "op-0002",
+        "reuse key"
+      ]
+    ],
+    "op_0002_state_after": "completed",
+    "exports_at_service": [
+      "export-file-001"
+    ],
+    "process_B_spans": [
+      "reconcile create_export",
+      "reconcile run-13"
+    ],
+    "link_from_B": {
+      "traceId": "de61e73b6372c33b5802917451357d0d",
+      "spanId": "eada2f8eb2b4baa0",
+      "target_exported": false
+    }
+  },
+  "delegation": {
+    "tree": [
+      "   0.00s   21.12s  invoke_agent review-coordinator",
+      "   0.00s   11.83s    invoke_agent tz-boundary-reviewer  itl.contract.input_revision=r4 itl.result.verdict=fail",
+      "   0.00s    1.89s      chat scripted-report-model",
+      "   1.89s    0.05s      execute_tool read_file",
+      "   1.94s    0.05s      execute_tool read_file",
+      "   1.99s    2.14s      chat scripted-report-model",
+      "   4.13s    0.90s      execute_tool run_cases",
+      "   5.04s    6.79s      chat scripted-report-model",
+      "  11.83s    8.40s    invoke_agent tz-boundary-reviewer  itl.contract.input_revision=r5 itl.result.verdict=pass",
+      "  11.83s    1.89s      chat scripted-report-model",
+      "  13.72s    0.05s      execute_tool read_file",
+      "  13.77s    0.05s      execute_tool read_file",
+      "  13.82s    2.15s      chat scripted-report-model",
+      "  15.97s    0.90s      execute_tool run_cases",
+      "  16.87s    3.36s      chat scripted-report-model",
+      "  20.22s    0.90s    integrate review-coordinator  itl.integrate.verdict=verified"
+    ],
+    "stale_workers_by_attribute": [
+      "review-tz-r4"
+    ],
+    "integration": "verified",
+    "naive_integration": "rejected",
+    "worker_seconds": [
+      11.828,
+      8.396
+    ]
+  },
+  "fleet": {
+    "n": 20000,
+    "counts": {
+      "verified": 17339,
+      "recovered_error": 1590,
+      "tool_failure": 399,
+      "waiting_for_person": 420,
+      "budget_exhausted": 197,
+      "stale_evidence": 55
+    },
+    "kept": {
+      "head_10pct": {
+        "verified": 1735,
+        "recovered_error": 153,
+        "waiting_for_person": 40,
+        "stale_evidence": 6,
+        "tool_failure": 34,
+        "budget_exhausted": 16
+      },
+      "tail_errors": {
+        "recovered_error": 1590,
+        "tool_failure": 399,
+        "verified": 1735,
+        "waiting_for_person": 40,
+        "stale_evidence": 6,
+        "budget_exhausted": 16
+      },
+      "tail_outcome": {
+        "tool_failure": 399,
+        "verified": 1735,
+        "recovered_error": 153,
+        "budget_exhausted": 197,
+        "stale_evidence": 55,
+        "waiting_for_person": 40
+      }
+    },
+    "spans_kept": {
+      "head_10pct": 27841,
+      "tail_errors": 53868,
+      "tail_outcome": 34807
+    },
+    "total_spans": 278793,
+    "stale_with_error_span": 0,
+    "budget_with_error_span": 0,
+    "seeds": {
+      "2": {
+        "head_10pct": [
+          4,
+          52
+        ],
+        "tail_errors": [
+          4,
+          52
+        ],
+        "tail_outcome": [
+          52,
+          52
+        ],
+        "spans": {
+          "head_10pct": 28917,
+          "tail_errors": 53691,
+          "tail_outcome": 35792
+        },
+        "total_spans": 278512
+      },
+      "3": {
+        "head_10pct": [
+          4,
+          50
+        ],
+        "tail_errors": [
+          4,
+          50
+        ],
+        "tail_outcome": [
+          50,
+          50
+        ],
+        "spans": {
+          "head_10pct": 27702,
+          "tail_errors": 53210,
+          "tail_outcome": 34665
+        },
+        "total_spans": 278427
+      },
+      "4": {
+        "head_10pct": [
+          8,
+          63
+        ],
+        "tail_errors": [
+          8,
+          63
+        ],
+        "tail_outcome": [
+          63,
+          63
+        ],
+        "spans": {
+          "head_10pct": 28081,
+          "tail_errors": 54541,
+          "tail_outcome": 35216
+        },
+        "total_spans": 279224
+      },
+      "5": {
+        "head_10pct": [
+          5,
+          69
+        ],
+        "tail_errors": [
+          5,
+          69
+        ],
+        "tail_outcome": [
+          69,
+          69
+        ],
+        "spans": {
+          "head_10pct": 28276,
+          "tail_errors": 53724,
+          "tail_outcome": 35185
+        },
+        "total_spans": 278003
+      },
+      "6": {
+        "head_10pct": [
+          6,
+          56
+        ],
+        "tail_errors": [
+          6,
+          56
+        ],
+        "tail_outcome": [
+          56,
+          56
+        ],
+        "spans": {
+          "head_10pct": 29229,
+          "tail_errors": 55658,
+          "tail_outcome": 36507
+        },
+        "total_spans": 279080
+      }
+    },
+    "dashboard_flawed": {
+      "agent_latency_p50_s": 45.5,
+      "agent_latency_p95_s": 79.3,
+      "success_rate_by_span_status": 0.98,
+      "cost_per_completed_run": 0.08514
+    },
+    "dashboard_outcome": {
+      "verified_rate": 0.9465,
+      "outcomes": {
+        "verified": 18929,
+        "failed": 399,
+        "waiting_for_person": 420,
+        "budget_exhausted": 197,
+        "completed_unverified": 55
+      },
+      "cost_per_verified_success": 0.08538,
+      "by_version": {
+        "1.4.0": {
+          "runs": 18020,
+          "verified": 17091,
+          "completed_unverified": 0
+        },
+        "1.3.2": {
+          "runs": 1980,
+          "verified": 1838,
+          "completed_unverified": 55
+        }
+      },
+      "latency_p50_verified_s": 45.5,
+      "latency_p95_verified_s": 71.6,
+      "latency_p95_waiting_s": 3503.4
+    },
+    "bills": {
+      "bill_lines": 130164,
+      "billed_cost": 1616.22,
+      "joined_by_request_id_in_records": 130164,
+      "joinable_by_response_id_unsampled": 128574,
+      "joined_by_response_id_head_sampled": 12849,
+      "lines_without_response_id": 1590,
+      "cost_of_those_lines": 14.63,
+      "cost_on_stale_runs": 4.37
+    },
+    "rates": {
+      "stale_given_old": 0.03,
+      "old_version_share": 0.1,
+      "tool_failure": 0.02,
+      "budget_exhausted": 0.01,
+      "recovered_error": 0.08,
+      "waiting_for_person": 0.02
+    },
+    "ratio": 0.1,
+    "prices_per_token": [
+      3e-06,
+      1.5e-05
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+[
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/csv-cleanup/1.0.0/csv-cleanup",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/release-notes/1.0.0/release-notes",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/report-helper/0.1.0/report-helper",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/report-helper/1.0.0/report-helper",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/report-helper/1.1.0/report-helper",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/status-report-writer/1.0.0/status-report-writer",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/book/companion/fixtures/ch10_skills/versions/status-report-writer/1.1.0/status-report-writer",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/academy-guide",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/algorithmic-art",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/brand-guidelines",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/canvas-design",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/claude-api",
+    "skills_ref": [
+      "Description exceeds 1024 character limit (1068 chars)"
+    ],
+    "reimplementation": [
+      "Description exceeds 1024 character limit"
+    ]
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/discernment-nudge",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/doc-coauthoring",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/docx",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/frontend-design",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/internal-comms",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/mcp-builder",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/pdf",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/pptx",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/skill-creator",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/slack-gif-creator",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/theme-factory",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/web-artifacts-builder",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/webapp-testing",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/skills/skills/xlsx",
+    "skills_ref": [],
+    "reimplementation": []
+  },
+  {
+    "dir": "/home/claude/src/rusty/catalog/skills/form-filling",
+    "skills_ref": [
+      "Unexpected fields in frontmatter: eval-gate. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+    ],
+    "reimplementation": [
+      "Unexpected fields in frontmatter: eval-gate"
+    ]
+  },
+  {
+    "dir": "/home/claude/src/rusty/catalog/skills/kb-answer-with-citations",
+    "skills_ref": [
+      "Unexpected fields in frontmatter: eval-gate. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+    ],
+    "reimplementation": [
+      "Unexpected fields in frontmatter: eval-gate"
+    ]
+  },
+  {
+    "dir": "/home/claude/src/rusty/catalog/skills/research-and-summarize",
+    "skills_ref": [
+      "Unexpected fields in frontmatter: eval-gate. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+    ],
+    "reimplementation": [
+      "Unexpected fields in frontmatter: eval-gate"
+    ]
+  },
+  {
+    "dir": "/home/claude/src/rusty/catalog/skills/scheduled-digest",
+    "skills_ref": [
+      "Unexpected fields in frontmatter: eval-gate. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+    ],
+    "reimplementation": [
+      "Unexpected fields in frontmatter: eval-gate"
+    ]
+  },
+  {
+    "dir": "/home/claude/src/rusty/catalog/skills/triage-and-route",
+    "skills_ref": [
+      "Unexpected fields in frontmatter: eval-gate. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+    ],
+    "reimplementation": [
+      "Unexpected fields in frontmatter: eval-gate"
+    ]
+  }
+]

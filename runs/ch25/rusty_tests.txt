@@ -1,0 +1,70 @@
+Rusty revision 386d832162ebf672d7e2e34a5462336d93d9929b, built and run on the drafting machine 2026-09-25 (Linux, 2 cores)
+CARGO_TARGET_DIR=<scratch> cargo test -p rusty-agent-runtime --test twin --test learning_policy
+     Running tests/learning_policy.rs (<scratch>/rusty-target/debug/deps/learning_policy-5366cc006c5576de)
+test a_partial_declaration_floors_what_it_does_not_name ... ok
+test a_budget_above_the_platform_ceiling_is_a_configuration_error ... ok
+test from_config_reads_the_declaration_or_names_the_floor ... ok
+test the_declaration_round_trips_byte_for_byte ... ok
+test the_floor_is_the_pre_policy_behavior ... ok
+test the_frontier_bridge_gives_the_probe_dial_its_policy_home ... ok
+test unknown_fields_and_bad_shapes_are_refused ... ok
+test the_hunt_budget_enforces_exactly_and_never_exceeds ... ok
+test validation_names_every_violation_in_one_report ... ok
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/twin.rs (<scratch>/rusty-target/debug/deps/twin-6241c4affd7fb692)
+test a_policy_violating_the_contract_is_rejected_not_journaled ... ok
+test a_recorded_production_run_becomes_a_twin_case_unmodified ... ok
+test counterfactual_branch_produces_a_valid_branch_diff ... ok
+test a_window_faults_every_attempt_in_range_and_reports_unfired_anchors ... ok
+test counterfactual_refuses_a_decision_the_run_never_reaches ... ok
+test counterfactual_refuses_actions_outside_the_legal_set ... ok
+test empty_pools_and_sub_minimum_ladders_are_rejected ... ok
+test every_report_states_the_validity_bound ... ok
+test faults_on_non_idempotent_work_hit_the_effect_gate_and_are_flagged ... ok
+test golden_decision_roles ... ok
+test golden_fault_schedule_shape ... ok
+test golden_twin_baseline_run ... ok
+test hybrid_counterfactual_switches_the_acting_policy_after_the_fork ... ok
+test no_fault_twin_reproduces_the_recorded_answers ... ok
+test rate_limit_fires_on_the_declared_attempt_and_floors_the_delay ... ok
+test shadow_decisions_journal_with_roles_propensities_and_divergences ... ok
+test seeded_interleavings_preserve_evidence_order_and_vary_latency ... ok
+test worker_crash_at_a_decision_point_takes_the_lease_expiry_path ... ok
+test twin_run_is_byte_identical_across_repeated_runs ... ok
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+CARGO_TARGET_DIR=<scratch> cargo test -p rusty-agent-runtime --test learn
+     Running tests/learn.rs (<scratch>/rusty-target/debug/deps/learn-2deb2104cc32800e)
+test content_address_converges_and_tampering_fails ... ok
+test candidate_serde_roundtrip_is_shape_stable ... ok
+test distilled_parameters_round_trip_through_the_candidate_gate ... ok
+test drift_monitor_abstains_on_sparse_evidence ... ok
+test drift_monitor_declares_a_completion_drop ... ok
+test drift_monitor_declares_dead_letter_growth ... ok
+test drift_monitor_declares_latency_growth ... ok
+test drift_monitor_ignores_shadow_and_other_version_decisions ... ok
+test drift_monitor_stays_quiet_on_a_healthy_version ... ok
+test golden_candidate_evaluation_shape ... ok
+test golden_candidate_memory_set_shape ... ok
+test golden_candidate_prompt_shape ... ok
+test golden_learn_event_kinds_shape ... ok
+test golden_promotion_envelope_shape ... ok
+test golden_promotion_receipt_shape ... ok
+test golden_rollback_receipt_shape ... ok
+test golden_version_pointer_shape ... ok
+test lifecycle_transitions_journal_with_causal_parentage ... ok
+test prompt_candidate_applies_to_the_manifest_pin ... ok
+test drift_baseline_round_trips_from_a_twin_evaluation_report ... ok
+test retry_learner_abstains_on_sparse_evidence ... ok
+test retry_learner_abstains_when_the_floor_is_already_optimal ... ok
+test retry_learner_emits_a_per_class_entry_when_the_margin_clears ... ok
+test retry_learner_marks_permanent_failure_classes_for_early_abort ... ok
+test r08_default_leaves_the_policy_bar_to_a_human_approval ... ok
+test rollback_restores_the_prior_candidate_byte_exactly ... ok
+test timeout_learner_abstains_on_heavy_tails ... ok
+test scripted_evaluation_composes_through_the_real_executor ... ok
+test tool_permission_content_is_typed_and_surfaced ... ok
+test timeout_learner_fits_the_smallest_rung_within_the_abort_tolerance ... ok
+test twin_gate_admits_a_candidate_that_wins_on_the_target_metric ... ok
+test twin_gate_refuses_a_candidate_that_regresses_completion ... ok
+test result: ok. 32 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s

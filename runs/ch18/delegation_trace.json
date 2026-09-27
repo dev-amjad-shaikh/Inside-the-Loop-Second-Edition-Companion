@@ -1,0 +1,404 @@
+[
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "8545129ca5d9ff33",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330400000000000,
+    "endTimeUnixNano": 1790330401891000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 365,
+      "gen_ai.usage.output_tokens": 50
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "8c43f71c9943a08d",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330401891000000,
+    "endTimeUnixNano": 1790330401941000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "6a08f7762eaf08ca",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330401941000000,
+    "endTimeUnixNano": 1790330401991000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "e3e28d80451ffdc1",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330401991000000,
+    "endTimeUnixNano": 1790330404135000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 575,
+      "gen_ai.usage.output_tokens": 60
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "d2e03676363cbc46",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "execute_tool run_cases",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330404135000000,
+    "endTimeUnixNano": 1790330405035000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "run_cases"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "3579f01344c6a33a",
+    "parentSpanId": "270fd7899799e3d8",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330405035000000,
+    "endTimeUnixNano": 1790330411828000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 931,
+      "gen_ai.usage.output_tokens": 288
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "270fd7899799e3d8",
+    "parentSpanId": "cf988d601ddd62f2",
+    "name": "invoke_agent tz-boundary-reviewer",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330400000000000,
+    "endTimeUnixNano": 1790330411828000000,
+    "attributes": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.agent.name": "tz-boundary-reviewer",
+      "gen_ai.agent.version": "1.2.0",
+      "itl.contract.id": "review-tz-r4",
+      "itl.contract.version": "review-contract/1.1",
+      "itl.contract.input_revision": "r4",
+      "itl.result.verdict": "fail",
+      "itl.result.status": "accepted"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "3f0b01c2b3ba7b2a",
+    "parentSpanId": "797e542259546308",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330411828000000,
+    "endTimeUnixNano": 1790330413720000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 368,
+      "gen_ai.usage.output_tokens": 50
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "09f0a6366f7a7194",
+    "parentSpanId": "797e542259546308",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330413720000000,
+    "endTimeUnixNano": 1790330413770000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "d189e4dd75615bc9",
+    "parentSpanId": "797e542259546308",
+    "name": "execute_tool read_file",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330413770000000,
+    "endTimeUnixNano": 1790330413820000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "read_file"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "b3f4b1c3b8408a93",
+    "parentSpanId": "797e542259546308",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330413820000000,
+    "endTimeUnixNano": 1790330415968000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 593,
+      "gen_ai.usage.output_tokens": 60
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "24d2e45fbc0a1f11",
+    "parentSpanId": "797e542259546308",
+    "name": "execute_tool run_cases",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330415968000000,
+    "endTimeUnixNano": 1790330416868000000,
+    "attributes": {
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "run_cases"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "1c4b26a9c821cb41",
+    "parentSpanId": "797e542259546308",
+    "name": "chat scripted-report-model",
+    "kind": "CLIENT",
+    "startTimeUnixNano": 1790330416868000000,
+    "endTimeUnixNano": 1790330420224000000,
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.usage.input_tokens": 946,
+      "gen_ai.usage.output_tokens": 116
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "797e542259546308",
+    "parentSpanId": "cf988d601ddd62f2",
+    "name": "invoke_agent tz-boundary-reviewer",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330411828000000,
+    "endTimeUnixNano": 1790330420224000000,
+    "attributes": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.agent.name": "tz-boundary-reviewer",
+      "gen_ai.agent.version": "1.2.0",
+      "itl.contract.id": "review-tz-r5-redispatch",
+      "itl.contract.version": "review-contract/1.1",
+      "itl.contract.input_revision": "r5",
+      "itl.result.verdict": "pass",
+      "itl.result.status": "accepted"
+    },
+    "events": [],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "f5b79ca5e351cf03",
+    "parentSpanId": "cf988d601ddd62f2",
+    "name": "integrate review-coordinator",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330420224000000,
+    "endTimeUnixNano": 1790330421124000000,
+    "attributes": {
+      "itl.component": "Control",
+      "itl.revision.current": "r5",
+      "itl.integrate.admitted": [
+        "tz-boundary-reviewer"
+      ],
+      "itl.integrate.stale": [
+        "r4"
+      ],
+      "itl.integrate.verdict": "verified"
+    },
+    "events": [],
+    "links": [
+      {
+        "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+        "spanId": "270fd7899799e3d8",
+        "attributes": {
+          "itl.contract.input_revision": "r4"
+        }
+      },
+      {
+        "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+        "spanId": "797e542259546308",
+        "attributes": {
+          "itl.contract.input_revision": "r5"
+        }
+      }
+    ],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  },
+  {
+    "traceId": "ae7ad8f1e042075b856eddc0aa1a3292",
+    "spanId": "cf988d601ddd62f2",
+    "parentSpanId": null,
+    "name": "invoke_agent review-coordinator",
+    "kind": "INTERNAL",
+    "startTimeUnixNano": 1790330400000000000,
+    "endTimeUnixNano": 1790330421124000000,
+    "attributes": {
+      "gen_ai.operation.name": "invoke_agent",
+      "gen_ai.agent.name": "review-coordinator",
+      "itl.revision.current": "r5"
+    },
+    "events": [
+      {
+        "timeUnixNano": 1790330403000000000,
+        "name": "artifact.revised",
+        "attributes": {
+          "itl.revision.from": "r4",
+          "itl.revision.to": "r5"
+        }
+      }
+    ],
+    "links": [],
+    "status": {
+      "code": "UNSET"
+    },
+    "resource": {
+      "service.name": "itl-runtime",
+      "service.version": "1.4.0"
+    }
+  }
+]

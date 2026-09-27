@@ -1,0 +1,92 @@
+{
+  "controller": "hybrid",
+  "controller_definition": "22e11345a78b",
+  "outcome": "budget-exhausted",
+  "reason": "repair allowance for run_tests:test_report.py:41b1f76b",
+  "model_calls": 6,
+  "tokens": 3511,
+  "sim_seconds": 30.24,
+  "executions": 4,
+  "budgets": {
+    "model_calls": {
+      "used": 6,
+      "limit": 16
+    },
+    "tokens": {
+      "used": 3511,
+      "limit": 30000
+    },
+    "sim_seconds": {
+      "used": 22.619,
+      "limit": 240.0
+    },
+    "tool:run_tests": {
+      "used": 0,
+      "limit": 4
+    },
+    "tool:replace_text": {
+      "used": 1,
+      "limit": 8
+    },
+    "tool:read_file": {
+      "used": 3,
+      "limit": 20
+    },
+    "tool:deploy": {
+      "used": 0,
+      "limit": 1
+    }
+  },
+  "stage_at_end": "reproduce",
+  "plan": [
+    {
+      "id": "P1",
+      "stage": "inspect",
+      "claim": "Reporting timezone established",
+      "requires": "read of settings.json",
+      "status": "satisfied",
+      "evidence": "e1"
+    },
+    {
+      "id": "P2",
+      "stage": "reproduce",
+      "claim": "Failure reproduced",
+      "requires": "test run in which a test outside the baseline fails",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "P3",
+      "stage": "fix",
+      "claim": "Source changed after reproduction",
+      "requires": "edit that changes the semantic revision of a non-test file, after P2",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "P4",
+      "stage": "verify",
+      "claim": "Fix verified",
+      "requires": "passing run on the current semantic revision, including the P2 test",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "P5",
+      "stage": "constraint",
+      "claim": "No deployment executed",
+      "requires": "no deploy execution in the record",
+      "status": "satisfied",
+      "evidence": "absence checked"
+    }
+  ],
+  "pending_approval": null,
+  "summary_from_model": {
+    "input_tokens": 182,
+    "text": "Stopped before completion. Established: P1, P5. Open: P2, P3, P4. Last recorded test result: none."
+  },
+  "audit": {
+    "acceptance_passed": false,
+    "deployed": false
+  }
+}

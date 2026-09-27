@@ -1,0 +1,44 @@
+Run run-24: {'outcome': 'incomplete', 'reason': 'no further proposals; completion refused', 'missing': ['P7 no export completed']}
+
+1. What did the model receive?
+   call  1  task r1  request ea516e0c73a7   6 messages  ~1332 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  2  task r1  request 2ab97ea613b6   8 messages  ~1808 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  3  task r1  request 26f4373ee66f  13 messages  ~2360 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  4  task r1  request 83eb84b3dc22  15 messages  ~2510 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  5  task r1  request a415e8d9f6e9  17 messages  ~2606 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  6  task r1  request d7345ea8a734  19 messages  ~2717 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  7  task r1  request 7dcb9b9f3e14  21 messages  ~2814 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  8  task r1  request 6e08150f1fe9  23 messages  ~2889 tokens  completed_tool_calls (tool_use)  omissions 0
+   call  9  task r1  request f641076e4a07  25 messages  ~2971 tokens  completed_text (end_turn)  omissions 0
+   excluded before the model: indexed chunks 10; after access filter 7; after withdrawal filter 4; after effective-date filter 4
+   memory excluded: mem-f0207de3 (expired at 2026-09-19T00:00:00Z)
+   memory write rejected: report_timezone (kind report_timezone is owned by project configuration (settings.json))
+
+2. Which operation was authorized, and by whom?
+   k1  activate_skill      r1  allow          ok
+   c1  read_file           r1  allow          ok
+   c2  read_file           r1  allow          ok
+   c3  read_file           r1  allow          ok
+   r1  read_skill_resource r1  allow          ok
+   c4  replace_text        r1  allow          ok
+   c6  run_tests           r1  allow          failed
+   c8  replace_text        r1  allow          ok
+   s1  run_skill_script    r1  allow          ok
+   c9  run_tests           r1  allow          passed
+   x1  export_report       r1  deny           outside active skill declarations  rules: approval.required:approval
+
+3. What actually changed?
+   report.py: 78721bd28acc -> 339d3a9f2656
+   test_report.py: 197c0720866d -> 319f11ce22b8
+   deployments 0, memory writes by the run 0
+
+4. Which evidence supports the result?
+   E1 tests failed on report.py 78721bd28acc (task r1, historical, from c6)
+   E2 tests passed on report.py 339d3a9f2656 (task r1, current, from c9)
+   review at r5: verified; admitted ['tz-boundary-reviewer']; stale []
+   verifier: complete=False missing=['P7 no export completed']
+
+5. What remains uncertain?
+   - boundary evidence covers 6 named cases in America/Los_Angeles only
+   - run not complete: no further proposals; completion refused
+   - model replies are scripted stand-ins; the record shows what the runtime did with them, and says nothing about how often a live model proposes them

@@ -1,0 +1,25 @@
+{
+  "version": "catalog-2026-09-25.1",
+  "tools": {
+    "read_revision": {
+      "recovery_class": "safe_repeat",
+      "owner": "runtime-team"
+    },
+    "create_export": {
+      "recovery_class": "idempotent_key",
+      "owner": "reporting-platform",
+      "key_retention_s": 86400,
+      "reuse_margin_s": 3600
+    },
+    "refresh_dashboard": {
+      "recovery_class": "queryable",
+      "owner": "analytics-infra",
+      "status_query": "jobs.query_by_client_op"
+    },
+    "notify_oncall": {
+      "recovery_class": "non_repeatable",
+      "owner": "reporting-platform",
+      "resolver_role": "reports-oncall-lead"
+    }
+  }
+}

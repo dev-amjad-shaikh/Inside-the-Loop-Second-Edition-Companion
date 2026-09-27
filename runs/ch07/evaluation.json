@@ -1,0 +1,182 @@
+{
+  "fixed": {
+    "rows": [
+      {
+        "id": "q1-opened-defective",
+        "recall@3": false,
+        "verdict": "no",
+        "expected": "yes",
+        "outcome": "wrong"
+      },
+      {
+        "id": "q2-opened-changed-mind",
+        "recall@3": true,
+        "verdict": "no",
+        "expected": "no",
+        "outcome": "supported"
+      },
+      {
+        "id": "q3-old-order-opened",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q4-unopened-window",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q5-missing-parts",
+        "recall@3": false,
+        "verdict": "no",
+        "expected": "yes",
+        "outcome": "wrong"
+      },
+      {
+        "id": "q6-misspelled",
+        "recall@3": false,
+        "verdict": "no",
+        "expected": "yes",
+        "outcome": "wrong"
+      },
+      {
+        "id": "q7-reason-code",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "retrieval-only",
+        "outcome": "n/a"
+      },
+      {
+        "id": "q8-goodwill-customer",
+        "recall@3": null,
+        "verdict": "insufficient",
+        "expected": "insufficient",
+        "outcome": "supported"
+      }
+    ],
+    "recall@3": "4/7",
+    "answers": 7,
+    "supported": 4,
+    "declined": 0,
+    "wrong": 3
+  },
+  "structured": {
+    "rows": [
+      {
+        "id": "q1-opened-defective",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q2-opened-changed-mind",
+        "recall@3": true,
+        "verdict": "no",
+        "expected": "no",
+        "outcome": "supported"
+      },
+      {
+        "id": "q3-old-order-opened",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q4-unopened-window",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q5-missing-parts",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q6-misspelled",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "yes",
+        "outcome": "supported"
+      },
+      {
+        "id": "q7-reason-code",
+        "recall@3": true,
+        "verdict": "yes",
+        "expected": "retrieval-only",
+        "outcome": "n/a"
+      },
+      {
+        "id": "q8-goodwill-customer",
+        "recall@3": null,
+        "verdict": "insufficient",
+        "expected": "insufficient",
+        "outcome": "supported"
+      }
+    ],
+    "recall@3": "7/7",
+    "answers": 7,
+    "supported": 7,
+    "declined": 0,
+    "wrong": 0
+  },
+  "recall@3_by_method": {
+    "keyword": "6/7",
+    "vector": "6/7",
+    "hybrid (RRF)": "7/7",
+    "hybrid + rerank": "7/7"
+  },
+  "needed_rank_by_method": {
+    "q1-opened-defective": {
+      "keyword": 1,
+      "vector": 2,
+      "hybrid (RRF)": 1,
+      "hybrid + rerank": 1
+    },
+    "q2-opened-changed-mind": {
+      "keyword": 1,
+      "vector": 4,
+      "hybrid (RRF)": 3,
+      "hybrid + rerank": 1
+    },
+    "q3-old-order-opened": {
+      "keyword": 1,
+      "vector": 2,
+      "hybrid (RRF)": 2,
+      "hybrid + rerank": 1
+    },
+    "q4-unopened-window": {
+      "keyword": 1,
+      "vector": 1,
+      "hybrid (RRF)": 1,
+      "hybrid + rerank": 1
+    },
+    "q5-missing-parts": {
+      "keyword": 1,
+      "vector": 1,
+      "hybrid (RRF)": 1,
+      "hybrid + rerank": 1
+    },
+    "q6-misspelled": {
+      "keyword": null,
+      "vector": 1,
+      "hybrid (RRF)": 1,
+      "hybrid + rerank": 1
+    },
+    "q7-reason-code": {
+      "keyword": 1,
+      "vector": 1,
+      "hybrid (RRF)": 1,
+      "hybrid + rerank": 1
+    }
+  }
+}

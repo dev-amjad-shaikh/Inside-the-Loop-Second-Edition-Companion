@@ -1,0 +1,73 @@
+[
+  {
+    "event": "activate",
+    "skill": "report-helper",
+    "version": "1.0.0",
+    "hash": "4818324b70eb",
+    "mode": "model",
+    "declared_tools": [
+      "read_file",
+      "replace_text",
+      "run_tests",
+      "read_skill_resource",
+      "run_skill_script"
+    ],
+    "declared_but_not_permitted": [],
+    "body_tokens": 338,
+    "resources_listed": [
+      "references/regression-test.md",
+      "references/timezone-gotchas.md",
+      "scripts/probe_boundary.py"
+    ]
+  },
+  {
+    "call_id": "c1",
+    "tool": "activate_skill",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c2",
+    "tool": "read_skill_resource",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c3",
+    "tool": "read_file",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c4",
+    "tool": "read_file",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c5",
+    "tool": "read_file",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c6",
+    "tool": "replace_text",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c7",
+    "tool": "run_tests",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c8",
+    "tool": "replace_text",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c9",
+    "tool": "run_skill_script",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c10",
+    "tool": "run_tests",
+    "decision": "executed"
+  }
+]

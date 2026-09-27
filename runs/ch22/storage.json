@@ -1,0 +1,53 @@
+{
+  "calls": 7,
+  "full_bytes_per_call": [
+    1027,
+    2287,
+    2884,
+    3118,
+    3502,
+    3947,
+    4246
+  ],
+  "full_total": 21011,
+  "per_call_zlib6": [
+    429,
+    885,
+    989,
+    1035,
+    1131,
+    1208,
+    1234
+  ],
+  "per_call_zlib6_total": 6911,
+  "whole_run_zlib6_total": 1411,
+  "content_addressed_blobs": 4217,
+  "content_addressed_manifests": [
+    80,
+    99,
+    61,
+    61,
+    62,
+    62,
+    62
+  ],
+  "content_addressed_total": 4704,
+  "projection": {
+    "slope_bytes_per_call": 536.5,
+    "manifest_bytes_per_call": 67.8,
+    "by_calls": {
+      "7": {
+        "full_bytes": 18455,
+        "content_addressed_bytes": 4720
+      },
+      "50": {
+        "full_bytes": 708562,
+        "content_addressed_bytes": 30707
+      },
+      "200": {
+        "full_bytes": 10881750,
+        "content_addressed_bytes": 121357
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "t": 1.877,
+    "decided_by": "model",
+    "op": "read_file:settings.json:12bfeb5b",
+    "status": "ok"
+  },
+  {
+    "t": 2.077,
+    "decided_by": "model",
+    "op": "read_file:report.py:42a3d08f",
+    "status": "ok"
+  },
+  {
+    "t": 2.277,
+    "decided_by": "model",
+    "op": "read_file:test_report.py:1eb31f02",
+    "status": "ok"
+  },
+  {
+    "t": 4.476,
+    "decided_by": "model",
+    "op": "replace_text:test_report.py:29fa54fb",
+    "status": "ok"
+  },
+  {
+    "t": 12.481,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "failed"
+  },
+  {
+    "t": 14.856,
+    "decided_by": "model",
+    "op": "replace_text:report.py:6ccfc840",
+    "status": "ok"
+  },
+  {
+    "t": 23.011,
+    "decided_by": "model",
+    "op": "run_tests:['test_report.py']:24b742a7",
+    "status": "passed"
+  }
+]

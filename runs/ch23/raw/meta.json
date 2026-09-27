@@ -1,0 +1,673 @@
+{
+ "level": "full",
+ "env": {
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+  "logical_cpus": 2,
+  "mem_gib": 7.8,
+  "kernel": "6.18.44-fc-v37",
+  "python": "Python 3.11.15",
+  "python3.13": "Python 3.13.13",
+  "python3.14": "Python 3.14.0rc2",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+  "go": "go version go1.24.7 linux/amd64",
+  "node": "v22.22.2",
+  "crates": {
+   "tokio": "1.53.1",
+   "serde": "1.0.229",
+   "serde_json": "1.0.151",
+   "rand": "0.8.8",
+   "rand_distr": "0.4.3"
+  }
+ },
+ "fixtures": {
+  "transcript_bytes": 51241,
+  "transcript_messages": 74,
+  "reply_bytes": 177,
+  "tool_result_bytes": 1537,
+  "state_1mb_bytes": 1001140,
+  "state_1mb_messages": 1452
+ },
+ "sizes": {
+  "rust_binary": 868448,
+  "go_binary": 2056376,
+  "python_interpreter": 6639992,
+  "python_stdlib_dir": 53849724,
+  "python_stdlib_path": "/usr/lib/python3.11",
+  "python_script": 9828,
+  "node_binary": 124679552,
+  "node_script": 8028,
+  "note": "python3.11; sizes of files on this machine, not container images"
+ },
+ "cold_start_ms": {
+  "python": [
+   62.637883000206784,
+   68.3428290003576,
+   80.15491399964958,
+   87.25837899964972,
+   63.72333699982846,
+   60.11905800005479,
+   58.647083999858296,
+   59.82130799930019,
+   58.67415600005188,
+   56.743441999969946,
+   59.033513000031235,
+   63.782051999623945,
+   56.34220399952028,
+   55.391859999872395,
+   57.088477999968745,
+   65.26031700013846,
+   64.00764099998923,
+   59.03447499986214,
+   56.9750490003571,
+   66.63967400072579,
+   66.28704800004925,
+   67.31167499947333,
+   66.45780899998499,
+   66.16764099999273,
+   66.01131400020677,
+   66.8424049999885,
+   65.68342800073879,
+   65.78764499954559,
+   65.84407199989073,
+   65.42889899992588
+  ],
+  "rust-typed": [
+   2.456373999848438,
+   2.487164999365632,
+   2.4661099996592384,
+   2.37549199937348,
+   2.737118999903032,
+   2.4894259995562606,
+   2.3195800004032208,
+   2.395262000391085,
+   2.223762000539864,
+   2.278242000102182,
+   2.3923809994812473,
+   2.252289000352903,
+   2.3487489997933153,
+   2.282543000546866,
+   2.2594820002268534,
+   2.2849030001452775,
+   2.3509439997724257,
+   2.2015810000084457,
+   2.322825999726774,
+   2.3767479997331975,
+   2.223874999799591,
+   2.207801000622567,
+   2.4493930004609865,
+   2.2081500001149834,
+   2.3368720003418275,
+   2.2096809998402023,
+   2.257120000649593,
+   2.2052020003684447,
+   2.2925799994482077,
+   2.20037099916226
+  ],
+  "go": [
+   2.109309999468678,
+   2.151627999410266,
+   2.4741099996390403,
+   2.480567000020528,
+   2.265549000185274,
+   2.3807460001989966,
+   2.2919350003576255,
+   2.3471750000680913,
+   2.2899389996382524,
+   2.2252129992921255,
+   2.126458999555325,
+   2.0608640006685164,
+   2.1525020001718076,
+   2.0657980003306875,
+   2.1765030005553854,
+   2.194676999351941,
+   2.2430099998018704,
+   2.124380999703135,
+   2.173003999814682,
+   2.8712329994959873,
+   2.354596999794012,
+   2.361840000048687,
+   2.254316000289691,
+   2.3646159997952054,
+   2.3200870000437135,
+   2.256815999317041,
+   2.25986199984618,
+   2.251320000141277,
+   2.6021450003099744,
+   2.2705699993821327
+  ],
+  "node": [
+   40.996536999955424,
+   37.437285000123666,
+   37.33860900047148,
+   42.1211310003855,
+   34.79506100029539,
+   43.57342700041045,
+   42.92527199959295,
+   46.20522000004712,
+   41.2121039998965,
+   47.323055000561,
+   42.41679499955353,
+   42.569770000227436,
+   41.111077000095975,
+   44.50805299984495,
+   43.26087100071163,
+   42.979015999662806,
+   42.67891200015583,
+   41.73305699987395,
+   42.2366669999974,
+   43.12369200033572,
+   44.20035299972369,
+   42.874712999946496,
+   44.733276999977534,
+   42.90214600041509,
+   42.28064800008724,
+   41.89469899938558,
+   42.41146700042009,
+   43.412046000412374,
+   44.571009999344824,
+   41.964068000197585
+  ]
+ },
+ "latency_args": [
+  "--median-ms",
+  "4000",
+  "--sigma",
+  "0.5",
+  "--stagger-ms",
+  "4000",
+  "--steps",
+  "4"
+ ],
+ "log": [
+  {
+   "file": "tput_python_full_n1000_r0.json",
+   "wall_s": 1.22
+  },
+  {
+   "file": "tput_python_full_n1000_r1.json",
+   "wall_s": 1.35
+  },
+  {
+   "file": "tput_python_full_n1000_r2.json",
+   "wall_s": 1.48
+  },
+  {
+   "file": "tput_python_full_n1000_r3.json",
+   "wall_s": 1.34
+  },
+  {
+   "file": "tput_python_full_n1000_r4.json",
+   "wall_s": 1.37
+  },
+  {
+   "file": "tput_python_delta_n1000_r0.json",
+   "wall_s": 0.5
+  },
+  {
+   "file": "tput_python_delta_n1000_r1.json",
+   "wall_s": 0.48
+  },
+  {
+   "file": "tput_python_delta_n1000_r2.json",
+   "wall_s": 0.55
+  },
+  {
+   "file": "tput_python_delta_n1000_r3.json",
+   "wall_s": 0.57
+  },
+  {
+   "file": "tput_python_delta_n1000_r4.json",
+   "wall_s": 0.47
+  },
+  {
+   "file": "tput_rust-typed_full_n1000_r0.json",
+   "wall_s": 0.46
+  },
+  {
+   "file": "tput_rust-typed_full_n1000_r1.json",
+   "wall_s": 0.45
+  },
+  {
+   "file": "tput_rust-typed_full_n1000_r2.json",
+   "wall_s": 0.46
+  },
+  {
+   "file": "tput_rust-typed_full_n1000_r3.json",
+   "wall_s": 0.43
+  },
+  {
+   "file": "tput_rust-typed_full_n1000_r4.json",
+   "wall_s": 0.4
+  },
+  {
+   "file": "tput_rust-typed_delta_n1000_r0.json",
+   "wall_s": 0.13
+  },
+  {
+   "file": "tput_rust-typed_delta_n1000_r1.json",
+   "wall_s": 0.13
+  },
+  {
+   "file": "tput_rust-typed_delta_n1000_r2.json",
+   "wall_s": 0.14
+  },
+  {
+   "file": "tput_rust-typed_delta_n1000_r3.json",
+   "wall_s": 0.14
+  },
+  {
+   "file": "tput_rust-typed_delta_n1000_r4.json",
+   "wall_s": 0.14
+  },
+  {
+   "file": "tput_rust-value_full_n1000_r0.json",
+   "wall_s": 0.69
+  },
+  {
+   "file": "tput_rust-value_full_n1000_r1.json",
+   "wall_s": 0.65
+  },
+  {
+   "file": "tput_rust-value_full_n1000_r2.json",
+   "wall_s": 0.74
+  },
+  {
+   "file": "tput_rust-value_full_n1000_r3.json",
+   "wall_s": 0.67
+  },
+  {
+   "file": "tput_rust-value_full_n1000_r4.json",
+   "wall_s": 0.73
+  },
+  {
+   "file": "tput_rust-value_delta_n1000_r0.json",
+   "wall_s": 0.32
+  },
+  {
+   "file": "tput_rust-value_delta_n1000_r1.json",
+   "wall_s": 0.3
+  },
+  {
+   "file": "tput_rust-value_delta_n1000_r2.json",
+   "wall_s": 0.27
+  },
+  {
+   "file": "tput_rust-value_delta_n1000_r3.json",
+   "wall_s": 0.26
+  },
+  {
+   "file": "tput_rust-value_delta_n1000_r4.json",
+   "wall_s": 0.25
+  },
+  {
+   "file": "tput_go_full_n1000_r0.json",
+   "wall_s": 1.33
+  },
+  {
+   "file": "tput_go_full_n1000_r1.json",
+   "wall_s": 1.4
+  },
+  {
+   "file": "tput_go_full_n1000_r2.json",
+   "wall_s": 1.38
+  },
+  {
+   "file": "tput_go_full_n1000_r3.json",
+   "wall_s": 1.39
+  },
+  {
+   "file": "tput_go_full_n1000_r4.json",
+   "wall_s": 1.42
+  },
+  {
+   "file": "tput_go_delta_n1000_r0.json",
+   "wall_s": 0.6
+  },
+  {
+   "file": "tput_go_delta_n1000_r1.json",
+   "wall_s": 0.6
+  },
+  {
+   "file": "tput_go_delta_n1000_r2.json",
+   "wall_s": 0.53
+  },
+  {
+   "file": "tput_go_delta_n1000_r3.json",
+   "wall_s": 0.55
+  },
+  {
+   "file": "tput_go_delta_n1000_r4.json",
+   "wall_s": 0.59
+  },
+  {
+   "file": "tput_node_full_n1000_r0.json",
+   "wall_s": 1.28
+  },
+  {
+   "file": "tput_node_full_n1000_r1.json",
+   "wall_s": 1.36
+  },
+  {
+   "file": "tput_node_full_n1000_r2.json",
+   "wall_s": 1.32
+  },
+  {
+   "file": "tput_node_full_n1000_r3.json",
+   "wall_s": 1.39
+  },
+  {
+   "file": "tput_node_full_n1000_r4.json",
+   "wall_s": 1.42
+  },
+  {
+   "file": "tput_node_delta_n1000_r0.json",
+   "wall_s": 0.34
+  },
+  {
+   "file": "tput_node_delta_n1000_r1.json",
+   "wall_s": 0.34
+  },
+  {
+   "file": "tput_node_delta_n1000_r2.json",
+   "wall_s": 0.35
+  },
+  {
+   "file": "tput_node_delta_n1000_r3.json",
+   "wall_s": 0.34
+  },
+  {
+   "file": "tput_node_delta_n1000_r4.json",
+   "wall_s": 0.34
+  },
+  {
+   "file": "tput_rust-typed-2t_full_n1000_r0.json",
+   "wall_s": 0.47
+  },
+  {
+   "file": "tput_rust-typed-2t_full_n1000_r1.json",
+   "wall_s": 0.45
+  },
+  {
+   "file": "tput_rust-typed-2t_full_n1000_r2.json",
+   "wall_s": 0.43
+  },
+  {
+   "file": "tput_go-2p_full_n1000_r0.json",
+   "wall_s": 1.09
+  },
+  {
+   "file": "tput_go-2p_full_n1000_r1.json",
+   "wall_s": 0.88
+  },
+  {
+   "file": "tput_go-2p_full_n1000_r2.json",
+   "wall_s": 0.86
+  },
+  {
+   "file": "tput_rust-mimalloc_full_n1000_r0.json",
+   "wall_s": 0.4
+  },
+  {
+   "file": "tput_rust-mimalloc_full_n1000_r1.json",
+   "wall_s": 0.34
+  },
+  {
+   "file": "tput_rust-mimalloc_full_n1000_r2.json",
+   "wall_s": 0.33
+  },
+  {
+   "file": "tput_rust-mimalloc-2t_full_n1000_r0.json",
+   "wall_s": 0.26
+  },
+  {
+   "file": "tput_rust-mimalloc-2t_full_n1000_r1.json",
+   "wall_s": 0.29
+  },
+  {
+   "file": "tput_rust-mimalloc-2t_full_n1000_r2.json",
+   "wall_s": 0.21
+  },
+  {
+   "file": "lat_python_full_n1000_r0.json",
+   "wall_s": 42.8
+  },
+  {
+   "file": "lat_python_full_n1000_r1.json",
+   "wall_s": 38.81
+  },
+  {
+   "file": "lat_python_full_n1000_r2.json",
+   "wall_s": 42.42
+  },
+  {
+   "file": "lat_rust-typed_full_n1000_r0.json",
+   "wall_s": 42.98
+  },
+  {
+   "file": "lat_rust-typed_full_n1000_r1.json",
+   "wall_s": 45.76
+  },
+  {
+   "file": "lat_rust-typed_full_n1000_r2.json",
+   "wall_s": 44.83
+  },
+  {
+   "file": "lat_rust-value_full_n1000_r0.json",
+   "wall_s": 43.09
+  },
+  {
+   "file": "lat_rust-value_full_n1000_r1.json",
+   "wall_s": 45.82
+  },
+  {
+   "file": "lat_rust-value_full_n1000_r2.json",
+   "wall_s": 44.91
+  },
+  {
+   "file": "lat_go_full_n1000_r0.json",
+   "wall_s": 39.82
+  },
+  {
+   "file": "lat_go_full_n1000_r1.json",
+   "wall_s": 52.73
+  },
+  {
+   "file": "lat_go_full_n1000_r2.json",
+   "wall_s": 52.36
+  },
+  {
+   "file": "lat_node_full_n1000_r0.json",
+   "wall_s": 47.24
+  },
+  {
+   "file": "lat_node_full_n1000_r1.json",
+   "wall_s": 44.87
+  },
+  {
+   "file": "lat_node_full_n1000_r2.json",
+   "wall_s": 42.95
+  },
+  {
+   "file": "lat_python_full_n10000_r0.json",
+   "wall_s": 51.65
+  },
+  {
+   "file": "lat_python_full_n10000_r1.json",
+   "wall_s": 48.74
+  },
+  {
+   "file": "lat_python_full_n10000_r2.json",
+   "wall_s": 52.68
+  },
+  {
+   "file": "lat_rust-typed_full_n10000_r0.json",
+   "wall_s": 57.39
+  },
+  {
+   "file": "lat_rust-typed_full_n10000_r1.json",
+   "wall_s": 52.8
+  },
+  {
+   "file": "lat_rust-typed_full_n10000_r2.json",
+   "wall_s": 57.57
+  },
+  {
+   "file": "lat_rust-value_full_n10000_r0.json",
+   "wall_s": 58.32
+  },
+  {
+   "file": "lat_rust-value_full_n10000_r1.json",
+   "wall_s": 53.7
+  },
+  {
+   "file": "lat_rust-value_full_n10000_r2.json",
+   "wall_s": 58.36
+  },
+  {
+   "file": "lat_go_full_n10000_r0.json",
+   "wall_s": 53.29
+  },
+  {
+   "file": "lat_go_full_n10000_r1.json",
+   "wall_s": 57.12
+  },
+  {
+   "file": "lat_go_full_n10000_r2.json",
+   "wall_s": 62.7
+  },
+  {
+   "file": "lat_node_full_n10000_r0.json",
+   "wall_s": 48.68
+  },
+  {
+   "file": "lat_node_full_n10000_r1.json",
+   "wall_s": 60.22
+  },
+  {
+   "file": "lat_node_full_n10000_r2.json",
+   "wall_s": 48.81
+  },
+  {
+   "file": "lat_python_delta_n10000_r0.json",
+   "wall_s": 51.23
+  },
+  {
+   "file": "lat_python_delta_n10000_r1.json",
+   "wall_s": 48.53
+  },
+  {
+   "file": "lat_python_delta_n10000_r2.json",
+   "wall_s": 52.53
+  },
+  {
+   "file": "lat_rust-typed_delta_n10000_r0.json",
+   "wall_s": 57.31
+  },
+  {
+   "file": "lat_rust-typed_delta_n10000_r1.json",
+   "wall_s": 52.84
+  },
+  {
+   "file": "lat_rust-typed_delta_n10000_r2.json",
+   "wall_s": 57.52
+  },
+  {
+   "file": "lat_rust-value_delta_n10000_r0.json",
+   "wall_s": 58.02
+  },
+  {
+   "file": "lat_rust-value_delta_n10000_r1.json",
+   "wall_s": 53.68
+  },
+  {
+   "file": "lat_rust-value_delta_n10000_r2.json",
+   "wall_s": 58.27
+  },
+  {
+   "file": "lat_go_delta_n10000_r0.json",
+   "wall_s": 53.04
+  },
+  {
+   "file": "lat_go_delta_n10000_r1.json",
+   "wall_s": 57.19
+  },
+  {
+   "file": "lat_go_delta_n10000_r2.json",
+   "wall_s": 62.76
+  },
+  {
+   "file": "lat_node_delta_n10000_r0.json",
+   "wall_s": 48.56
+  },
+  {
+   "file": "lat_node_delta_n10000_r1.json",
+   "wall_s": 60.04
+  },
+  {
+   "file": "lat_node_delta_n10000_r2.json",
+   "wall_s": 48.71
+  },
+  {
+   "file": "lat_python-freeze_delta_n10000_r0.json",
+   "wall_s": 52.04
+  },
+  {
+   "file": "lat_python-freeze_delta_n10000_r1.json",
+   "wall_s": 49.33
+  },
+  {
+   "file": "lat_python-freeze_delta_n10000_r2.json",
+   "wall_s": 52.98
+  },
+  {
+   "file": "lat_python-freeze_full_n10000_r0.json",
+   "wall_s": 52.57
+  },
+  {
+   "file": "lat_python-freeze_full_n10000_r1.json",
+   "wall_s": 49.29
+  },
+  {
+   "file": "lat_python-freeze_full_n10000_r2.json",
+   "wall_s": 52.95
+  },
+  {
+   "file": "lat_python3.13_full_n10000_r0.json",
+   "wall_s": 51.02
+  },
+  {
+   "file": "lat_python3.13_full_n10000_r1.json",
+   "wall_s": 48.17
+  },
+  {
+   "file": "lat_python3.13_full_n10000_r2.json",
+   "wall_s": 52.04
+  },
+  {
+   "file": "lat_python3.14rc2_full_n10000_r0.json",
+   "wall_s": 50.55
+  },
+  {
+   "file": "lat_python3.14rc2_full_n10000_r1.json",
+   "wall_s": 47.82
+  },
+  {
+   "file": "lat_python3.14rc2_full_n10000_r2.json",
+   "wall_s": 51.35
+  },
+  {
+   "file": "lat_rust-mimalloc_full_n10000_r0.json",
+   "wall_s": 57.35
+  },
+  {
+   "file": "lat_rust-mimalloc_full_n10000_r1.json",
+   "wall_s": 53.02
+  },
+  {
+   "file": "lat_rust-mimalloc_full_n10000_r2.json",
+   "wall_s": 57.67
+  }
+ ],
+ "finished": "2026-09-25 13:55:25"
+}

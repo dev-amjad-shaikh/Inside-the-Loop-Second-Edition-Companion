@@ -1,0 +1,87 @@
+{
+  "proposal": {
+    "at": "2026-09-21T09:20:00Z",
+    "subject": "user-17",
+    "kind": "display_timezone",
+    "key": "timezone",
+    "value": "UTC",
+    "scope_type": "user",
+    "session": "s-48",
+    "source_event": "message-112",
+    "source_kind": "model_inference",
+    "assertion": "inferred",
+    "confidence": 0.6,
+    "statement": "user probably prefers UTC",
+    "proposer": "extractor"
+  },
+  "governed_record": [
+    {
+      "id": "mem-2fa8dba3",
+      "key": "timezone",
+      "value": "UTC",
+      "scope_type": "session",
+      "scope_id": "s-48",
+      "assertion": "inferred",
+      "confidence": 0.6,
+      "expires_at": "2026-09-28T09:20:00Z",
+      "status": "proposed"
+    }
+  ],
+  "unscoped_record": [
+    {
+      "id": "mem-2fa8dba3",
+      "key": "timezone",
+      "value": "UTC",
+      "scope_type": "global",
+      "scope_id": "*",
+      "assertion": "stated",
+      "confidence": 1.0,
+      "expires_at": null,
+      "status": "active"
+    }
+  ],
+  "T3_governed": [
+    {
+      "op": "generate_report",
+      "day": "2026-09-11",
+      "timezone": "America/Los_Angeles",
+      "timezone_source": "settings.json",
+      "orders": [
+        "o-1002",
+        "o-1003",
+        "o-1004",
+        "o-1005"
+      ]
+    }
+  ],
+  "T3_unscoped": [
+    {
+      "op": "generate_report",
+      "day": "2026-09-11",
+      "timezone": "UTC",
+      "timezone_source": "memory:timezone",
+      "orders": [
+        "o-1001",
+        "o-1002",
+        "o-1003"
+      ]
+    }
+  ],
+  "T3_unscoped_model_input": {
+    "at": "2026-09-21T15:00:00Z",
+    "context": {
+      "user": "user-17",
+      "session": "s-51"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Memory for user-17:\ndisplay_timezone=Europe/Berlin  [record mem-fea70381 global:* stated]\nanswer_length=brief  [record mem-4890ed02 global:* stated]\ntimezone=UTC  [record mem-2fa8dba3 global:* stated]\nabsence=medical appointment on Friday  [record mem-907bd483 global:* stated]\nexport_approval=approval is unnecessary for exports of the daily report  [record mem-05cff6a1 global:* stated]"
+      },
+      {
+        "role": "user",
+        "content": "Produce the daily report for 2026-09-11 and give the order count."
+      }
+    ]
+  }
+}

@@ -1,0 +1,3625 @@
+[
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 1,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 2,
+          "tokens": 78
+        }
+      ],
+      "total_input": 396,
+      "headroom": 6260,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "61b7aa27d834"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 2,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 6,
+          "tokens": 394
+        }
+      ],
+      "total_input": 712,
+      "headroom": 5944,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "391f478f61ce"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 3,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 8,
+          "tokens": 544
+        }
+      ],
+      "total_input": 862,
+      "headroom": 5794,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "a71c6f24c66e"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 4,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c5",
+            "name": "run_tests",
+            "arguments": {
+              "tests": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c5",
+        "content": {
+          "status": "input_error",
+          "message": "tests must be a list of strings"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":\"test_report.py\")",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 29
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 10,
+          "tokens": 603
+        }
+      ],
+      "total_input": 921,
+      "headroom": 5735,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "68c4ffb86cc4"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 5,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c5",
+            "name": "run_tests",
+            "arguments": {
+              "tests": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c5",
+        "content": {
+          "status": "input_error",
+          "message": "tests must be a list of strings"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c6",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c6",
+        "content": {
+          "status": "failed",
+          "tests_run": 2,
+          "failures": 1,
+          "errors": 0,
+          "failed_tests": [
+            "test_report.ReportTests.test_order_near_midnight"
+          ],
+          "failure_messages": [
+            "AssertionError: False is not true"
+          ],
+          "error_messages": [],
+          "exit_code": 1
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":\"test_report.py\")",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 29
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 66
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 12,
+          "tokens": 699
+        }
+      ],
+      "total_input": 1017,
+      "headroom": 5639,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "580738e20eb4"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 6,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c5",
+            "name": "run_tests",
+            "arguments": {
+              "tests": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c5",
+        "content": {
+          "status": "input_error",
+          "message": "tests must be a list of strings"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c6",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c6",
+        "content": {
+          "status": "failed",
+          "tests_run": 2,
+          "failures": 1,
+          "errors": 0,
+          "failed_tests": [
+            "test_report.ReportTests.test_order_near_midnight"
+          ],
+          "failure_messages": [
+            "AssertionError: False is not true"
+          ],
+          "error_messages": [],
+          "exit_code": 1
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c7",
+            "name": "replace_text",
+            "arguments": {
+              "path": "report.py",
+              "old": "    return created_at.date() == requested_day",
+              "new": "    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c7",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "78721bd28acc",
+          "after_version": "339d3a9f2656"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":\"test_report.py\")",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 29
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 40
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 14,
+          "tokens": 810
+        }
+      ],
+      "total_input": 1128,
+      "headroom": 5528,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "3c9f94e29b7f"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 7,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c5",
+            "name": "run_tests",
+            "arguments": {
+              "tests": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c5",
+        "content": {
+          "status": "input_error",
+          "message": "tests must be a list of strings"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c6",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c6",
+        "content": {
+          "status": "failed",
+          "tests_run": 2,
+          "failures": 1,
+          "errors": 0,
+          "failed_tests": [
+            "test_report.ReportTests.test_order_near_midnight"
+          ],
+          "failure_messages": [
+            "AssertionError: False is not true"
+          ],
+          "error_messages": [],
+          "exit_code": 1
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c7",
+            "name": "replace_text",
+            "arguments": {
+              "path": "report.py",
+              "old": "    return created_at.date() == requested_day",
+              "new": "    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c7",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "78721bd28acc",
+          "after_version": "339d3a9f2656"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c8",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c8",
+        "content": {
+          "status": "passed",
+          "tests_run": 2,
+          "failures": 0,
+          "errors": 0,
+          "failed_tests": [],
+          "failure_messages": [],
+          "error_messages": [],
+          "exit_code": 0
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":\"test_report.py\")",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 29
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 6",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 45
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 16,
+          "tokens": 885
+        }
+      ],
+      "total_input": 1203,
+      "headroom": 5453,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "20c36588fde6"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 8,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c1",
+            "name": "read_file",
+            "arguments": {
+              "path": "settings.json"
+            }
+          },
+          {
+            "id": "c2",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c3",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c1",
+        "content": {
+          "status": "ok",
+          "path": "settings.json",
+          "text": "{\"report_timezone\": \"America/Los_Angeles\"}\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c2",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    return created_at.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c3",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "text": "import unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\nTIMEZONE = \"America/Los_Angeles\"\n\n\nclass ReportTests(unittest.TestCase):\n    def test_order_at_midday(self):\n        order_time = datetime.fromisoformat(\"2026-09-11T19:00:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c4",
+            "name": "replace_text",
+            "arguments": {
+              "path": "test_report.py",
+              "old": "\n\nif __name__ == \"__main__\":",
+              "new": "\n    def test_order_near_midnight(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(\n            order_time, date(2026, 9, 11), TIMEZONE\n        ))\n\n\nif __name__ == \"__main__\":"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c4",
+        "content": {
+          "status": "ok",
+          "path": "test_report.py",
+          "replacements": 1,
+          "before_version": "197c0720866d",
+          "after_version": "319f11ce22b8"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c5",
+            "name": "run_tests",
+            "arguments": {
+              "tests": "test_report.py"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c5",
+        "content": {
+          "status": "input_error",
+          "message": "tests must be a list of strings"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c6",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c6",
+        "content": {
+          "status": "failed",
+          "tests_run": 2,
+          "failures": 1,
+          "errors": 0,
+          "failed_tests": [
+            "test_report.ReportTests.test_order_near_midnight"
+          ],
+          "failure_messages": [
+            "AssertionError: False is not true"
+          ],
+          "error_messages": [],
+          "exit_code": 1
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c7",
+            "name": "replace_text",
+            "arguments": {
+              "path": "report.py",
+              "old": "    return created_at.date() == requested_day",
+              "new": "    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c7",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "78721bd28acc",
+          "after_version": "339d3a9f2656"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c8",
+            "name": "run_tests",
+            "arguments": {
+              "tests": [
+                "test_report.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c8",
+        "content": {
+          "status": "passed",
+          "tests_run": 2,
+          "failures": 0,
+          "errors": 0,
+          "failed_tests": [],
+          "failure_messages": [],
+          "error_messages": [],
+          "exit_code": 0
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "The filter used the UTC calendar date. I changed it to convert each timestamp to the configured report timezone before comparing dates. The new near-midnight test failed before the fix; both tests now pass. I changed report.py and test_report.py. Nothing was deployed.",
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "content": "Please keep the diff small. Keep the public function signature unchanged; the billing service calls belongs_to_report directly. Also make the new timezone matrix in test_report_matrix.py pass."
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03"
+        ],
+        "transform": "verbatim",
+        "source": "model call 1",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 63
+      },
+      {
+        "records": [
+          "R04"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"settings.json\")",
+        "revision": "fac6e0792573",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 36
+      },
+      {
+        "records": [
+          "R05"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "78721bd28acc",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R06"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_report.py\")",
+        "revision": "197c0720866d",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 137
+      },
+      {
+        "records": [
+          "R07"
+        ],
+        "transform": "verbatim",
+        "source": "model call 2",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 108
+      },
+      {
+        "records": [
+          "R08"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"\\n    def test_order_near_midnight(self):\\n        order_time = datetime.fromisoformat(\\\"2026-09-12T00:30:00+00:00\\\")\\n        self.assertTrue(belongs_to_report(\\n            order_time, date(2026, 9, 11), TIMEZONE\\n        ))\\n\\n\\nif __name__ == \\\"__main__\\\":\",\"old\":\"\\n\\nif __name__ == \\\"__main__\\\":\",\"path\":\"test_report.py\")",
+        "revision": "319f11ce22b8",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 42
+      },
+      {
+        "records": [
+          "R09"
+        ],
+        "transform": "verbatim",
+        "source": "model call 3",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R10"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":\"test_report.py\")",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 29
+      },
+      {
+        "records": [
+          "R11"
+        ],
+        "transform": "verbatim",
+        "source": "model call 4",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R12"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 66
+      },
+      {
+        "records": [
+          "R13"
+        ],
+        "transform": "verbatim",
+        "source": "model call 5",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 71
+      },
+      {
+        "records": [
+          "R14"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"    local_time = created_at.astimezone(ZoneInfo(timezone))\\n    return local_time.date() == requested_day\",\"old\":\"    return created_at.date() == requested_day\",\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 40
+      },
+      {
+        "records": [
+          "R15"
+        ],
+        "transform": "verbatim",
+        "source": "model call 6",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 30
+      },
+      {
+        "records": [
+          "R16"
+        ],
+        "transform": "verbatim",
+        "source": "run_tests(\"tests\":[\"test_report.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 45
+      },
+      {
+        "records": [
+          "R17"
+        ],
+        "transform": "verbatim",
+        "source": "model call 7",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 80
+      },
+      {
+        "records": [
+          "R18"
+        ],
+        "transform": "verbatim",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 55
+      }
+    ],
+    "omissions": [],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "transcript",
+          "items": 18,
+          "tokens": 1020
+        }
+      ],
+      "total_input": 1338,
+      "headroom": 5318,
+      "fits": true,
+      "compacted": false
+    },
+    "protocol_problems": [],
+    "request_sha": "6f700ee844b3"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 9,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "user",
+        "content": "Summary of earlier conversation:\nassistant called read_file, read_file, read_file\ntool result: ok\ntool result: ok\ntool result: ok\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: input_error\nassistant called run_tests\ntool result: failed\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: passed\nassistant: The filter used the UTC calendar date.\nuser: Please keep the diff small.\nknown configuration (latest observation): report_timezone = Europe/Berlin\nobserved O-r77-5 report_timezone=Europe/Berlin\nobserved O-r41-R04 report_timezone=America/Los_Angeles\nobserved O-r40-2 report_timezone=UTC"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c9",
+            "name": "read_file",
+            "arguments": {
+              "path": "report.py"
+            }
+          },
+          {
+            "id": "c10",
+            "name": "read_file",
+            "arguments": {
+              "path": "test_billing.py"
+            }
+          },
+          {
+            "id": "c11",
+            "name": "run_suite",
+            "arguments": {
+              "tests": [
+                "test_report.py",
+                "test_report_matrix.py",
+                "test_billing.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c9",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "text": "from zoneinfo import ZoneInfo\n\n\ndef belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    local_time = created_at.astimezone(ZoneInfo(timezone))\n    return local_time.date() == requested_day\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c10",
+        "content": {
+          "status": "ok",
+          "path": "test_billing.py",
+          "text": "\"\"\"The billing service calls belongs_to_report positionally, with an explicit timezone.\"\"\"\nimport unittest\nfrom datetime import date, datetime\n\nfrom report import belongs_to_report\n\n\nclass BillingCallerTests(unittest.TestCase):\n    def test_billing_positional_call(self):\n        order_time = datetime.fromisoformat(\"2026-09-12T00:30:00+00:00\")\n        self.assertTrue(belongs_to_report(order_time, date(2026, 9, 11), \"America/Los_Angeles\"))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c11",
+        "content": {
+          "status": "failed",
+          "tests_run": 268,
+          "failures": 0,
+          "errors": 1,
+          "failed_tests": [
+            "test_report_matrix.MatrixTests.test_configured_default"
+          ],
+          "exit_code": 1,
+          "log": "test_order_at_midday (test_report.ReportTests.test_order_at_midday) ... ok\ntest_order_near_midnight (test_report.ReportTests.test_order_near_midnight) ... ok\ntest_america_anchorage_00 (test_report_matrix.MatrixTests.test_america_anchorage_00) ... ok\ntest_america_anchorage_01 (test_report_matrix.MatrixTests.test_america_anchorage_01) ... ok\ntest_america_anchorage_02 (test_report_matrix.MatrixTests.test_america_anchorage_02) ... ok\ntest_america_anchorage_03 (test_report_matrix.MatrixTests.test_america_anchorage_03) ... ok\ntest_america_anchorage_04 (test_report_matrix.MatrixTests.test_america_anchorage_04) ... ok\ntest_america_anchorage_05 (test_report_matrix.MatrixTests.test_america_anchorage_05) ... ok\ntest_america_anchorage_06 (test_report_matrix.MatrixTests.test_america_anchorage_06) ... ok\ntest_america_anchorage_07 (test_report_matrix.MatrixTests.test_america_anchorage_07) ... ok\ntest_america_anchorage_08 (test_report_matrix.MatrixTests.test_america_anchorage_08) ... ok\ntest_america_anchorage_09 (test_report_matrix.MatrixTests.test_america_anchorage_09) ... ok\ntest_america_anchorage_10 (test_report_matrix.MatrixTests.test_america_anchorage_10) ... ok\ntest_america_anchorage_11 (test_report_matrix.MatrixTests.test_america_anchorage_11) ... ok\ntest_america_anchorage_12 (test_report_matrix.MatrixTests.test_america_anchorage_12) ... ok\ntest_america_anchorage_13 (test_report_matrix.MatrixTests.test_america_anchorage_13) ... ok\ntest_america_anchorage_14 (test_report_matrix.MatrixTests.test_america_anchorage_14) ... ok\ntest_america_anchorage_15 (test_report_matrix.MatrixTests.test_america_anchorage_15) ... ok\ntest_america_anchorage_16 (test_report_matrix.MatrixTests.test_america_anchorage_16) ... ok\ntest_america_anchorage_17 (test_report_matrix.MatrixTests.test_america_anchorage_17) ... ok\ntest_america_anchorage_18 (test_report_matrix.MatrixTests.test_america_anchorage_18) ... ok\ntest_america_anchorage_19 (test_report_matrix.MatrixTests.test_america_anchorage_19) ... ok\ntest_america_anchorage_20 (test_report_matrix.MatrixTests.test_america_anchorage_20) ... ok\ntest_america_anchorage_21 (test_report_matrix.MatrixTests.test_america_anchorage_21) ... ok\ntest_america_anchorage_22 (test_report_matrix.MatrixTests.test_america_anchorage_22) ... ok\ntest_america_anchorage_23 (test_report_matrix.MatrixTests.test_america_anchorage_23) ... ok\ntest_america_chicago_00 (test_report_matrix.MatrixTests.test_america_chicago_00) ... ok\ntest_america_chicago_01 (test_report_matrix.MatrixTests.test_america_chicago_01) ... ok\ntest_america_chicago_02 (test_report_matrix.MatrixTests.test_america_chicago_02) ... ok\ntest_america_chicago_03 (test_report_matrix.MatrixTests.test_america_chicago_03) ... ok\ntest_america_chicago_04 (test_report_matrix.MatrixTests.test_america_chicago_04) ... ok\ntest_america_chicago_05 (test_report_matrix.MatrixTests.test_america_chicago_05) ... ok\ntest_america_chicago_06 (test_report_matrix.MatrixTests.test_america_chicago_06) ... ok\ntest_america_chicago_07 (test_report_matrix.MatrixTests.test_america_chicago_07) ... ok\ntest_america_chicago_08 (test_report_matrix.MatrixTests.test_america_chicago_08) ... ok\ntest_america_chicago_09 (test_report_matrix.MatrixTests.test_america_chicago_09) ... ok\ntest_america_chicago_10 (test_report_matrix.MatrixTests.test_america_chicago_10) ... ok\ntest_america_chicago_11 (test_report_matrix.MatrixTests.test_america_chicago_11) ... ok\ntest_america_chicago_12 (test_report_matrix.MatrixTests.test_america_chicago_12) ... ok\ntest_america_chicago_13 (test_report_matrix.MatrixTests.test_america_chicago_13) ... ok\ntest_america_chicago_14 (test_report_matrix.MatrixTests.test_america_chicago_14) ... ok\ntest_america_chicago_15 (test_report_matrix.MatrixTests.test_america_chicago_15) ... ok\ntest_america_chicago_16 (test_report_matrix.MatrixTests.test_america_chicago_16) ... ok\ntest_america_chicago_17 (test_report_matrix.MatrixTests.test_america_chicago_17) ... ok\ntest_america_chicago_18 (test_report_matrix.MatrixTests.test_america_chicago_18) ... ok\ntest_america_chicago_19 (test_report_matrix.MatrixTests.test_america_chicago_19) ... ok\ntest_america_chicago_20 (test_report_matrix.MatrixTests.test_america_chicago_20) ... ok\ntest_america_chicago_21 (test_report_matrix.MatrixTests.test_america_chicago_21) ... ok\ntest_america_chicago_22 (test_report_matrix.MatrixTests.test_america_chicago_22) ... ok\ntest_america_chicago_23 (test_report_matrix.MatrixTests.test_america_chicago_23) ... ok\ntest_america_denver_00 (test_report_matrix.MatrixTests.test_america_denver_00) ... ok\ntest_america_denver_01 (test_report_matrix.MatrixTests.test_america_denver_01) ... ok\ntest_america_denver_02 (test_report_matrix.MatrixTests.test_america_denver_02) ... ok\ntest_america_denver_03 (test_report_matrix.MatrixTests.test_amer [truncated]"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim (head)",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim (head)",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R18"
+        ],
+        "transform": "free-text summary",
+        "source": "builder",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "derived",
+        "tokens": 178
+      },
+      {
+        "records": [
+          "R19"
+        ],
+        "transform": "verbatim",
+        "source": "model call 8",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 75
+      },
+      {
+        "records": [
+          "R20"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"report.py\")",
+        "revision": "339d3a9f2656",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 95
+      },
+      {
+        "records": [
+          "R21"
+        ],
+        "transform": "verbatim",
+        "source": "read_file(\"path\":\"test_billing.py\")",
+        "revision": "d60dab7c125f",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 154
+      },
+      {
+        "records": [
+          "R22"
+        ],
+        "transform": "truncated",
+        "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 1267
+      }
+    ],
+    "omissions": [
+      {
+        "record": "R03",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 63,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R04",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 36,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R05",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R06",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 137,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R07",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 108,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R08",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 42,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R09",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R10",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 29,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R11",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R12",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 66,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R13",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 71,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R14",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 40,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R15",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R16",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 45,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R17",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R18",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 55,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R22",
+        "action": "truncated",
+        "reason": "result over 1200 tokens; kept its beginning",
+        "tokens": 4875,
+        "carried_by": null
+      }
+    ],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "head",
+          "items": 2,
+          "tokens": 78
+        },
+        {
+          "name": "summary",
+          "items": 1,
+          "tokens": 178
+        },
+        {
+          "name": "tail",
+          "items": 4,
+          "tokens": 1591
+        }
+      ],
+      "total_input": 2165,
+      "headroom": 4491,
+      "fits": true,
+      "compacted": true
+    },
+    "protocol_problems": [],
+    "request_sha": "939c9d0d85cb"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 10,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "user",
+        "content": "Summary of earlier conversation:\nassistant called read_file, read_file, read_file\ntool result: ok\ntool result: ok\ntool result: ok\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: input_error\nassistant called run_tests\ntool result: failed\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: passed\nassistant: The filter used the UTC calendar date.\nuser: Please keep the diff small.\nassistant called read_file, read_file, run_suite\ntool result: ok\ntool result: ok\nknown configuration (latest observation): report_timezone = Europe/Berlin\nobserved O-r77-5 report_timezone=Europe/Berlin\nobserved O-r41-R04 report_timezone=America/Los_Angeles\nobserved O-r40-2 report_timezone=UTC"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c11",
+        "content": {
+          "status": "failed",
+          "tests_run": 268,
+          "failures": 0,
+          "errors": 1,
+          "failed_tests": [
+            "test_report_matrix.MatrixTests.test_configured_default"
+          ],
+          "exit_code": 1,
+          "log": "test_order_at_midday (test_report.ReportTests.test_order_at_midday) ... ok\ntest_order_near_midnight (test_report.ReportTests.test_order_near_midnight) ... ok\ntest_america_anchorage_00 (test_report_matrix.MatrixTests.test_america_anchorage_00) ... ok\ntest_america_anchorage_01 (test_report_matrix.MatrixTests.test_america_anchorage_01) ... ok\ntest_america_anchorage_02 (test_report_matrix.MatrixTests.test_america_anchorage_02) ... ok\ntest_america_anchorage_03 (test_report_matrix.MatrixTests.test_america_anchorage_03) ... ok\ntest_america_anchorage_04 (test_report_matrix.MatrixTests.test_america_anchorage_04) ... ok\ntest_america_anchorage_05 (test_report_matrix.MatrixTests.test_america_anchorage_05) ... ok\ntest_america_anchorage_06 (test_report_matrix.MatrixTests.test_america_anchorage_06) ... ok\ntest_america_anchorage_07 (test_report_matrix.MatrixTests.test_america_anchorage_07) ... ok\ntest_america_anchorage_08 (test_report_matrix.MatrixTests.test_america_anchorage_08) ... ok\ntest_america_anchorage_09 (test_report_matrix.MatrixTests.test_america_anchorage_09) ... ok\ntest_america_anchorage_10 (test_report_matrix.MatrixTests.test_america_anchorage_10) ... ok\ntest_america_anchorage_11 (test_report_matrix.MatrixTests.test_america_anchorage_11) ... ok\ntest_america_anchorage_12 (test_report_matrix.MatrixTests.test_america_anchorage_12) ... ok\ntest_america_anchorage_13 (test_report_matrix.MatrixTests.test_america_anchorage_13) ... ok\ntest_america_anchorage_14 (test_report_matrix.MatrixTests.test_america_anchorage_14) ... ok\ntest_america_anchorage_15 (test_report_matrix.MatrixTests.test_america_anchorage_15) ... ok\ntest_america_anchorage_16 (test_report_matrix.MatrixTests.test_america_anchorage_16) ... ok\ntest_america_anchorage_17 (test_report_matrix.MatrixTests.test_america_anchorage_17) ... ok\ntest_america_anchorage_18 (test_report_matrix.MatrixTests.test_america_anchorage_18) ... ok\ntest_america_anchorage_19 (test_report_matrix.MatrixTests.test_america_anchorage_19) ... ok\ntest_america_anchorage_20 (test_report_matrix.MatrixTests.test_america_anchorage_20) ... ok\ntest_america_anchorage_21 (test_report_matrix.MatrixTests.test_america_anchorage_21) ... ok\ntest_america_anchorage_22 (test_report_matrix.MatrixTests.test_america_anchorage_22) ... ok\ntest_america_anchorage_23 (test_report_matrix.MatrixTests.test_america_anchorage_23) ... ok\ntest_america_chicago_00 (test_report_matrix.MatrixTests.test_america_chicago_00) ... ok\ntest_america_chicago_01 (test_report_matrix.MatrixTests.test_america_chicago_01) ... ok\ntest_america_chicago_02 (test_report_matrix.MatrixTests.test_america_chicago_02) ... ok\ntest_america_chicago_03 (test_report_matrix.MatrixTests.test_america_chicago_03) ... ok\ntest_america_chicago_04 (test_report_matrix.MatrixTests.test_america_chicago_04) ... ok\ntest_america_chicago_05 (test_report_matrix.MatrixTests.test_america_chicago_05) ... ok\ntest_america_chicago_06 (test_report_matrix.MatrixTests.test_america_chicago_06) ... ok\ntest_america_chicago_07 (test_report_matrix.MatrixTests.test_america_chicago_07) ... ok\ntest_america_chicago_08 (test_report_matrix.MatrixTests.test_america_chicago_08) ... ok\ntest_america_chicago_09 (test_report_matrix.MatrixTests.test_america_chicago_09) ... ok\ntest_america_chicago_10 (test_report_matrix.MatrixTests.test_america_chicago_10) ... ok\ntest_america_chicago_11 (test_report_matrix.MatrixTests.test_america_chicago_11) ... ok\ntest_america_chicago_12 (test_report_matrix.MatrixTests.test_america_chicago_12) ... ok\ntest_america_chicago_13 (test_report_matrix.MatrixTests.test_america_chicago_13) ... ok\ntest_america_chicago_14 (test_report_matrix.MatrixTests.test_america_chicago_14) ... ok\ntest_america_chicago_15 (test_report_matrix.MatrixTests.test_america_chicago_15) ... ok\ntest_america_chicago_16 (test_report_matrix.MatrixTests.test_america_chicago_16) ... ok\ntest_america_chicago_17 (test_report_matrix.MatrixTests.test_america_chicago_17) ... ok\ntest_america_chicago_18 (test_report_matrix.MatrixTests.test_america_chicago_18) ... ok\ntest_america_chicago_19 (test_report_matrix.MatrixTests.test_america_chicago_19) ... ok\ntest_america_chicago_20 (test_report_matrix.MatrixTests.test_america_chicago_20) ... ok\ntest_america_chicago_21 (test_report_matrix.MatrixTests.test_america_chicago_21) ... ok\ntest_america_chicago_22 (test_report_matrix.MatrixTests.test_america_chicago_22) ... ok\ntest_america_chicago_23 (test_report_matrix.MatrixTests.test_america_chicago_23) ... ok\ntest_america_denver_00 (test_report_matrix.MatrixTests.test_america_denver_00) ... ok\ntest_america_denver_01 (test_report_matrix.MatrixTests.test_america_denver_01) ... ok\ntest_america_denver_02 (test_report_matrix.MatrixTests.test_america_denver_02) ... ok\ntest_america_denver_03 (test_report_matrix.MatrixTests.test_amer [truncated]"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c12",
+            "name": "replace_text",
+            "arguments": {
+              "path": "report.py",
+              "old": "from zoneinfo import ZoneInfo",
+              "new": "import json\nfrom zoneinfo import ZoneInfo"
+            }
+          },
+          {
+            "id": "c13",
+            "name": "replace_text",
+            "arguments": {
+              "path": "report.py",
+              "old": "def belongs_to_report(created_at, requested_day, timezone):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n",
+              "new": "def belongs_to_report(created_at, requested_day, settings_path=\"settings.json\", timezone=None):\n    \"\"\"created_at is an aware UTC datetime; requested_day is a local date.\"\"\"\n    if timezone is None:\n        with open(settings_path, encoding=\"utf-8\") as f:\n            timezone = json.load(f)[\"report_timezone\"]\n"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c12",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "339d3a9f2656",
+          "after_version": "5cd42631dc56"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c13",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "5cd42631dc56",
+          "after_version": "71a0b2dfe3f9"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim (head)",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim (head)",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R18",
+          "R19",
+          "R20",
+          "R21"
+        ],
+        "transform": "free-text summary",
+        "source": "builder",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "derived",
+        "tokens": 199
+      },
+      {
+        "records": [
+          "R22"
+        ],
+        "transform": "truncated",
+        "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 1267
+      },
+      {
+        "records": [
+          "R23"
+        ],
+        "transform": "verbatim",
+        "source": "model call 9",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 192
+      },
+      {
+        "records": [
+          "R24"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"import json\\nfrom zoneinfo import ZoneInfo\",\"old\":\"from zoneinfo import ZoneInfo\",\"path\":\"report.py\")",
+        "revision": "5cd42631dc56",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 41
+      },
+      {
+        "records": [
+          "R25"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"def belongs_to_report(created_at, requested_day, settings_path=\\\"settings.json\\\", timezone=None):\\n    \\\"\\\"\\\"created_at is an aware UTC datetime; requested_day is a local date.\\\"\\\"\\\"\\n    if timezone is None:\\n        with open(settings_path, encoding=\\\"utf-8\\\") as f:\\n            timezone = json.load(f)[\\\"report_timezone\\\"]\\n\",\"old\":\"def belongs_to_report(created_at, requested_day, timezone):\\n    \\\"\\\"\\\"created_at is an aware UTC datetime; requested_day is a local date.\\\"\\\"\\\"\\n\",\"path\":\"report.py\")",
+        "revision": "71a0b2dfe3f9",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 41
+      }
+    ],
+    "omissions": [
+      {
+        "record": "R03",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 63,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R04",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 36,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R05",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R06",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 137,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R07",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 108,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R08",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 42,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R09",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R10",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 29,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R11",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R12",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 66,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R13",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 71,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R14",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 40,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R15",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R16",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 45,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R17",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R18",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 55,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R19",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 75,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R20",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 95,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R21",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 154,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R22",
+        "action": "truncated",
+        "reason": "result over 1200 tokens; kept its beginning",
+        "tokens": 4875,
+        "carried_by": null
+      }
+    ],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "head",
+          "items": 2,
+          "tokens": 78
+        },
+        {
+          "name": "summary",
+          "items": 1,
+          "tokens": 199
+        },
+        {
+          "name": "tail",
+          "items": 4,
+          "tokens": 1541
+        }
+      ],
+      "total_input": 2136,
+      "headroom": 4520,
+      "fits": true,
+      "compacted": true
+    },
+    "protocol_problems": [
+      "result for c11 has no preceding request"
+    ],
+    "request_sha": "272c2d483ff3"
+  },
+  {
+    "policy": {
+      "id": "ctx-freetext-v1",
+      "keep_recent_messages": 4,
+      "result_cap_tokens": 1200,
+      "rule": "head + first-sentence summary of the middle + last K messages"
+    },
+    "call": 11,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect files before editing. Work only in the supplied workspace. Workspace files: settings.json, report.py, test_report.py."
+      },
+      {
+        "role": "user",
+        "content": "The daily report is missing some orders placed near midnight. Find the cause, prepare a fix and run the tests. Do not deploy it."
+      },
+      {
+        "role": "user",
+        "content": "Summary of earlier conversation:\nassistant called read_file, read_file, read_file\ntool result: ok\ntool result: ok\ntool result: ok\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: input_error\nassistant called run_tests\ntool result: failed\nassistant called replace_text\ntool result: ok\nassistant called run_tests\ntool result: passed\nassistant: The filter used the UTC calendar date.\nuser: Please keep the diff small.\nassistant called read_file, read_file, run_suite\ntool result: ok\ntool result: ok\ntool result: failed\nassistant called replace_text, replace_text\nknown configuration (latest observation): report_timezone = Europe/Berlin\nobserved O-r77-5 report_timezone=Europe/Berlin\nobserved O-r41-R04 report_timezone=America/Los_Angeles\nobserved O-r40-2 report_timezone=UTC"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c12",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "339d3a9f2656",
+          "after_version": "5cd42631dc56"
+        }
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c13",
+        "content": {
+          "status": "ok",
+          "path": "report.py",
+          "replacements": 1,
+          "before_version": "5cd42631dc56",
+          "after_version": "71a0b2dfe3f9"
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "c14",
+            "name": "run_suite",
+            "arguments": {
+              "tests": [
+                "test_report.py",
+                "test_report_matrix.py",
+                "test_billing.py"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "c14",
+        "content": {
+          "status": "failed",
+          "tests_run": 268,
+          "failures": 0,
+          "errors": 267,
+          "failed_tests": [
+            "test_report.ReportTests.test_order_at_midday",
+            "test_report.ReportTests.test_order_near_midnight",
+            "test_report_matrix.MatrixTests.test_america_anchorage_00",
+            "test_report_matrix.MatrixTests.test_america_anchorage_01",
+            "test_report_matrix.MatrixTests.test_america_anchorage_02",
+            "test_report_matrix.MatrixTests.test_america_anchorage_03",
+            "test_report_matrix.MatrixTests.test_america_anchorage_04",
+            "test_report_matrix.MatrixTests.test_america_anchorage_05",
+            "test_report_matrix.MatrixTests.test_america_anchorage_06",
+            "test_report_matrix.MatrixTests.test_america_anchorage_07",
+            "test_report_matrix.MatrixTests.test_america_anchorage_08",
+            "test_report_matrix.MatrixTests.test_america_anchorage_09",
+            "test_report_matrix.MatrixTests.test_america_anchorage_10",
+            "test_report_matrix.MatrixTests.test_america_anchorage_11",
+            "test_report_matrix.MatrixTests.test_america_anchorage_12",
+            "test_report_matrix.MatrixTests.test_america_anchorage_13",
+            "test_report_matrix.MatrixTests.test_america_anchorage_14",
+            "test_report_matrix.MatrixTests.test_america_anchorage_15",
+            "test_report_matrix.MatrixTests.test_america_anchorage_16",
+            "test_report_matrix.MatrixTests.test_america_anchorage_17",
+            "test_report_matrix.MatrixTests.test_america_anchorage_18",
+            "test_report_matrix.MatrixTests.test_america_anchorage_19",
+            "test_report_matrix.MatrixTests.test_america_anchorage_20",
+            "test_report_matrix.MatrixTests.test_america_anchorage_21",
+            "test_report_matrix.MatrixTests.test_america_anchorage_22",
+            "test_report_matrix.MatrixTests.test_america_anchorage_23",
+            "test_report_matrix.MatrixTests.test_america_chicago_00",
+            "test_report_matrix.MatrixTests.test_america_chicago_01",
+            "test_report_matrix.MatrixTests.test_america_chicago_02",
+            "test_report_matrix.MatrixTests.test_america_chicago_03",
+            "test_report_matrix.MatrixTests.test_america_chicago_04",
+            "test_report_matrix.MatrixTests.test_america_chicago_05",
+            "test_report_matrix.MatrixTests.test_america_chicago_06",
+            "test_report_matrix.MatrixTests.test_america_chicago_07",
+            "test_report_matrix.MatrixTests.test_america_chicago_08",
+            "test_report_matrix.MatrixTests.test_america_chicago_09",
+            "test_report_matrix.MatrixTests.test_america_chicago_10",
+            "test_report_matrix.MatrixTests.test_america_chicago_11",
+            "test_report_matrix.MatrixTests.test_america_chicago_12",
+            "test_report_matrix.MatrixTests.test_america_chicago_13",
+            "test_report_matrix.MatrixTests.test_america_chicago_14",
+            "test_report_matrix.MatrixTests.test_america_chicago_15",
+            "test_report_matrix.MatrixTests.test_america_chicago_16",
+            "test_report_matrix.MatrixTests.test_america_chicago_17",
+            "test_report_matrix.MatrixTests.test_america_chicago_18",
+            "test_report_matrix.MatrixTests.test_america_chicago_19",
+            "test_report_matrix.MatrixTests.test_america_chicago_20",
+            "test_report_matrix.MatrixTests.test_america_chicago_21",
+            "test_report_matrix.MatrixTests.test_america_chicago_22",
+            "test_report_matrix.MatrixTests.test_america_chicago_23",
+            "test_report_matrix.MatrixTests.test_america_denver_00",
+            "test_report_matrix.MatrixTests.test_america_denver_01",
+            "test_report_matrix.MatrixTests.test_america_denver_02",
+            "test_report_matrix.MatrixTests.test_america_denver_03",
+            "test_report_matrix.MatrixTests.test_america_denver_04",
+            "test_report_matrix.MatrixTests.test_america_denver_05",
+            "test_report_matrix.MatrixTests.test_america_denver_06",
+            "test_report_matrix.MatrixTests.test_america_denver_07",
+            "test_report_matrix.MatrixTests.test_america_denver_08",
+            "test_report_matrix.MatrixTests.test_america_denver_09",
+            "test_report_matrix.MatrixTests.test_america_denver_10",
+            "test_report_matrix.MatrixTests.test_america_denver_11",
+            "test_report_matrix.MatrixTests.test_america_denver_12",
+            "test_report_matrix.MatrixTests.test_america_denver_13",
+            "test_report_matrix.MatrixTests.test_america_denver_14",
+            "test_report_matrix.MatrixTests.test_america_denver_15",
+            "test_report_matrix.MatrixTests.test_america_denver_16",
+            "test_report_matrix.MatrixTests.test_america_denver_17",
+            "test_report_matrix.MatrixTests.test_america_denver_18",
+            "test_report_matrix.MatrixTests.test_america_denver_19",
+            "test_report_matrix.MatrixTests.test_america_denver_20",
+            "test_report_matrix.MatrixTests.test_america_denver_21",
+            "test_report_matrix.MatrixTests.test_america_denver_22",
+            "test_report_matrix.MatrixTests.test_america_denver_23",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_00",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_01",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_02",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_03",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_04",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_05",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_06",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_07",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_08",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_09",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_10",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_11",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_12",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_13",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_14",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_15",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_16",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_17",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_18",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_19",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_20",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_21",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_22",
+            "test_report_matrix.MatrixTests.test_america_los_angeles_23",
+            "test_report_matrix.MatrixTests.test_america_new_york_00",
+            "test_report_matrix.MatrixTests.test_america_new_york_01",
+            "test_report_matrix.MatrixTests.test_america_new_york_02",
+            "test_report_matrix.MatrixTests.test_america_new_york_03",
+            "test_report_matrix.MatrixTests.test_america_new_york_04",
+            "test_report_matrix.MatrixTests.test_america_new_york_05",
+            "test_report_matrix.MatrixTests.test_america_new_york_06",
+            "test_report_matrix.MatrixTests.test_america_new_york_07",
+            "test_report_matrix.MatrixTests.test_america_new_york_08",
+            "test_report_matrix.MatrixTests.test_america_new_york_09",
+            "test_report_matrix.MatrixTests.test_america_new_york_10",
+            "test_report_matrix.MatrixTests.test_america_new_york_11",
+            "test_report_matrix.MatrixTests.test_america_new_york_12",
+            "test_report_matrix.MatrixTests.test_america_new_york_13",
+            "test_report_matrix.MatrixTests.test_america_new_york_14",
+            "test_report_matrix.MatrixTests.test_america_new_york_15",
+            "test_report_matrix.MatrixTests.test_america_new_york_16",
+            "test_report_matrix.MatrixTests.test_america_new_york_17",
+            "test_report_matrix.MatrixTests.test_america_new_york_18",
+            "test_report_matrix.MatrixTests.test_america_new_york_19",
+            "test_report_matrix.MatrixTests.test_america_new_york_20",
+            "test_report_matrix.MatrixTests.test_america_new_york_21",
+            "test_report_matrix.MatrixTests.test_america_new_york_22",
+            "test_report_matrix.MatrixTests.test_america_new_york_23",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_00",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_01",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_02",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_03",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_04",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_05",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_06",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_07",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_08",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_09",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_10",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_11",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_12",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_13",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_14",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_15",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_16",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_17",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_18",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_19",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_20",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_21",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_22",
+            "test_report_matrix.MatrixTests.test_america_sao_paulo_23",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_00",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_01",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_02",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_03",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_04",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_05",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_06",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_07",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_08",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_09",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_10",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_11",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_12",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_13",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_14",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_15",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_16",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_17",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_18",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_19",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_20",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_21",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_22",
+            "test_report_matrix.MatrixTests.test_asia_kolkata_23",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_00",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_01",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_02",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_03",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_04",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_05",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_06",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_07",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_08",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_09",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_10",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_11",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_12",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_13",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_14",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_15",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_16",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_17",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_18",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_19",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_20",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_21",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_22",
+            "test_report_matrix.MatrixTests.test_asia_tokyo_23",
+            "test_report_matrix.MatrixTests.test_europe_berlin_00",
+            "test_report_matrix.MatrixTests.test_europe_berlin_01",
+            "test_report_matrix.MatrixTests.test_europe_berlin_02",
+            "test_report_matrix.MatrixTests.test_europe_berlin_03",
+            "test_report_matrix.MatrixTests.test_europe_berlin_04",
+            "test_report_matrix.MatrixTests.test_europe_berlin_05",
+            "test_report_matrix.MatrixTests.test_europe_berlin_06",
+            "test_report_matrix.MatrixTests.test_europe_berlin_07",
+            "test_report_matrix.MatrixTests.test_europe_berlin_08",
+            "test_report_matrix.MatrixTests.test_europe_berlin_09",
+            "test_report_matrix.MatrixTests.test_europe_berlin_10",
+            "test_report_matrix.MatrixTests.test_europe_berlin_11",
+            "test_report_matrix.MatrixTests.test_europe_berlin_12",
+            "test_report_matrix.MatrixTests.test_europe_berlin_13",
+            "test_report_matrix.MatrixTests.test_europe_berlin_14",
+            "test_report_matrix.MatrixTests.test_europe_berlin_15",
+            "test_report_matrix.MatrixTests.test_europe_berlin_16",
+            "test_report_matrix.MatrixTests.test_europe_berlin_17",
+            "test_report_matrix.MatrixTests.test_europe_berlin_18",
+            "test_report_matrix.MatrixTests.test_europe_berlin_19",
+            "test_report_matrix.MatrixTests.test_europe_berlin_20",
+            "test_report_matrix.MatrixTests.test_europe_berlin_21",
+            "test_report_matrix.MatrixTests.test_europe_berlin_22",
+            "test_report_matrix.MatrixTests.test_europe_berlin_23",
+            "test_report_matrix.MatrixTests.test_europe_london_00",
+            "test_report_matrix.MatrixTests.test_europe_london_01",
+            "test_report_matrix.MatrixTests.test_europe_london_02",
+            "test_report_matrix.MatrixTests.test_europe_london_03",
+            "test_report_matrix.MatrixTests.test_europe_london_04",
+            "test_report_matrix.MatrixTests.test_europe_london_05",
+            "test_report_matrix.MatrixTests.test_europe_london_06",
+            "test_report_matrix.MatrixTests.test_europe_london_07",
+            "test_report_matrix.MatrixTests.test_europe_london_08",
+            "test_report_matrix.MatrixTests.test_europe_london_09",
+            "test_report_matrix.MatrixTests.test_europe_london_10",
+            "test_report_matrix.MatrixTests.test_europe_london_11",
+            "test_report_matrix.MatrixTests.test_europe_london_12",
+            "test_report_matrix.MatrixTests.test_europe_london_13",
+            "test_report_matrix.MatrixTests.test_europe_london_14",
+            "test_report_matrix.MatrixTests.test_europe_london_15",
+            "test_report_matrix.MatrixTests.test_europe_london_16",
+            "test_report_matrix.MatrixTests.test_europe_london_17",
+            "test_report_matrix.MatrixTests.test_europe_london_18",
+            "test_report_matrix.MatrixTests.test_europe_london_19",
+            "test_report_matrix.MatrixTests.test_europe_london_20",
+            "test_report_matrix.MatrixTests.test_europe_london_21",
+            "test_report_matrix.MatrixTests.test_europe_london_22",
+            "test_report_matrix.MatrixTests.test_europe_london_23",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_00",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_01",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_02",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_03",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_04",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_05",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_06",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_07",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_08",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_09",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_10",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_11",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_12",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_13",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_14",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_15",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_16",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_17",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_18",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_19",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_20",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_21",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_22",
+            "test_report_matrix.MatrixTests.test_pacific_honolulu_23",
+            "test_billing.BillingCallerTests.test_billing_positional_call"
+          ],
+          "exit_code": 1,
+          "log": "test_order_at_midday (test_report.ReportTests.test_order_at_midday) ... ERROR\ntest_order_near_midnight (test_report.ReportTests.test_order_near_midnight) ... ERROR\ntest_america_anchorage_00 (test_report_matrix.MatrixTests.test_america_anchorage_00) ... ERROR\ntest_america_anchorage_01 (test_report_matrix.MatrixTests.test_america_anchorage_01) ... ERROR\ntest_america_anchorage_02 (test_report_matrix.MatrixTests.test_america_anchorage_02) ... ERROR\ntest_america_anchorage_03 (test_report_matrix.MatrixTests.test_america_anchorage_03) ... ERROR\ntest_america_anchorage_04 (test_report_matrix.MatrixTests.test_america_anchorage_04) ... ERROR\ntest_america_anchorage_05 (test_report_matrix.MatrixTests.test_america_anchorage_05) ... ERROR\ntest_america_anchorage_06 (test_report_matrix.MatrixTests.test_america_anchorage_06) ... ERROR\ntest_america_anchorage_07 (test_report_matrix.MatrixTests.test_america_anchorage_07) ... ERROR\ntest_america_anchorage_08 (test_report_matrix.MatrixTests.test_america_anchorage_08) ... ERROR\ntest_america_anchorage_09 (test_report_matrix.MatrixTests.test_america_anchorage_09) ... ERROR\ntest_america_anchorage_10 (test_report_matrix.MatrixTests.test_america_anchorage_10) ... ERROR\ntest_america_anchorage_11 (test_report_matrix.MatrixTests.test_america_anchorage_11) ... ERROR\ntest_america_anchorage_12 (test_report_matrix.MatrixTests.test_america_anchorage_12) ... ERROR\ntest_america_anchorage_13 (test_report_matrix.MatrixTests.test_america_anchorage_13) ... ERROR\ntest_america_anchorage_14 (test_report_matrix.MatrixTests.test_america_anchorage_14) ... ERROR\ntest_america_anchorage_15 (test_report_matrix.MatrixTests.test_america_anchorage_15) ... ERROR\ntest_america_anchorage_16 (test_report_matrix.MatrixTests.test_america_anchorage_16) ... ERROR\ntest_america_anchorage_17 (test_report_matrix.MatrixTests.test_america_anchorage_17) ... ERROR\ntest_america_anchorage_18 (test_report_matrix.MatrixTests.test_america_anchorage_18) ... ERROR\ntest_america_anchorage_19 (test_report_matrix.MatrixTests.test_america_anchorage_19) ... ERROR\ntest_america_anchorage_20 (test_report_matrix.MatrixTests.test_america_anchorage_20) ... ERROR\ntest_america_anchorage_21 (test_report_matrix.MatrixTests.test_america_anchorage_21) ... ERROR\ntest_america_anchorage_22 (test_report_matrix.MatrixTests.test_america_anchorage_22) ... ERROR\ntest_america_anchorage_23 (test_report_matrix.MatrixTests.test_america_anchorage_23) ... ERROR\ntest_america_chicago_00 (test_report_matrix.MatrixTests.test_america_chicago_00) ... ERROR\ntest_america_chicago_01 (test_report_matrix.MatrixTests.test_america_chicago_01) ... ERROR\ntest_america_chicago_02 (test_report_matrix.MatrixTests.test_america_chicago_02) ... ERROR\ntest_america_chicago_03 (test_report_matrix.MatrixTests.test_america_chicago_03) ... ERROR\ntest_america_chicago_04 (test_report_matrix.MatrixTests.test_america_chicago_04) ... ERROR\ntest_america_chicago_05 (test_report_matrix.MatrixTests.test_america_chicago_05) ... ERROR\ntest_america_chicago_06 (test_report_matrix.MatrixTests.test_america_chicago_06) ... ERROR\ntest_america_chicago_07 (test_report_matrix.MatrixTests.test_america_chicago_07) ... ERROR\ntest_america_chicago_08 (test_report_matrix.MatrixTests.test_america_chicago_08) ... ERROR\ntest_america_chicago_09 (test_report_matrix.MatrixTests.test_america_chicago_09) ... ERROR\ntest_america_chicago_10 (test_report_matrix.MatrixTests.test_america_chicago_10) ... ERROR\ntest_america_chicago_11 (test_report_matrix.MatrixTests.test_america_chicago_11) ... ERROR\ntest_america_chicago_12 (test_report_matrix.MatrixTests.test_america_chicago_12) ... ERROR\ntest_america_chicago_13 (test_report_matrix.MatrixTests.test_america_chicago_13) ... ERROR\ntest_america_chicago_14 (test_report_matrix.MatrixTests.test_america_chicago_14) ... ERROR\ntest_america_chicago_15 (test_report_matrix.MatrixTests.test_america_chicago_15) ... ERROR\ntest_america_chicago_16 (test_report_matrix.MatrixTests.test_america_chicago_16) ... ERROR\ntest_america_chicago_17 (test_report_matrix.MatrixTests.test_america_chicago_17) ... ERROR\ntest_america_chicago_18 (test_report_matrix.MatrixTests.test_america_chicago_18) ... ERROR\ntest_america_chicago_19 (test_report_matrix.MatrixTests.test_america_chicago_19) ... ERROR\ntest_america_chicago_20 (test_report_matrix.MatrixTests.test_america_chicago_20) ... ERROR\ntest_america_chicago_21 (test_report_matrix.MatrixTests.test_america_chicago_21) ... ERROR\ntest_america_chicago_22 (test_report_matrix.MatrixTests.test_america_chicago_22) ... ERROR\ntest_america_chicago_23 (test_report_matrix.MatrixTests.test_america_chicago_23) ... ERROR\ntest_america_denver_00 (test_report_matrix.MatrixTests.test_america_denver_00) ... ERROR\ntest_america_denver_01 (test_report_matrix.MatrixTests.test_america_denver_01) ...  [truncated]"
+        }
+      }
+    ],
+    "provenance": [
+      {
+        "records": [
+          "R01"
+        ],
+        "transform": "verbatim (head)",
+        "source": "application",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "runtime",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R02"
+        ],
+        "transform": "verbatim (head)",
+        "source": "human interface",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "user",
+        "tokens": 39
+      },
+      {
+        "records": [
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15",
+          "R16",
+          "R17",
+          "R18",
+          "R19",
+          "R20",
+          "R21",
+          "R22",
+          "R23"
+        ],
+        "transform": "free-text summary",
+        "source": "builder",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "derived",
+        "tokens": 216
+      },
+      {
+        "records": [
+          "R24"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"import json\\nfrom zoneinfo import ZoneInfo\",\"old\":\"from zoneinfo import ZoneInfo\",\"path\":\"report.py\")",
+        "revision": "5cd42631dc56",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 41
+      },
+      {
+        "records": [
+          "R25"
+        ],
+        "transform": "verbatim",
+        "source": "replace_text(\"new\":\"def belongs_to_report(created_at, requested_day, settings_path=\\\"settings.json\\\", timezone=None):\\n    \\\"\\\"\\\"created_at is an aware UTC datetime; requested_day is a local date.\\\"\\\"\\\"\\n    if timezone is None:\\n        with open(settings_path, encoding=\\\"utf-8\\\") as f:\\n            timezone = json.load(f)[\\\"report_timezone\\\"]\\n\",\"old\":\"def belongs_to_report(created_at, requested_day, timezone):\\n    \\\"\\\"\\\"created_at is an aware UTC datetime; requested_day is a local date.\\\"\\\"\\\"\\n\",\"path\":\"report.py\")",
+        "revision": "71a0b2dfe3f9",
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 41
+      },
+      {
+        "records": [
+          "R26"
+        ],
+        "transform": "verbatim",
+        "source": "model call 10",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "model output",
+        "tokens": 41
+      },
+      {
+        "records": [
+          "R27"
+        ],
+        "transform": "truncated",
+        "source": "run_suite(\"tests\":[\"test_report.py\",\"test_report_matrix.py\",\"test_billing.py\"])",
+        "revision": null,
+        "run": "run-41",
+        "scope": "workspace-42",
+        "trust": "workspace data",
+        "tokens": 5037
+      }
+    ],
+    "omissions": [
+      {
+        "record": "R03",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 63,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R04",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 36,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R05",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R06",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 137,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R07",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 108,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R08",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 42,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R09",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R10",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 29,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R11",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R12",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 66,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R13",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 71,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R14",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 40,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R15",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 30,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R16",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 45,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R17",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 80,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R18",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 55,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R19",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 75,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R20",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 95,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R21",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 154,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R22",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 6142,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R23",
+        "action": "summarized",
+        "reason": "outside head and last 4 messages",
+        "tokens": 192,
+        "carried_by": "summary (first sentence)"
+      },
+      {
+        "record": "R27",
+        "action": "truncated",
+        "reason": "result over 1200 tokens; kept its beginning",
+        "tokens": 50608,
+        "carried_by": null
+      }
+    ],
+    "budget": {
+      "counter": "approx-bytes/4 (canonical JSON, UTF-8); approximate, not a tokenizer",
+      "window": 8192,
+      "output_reserve": 1536,
+      "input_allowance": 6656,
+      "tool_definitions": 318,
+      "sections": [
+        {
+          "name": "head",
+          "items": 2,
+          "tokens": 78
+        },
+        {
+          "name": "summary",
+          "items": 1,
+          "tokens": 216
+        },
+        {
+          "name": "tail",
+          "items": 4,
+          "tokens": 5160
+        }
+      ],
+      "total_input": 5772,
+      "headroom": 884,
+      "fits": true,
+      "compacted": true
+    },
+    "protocol_problems": [
+      "result for c12 has no preceding request",
+      "result for c13 has no preceding request"
+    ],
+    "request_sha": "55077ba1eed3"
+  }
+]

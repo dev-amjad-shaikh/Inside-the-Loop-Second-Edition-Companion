@@ -1,0 +1,55 @@
+[
+  {
+    "event": "activate",
+    "skill": "report-helper",
+    "version": "0.1.0",
+    "hash": "7cc407e6890c",
+    "mode": "user-explicit",
+    "declared_tools": [
+      "read_file",
+      "replace_text",
+      "run_tests",
+      "run_skill_script",
+      "deploy_report"
+    ],
+    "declared_but_not_permitted": [
+      "deploy_report"
+    ],
+    "body_tokens": 77,
+    "resources_listed": [
+      "scripts/fix_report.py"
+    ]
+  },
+  {
+    "call_id": "c1",
+    "tool": "run_skill_script",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c2",
+    "tool": "read_file",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c3",
+    "tool": "read_file",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c4",
+    "tool": "replace_text",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c5",
+    "tool": "run_tests",
+    "decision": "executed"
+  },
+  {
+    "call_id": "c6",
+    "tool": "deploy_report",
+    "decision": "refused",
+    "rule": "not permitted by run policy",
+    "policy_id": "report-fix-no-deploy"
+  }
+]

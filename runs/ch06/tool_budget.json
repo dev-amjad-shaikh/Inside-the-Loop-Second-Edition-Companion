@@ -1,0 +1,13 @@
+{
+  "session_tools": [
+    "read_file",
+    "replace_text",
+    "run_tests",
+    "run_suite",
+    "read_record"
+  ],
+  "session_tokens": 318,
+  "catalog_tools": 24,
+  "catalog_tokens": 1850,
+  "input_allowance": 6656
+}

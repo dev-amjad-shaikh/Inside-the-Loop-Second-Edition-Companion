@@ -1,0 +1,17 @@
+{
+  "events": [],
+  "publications": [
+    {
+      "report": "daily-2026-09-11",
+      "revision": "r5",
+      "by": "reporting-pipeline",
+      "version": "af0093264abc",
+      "source_revision": "339d3a9f2656",
+      "t": "10:00:00"
+    }
+  ],
+  "requests": [],
+  "decisions": [],
+  "approvals": [],
+  "audit": []
+}

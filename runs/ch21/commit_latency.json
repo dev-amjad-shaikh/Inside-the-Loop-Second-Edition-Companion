@@ -1,0 +1,10 @@
+{
+  "commits": 300,
+  "median_ms": 0.603,
+  "p95_ms": 0.919,
+  "p99_ms": 1.275,
+  "journal_mode": "delete",
+  "synchronous": 2,
+  "machine": "x86_64",
+  "note": "machine- and filesystem-dependent; not part of the deterministic output"
+}

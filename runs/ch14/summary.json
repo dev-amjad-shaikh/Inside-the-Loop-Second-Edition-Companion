@@ -1,0 +1,145 @@
+{
+  "a": {
+    "baseline_signature": "(created_at, requested_day, timezone)",
+    "final_signature": "(created_at, requested_day, timezone)",
+    "final_report_version": "339d3a9f2656",
+    "model_calls": 8,
+    "tool_calls_proposed": 9,
+    "executions": 8,
+    "refusals": [
+      {
+        "seq": 22,
+        "t": "10:00:47",
+        "kind": "dispatch_refused",
+        "call_id": "c6",
+        "tool": "replace_text",
+        "reason": "stale_task_revision",
+        "proposal_task_revision": 1,
+        "current_task_revision": 2
+      }
+    ]
+  },
+  "b": {
+    "baseline_signature": "(created_at, requested_day, timezone)",
+    "final_signature": "(created_at, requested_day, timezone)",
+    "final_report_version": "339d3a9f2656",
+    "model_calls": 11,
+    "tool_calls_proposed": 11,
+    "executions": 11,
+    "refusals": [
+      {
+        "seq": 32,
+        "t": "10:01:07",
+        "kind": "completion_refused",
+        "call": 6,
+        "reason": "stale_task_revision",
+        "proposal_task_revision": 1,
+        "current_task_revision": 2
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "tests",
+        "result": "failed",
+        "version": "78721bd28acc",
+        "task_revision": 1,
+        "state": "historical"
+      },
+      {
+        "id": "E2",
+        "kind": "tests",
+        "result": "passed",
+        "version": "bbaa2860e44f",
+        "task_revision": 1,
+        "state": "historical"
+      },
+      {
+        "id": "E3",
+        "kind": "signature",
+        "result": "mismatch",
+        "version": "bbaa2860e44f",
+        "task_revision": 2,
+        "state": "historical"
+      },
+      {
+        "id": "E4",
+        "kind": "tests",
+        "result": "passed",
+        "version": "339d3a9f2656",
+        "task_revision": 2,
+        "state": "current"
+      },
+      {
+        "id": "E5",
+        "kind": "signature",
+        "result": "match",
+        "version": "339d3a9f2656",
+        "task_revision": 2,
+        "state": "current"
+      }
+    ]
+  },
+  "c_outbox_bound": {
+    "A": [
+      "daily-2026-09-11.r6.X1.csv"
+    ]
+  },
+  "c_outbox_loose": {
+    "A": [
+      "daily-2026-09-11.r6.X1.csv"
+    ]
+  },
+  "d_scores": {
+    "vague": 0,
+    "concrete": 6
+  },
+  "e_prompts": {
+    "ask_every_write/approves_all": 7,
+    "ask_every_write/careful": 7,
+    "enforce_then_ask/approves_all": 1,
+    "enforce_then_ask/careful": 1
+  },
+  "f_report": [
+    {
+      "op": "o1",
+      "what": "run_tests (subprocess)",
+      "outcome": "cancelled",
+      "evidence": "process group terminated, exit code -15"
+    },
+    {
+      "op": "o2",
+      "what": "export r6 to A",
+      "outcome": "completed after cancel",
+      "evidence": "service receipt; file present"
+    },
+    {
+      "op": "o3",
+      "what": "regenerate report 2026-09-12",
+      "outcome": "unknown",
+      "evidence": "cancel sent, no acknowledgment by settle deadline; handed to reconciler"
+    },
+    {
+      "op": "o4",
+      "what": "export r6 to B",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    },
+    {
+      "op": "o5",
+      "what": "write NOTES.md",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    },
+    {
+      "op": "o6",
+      "what": "notify report channel",
+      "outcome": "not started",
+      "evidence": "never scheduled"
+    }
+  ],
+  "g": {
+    "flawed_exports": 2,
+    "keyed_exports": 1
+  }
+}

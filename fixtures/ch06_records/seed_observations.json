@@ -1,0 +1,28 @@
+[
+ {
+  "obs_id": "O-r40-2",
+  "run": "run-40",
+  "scope": "workspace-42",
+  "path": "settings.json",
+  "revision": "5ce6ce17a200",
+  "workspace_seq": 1,
+  "recorded_at": "2026-09-09T17:02:11Z",
+  "value": {
+   "report_timezone": "UTC"
+  },
+  "origin": "read_file in an earlier run, before the configuration was corrected"
+ },
+ {
+  "obs_id": "O-r77-5",
+  "run": "run-77",
+  "scope": "workspace-17",
+  "path": "settings.json",
+  "revision": "62d1db9f9b10",
+  "workspace_seq": 9,
+  "recorded_at": "2026-09-11T21:40:00Z",
+  "value": {
+   "report_timezone": "Europe/Berlin"
+  },
+  "origin": "read_file in another tenant's run"
+ }
+]

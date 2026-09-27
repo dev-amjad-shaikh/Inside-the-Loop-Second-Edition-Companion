@@ -1,0 +1,92 @@
+{
+  "flawed": {
+    "requests_shown": [
+      {
+        "request": "RQ1",
+        "cause": "initial page load"
+      },
+      {
+        "request": "RQ2",
+        "cause": "reconnect after network drop"
+      }
+    ],
+    "approvals": [
+      {
+        "approval": "AP1",
+        "cause": "click"
+      },
+      {
+        "approval": "AP2",
+        "cause": "second click 180 ms later"
+      }
+    ],
+    "exports": [
+      {
+        "receipt": "X1",
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "A",
+        "version": "374fbdb77b0b",
+        "file": "daily-2026-09-11.r6.X1.csv"
+      },
+      {
+        "receipt": "X2",
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "A",
+        "version": "374fbdb77b0b",
+        "file": "daily-2026-09-11.r6.X2.csv"
+      }
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r6.X1.csv",
+        "daily-2026-09-11.r6.X2.csv"
+      ]
+    }
+  },
+  "keyed": {
+    "trail": [
+      {
+        "attempt": "initial page load",
+        "request": "RQ1",
+        "created": true
+      },
+      {
+        "attempt": "reconnect after network drop",
+        "request": "RQ1",
+        "created": false
+      },
+      {
+        "attempt": "click",
+        "status": "recorded",
+        "decision_id": "D1",
+        "choice": "approve",
+        "approval_id": "AP1"
+      },
+      {
+        "attempt": "second click 180 ms later",
+        "status": "duplicate_submission",
+        "decision_id": "D1"
+      }
+    ],
+    "requests": 1,
+    "decisions": 1,
+    "approvals": 1,
+    "exports": [
+      {
+        "receipt": "X1",
+        "report": "daily-2026-09-11",
+        "revision": "r6",
+        "destination": "A",
+        "version": "374fbdb77b0b",
+        "file": "daily-2026-09-11.r6.X1.csv"
+      }
+    ],
+    "outbox": {
+      "A": [
+        "daily-2026-09-11.r6.X1.csv"
+      ]
+    }
+  }
+}

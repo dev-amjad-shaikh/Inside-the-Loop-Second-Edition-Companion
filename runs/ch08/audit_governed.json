@@ -1,0 +1,162 @@
+[
+  {
+    "seq": 1,
+    "at": "2026-09-10T08:00:00Z",
+    "actor": "extractor",
+    "action": "proposed",
+    "record_id": "mem-fea70381",
+    "detail": "{\"assertion\": \"stated\", \"kind\": \"display_timezone\", \"source_kind\": \"user_message\"}"
+  },
+  {
+    "seq": 2,
+    "at": "2026-09-10T08:00:00Z",
+    "actor": "memory-service",
+    "action": "validated",
+    "record_id": "mem-fea70381",
+    "detail": "{\"notes\": [], \"policy\": \"wp-3\"}"
+  },
+  {
+    "seq": 3,
+    "at": "2026-09-10T08:00:00Z",
+    "actor": "memory-service",
+    "action": "activated",
+    "record_id": "mem-fea70381",
+    "detail": "{\"scope\": \"user\"}"
+  },
+  {
+    "seq": 4,
+    "at": "2026-09-20T00:00:00Z",
+    "actor": "migration-v1-to-v2",
+    "action": "proposed",
+    "record_id": "mem-321ad9b0",
+    "detail": "{\"assertion\": \"unknown\", \"kind\": \"response_preference\", \"source_kind\": \"legacy_import\"}"
+  },
+  {
+    "seq": 5,
+    "at": "2026-09-20T00:00:00Z",
+    "actor": "memory-service",
+    "action": "validated",
+    "record_id": "mem-321ad9b0",
+    "detail": "{\"notes\": [\"inferred or unverified: held until the user confirms\"], \"policy\": \"wp-3\"}"
+  },
+  {
+    "seq": 6,
+    "at": "2026-09-20T00:00:00Z",
+    "actor": "memory-service",
+    "action": "held",
+    "record_id": "mem-321ad9b0",
+    "detail": "{\"expires_at\": \"2026-09-27T00:00:00Z\"}"
+  },
+  {
+    "seq": 7,
+    "at": "2026-09-21T09:05:00Z",
+    "actor": "extractor",
+    "action": "proposed",
+    "record_id": "mem-4890ed02",
+    "detail": "{\"assertion\": \"stated\", \"kind\": \"response_preference\", \"source_kind\": \"user_message\"}"
+  },
+  {
+    "seq": 8,
+    "at": "2026-09-21T09:05:00Z",
+    "actor": "memory-service",
+    "action": "validated",
+    "record_id": "mem-4890ed02",
+    "detail": "{\"notes\": [], \"policy\": \"wp-3\"}"
+  },
+  {
+    "seq": 9,
+    "at": "2026-09-21T09:05:00Z",
+    "actor": "memory-service",
+    "action": "activated",
+    "record_id": "mem-4890ed02",
+    "detail": "{\"scope\": \"meeting\"}"
+  },
+  {
+    "seq": 10,
+    "at": "2026-09-21T09:20:00Z",
+    "actor": "extractor",
+    "action": "proposed",
+    "record_id": "mem-2fa8dba3",
+    "detail": "{\"assertion\": \"inferred\", \"kind\": \"display_timezone\", \"source_kind\": \"model_inference\"}"
+  },
+  {
+    "seq": 11,
+    "at": "2026-09-21T09:20:00Z",
+    "actor": "memory-service",
+    "action": "validated",
+    "record_id": "mem-2fa8dba3",
+    "detail": "{\"notes\": [\"inferred or unverified: held until the user confirms\", \"inference narrowed from user to session scope\"], \"policy\": \"wp-3\"}"
+  },
+  {
+    "seq": 12,
+    "at": "2026-09-21T09:20:00Z",
+    "actor": "memory-service",
+    "action": "held",
+    "record_id": "mem-2fa8dba3",
+    "detail": "{\"expires_at\": \"2026-09-28T09:20:00Z\"}"
+  },
+  {
+    "seq": 13,
+    "at": "2026-09-21T09:25:00Z",
+    "actor": "extractor",
+    "action": "proposed",
+    "record_id": "mem-907bd483",
+    "detail": "{\"assertion\": \"stated\", \"kind\": \"health_note\", \"source_kind\": \"user_message\"}"
+  },
+  {
+    "seq": 14,
+    "at": "2026-09-21T09:25:00Z",
+    "actor": "memory-service",
+    "action": "rejected",
+    "record_id": "mem-907bd483",
+    "detail": "{\"reasons\": [\"kind health_note is sensitive and never stored\"]}"
+  },
+  {
+    "seq": 15,
+    "at": "2026-09-21T09:30:00Z",
+    "actor": "extractor",
+    "action": "proposed",
+    "record_id": "mem-05cff6a1",
+    "detail": "{\"assertion\": \"stated\", \"kind\": \"workflow_preference\", \"source_kind\": \"retrieved_document\"}"
+  },
+  {
+    "seq": 16,
+    "at": "2026-09-21T09:30:00Z",
+    "actor": "memory-service",
+    "action": "rejected",
+    "record_id": "mem-05cff6a1",
+    "detail": "{\"reasons\": [\"kind workflow_preference is not an allowed memory kind\", \"a retrieved document cannot author a durable record\"]}"
+  },
+  {
+    "seq": 17,
+    "at": "2026-09-21T10:00:00Z",
+    "actor": "memory-service",
+    "action": "expired",
+    "record_id": "mem-4890ed02",
+    "detail": "{}"
+  },
+  {
+    "seq": 18,
+    "at": "2026-09-22T16:00:00Z",
+    "actor": "memory-service",
+    "action": "superseded",
+    "record_id": "mem-fea70381",
+    "detail": "{\"by\": \"mem-7f255737\", \"source_event\": \"message-131\"}"
+  },
+  {
+    "seq": 19,
+    "at": "2026-09-22T16:00:00Z",
+    "actor": "memory-service",
+    "action": "activated",
+    "record_id": "mem-7f255737",
+    "detail": "{\"scope\": \"user\", \"supersedes\": \"mem-fea70381\"}"
+  },
+  {
+    "seq": 20,
+    "at": "2026-09-22T16:00:00Z",
+    "actor": "memory-service",
+    "action": "derived_rebuilt",
+    "record_id": "mem-7f255737",
+    "detail": "{\"artifacts\": [\"index\", \"summary:user-17\"]}"
+  }
+]

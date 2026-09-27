@@ -1,0 +1,13 @@
+{
+  "controller": "workflow",
+  "outcome": "cancelled",
+  "reason": "cancellation observed before stage verify",
+  "model_calls": 2,
+  "tokens": 1202,
+  "sim_seconds": 11.001,
+  "executions": 6,
+  "audit": {
+    "acceptance_passed": true,
+    "deployed": false
+  }
+}

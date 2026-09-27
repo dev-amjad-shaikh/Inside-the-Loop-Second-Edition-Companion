@@ -1,0 +1,29 @@
+: t=0
+: t=150
+event: message_start
+data: {"type":"message_start","message":{"id":"msg_a81b","type":"message","role":"assistant","model":"coder-large-2026-08-14","content":[],"stop_reason":null,"stop_sequence":null,"usage":{"input_tokens":1204,"cache_read_input_tokens":0,"output_tokens":1}}}
+
+: t=180
+event: content_block_start
+data: {"type":"content_block_start","index":0,"content_block":{"type":"tool_use","id":"toolu_read_1","name":"read_file","input":{}}}
+
+: t=230
+event: content_block_delta
+data: {"type":"content_block_delta","index":0,"delta":{"type":"input_json_delta","partial_json":"{\"path\": \"settings.json\"}"}}
+
+: t=235
+event: content_block_stop
+data: {"type":"content_block_stop","index":0}
+
+: t=260
+event: content_block_start
+data: {"type":"content_block_start","index":1,"content_block":{"type":"tool_use","id":"toolu_edit_1","name":"replace_text","input":{}}}
+
+: t=300
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"{\"path\": \"test_report.py\", "}}
+
+: t=360
+event: content_block_delta
+data: {"type":"content_block_delta","index":1,"delta":{"type":"input_json_delta","partial_json":"\"old\": \"\\n\\nif __name__ == \\\"__main__\\\":\", "}}
+

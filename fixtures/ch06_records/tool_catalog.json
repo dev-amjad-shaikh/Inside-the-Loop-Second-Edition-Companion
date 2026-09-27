@@ -1,0 +1,473 @@
+[
+ {
+  "name": "read_file",
+  "description": "Read a text file in the workspace. Returns the full contents and the content version. Use start_line and end_line for files longer than 400 lines.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "path": {
+     "type": "string"
+    },
+    "start_line": {
+     "type": "integer"
+    },
+    "end_line": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "path"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "list_directory",
+  "description": "List files and subdirectories of a workspace directory, with sizes. Hidden files are omitted unless include_hidden is true.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "path": {
+     "type": "string"
+    },
+    "include_hidden": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "path"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "search_text",
+  "description": "Search workspace files for a regular expression. Returns matching lines with file paths and line numbers, at most max_results matches.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "pattern": {
+     "type": "string"
+    },
+    "path": {
+     "type": "string"
+    },
+    "max_results": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "pattern"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "replace_text",
+  "description": "Replace one exact occurrence of text in a workspace file. Fails if the old text occurs zero times or more than once. Returns the file versions before and after.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "path": {
+     "type": "string"
+    },
+    "old": {
+     "type": "string"
+    },
+    "new": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "path",
+    "old",
+    "new"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "write_file",
+  "description": "Create a new workspace file or overwrite an existing one with the given contents. Prefer replace_text for small edits to existing files.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "path": {
+     "type": "string"
+    },
+    "contents": {
+     "type": "string"
+    },
+    "overwrite": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "path",
+    "contents"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "run_tests",
+  "description": "Run the selected Python test files in a fresh process. Returns counts, failing test names and assertion messages.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "tests": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "tests"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "run_suite",
+  "description": "Run a set of test modules verbosely and return the full log, with paths relative to the workspace.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "tests": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "tests"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "run_command",
+  "description": "Run a shell command in the workspace sandbox with a timeout in seconds. Network access is disabled. Returns exit code, stdout and stderr, each truncated to 20,000 characters.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "command": {
+     "type": "string"
+    },
+    "timeout_seconds": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "command"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "git_status",
+  "description": "Show the working tree status of the workspace repository: staged, unstaged and untracked files.",
+  "parameters": {
+   "type": "object",
+   "properties": {},
+   "required": [],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "git_diff",
+  "description": "Show the diff of the working tree or of a commit range. Use paths to limit the diff to specific files.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "range": {
+     "type": "string"
+    },
+    "paths": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "git_log",
+  "description": "Show recent commits with author, date and subject, newest first.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "max_count": {
+     "type": "integer"
+    },
+    "path": {
+     "type": "string"
+    }
+   },
+   "required": [],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "git_commit",
+  "description": "Commit staged changes with the given message. Requires approval if the branch is protected.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "message"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "open_pull_request",
+  "description": "Open a pull request from the current branch. Requires approval. Returns the pull request URL.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "title": {
+     "type": "string"
+    },
+    "body": {
+     "type": "string"
+    },
+    "base": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "title",
+    "body"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "read_issue",
+  "description": "Read an issue from the tracker by its number, including comments and labels.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "number": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "number"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "comment_on_issue",
+  "description": "Add a comment to an issue in the tracker. The comment is posted under the user's identity.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "number": {
+     "type": "integer"
+    },
+    "body": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "number",
+    "body"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "search_docs",
+  "description": "Search the team's engineering documentation and return the best passages with document ids and revision dates.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string"
+    },
+    "max_results": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "fetch_url",
+  "description": "Fetch a web page from an allowlisted domain and return its text content, truncated to 30,000 characters.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "query_metrics",
+  "description": "Run a read-only query against the metrics store for the last N hours and return a table of results.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string"
+    },
+    "hours": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "read_record",
+  "description": "Read lines from a record of this run's execution record by record id, for example a full test log that the context shows only as a digest.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "record_id": {
+     "type": "string"
+    },
+    "start_line": {
+     "type": "integer"
+    },
+    "end_line": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "record_id"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "remember",
+  "description": "Store a short note in the user's long-term memory with a scope and an expiry date. Do not store secrets.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "note": {
+     "type": "string"
+    },
+    "scope": {
+     "type": "string"
+    },
+    "expires": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "note",
+    "scope"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "recall",
+  "description": "Search the user's long-term memory for notes relevant to the query, returning notes with their scope and dates.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "ask_user",
+  "description": "Ask the user a question and wait for the answer. Use only when a decision needs the user.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "question": {
+     "type": "string"
+    },
+    "choices": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "question"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "delegate",
+  "description": "Start a worker agent on a bounded subtask with its own context. Returns the worker's result record id.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "task": {
+     "type": "string"
+    },
+    "tools": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "max_calls": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "task"
+   ],
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "deploy",
+  "description": "Deploy the current build to the named environment. Requires approval and an explicit environment.",
+  "parameters": {
+   "type": "object",
+   "properties": {
+    "environment": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "environment",
+    "version"
+   ],
+   "additionalProperties": false
+  }
+ }
+]

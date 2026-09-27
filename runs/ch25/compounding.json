@@ -1,0 +1,86 @@
+{
+  "all_k_trials_succeed": [
+    {
+      "all_succeed": 0.9,
+      "k": 1,
+      "p": 0.9
+    },
+    {
+      "all_succeed": 0.81,
+      "k": 2,
+      "p": 0.9
+    },
+    {
+      "all_succeed": 0.6561,
+      "k": 4,
+      "p": 0.9
+    },
+    {
+      "all_succeed": 0.4305,
+      "k": 8,
+      "p": 0.9
+    }
+  ],
+  "independent_steps": [
+    {
+      "per_step": 0.99,
+      "run_success": 0.9044,
+      "steps": 10
+    },
+    {
+      "per_step": 0.99,
+      "run_success": 0.605,
+      "steps": 50
+    },
+    {
+      "per_step": 0.99,
+      "run_success": 0.366,
+      "steps": 100
+    },
+    {
+      "per_step": 0.99,
+      "run_success": 0.049,
+      "steps": 300
+    },
+    {
+      "per_step": 0.995,
+      "run_success": 0.9511,
+      "steps": 10
+    },
+    {
+      "per_step": 0.995,
+      "run_success": 0.7783,
+      "steps": 50
+    },
+    {
+      "per_step": 0.995,
+      "run_success": 0.6058,
+      "steps": 100
+    },
+    {
+      "per_step": 0.995,
+      "run_success": 0.2223,
+      "steps": 300
+    },
+    {
+      "per_step": 0.999,
+      "run_success": 0.99,
+      "steps": 10
+    },
+    {
+      "per_step": 0.999,
+      "run_success": 0.9512,
+      "steps": 50
+    },
+    {
+      "per_step": 0.999,
+      "run_success": 0.9048,
+      "steps": 100
+    },
+    {
+      "per_step": 0.999,
+      "run_success": 0.7407,
+      "steps": 300
+    }
+  ]
+}

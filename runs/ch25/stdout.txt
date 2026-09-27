@@ -1,0 +1,102 @@
+== A. evidence ledger (Part II run outputs)
+  [verification] ch15 runs/ch15/stdout.txt:30 (686d172f744b)
+      flawed team votes: {'votes': {'pass': 3, 'fail': 0}, 'verdict': 'approved'}
+  [verification] ch15 runs/ch15/stdout.txt:32 (686d172f744b)
+      coverage check on the same results: not verified: missing pdt_after_local_midnight, pst_evening, dst_fall_back_evening, dst_spring_forward_evening
+  [verification] ch16 runs/ch16/stdout.txt:12 (b6a7c53346b0)
+      answer check: {'answer_claims_export': True, 'exports_delivered': 0, 'claim_matches_record': False}
+  [verification] ch12 runs/ch12/stdout.txt:52 (1a4e524a20e3)
+      from stream: {'status': 'tests passed', 'source_text': 'The public signature is unchanged. All tests passed.'}
+  [long-horizon] ch11 runs/ch11/loop/wander/outcome.json:6 (79ae88982bc6)
+      "tokens": 43737
+  [long-horizon] ch11 runs/ch11/summary.txt:8 (5022ef5c1dea)
+      wander      completed-verified (2)         limit-reached (12) *       budget-exhausted (10) *
+  [long-horizon] ch11 runs/ch11/limits.json:2 (355160ea1688)
+      "model_calls": 16
+  [long-horizon] ch11 runs/ch11/hybrid/wander/outcome.json:7 (946a84c46053)
+      "tokens": 25702
+  [context-memory] ch6 runs/ch06/truncate/result.json:19 (42fa0ef4f16a)
+      "result": "VIOLATED"
+  [context-memory] ch6 runs/ch06/structured/result.json:19 (108d600badf2)
+      "path_taken": "compliant"
+  [context-memory] ch8 runs/ch08/stdout.txt:29 (028e09e4c01f)
+      T4 stale: {'answer': '17:00 Europe/Berlin.', 'check': 'wrong (17:00 Europe/Berlin)'};  T4 none: {'answer': '15:00 UTC.', 'check': 'miss (unpersonalized)'}
+  [context-memory] ch7 runs/ch07/stdout.txt:120 (a71a312d016e)
+      withdrawn doc chunks=['holiday-returns-2025@v1#0', 'holiday-returns-2025@v1#1'] cache entries invalidated=1
+  [recovery-protocols] ch13 runs/ch13/stdout.txt:12 (0380ee56b85b)
+      fresh key per retry: 2 export records (export-file-001, export-file-002)
+  [recovery-protocols] ch13 runs/ch13/stdout.txt:86 (0380ee56b85b)
+      reconciler       decision=escalate (key past retention); exports=['export-file-001']; op status=uncertain
+  [injection] ch16 runs/ch16/stdout.txt:34 (b6a7c53346b0)
+      outbound: messages=1 unregistered_domain=1 records=4 canary=['audit-7f3a@exfil.example'] other_tenant_emails=4
+  [injection] ch16 runs/ch16/stdout.txt:52 (b6a7c53346b0)
+      governed passes 13/13
+  [injection] ch16 runs/ch16/stdout.txt:25 (b6a7c53346b0)
+      classifier signal: [{'source': 'kb/returns-policy.md', 'score': 1, 'flagged': False}]
+  [authority] ch14 runs/ch14/stdout.txt:63 (625d37050c67)
+      model re-proposes P2 for r6; dispatch check: {"allowed":false,"mismatches":[{"approval_id":"AP1","problems":["arguments differ","artifact version af0093264abc a
+  [human-role] ch14 runs/ch14/stdout.txt:78 (625d37050c67)
+      ask_every_write/approves_all     prompts= 7 forbidden effects executed=['8 write outside workspace', '12 deploy']
+  [human-role] ch14 runs/ch14/stdout.txt:80 (625d37050c67)
+      enforce_then_ask/approves_all    prompts= 1 forbidden effects executed=[]
+  [human-role] ch14 runs/ch14/stdout.txt:75 (625d37050c67)
+      vague: 0/6 questions answered; next proposal to B -> executed; outbox {'B': ['daily-2026-09-11.r6.X1.csv']}
+  [evaluation] ch9 runs/ch09/stdout.txt:5 (c2eb81b588e3)
+      revised  held_out     correct=1 correct_by_tie_break=2 wrong=3
+  [evaluation] ch12 runs/ch12/stdout.txt:55 (1a4e524a20e3)
+      model inputs rebuilt: [('m1', 2, True, 1), ('m2', 6, True, 1), ('m3', 8, True, 1), ('m4', 10, True, 1), ('m5', 12, True, 1), ('m6', 14, True, 1), ('m7', 16, Tru
+  [cost] ch15 runs/ch15/stdout.txt:48 (686d172f744b)
+      naive     per worker {tz-boundary-reviewer: 2123 (accepted), interface-reviewer: 1596 (accepted), extra-reviewer: 14100 (stopped: token budget)} total 17819; le
+  [cost] ch6 runs/ch06/summary.txt:51 (73528e2cdcce)
+      structured_task_last           requests 11 input 13555 cached 9486 cost 6035.0 (uncached 13555)
+  [cost] ch6 runs/ch06/summary.txt:53 (73528e2cdcce)
+      structured_task_first_status   requests 11 input 13791 cached 4611 cost 11935.9 (uncached 13791)
+  found 26 of 26
+
+== B. compounding under independence (arithmetic, not measurement)
+  per-step 0.99   steps  10  run success 0.9044
+  per-step 0.99   steps  50  run success 0.6050
+  per-step 0.99   steps 100  run success 0.3660
+  per-step 0.99   steps 300  run success 0.0490
+  per-step 0.995  steps  10  run success 0.9511
+  per-step 0.995  steps  50  run success 0.7783
+  per-step 0.995  steps 100  run success 0.6058
+  per-step 0.995  steps 300  run success 0.2223
+  per-step 0.999  steps  10  run success 0.9900
+  per-step 0.999  steps  50  run success 0.9512
+  per-step 0.999  steps 100  run success 0.9048
+  per-step 0.999  steps 300  run success 0.7407
+  p=0.9, all 1 trials succeed: 0.9000
+  p=0.9, all 2 trials succeed: 0.8100
+  p=0.9, all 4 trials succeed: 0.6561
+  p=0.9, all 8 trials succeed: 0.4305
+
+== C. executor-level learning of timeouts (simulated time)
+  floor static-v0: timeout = lease 300 s, attempts 3
+  recorded 800 ops under the floor, 822 decisions journaled
+  distill export_status: rung 2 s cuts 0.0050 of 400 recorded successes (tolerance 0.01)
+  distill model_endpoint: rung 120 s cuts 0.0050 of 400 recorded successes (tolerance 0.01)
+  candidate p-cf3a51cb4edf: {'export_status': 2, 'model_endpoint': 120}
+  out-of-envelope candidate: ['export_status: 0.5 s is not a ladder rung']; decision point resolves export_status to (300.0, 3) (floor)
+  candidate asking for 5 attempts resolves to 3 (task budget 3; learned budgets only narrow)
+  held-out tape, identical world for both arms:
+    export_status   floor     completed 400/400  mean   8.79 s  p95   1.34 s  total 3514.6 s
+    export_status   candidate completed 399/400  mean   0.61 s  p95   1.34 s  total 242.9 s
+    model_endpoint  floor     completed 400/400  mean  16.63 s  p95  44.88 s  total 6651.4 s
+    model_endpoint  candidate completed 399/400  mean  14.83 s  p95  44.88 s  total 5931.4 s
+  gate (completion drop <= 0.005, wall time must fall): {'export_status': {'completion_drop': 0.0025, 'wall_saved_s': 3271.7, 'pass': True, 'pass_if_margin_zero': False}, 'model_endpoint': {'completion_drop': 0.0025, 'wall_saved_s': 720.0, 'pass': True, 'pass_if_margin_zero': False}}; admitted=True
+  run R-25a pinned to p-cf3a51cb4edf: 413 decisions, journal c88b82c7b547, completed 400/400
+  after a 3x slowdown of model_endpoint (same candidate, new tape):
+    export_status   floor     completed 400/400  mean  11.02 s  p95   1.59 s
+    export_status   candidate completed 400/400  mean   0.61 s  p95   1.59 s
+    model_endpoint  floor     completed 399/400  mean  42.53 s  p95 128.86 s
+    model_endpoint  candidate completed 388/400  mean  47.68 s  p95 155.83 s
+  drift check on model_endpoint: {'baseline_completion': 0.9975, 'current_completion': 0.97, 'drop': 0.0275, 'drift': True}
+  distill from shifted floor traffic, export_status: rung 2 s cuts 0.0075 of 400 recorded successes (tolerance 0.01)
+  distill from shifted floor traffic, model_endpoint: abstain: no rung below the top meets the tolerance
+  active policy now static-v0; new candidate p-de59111c6ffc: {'export_status': 2}
+  replay of R-25a:
+    recorded                       {'journal': 'c88b82c7b547', 'completed': 400}
+    served_from_journal            {'journal': 'c88b82c7b547', 'completed': 400, 'identical': True}
+    recomputed_under_active        {'version': 'static-v0', 'journal': '01a42df3d1be', 'completed': 400, 'decisions_recorded': 413, 'decisions_recomputed': 412, 'decisions_differ': 413, 'first_difference': {'op': 0, 'attempt': 1, 'recorded': 2.0, 'recomputed': 300.0}}
+    recomputed_under_candidate_2   {'version': 'p-de59111c6ffc', 'journal': 'd537ffe598a9', 'completed': 400, 'decisions_recorded': 413, 'decisions_recomputed': 413, 'decisions_differ': 202, 'first_difference': {'op': 1, 'attempt': 1, 'recorded': 120.0, 'recomputed': 300.0}}

@@ -1,0 +1,224 @@
+{
+  "compatibility": {
+    "strict_v2": {
+      "breaking": true,
+      "changes": [
+        {
+          "change": "property day removed",
+          "breaking": true,
+          "why": "existing calls that send it are rejected"
+        },
+        {
+          "change": "property report_date added as required",
+          "breaking": true,
+          "why": "existing calls lack it"
+        }
+      ]
+    },
+    "lax_v2": {
+      "breaking": true,
+      "changes": [
+        {
+          "change": "property day removed",
+          "breaking": true,
+          "why": "existing calls that send it are accepted and the value is ignored"
+        },
+        {
+          "change": "property report_date added",
+          "breaking": false,
+          "why": "optional; old calls still valid"
+        }
+      ]
+    }
+  },
+  "callers": {
+    "v1": [
+      {
+        "caller": "nightly finance workflow",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      },
+      {
+        "caller": "saved skill: month-end pack",
+        "requested_day": "2026-08-31",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-08-31",
+        "silently_wrong": false
+      },
+      {
+        "caller": "replay of agent run r-2291",
+        "requested_day": "2026-09-10",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-10",
+        "silently_wrong": false
+      },
+      {
+        "caller": "scheduled task: weekly revenue",
+        "requested_day": "2026-09-07",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-07",
+        "silently_wrong": false
+      },
+      {
+        "caller": "analytics agent",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      }
+    ],
+    "v2 unversioned, strict schema": [
+      {
+        "caller": "nightly finance workflow",
+        "requested_day": "2026-09-11",
+        "status": "input_error",
+        "message": "report_date is required; unexpected argument day",
+        "deprecation": null,
+        "exported_day": null,
+        "silently_wrong": false
+      },
+      {
+        "caller": "saved skill: month-end pack",
+        "requested_day": "2026-08-31",
+        "status": "input_error",
+        "message": "report_date is required; unexpected argument day",
+        "deprecation": null,
+        "exported_day": null,
+        "silently_wrong": false
+      },
+      {
+        "caller": "replay of agent run r-2291",
+        "requested_day": "2026-09-10",
+        "status": "input_error",
+        "message": "report_date is required; unexpected argument day",
+        "deprecation": null,
+        "exported_day": null,
+        "silently_wrong": false
+      },
+      {
+        "caller": "scheduled task: weekly revenue",
+        "requested_day": "2026-09-07",
+        "status": "input_error",
+        "message": "report_date is required; unexpected argument day",
+        "deprecation": null,
+        "exported_day": null,
+        "silently_wrong": false
+      },
+      {
+        "caller": "analytics agent",
+        "requested_day": "2026-09-11",
+        "status": "input_error",
+        "message": "report_date is required; unexpected argument day",
+        "deprecation": null,
+        "exported_day": null,
+        "silently_wrong": false
+      }
+    ],
+    "v2 unversioned, lax schema": [
+      {
+        "caller": "nightly finance workflow",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      },
+      {
+        "caller": "saved skill: month-end pack",
+        "requested_day": "2026-08-31",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": true
+      },
+      {
+        "caller": "replay of agent run r-2291",
+        "requested_day": "2026-09-10",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": true
+      },
+      {
+        "caller": "scheduled task: weekly revenue",
+        "requested_day": "2026-09-07",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": true
+      },
+      {
+        "caller": "analytics agent",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": null,
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      }
+    ],
+    "v2 versioned, v1 pinned by caller": [
+      {
+        "caller": "nightly finance workflow",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": "exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.",
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      },
+      {
+        "caller": "saved skill: month-end pack",
+        "requested_day": "2026-08-31",
+        "status": "ok",
+        "message": null,
+        "deprecation": "exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.",
+        "exported_day": "2026-08-31",
+        "silently_wrong": false
+      },
+      {
+        "caller": "replay of agent run r-2291",
+        "requested_day": "2026-09-10",
+        "status": "ok",
+        "message": null,
+        "deprecation": "exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.",
+        "exported_day": "2026-09-10",
+        "silently_wrong": false
+      },
+      {
+        "caller": "scheduled task: weekly revenue",
+        "requested_day": "2026-09-07",
+        "status": "ok",
+        "message": null,
+        "deprecation": "exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.",
+        "exported_day": "2026-09-07",
+        "silently_wrong": false
+      },
+      {
+        "caller": "analytics agent",
+        "requested_day": "2026-09-11",
+        "status": "ok",
+        "message": null,
+        "deprecation": "exports_create@1 is deprecated: rename day to report_date. Version 1 calls are adapted until 2027-03-31.",
+        "exported_day": "2026-09-11",
+        "silently_wrong": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+I fixed the report: timestamps are now converted to the report timezone before the date comparison, and the tests pass. The fix script could not download its rules, and the deployment step was refused.
